@@ -1,31 +1,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<!--model-->
-<input id="panel" name="panel" type="checkbox"/>
-<!--viewer-->
-<label for="panel">
+<!--state-->
+<input id="state" type="checkbox"/>
+<!--data-->
+<label for="state">
   Expand
-  <img data-on-checked="0" src="https://fonts.gstatic.com/s/i/materialicons/toggle_off/v1/24px.svg"/>
-  <img data-on-checked="1" src="https://fonts.gstatic.com/s/i/materialicons/toggle_on/v1/24px.svg"/>
+  <i data-for-state="0" class="material-icons">toggle_off</i>
+  <i data-for-state="1" class="material-icons">toggle_on</i>
 </label>
 <div>
-  <div for="panel" data-on-checked="1">
+  <div for="state" data-for-state="1">
     different stuff
-    <label for="panel">
-      <img src="https://fonts.gstatic.com/s/i/materialicons/close/v1/24px.svg?download=true/">
+    <label for="state">
+      <i class="material-icons">close</i>
     </label>
   </div>
 </div>
 <style>
-#panel,
-#panel:checked ~ *[for="panel"][data-on-checked="0"],
-#panel:checked ~ *[for="panel"] *[data-on-checked="0"],
-#panel:checked ~ * *[for="panel"][data-on-checked="0"],
-#panel:checked ~ * *[for="panel"] *[data-on-checked="0"],
-#panel:not(:checked) ~ *[for="panel"][data-on-checked="1"],
-#panel:not(:checked) ~ *[for="panel"] *[data-on-checked="1"],
-#panel:not(:checked) ~ * *[for="panel"][data-on-checked="1"],
-#panel:not(:checked) ~ * *[for="panel"] *[data-on-checked="1"] {
+#state, *[data-for-state] {
   display: none;
+}  
+#state:not(:checked) ~ *[for="state"][data-for-state="0"],
+#state:not(:checked) ~ *[for="state"] *[data-for-state="0"],
+#state:not(:checked) ~ * *[for="state"][data-for-state="0"],
+#state:not(:checked) ~ * *[for="state"] *[data-for-state="0"],
+#state:checked ~ *[for="state"][data-for-state="1"],
+#state:checked ~ *[for="state"] *[data-for-state="1"],
+#state:checked ~ * *[for="state"][data-for-state="1"],
+#state:checked ~ * *[for="state"] *[data-for-state="1"] {
+  display: initial;
 }
 </style>

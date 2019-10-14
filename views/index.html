@@ -1,8 +1,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Easy view switch-->
-<input id="controller" type="checkbox" checked/> 
-<!--model-->
-<main id="model">
+<input id="state" type="checkbox" checked/> 
+<!--data-->
+<data id="data">
   <Headers>
     <Header key="A"></Header>
     <Header key="B"></Header>
@@ -33,7 +33,7 @@
     <Property key="C">C3</Property>
     <Property key="D">D3</Property>
   </ItemContainer>
-</main>
+</data>
 <!--viewer-->
 <style data-title="Vars assign">
   /**
@@ -41,26 +41,26 @@
   * - ```grid-template-*``` couldn't contain var
   * That leads to
   */
-  #model *[key="A"] {
+  #data *[key="A"] {
     --key: A;
   }
-  #model *[key="B"] {
+  #data *[key="B"] {
     --key: B;
   }
-  #model *[key="C"] {
+  #data *[key="C"] {
     --key: C;
   }
-  #model *[key="D"] {
+  #data *[key="D"] {
     --key: D;
   }
-  #contoller:not(:checked) ~ #model > * > * {
+  #state:not(:checked) ~ #data > * > * {
     grid-area: var(--key);
   }
-  #controller:checked ~ #model > * > * {
+  #state:checked ~ #data > * > * {
     grid-column: var(--key);
   }
 
-  #model {
+  #data {
     display: grid;
     --view-table: [A] auto [D] auto [C] auto [B] auto;
     --view-tile: 'D D' 'B C' 'A A';
@@ -68,35 +68,35 @@
 </style>
 <style data-title="Containerize">
   /* Tile */
-  #contoller:not(:checked) ~ #model {
+  #state:not(:checked) ~ #data {
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   }
-  #contoller:not(:checked) ~ #model > Headers {
+  #state:not(:checked) ~ #data > Headers {
     grid-column: 1 / -1;
   }
 
   /* Table */
-  #controller:checked ~ #model > * {
+  #state:checked ~ #data > * {
     display: contents;
   }
-  #controller:checked ~ #model {
+  #state:checked ~ #data {
     grid-template-columns: var(--view-table);
   }
 </style>
 <style data-title="Entities stuff">
-  #contoller:not(:checked) ~ #model > ItemContainer {
+  #state:not(:checked) ~ #data > ItemContainer {
     display: grid;
     grid-template-areas: var(--view-tile);
   }
-  #controller:checked ~ #model {
+  #state:checked ~ #data {
     grid-auto-flow: dense; /*For reordered columns, but all items should have each prop. Note: ```counters``` not work outside ```content``` */
   }
-  #contoller:not(:checked) ~ #model > Headers > Header:not(:first-child) {
+  #state:not(:checked) ~ #data > Headers > Header:not(:first-child) {
     display: none;
   }
 </style>
 <style data-title="Minimal Esthetic">
-  #model {
+  #data {
     justify-items: center;
     align-content: center;
     grid-auto-rows: max-content;
