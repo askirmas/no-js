@@ -1,0 +1,160 @@
+<script>
+  const transitionDuration = 1
+  , phaseDelta = -2
+  , stepping = (C, i) => [`Step${C}${i % 8}`, `Step${C}${i % 2 ? 'Odd': 'Even'}`]
+  , classing = i => [...stepping('Y', i), ...stepping('X', i + phaseDelta)]
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const mainList = document.getElementById('main').classList
+    let i = 0;
+    setInterval(() => {
+      mainList.remove(...classing(i))
+      i++;
+      mainList.add(...classing(i))
+    }, transitionDuration * 1000)
+  })
+</script>  
+<div id="main">
+  <div class="Vertex V1"><div><div><div></div></div></div></div>
+  <div class="Vertical Gap"></div>
+  <div class="Vertex V2"><div><div><div></div></div></div></div>
+  <div class="Horizontal Gap"></div>
+</div>
+<style class="Init">
+  #main {
+    --unit: 3em;
+    --transition-duration: 1s;
+    --transition: all var(--transition-duration) linear;
+    
+    display: inline-grid;
+    grid-auto-rows: max-content;
+    grid-auto-columns: max-content;
+  }
+  .Gap, .Vertex * {
+    transition: var(--transition); 
+  }
+</style>
+<style class="Gap Positioning">
+  .Vertical.Gap {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .Horizontal.Gap {
+    grid-row: 1;
+    grid-column: 3;
+  }
+</style>
+<style class="Vertex Sizing">
+  .Vertex {
+    width: var(--unit);
+    height: var(--unit);
+  }
+  .Vertex > * {
+    width: inherit;
+    height: inherit;
+  }
+</style>
+<style class="Gap Sizing X Y">
+  .Horizontal.Gap {
+    height: 0;
+  }
+  .StepXOdd .Horizontal.Gap {
+    width: 0;
+  }  
+  .StepXEven .Horizontal.Gap {
+    width: var(--unit);
+  }
+
+  .Vertical.Gap {
+    width: 0;
+  }
+  .StepYOdd .Vertical.Gap {
+    height: 0;
+  }
+  .StepYEven .Vertical.Gap {
+    height: var(--unit);
+  }
+</style>
+<style class="Vertex Y">
+  .Vertex,
+  .StepY0 .Vertex, .StepY1 .Vertex, .StepY4 .Vertex, .StepY5 .Vertex {
+    grid-row-end: span 1;
+  }
+  .StepY2 .Vertex, .StepY3 .Vertex, .StepY6 .Vertex, .StepY7 .Vertex {
+    grid-row-end: span 2;
+  }
+
+  .V1,
+  .StepY0 .V1, .StepY1 .V1, .StepY2 .V1, .StepY7 .V1,
+  .StepY3 .V2, .StepY4 .V2, .StepY5 .V2, .StepY6 .V2 {
+    grid-row-start: 2;
+  }
+
+  .StepY3 .V1, .StepY6 .V1,
+  .StepY2 .V2, .StepY7 .V2 {
+    grid-row-start: 3;
+  }
+
+  .StepY4 .V1, .StepY5 .V1,
+  .V2,
+  .StepY0 .V2, .StepY1 .V2 {
+    grid-row-start: 4;
+  }
+</style>
+<style class="Vertex X">
+  .Vertex,
+  .StepX0 .Vertex, .StepX1 .Vertex, .StepX4 .Vertex, .StepX5 .Vertex {
+    grid-column-end: span 1;
+  }
+  .StepX2 .Vertex, .StepX3 .Vertex, .StepX6 .Vertex, .StepX7 .Vertex {
+    grid-column-end: span 2;
+  }
+
+  .V1,
+  .StepX0 .V1, .StepX1 .V1, .StepX2 .V1, .StepX7 .V1,
+  .StepX3 .V2, .StepX4 .V2, .StepX5 .V2, .StepX6 .V2 {
+    grid-column-start: 2;
+  }
+
+  .StepX3 .V1, .StepX6 .V1,
+  .StepX2 .V2, .StepX7 .V2 {
+    grid-column-start: 3;
+  }
+
+  .StepX4 .V1, .StepX5 .V1,
+  .V2,
+  .StepX0 .V2, .StepX1 .V2 {
+    grid-column-start: 4;
+  }
+</style>
+<style class="Content">
+  #main {
+    border: 1px black solid;
+  }
+
+  .Vertex * {
+    border-radius: 100%;
+    box-sizing: border-box;
+    border-width: calc(var(--unit)/6); 
+    border-style: solid;
+
+    display: inline-grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+
+    border-bottom-color: red;
+    border-top-color: blue;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+
+  .StepXOdd .Vertex > * {
+    transform: rotate(0.5turn); 
+  }
+  .StepXOdd .Vertex > * > * {
+    transform: rotate(1turn); 
+  }
+  .StepXOdd .Vertex > * > * > * {
+    transform: rotate(-3turn); 
+  }
+</style>

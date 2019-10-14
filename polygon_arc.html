@@ -1,0 +1,98 @@
+<div id="main">
+  <div id="angel"></div>
+  <div id="xbased"></div>
+  <div id="centerMerge"></div>
+  <div></div>
+  <div id="sideMerge"></div>
+  <div id="ybased"></div>
+</div>
+<style>
+#main {
+  /**
+   * @param {metric} t Half of edge threshold 
+  */
+  --t: 0.5em;
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  display: grid;
+  height: 100%;
+}
+#main * {
+  background: rgba(0, 255, 0, 0.5);
+}
+#main div:hover {
+  background: green;
+}
+</style>
+<script>
+window.addEventListener('DOMContentLoaded', () => main('var(--t)'))
+const steps = 20
+, precision = 2
+
+function main(threshold) {
+  const points = steps + 1
+  pathPoints = 2 * (steps + 1)
+  , examples = [...document.querySelectorAll("#main > *")]
+  .filter(({id}) => id)
+  , result = {}
+
+  for (let fn in curvePather) {
+    fn in result || (result[fn] = Array(pathPoints))
+    for(let i = points + 1 ; i--; ) {
+      const point = curvePather[fn](i / steps)
+      result[fn][i] = point
+      result[fn][pathPoints - i - 1] = point
+    }
+
+    const p = `polygon(${
+      result[fn]
+      .map((coords, i) => coords
+        .map(c => {
+          const v = `${(c * 100).toFixed(precision)}%`
+          return i >= points
+          ? v
+          : `calc(${v} - ${threshold})`          
+        }
+        )
+        .join(' ')
+      )
+      .join(', ')
+    })`
+    document.getElementById(fn).style.setProperty('clip-path', p)
+    document.getElementById(fn).style.setProperty('-webkit-clip-path', p)
+    document.getElementById(fn).onclick = () => alert(fn)
+  }
+}
+
+const {
+  PI, cos, sin
+} = Math
+
+const s2 = Math.sqrt(2)
+, sac = a => Math.sin(Math.acos(a))
+, sacX = x => [x, sac(x)]
+, sacY = y => [sac(y), y]
+
+const curvePather = {
+angel(p) {
+  return [sin(p * PI  / 2), cos(p * PI / 2)]
+},
+xbased(p) {
+  return sacX(p)
+},
+ybased(p) {
+  return sacY(1-p)
+},
+centerMerge(p) {
+  return p <= 0.5
+  ? sacX(p * s2)
+  : sacY((1-p) * s2)
+},
+sideMerge(p) {
+  return p >=0.5
+  ? sacX(1 - (1-p) * (2-s2))
+  : sacY(1  - p * (2-s2))
+}
+}
+</script>

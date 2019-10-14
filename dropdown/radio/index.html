@@ -1,0 +1,60 @@
+<form id="main" name="main">
+  <!--model-->
+  <input class="model" id="prop-0" type="radio" name="prop" value="0" checked />
+  <input class="model" id="prop-1" type="radio" name="prop" value="1" />
+  <input class="model" id="prop-2" type="radio" name="prop" value="2" />
+  <!--viewer -->
+  <section>
+    <label for="prop" data-fromHtml="prop-0" class="selected" tabindex="0"></label>
+    <label for="prop" data-fromHtml="prop-1" class="selected" tabindex="0"></label>
+    <label for="prop" data-fromHtml="prop-2" class="selected" tabindex="0"></label>
+    <select class="ghost" id="prop" tabIndex="-1" onchange="document.getElementById(this.value).checked = true">
+      <option value="prop-0">prop-0</option>
+      <option value="prop-1">prop-1</option>
+      <option value="prop-2">prop-2</option>
+    </select>
+    
+    <label class="value" for="prop-0"></label>
+    <label class="value" for="prop-1"></label>
+    <label class="value" for="prop-2"></label>  
+  </section>
+</form>
+<style>
+#main, section {
+  display: grid;
+  grid-auto-flow: row;
+}
+.model {
+  display: none;
+}
+.ghost, .ghost * {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+}
+
+section > .selected::after {
+  content: attr(data-fromHtml);
+}
+section > .value::after {
+  content: attr(for);
+  background-color: inherit;
+}
+
+
+input#prop-0:not(:checked) ~ section > *[data-fromHtml=prop-0],
+input#prop-1:not(:checked) ~ section > *[data-fromHtml=prop-1],
+input#prop-2:not(:checked) ~ section > *[data-fromHtml=prop-2] {
+  display: none
+}
+
+
+#main > *, #main > section > .value {
+  overflow: hidden;
+  height: 100%;
+}
+.model:checked ~ section:not(:focus-within) > .value {
+  height: 0% !important;
+  transition-delay: 0.3s;
+}
+</style>

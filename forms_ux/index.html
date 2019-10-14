@@ -1,0 +1,38 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div id="main">
+
+<header>boolean</header>
+<select>
+  <optgroup label="boolean">
+    <option>false</option>
+    <option>true</option>
+  </optgroup>
+</select>
+<select size="3">
+  <optgroup label="boolean">
+      <option>false</option>
+      <option>true</option>
+    </optgroup>
+  </select>
+<input type="checkbox" value="x"/>
+<div>
+  <input type="radio" name="boolean" value="false"/>  
+  <input type="radio" name="boolean"/>  
+</div>
+<input type="search" list="boolean"/>
+<datalist id="boolean">
+  <option>false</option>
+  <option>true</option>
+</datalist>
+<input type="range" min="0" max="1" step="1"/>
+<input type="number" min="0" max="1" step="1"/>
+</div>
+<style>
+#main {
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: auto;
+  grid-auto-rows: max-content;
+  gap: 1em;
+}
+</style>

@@ -1,0 +1,41 @@
+<div class="Container"></div>
+<div class="Container"></div>
+<style>
+body {
+  background-color: black;
+}
+.Container {
+  clip-path: inset(0% 0% 0% 0% round 50%);
+
+  /*border-radius: 100% 100% 100% 100% / 100% 100% 100% 100%;*/
+  border-color: blueviolet;
+  border-width: 1.5em;
+  border-style: solid;
+  box-sizing: border-box;
+
+  width: 10em;
+  height: 10em;
+  background-color: brown;
+  overflow: hidden;
+}
+.Container::before, .Container::after {
+  content: "";
+  overflow: hidden;
+  position: absolute;
+
+  box-sizing: inherit;
+  border-width: inherit;
+  width: inherit;
+  height: inherit;
+}
+.Container::before {
+  clip-path: circle(25% at 50% 50%);
+
+  background-color: aqua;
+
+}
+.Container::after {
+  background-color: blue;
+  clip-path: circle(10% at 70% 70%);
+}
+</style>

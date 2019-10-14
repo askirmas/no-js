@@ -1,0 +1,94 @@
+<script>
+    document.addEventListener('DOMContentLoaded', () => document.getElementById('main').classList.add('Loaded'))
+  </script>  
+<div id="main">
+  <div class="Left Container">
+      <div class="Left Cropper">
+        <div class="Right Container">
+            <div class="Right Cropper">
+              <div class="Content"></div>
+            </div>
+            <div class="Dot"></div>
+        </div>
+      </div>
+      <div class="Dot"></div>
+  </div>
+</div>
+<style>
+  #main {
+    --threshold: 1em;
+
+    --unit: 400px;
+
+    --transition: all 3s cubic-bezier(.5, -0.5, .5, 1.5);
+
+    --rotate-left: 0.1turn;
+    --rotate-right: -0.15turn;
+    --rotate-center: 0turn;
+  }
+
+  .Container, .Content {
+    width: var(--unit);
+    height: calc(var(--unit) / 2);
+    transform-origin: bottom;
+    transition: var(--transition);
+  }
+  .Cropper {
+    overflow: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .Left, .Right, .Content {
+    position: absolute;
+  }
+
+  .Loaded .Left.Container {
+    transform: rotate(var(--rotate-left));
+  }
+  .Loaded .Right.Container {
+    transform: rotate(calc(-1 * var(--rotate-left))) rotate(var(--rotate-right));
+  }
+  .Loaded .Content {
+    transform: rotate(calc(-1 * var(--rotate-right))) rotate(var(--rotate-center));
+    z-index: 0;
+  }
+
+  .Dot {
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: calc(var(--threshold) / -2);
+    border: calc(var(--threshold) / 2) solid cyan;
+    border-radius: 100% / 100%;
+    z-index: 5;
+  }
+  .Left > .Dot {
+    left: 0;
+  }
+  .Right > .Dot {
+    right: 0;
+  }
+
+  .Content {
+    background-color: grey;
+
+    border-width: var(--threshold);
+    box-sizing: border-box;
+
+    border-style: solid;
+    
+    border-bottom-color: transparent;
+    border-left-color: red;
+    border-right-color: red;
+    border-top-color: red;
+
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+    border-bottom-left-radius: 50% 0%;
+    border-bottom-right-radius: 50% 0%;
+
+  }
+</style>

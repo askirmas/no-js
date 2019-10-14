@@ -1,0 +1,112 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Easy view switch-->
+<input id="controller" type="checkbox" checked/> 
+<!--model-->
+<main id="model">
+  <Headers>
+    <Header key="A"></Header>
+    <Header key="B"></Header>
+    <Header key="C"></Header>
+    <Header key="D"></Header>
+  </Headers>
+  <ItemContainer>
+    <Property key="A">A0</Property>
+    <Property key="B">B0</Property>
+    <Property key="C">C0</Property>
+    <Property key="D">D0</Property>
+  </ItemContainer>
+  <ItemContainer>
+    <Property key="A">A1</Property>
+    <Property key="B">B1</Property>
+    <Property key="C">C1</Property>
+    <Property key="D">D1</Property>
+  </ItemContainer>
+  <ItemContainer>
+    <Property key="A">A2</Property>
+    <Property key="B">B2</Property>
+    <Property key="C">C2</Property>
+    <Property key="D">D2</Property>
+  </ItemContainer>
+  <ItemContainer>
+    <Property key="A">A3</Property>
+    <Property key="B">B3</Property>
+    <Property key="C">C3</Property>
+    <Property key="D">D3</Property>
+  </ItemContainer>
+</main>
+<!--viewer-->
+<style data-title="Vars assign">
+  /**
+  * - ```grid-area```, ```grid-column``` couldn't be attr(key);
+  * - ```grid-template-*``` couldn't contain var
+  * That leads to
+  */
+  #model *[key="A"] {
+    --key: A;
+  }
+  #model *[key="B"] {
+    --key: B;
+  }
+  #model *[key="C"] {
+    --key: C;
+  }
+  #model *[key="D"] {
+    --key: D;
+  }
+  #contoller:not(:checked) ~ #model > * > * {
+    grid-area: var(--key);
+  }
+  #controller:checked ~ #model > * > * {
+    grid-column: var(--key);
+  }
+
+  #model {
+    display: grid;
+    --view-table: [A] auto [D] auto [C] auto [B] auto;
+    --view-tile: 'D D' 'B C' 'A A';
+  }
+</style>
+<style data-title="Containerize">
+  /* Tile */
+  #contoller:not(:checked) ~ #model {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+  #contoller:not(:checked) ~ #model > Headers {
+    grid-column: 1 / -1;
+  }
+
+  /* Table */
+  #controller:checked ~ #model > * {
+    display: contents;
+  }
+  #controller:checked ~ #model {
+    grid-template-columns: var(--view-table);
+  }
+</style>
+<style data-title="Entities stuff">
+  #contoller:not(:checked) ~ #model > ItemContainer {
+    display: grid;
+    grid-template-areas: var(--view-tile);
+  }
+  #controller:checked ~ #model {
+    grid-auto-flow: dense; /*For reordered columns, but all items should have each prop. Note: ```counters``` not work outside ```content``` */
+  }
+  #contoller:not(:checked) ~ #model > Headers > Header:not(:first-child) {
+    display: none;
+  }
+</style>
+<style data-title="Minimal Esthetic">
+  #model {
+    justify-items: center;
+    align-content: center;
+    grid-auto-rows: max-content;
+  }
+  Header::after {
+    font-weight: bold;
+    content: 'H' attr(key);
+  }
+  ItemContainer {
+    border: 1px solid black;
+  }
+</style>
+    

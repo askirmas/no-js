@@ -1,0 +1,31 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--model-->
+<input id="panel" name="panel" type="checkbox"/>
+<!--viewer-->
+<label for="panel">
+  Expand
+  <img data-on-checked="0" src="https://fonts.gstatic.com/s/i/materialicons/toggle_off/v1/24px.svg"/>
+  <img data-on-checked="1" src="https://fonts.gstatic.com/s/i/materialicons/toggle_on/v1/24px.svg"/>
+</label>
+<div>
+  <div for="panel" data-on-checked="1">
+    different stuff
+    <label for="panel">
+      <img src="https://fonts.gstatic.com/s/i/materialicons/close/v1/24px.svg?download=true/">
+    </label>
+  </div>
+</div>
+<style>
+#panel,
+#panel:checked ~ *[for="panel"][data-on-checked="0"],
+#panel:checked ~ *[for="panel"] *[data-on-checked="0"],
+#panel:checked ~ * *[for="panel"][data-on-checked="0"],
+#panel:checked ~ * *[for="panel"] *[data-on-checked="0"],
+#panel:not(:checked) ~ *[for="panel"][data-on-checked="1"],
+#panel:not(:checked) ~ *[for="panel"] *[data-on-checked="1"],
+#panel:not(:checked) ~ * *[for="panel"][data-on-checked="1"],
+#panel:not(:checked) ~ * *[for="panel"] *[data-on-checked="1"] {
+  display: none;
+}
+</style>
