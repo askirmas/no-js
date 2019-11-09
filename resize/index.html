@@ -27,45 +27,49 @@ main {
 span {
   overflow: hidden;
   position: relative;
+  min-width: 200px;
 }
-
+/*<magic>*/
 ::-webkit-scrollbar {
-  background-color: blue;
-  width: 3em;
-  height: 3em;  
+  width: 1em;
 }
 ::-webkit-scrollbar-thumb {
   background-color: blue;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: lightblue;  
-}
-
-
-#resize {
-  height: 100%;
-  min-width: 200px;
-  resize: horizontal;
-  overflow-y: overlay;
-  overflow-x: scroll;
-}
-#resize::-webkit-scrollbar {
-  height: 100em;
-}
-#resize::-webkit-scrollbar-button {
-  height: 0;
-}
-#resize::-webkit-resizer {
-  background-color: grey;
+  background-color: transparent;
 }
 
 #scroll {
   position: absolute;
   height: 100%;
-  left: 0em;
-  right: 1em;
+  left: 0;
+  /*Resize line width is visible due to this space*/
+  right: 0.5em;
+
   overflow-y: overlay;
+  overflow-x: hidden;
+}
+
+#resize {
+  background-color: yellow;
+  height: 100%;
+  min-width: inherit;
+  
+  resize: horizontal;
+  overflow-x: scroll;
+  /*Here same as overflow-y: overlay*/
+  overflow-y: none;
+  box-sizing: border-box;
+}
+#resize::-webkit-scrollbar {
+  height: 100vh;
+}
+/*</magic>*/
+
+#resize::-webkit-resizer {
+  background-color: lightgrey;
 }
 
 
