@@ -1,0 +1,91 @@
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const {classList} = document.getElementById('main')
+
+  setTimeout(() => {
+    classList.remove('Unloaded')
+    classList.add('Loaded')
+  }, 1000)
+
+})
+</script>
+<div id="main" class="Unloaded">
+<div class="Grid V1"><div class="C1"></div><div class="C2"></div></div>
+</div>
+<style>
+</style>
+<!--style>
+  .Unloaded>.V2>.C1, .Loaded>.V2>.C2 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .Unloaded>.V2>.C2, .Loaded>.V2>.C1 {
+    grid-column: 2;
+    grid-row: 2;
+  }
+</style-->
+<style>
+  /*div {
+    transition: all 1s linear;
+  }*/
+  .Grid {
+    --cellSize: 100px;
+    display: grid;
+    grid-auto-columns: var(--cellSize);
+    grid-auto-rows: var(--cellSize);
+  }
+  .Grid > * {
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+  .C1 {
+    background-color: red;
+    --index: 1;
+    grid-column: var(--index);
+    grid-row: var(--index);
+  }
+  .C2 {
+    background-color: blue;
+    --index: 2;
+  }
+
+  .Loaded .C2 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .C2 {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .Loaded .C1 {
+    --shift: 1;
+    animation: anim_C 2s linear; 
+  }
+  .Loaded .C2 {
+    --shift: -1;
+    animation: anim_C2 2s linear; 
+  }
+  @keyframes anim_C {
+    0% {
+      left: calc(var(--shift) * -100%);
+      top: calc(var(--shift) * -100%);
+      --index: var(--index) + var(--shift); 
+    }
+    100% {
+      left: 0;
+      top: 0;
+    }
+  }
+  @keyframes anim_C2 {
+    0% {
+      left: 100%;
+      top: 100%; 
+    }
+    100% {
+      left: 0;
+      top: 0;
+    }
+  }
+</style>
