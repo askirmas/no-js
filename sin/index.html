@@ -1,0 +1,74 @@
+
+<div id="main">
+  <div id="v1"></div>
+  <div id="v2"></div>    
+  <div id="edge" class="rotate"><hr/></div>
+</div>
+<style>
+.rotate {
+  --tn-sq: calc(1 - 1 / (var(--tn) * var(--tn) + 1));
+
+  --sin-1: calc((.5 + var(--tn-sq) / .5) / 2);
+  --cos-1: calc((.5 + (1 - var(--tn-sq)) / .5) / 2);
+
+  --sin-2: calc((var(--sin-1) + var(--tn-sq) / var(--sin-1)) / 2);
+  --cos-2: calc((var(--cos-1) + (1 - var(--tn-sq)) / var(--cos-1)) / 2);
+
+  --sin-3: calc((var(--sin-2) + var(--tn-sq) / var(--sin-2)) / 2);
+  --cos-3: calc((var(--cos-2) + (1 - var(--tn-sq)) / var(--cos-2)) / 2);
+
+  --sin-4: calc((var(--sin-3) + var(--tn-sq) / var(--sin-3)) / 2);
+  --cos-4: calc((var(--cos-3) + (1 - var(--tn-sq)) / var(--cos-3)) / 2);
+
+  --sin-5: calc((var(--sin-4) + var(--tn-sq) / var(--sin-4)) / 2);
+  --cos-5: calc((var(--cos-4) + (1 - var(--tn-sq)) / var(--cos-4)) / 2);
+
+  --rotate: matrix(var(--cos-5), var(--sin-5), calc(0 - var(--sin-5)), var(--cos-5), 0, 0);
+  --width: calc(100% / var(--cos-5));
+  --shift-left: calc(50%  * (1 - 1 / var(--cos-5)));
+}
+#edge {
+  grid-column-start: var(--v1-x);
+  grid-column-end: calc(1 + var(--v2-x));
+  grid-row-start: var(--v1-y);
+  grid-row-end: calc(1 + var(--v2-y));
+
+  --tn: calc((var(--v2-y) + 1 - var(--v1-y)) / (var(--v2-x) + 1 - var(--v1-x)));
+  transform: var(--rotate);
+
+  width: var(--width);
+  margin-left: var(--shift-left);
+}
+</style>
+
+<style>
+#main {
+  --unit: 100px;
+  --v1-x: 1;
+  --v1-y: 1;
+  --v2-x: 3;
+  --v2-y: 2;
+
+  display: grid;
+  grid-auto-rows: var(--unit);
+  grid-auto-columns: var(--unit);
+}
+#v1 {
+  background-color: red;
+  grid-column: var(--v1-x);
+  grid-row: var(--v1-y);
+}
+#v2 {
+  background-color: blue;
+  grid-column: var(--v2-x);
+  grid-row: var(--v2-y);
+}
+#edge {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-top: auto;
+  margin-bottom: auto;
+}
+hr {
+  border-color: white;
+}
+</style>
