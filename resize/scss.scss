@@ -1,0 +1,57 @@
+.resize-controller {
+  overflow: scroll;
+  &::-webkit-resizer {
+    opacity: 0;
+  }
+}
+
+.resize-container {
+  $directions: left, right, top, bottom;
+  @each $direction in $directions {
+    &-#{$direction} {
+      overflow: hidden;    
+      padding-#{$direction}: var(--resize-controller-size);
+
+      display: grid;
+      &::before, &::after, & > * {
+        grid-column: 1;
+        grid-row: 1;      
+      }
+      &::before, &::after, & > :not(.resize-controller) {
+        z-index: 1;
+      }
+      &::before, &::after {
+        pointer-events: none;
+      }
+      & > .resize-controller {
+        margin-#{$direction}: calc(-1 * var(--resize-controller-size)); 
+      }
+    }
+  }
+  
+  &-left, &-right {
+    & > .resize-controller {
+      resize: horizontal;
+      &::-webkit-scrollbar {
+        width: var(--resize-controller-size);
+        height: 100vh;      
+      }
+    }
+  }
+  &-top, &-bottom {
+    & > .resize-controller {
+      resize: vertical;
+      &::-webkit-scrollbar {
+        width: 100vw;
+        height: var(--resize-controller-size);
+      }      
+    }
+  }
+
+  &-left > .resize-controller {
+    transform: scaleX(-1);
+  }
+  &-top > .resize-controller {
+    transform: scaleY(-1);
+  }
+}
