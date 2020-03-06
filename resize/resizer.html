@@ -1,0 +1,86 @@
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<style>
+body {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: repeat(2, auto);
+  grid-auto-flow: column;
+}
+div {
+  min-width: 100px;
+  max-width: 300px;
+  min-height: 100px;
+  max-height: 300px;
+  resize: both;
+  border: 1px solid black;
+}
+div::-webkit-resizer {
+  background-color: green;
+}
+
+div:nth-of-type(1), div:nth-of-type(2), div:nth-of-type(3), div:nth-of-type(4) {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+div:nth-of-type(5), div:nth-of-type(6), div:nth-of-type(7), div:nth-of-type(8) {
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+div:nth-of-type(1) {
+  z-index: 8;
+}
+div:nth-of-type(2) {
+  z-index: 7;
+}
+div:nth-of-type(3) {
+  z-index: 6;
+}
+div:nth-of-type(4) {
+  z-index: 5;
+}
+div:nth-of-type(5) {
+  z-index: 4;
+}
+div:nth-of-type(6) {
+  z-index: 3;
+}
+div:nth-of-type(7) {
+  z-index: 2;
+}
+div:nth-of-type(8) {
+  z-index: 1;
+}
+
+div:nth-of-type(1)::-webkit-scrollbar {
+}
+div:nth-of-type(2)::-webkit-scrollbar {
+  height: 100vh;
+}
+div:nth-of-type(3)::-webkit-scrollbar {
+  width: 100vw;
+}
+div:nth-of-type(4)::-webkit-scrollbar {
+  width: 100vw;
+  height: 100vh;
+}
+div:nth-of-type(5)::-webkit-scrollbar {
+}
+div:nth-of-type(6)::-webkit-scrollbar {
+  height: 100vh;
+}
+div:nth-of-type(7)::-webkit-scrollbar {
+  width: 100vw;
+}
+div:nth-of-type(8)::-webkit-scrollbar {
+  width: 100vw;
+  height: 100vh;
+}
+</style>
