@@ -1,2 +1,2 @@
 #!/bin/bash
-sass --style=compressed --no-source-map scss.scss index.css
+sass --style=compressed --no-source-map main.scss index.css
