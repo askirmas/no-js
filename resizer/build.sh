@@ -1,2 +1,3 @@
 #!/bin/bash
-sass --style=compressed --no-source-map index.scss style.css
+MY_DIR=$(dirname "$(realpath "$0")")
+sass --style=compressed --no-source-map "$MY_DIR/index.scss" "$MY_DIR/style.css"

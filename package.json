@@ -1,0 +1,34 @@
+{
+  "name": "no-js",
+  "version": "0.0.1",
+  "description": "**CSS ONLY**",
+  "scripts": {
+    "build": "bash resizer/build.sh",
+    "test": "npm run build",
+    "release": "np"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/askirmas/no-js.git"
+  },
+  "author": {
+    "email": "kirmas@phystech.edu",
+    "name": "Andrii Kirmas",
+    "url": "https://about.me/kirmas"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/askirmas/no-js/issues"
+  },
+  "homepage": "https://github.com/askirmas/no-js#readme",
+  "files": [
+    "resizer/style.css",
+    "resizer/main.scss",
+    "resizer/core.scss"
+  ],
+  "devDependencies": {
+    "git-hooks-wrapper": "^0.4.6",
+    "np": "^6.2.0",
+    "sass": "^1.26.2"
+  }
+}
