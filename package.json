@@ -30,5 +30,8 @@
     "git-hooks-wrapper": "^0.4.6",
     "np": "^6.2.0",
     "sass": "^1.26.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
