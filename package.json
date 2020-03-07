@@ -1,5 +1,5 @@
 {
-  "name": "no-js",
+  "name": "@kirmas/no-js",
   "version": "0.0.1",
   "description": "**CSS ONLY**",
   "scripts": {
