@@ -1,0 +1,22 @@
+<form>
+  <input type=text name=tr>
+  <input type=radio name=tr>
+
+  <input type=radio name=rt>
+  <input type=text name=rt>
+
+  <input type=radio name=rr>
+  <input type=radio name=rr>
+
+  <input type=text name=tt>
+  <input type=text name=tt>
+  <textarea name=tt></textarea>
+</form>
+<div contenteditable="true" style="min-width: 1em; border: 1px solid black;"><input></div>
+<script>
+  const inputs = ["rr", "rt", 'tr', 'tt'].map(k => document.forms[0][k].length)
+  Object.assign(window, {inputs})
+  console.log(inputs)
+
+  document.execCommand("defaultParagraphSeparator", true, "input");
+</script>
