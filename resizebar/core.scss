@@ -12,9 +12,11 @@
 
   #{$container}#{$delimiter} {
     // By default scrolls are at right and bottom sides. Obvious transform for desired effect without
-    &left > #{$controller} /*scaleX*/,
-    &top > #{$controller} /* scaleY */{
-      transform: scaleX(-1) scaleY(-1);
+    &left > #{$controller} {
+      transform: scaleX(-1);
+    }
+    &top > #{$controller} {
+      transform: scaleY(-1);
     }
 
     &left {
