@@ -1,11 +1,11 @@
 {
   "name": "@kirmas/no-js",
   "version": "0.0.2",
-  "description": "**CSS ONLY**",
+  "description": "Pure CSS stuff",
   "scripts": {
     "build": "npm run build/resizebar",
     "build/resizebar": "bash resizebar/build.sh",
-    "resizebar:dev": "npx sass ./resizebar/build.scss resizebar.css --watch", 
+    "resizebar:dev": "npx sass ./resizebar/build.scss resizebar.css --watch",
     "test": "npm run build",
     "release": "np"
   },
@@ -34,5 +34,8 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "keywords": [
+    "pure-css", "css", "scss", "resize", "resize bar"
+  ]
 }
