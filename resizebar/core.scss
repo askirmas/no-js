@@ -7,22 +7,8 @@
   $height: 100vh,
   $width: 100vw
 ) {
-  #{$controller} {
-    // Check resizer.html to see why other options are not satisfying  
-    overflow: scroll;
-
-    // @content;
-    // background-color: transparent;
-    opacity: 0;
-
-    // @content;
-
-    &::-webkit-resizer {
-      // opacity: 0;
-      // background-color: transparent;
-      // color: transparent;
-    }  
-  }
+  // #{$controller} {
+  // }
 
   #{$container}#{$delimiter} {
     // By default scrolls are at right and bottom sides. Obvious transform for desired effect without
@@ -31,36 +17,47 @@
       transform: scaleX(-1) scaleY(-1);
     }
 
-    // Trick bug that appears due to current layout
-    &right > #{$controller} {
-      justify-self: right;
+    &left {
+      grid-template-areas: 'Bar Content';
+      grid-template-columns: $size 1fr;
     }
-    &bottom > #{$controller} {
-      align-self: end;
+    &right {
+      grid-template-areas: 'Content Bar';
+      grid-template-columns: 1fr $size;
+      & > #{$controller} {
+        justify-self: right;
+      }  
+    }
+    &top {
+      grid-template-areas: 'Bar' 'Content';
+      grid-template-rows: $size 1fr;
+    }
+    &bottom {
+      grid-template-areas: 'Content' 'Bar';
+      grid-template-rows: 1fr $size;
+      & > #{$controller} {
+        align-self: end;
+      }  
     }
 
     $sides: left, right, top, bottom;
     @each $side in $sides {
       &#{$side} {
-        
         // Container takes controller's width-height and propagate to children. Be careful with display: content;
         overflow: hidden;
         display: grid;
-        &::before, &::after, & > * {
-          grid-column: 1;
-          grid-row: 1;      
-        }
-
-        // NB: 'Controller' skin should be transparent for click- don't forget if own element is used 
         &::before, &::after {
+          grid-area: Bar;
+          // NB: 'Controller' skin should be transparent for click- don't forget if own element is used 
           pointer-events: none;
         }
 
-        // A way to make controller as strip
-        padding-#{$side}: #{$size};
-        & > #{$controller} {
-          margin-#{$side}: calc(-1 * #{$size}); 
+        & > *:not(#{$controller}) {
+          grid-area: Content;
+        }
 
+        & > #{$controller} {  
+          @include resizebar-controller-common();
           $orientation: if($side == left or $side == right, horizontal, vertical); 
           resize: $orientation;
           @if ($orientation == horizontal) {
@@ -81,3 +78,22 @@
     }    
   }
 }
+
+@mixin resizebar-controller-common {
+  grid-area: 1 / 1 / -1 / -1;
+
+  // Check resizer.html to see why other options are not satisfying  
+  overflow: scroll;
+
+  // @content;
+  // background-color: transparent;
+  opacity: 0;
+
+  // @content;
+
+  &::-webkit-resizer {
+    // opacity: 0;
+    // background-color: transparent;
+    // color: transparent;
+  }  
+} 

@@ -127,7 +127,7 @@ code {
 }
 </style>
 <style>
-  .resizebar_container__left,
+.resizebar_container__left,
 .resizebar_container__right,
 .resizebar_container__top,
 .resizebar_container__bottom {
@@ -138,31 +138,19 @@ code {
 .resizebar_container__top::before,
 .resizebar_container__bottom::before {
   background-color: green;
+  align-self: center;
+  justify-self: center;
 }
 .resizebar_container__left::before,
 .resizebar_container__right::before {
   content: "<>";
-  align-self: center;
-  width: var(--resizebar-size);
+  /*1st option*/
+  justify-self: stretch;
 }
 .resizebar_container__bottom::before,
 .resizebar_container__top::before {
   content: "^v";
-  justify-self: center;
-  height: var(--resizebar-size);
-}
-.resizebar_container__left::before {
-  margin-left: calc(-1 * var(--resizebar-size));
-}
-.resizebar_container__right::before {
-  margin-right: calc(-1 * var(--resizebar-size));
-  justify-self: right;
-}
-.resizebar_container__top::before {
-  margin-top: calc(-1 * var(--resizebar-size));
-}
-.resizebar_container__bottom::before {
-  margin-bottom: calc(-1 * var(--resizebar-size));
-  align-self: end;
+  /*2nd option*/
+  height: 100% /*var(--resizebar-size)*/;
 }
 </style>
