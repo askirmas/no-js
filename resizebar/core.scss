@@ -10,7 +10,7 @@
   #{$controller} {
     // Check resizer.html to see why other options are not satisfying  
     overflow: scroll;
-    &::-webkit-resizer {
+    &, &::-webkit-resizer {
       opacity: 0; // or color: transparent;
     }  
   }
@@ -26,13 +26,11 @@
 
     // Trick bug that appears due to current layout
     &right > #{$controller} {
-      @debug &;
       justify-self: right;
     }
     &bottom > #{$controller} {
       align-self: end;
     }
-
 
     $sides: left, right, top, bottom;
     @each $side in $sides {
@@ -44,13 +42,10 @@
           grid-column: 1;
           grid-row: 1;      
         }
-        // NB: 'Controller' skin should be transparent - don't forget if own element is used 
+
+        // NB: 'Controller' skin should be transparent for click- don't forget if own element is used 
         &::before, &::after {
           pointer-events: none;
-        }
-        // Move controller to backstage
-        &::before, &::after, & > :not(#{$controller}) {
-          z-index: 1;
         }
 
         // A way to make controller as strip
@@ -58,9 +53,9 @@
         & > #{$controller} {
           margin-#{$side}: calc(-1 * #{$size}); 
 
-          $anti-orientation: if($side == left or $side == right, horizontal, vertical); 
-          resize: $anti-orientation;
-          @if ($anti-orientation == horizontal) {
+          $orientation: if($side == left or $side == right, horizontal, vertical); 
+          resize: $orientation;
+          @if ($orientation == horizontal) {
             min-width: $size;
             &::-webkit-scrollbar {
               width: #{$size};

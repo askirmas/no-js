@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npm run build/resizebar",
     "build/resizebar": "bash resizebar/build.sh",
-    "dev:resizebar": "npx sass ./resizebar/build.scss resizebar.css --watch", 
+    "resizebar:dev": "npx sass ./resizebar/build.scss resizebar.css --watch", 
     "test": "npm run build",
     "release": "np"
   },
