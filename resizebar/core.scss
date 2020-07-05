@@ -1,0 +1,74 @@
+@mixin resizebar(
+  $size: var(--resizebar-size, 0.5rem),
+  $controller: ".resizebar_controller",
+  $container: ".resizebar_container",
+  $delimiter: "__",
+  // Big enough values to have controller not less than container, while '100%' is not working
+  $height: 100vh,
+  $width: 100vw
+) {
+  #{$controller} {
+    @include resizebar-controller-common();
+  }
+
+  #{$container} {
+    $sides: left, right, top, bottom;
+    @each $side in $sides {
+      &#{$delimiter}#{$side} {
+        @include resizebar-container-common($controller);
+        // A way to make controller as strip
+        padding-#{$side}: #{$size};
+        & > #{$controller} {
+          margin-#{$side}: calc(-1 * #{$size}); 
+
+          // By default scrolls are at right and bottom sides. Obvious transform for desired effect without
+          @if($side == left) {
+            transform: scaleX(-1);       
+          }
+          @if($side == top) {
+            transform: scaleY(-1);
+          }
+
+          $orientation: if($side == left OR $side == right, horizontal, vertical); 
+
+          resize: $orientation;
+          &::-webkit-scrollbar {
+            @if ($orientation == horizontal) {
+              width: #{$size};
+              height: #{$height};          
+            } @else {
+              width: #{$width};
+              height: #{$size};    
+            }
+          }
+        }
+      }
+    }    
+  }
+}
+
+@mixin resizebar-controller-common() {
+  // Check resizer.html to see why other options are not satisfying  
+  overflow: scroll;
+  &::-webkit-resizer {
+    opacity: 0; // or color: transparent;
+  }  
+}
+
+@mixin resizebar-container-common($controller) {
+  // Container takes controller's width-height and propagate to children. Be careful with display: content;
+  overflow: hidden;
+  display: grid;
+  &::before, &::after, & > * {
+    grid-column: 1;
+    grid-row: 1;      
+  }
+  // NB: 'Controller' skin should be transparent - don't forget if own element is used 
+  &::before, &::after {
+    pointer-events: none;
+  }
+  // Move controller to backstage
+  &::before, &::after, & > :not(#{$controller}) {
+    z-index: 1;
+  }
+}

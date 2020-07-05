@@ -1,0 +1,103 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+<main>
+  <div class="content"></div>
+  <div class="resizebar_container__right">
+    <div class="resizebar_controller"></div>
+    <div class="content"></div>
+  </div>
+  <div class="resizebar_container__bottom">
+    <div class="resizebar_controller"></div>
+    <div class="content"></div>
+  </div>
+  <div class="resizebar_container__left">
+    <div class="resizebar_controller"></div>
+    <div class="content"></div>
+  </div>
+  <div class="resizebar_container__top">
+    <div class="resizebar_controller"></div>
+    <div class="content"></div>
+  </div>
+</main>
+<style>
+main {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+}
+main > .content {
+  grid-column: 2;
+  grid-row: 2;
+}
+main > .resizebar_container__right {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+main > .resizebar_container__bottom {
+  grid-column: 2 / 4;
+  grid-row: 1;
+}
+main > .resizebar_container__left {
+  grid-column: 3;
+  grid-row: 2 / 4;
+}
+main > .resizebar_container__top {
+  grid-column: 1 / 3;
+  grid-row: 3;
+}
+</style>
+<style>
+body {
+  margin: 0px;
+  --resizebar-size: 2em;
+}
+
+.resizebar_container__left,
+.resizebar_container__right,
+.resizebar_container__top,
+.resizebar_container__bottom {
+  border: 1px solid black;
+}
+.resizebar_container__left::before,
+.resizebar_container__right::before,
+.resizebar_container__top::before,
+.resizebar_container__bottom::before {
+  background-color: green;
+}
+.resizebar_container__left::before,
+.resizebar_container__right::before {
+  content: "<>";
+  align-self: center;
+  width: var(--resizebar-size);
+}
+.resizebar_container__bottom::before,
+.resizebar_container__top::before {
+  content: "^v";
+  justify-self: center;
+  height: var(--resizebar-size);
+}
+.resizebar_container__left::before {
+  margin-left: calc(-1 * var(--resizebar-size));
+}
+.resizebar_container__right::before {
+  margin-right: calc(-1 * var(--resizebar-size));
+  justify-self: right;
+}
+.resizebar_container__top::before {
+  margin-top: calc(-1 * var(--resizebar-size));
+}
+.resizebar_container__bottom::before {
+  margin-bottom: calc(-1 * var(--resizebar-size));
+  align-self: flex-end;
+}
+
+.content {
+  min-width: 100px;
+  min-height: 100px;
+  box-sizing: border-box;
+  border: 10px solid red;
+}
+.content::before {
+  content: "content";
+}
+</style>

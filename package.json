@@ -3,7 +3,8 @@
   "version": "0.0.2",
   "description": "**CSS ONLY**",
   "scripts": {
-    "build": "bash resizer/build.sh",
+    "build": "npm run build/resizebar",
+    "build/resizebar": "bash resizebar/build.sh",
     "test": "npm run build",
     "release": "np"
   },
@@ -22,9 +23,8 @@
   },
   "homepage": "https://github.com/askirmas/no-js#readme",
   "files": [
-    "resizer/style.css",
-    "resizer/main.scss",
-    "resizer/core.scss"
+    "resizebar.css",
+    "resizebar/core.scss"
   ],
   "devDependencies": {
     "git-hooks-wrapper": "^0.4.6",
