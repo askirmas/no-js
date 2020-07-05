@@ -8,67 +8,73 @@
   $width: 100vw
 ) {
   #{$controller} {
-    @include resizebar-controller-common();
+    // Check resizer.html to see why other options are not satisfying  
+    overflow: scroll;
+    &::-webkit-resizer {
+      opacity: 0; // or color: transparent;
+    }  
   }
 
-  #{$container} {
+  #{$container}#{$delimiter} {
+    // By default scrolls are at right and bottom sides. Obvious transform for desired effect without
+    &left > #{$controller} {
+      transform: scaleX(-1);       
+    }
+    &top > #{$controller} {
+      transform: scaleY(-1);
+    }
+
+    // Trick bug that appears due to current layout
+    &right > #{$controller} {
+      @debug &;
+      justify-self: right;
+    }
+    &bottom > #{$controller} {
+      align-self: end;
+    }
+
+
     $sides: left, right, top, bottom;
     @each $side in $sides {
-      &#{$delimiter}#{$side} {
-        @include resizebar-container-common($controller);
+      &#{$side} {
+        // Container takes controller's width-height and propagate to children. Be careful with display: content;
+        overflow: hidden;
+        display: grid;
+        &::before, &::after, & > * {
+          grid-column: 1;
+          grid-row: 1;      
+        }
+        // NB: 'Controller' skin should be transparent - don't forget if own element is used 
+        &::before, &::after {
+          pointer-events: none;
+        }
+        // Move controller to backstage
+        &::before, &::after, & > :not(#{$controller}) {
+          z-index: 1;
+        }
+
         // A way to make controller as strip
         padding-#{$side}: #{$size};
         & > #{$controller} {
           margin-#{$side}: calc(-1 * #{$size}); 
 
-          // By default scrolls are at right and bottom sides. Obvious transform for desired effect without
-          @if($side == left) {
-            transform: scaleX(-1);       
-          }
-          @if($side == top) {
-            transform: scaleY(-1);
-          }
-
-          $orientation: if($side == left OR $side == right, horizontal, vertical); 
-
-          resize: $orientation;
-          &::-webkit-scrollbar {
-            @if ($orientation == horizontal) {
+          $anti-orientation: if($side == left or $side == right, horizontal, vertical); 
+          resize: $anti-orientation;
+          @if ($anti-orientation == horizontal) {
+            min-width: $size;
+            &::-webkit-scrollbar {
               width: #{$size};
-              height: #{$height};          
-            } @else {
+              height: #{$height}; 
+            }  
+          } @else {
+            min-height: $size;
+            &::-webkit-scrollbar {
               width: #{$width};
-              height: #{$size};    
+              height: #{$size};
             }
           }
         }
       }
     }    
-  }
-}
-
-@mixin resizebar-controller-common() {
-  // Check resizer.html to see why other options are not satisfying  
-  overflow: scroll;
-  &::-webkit-resizer {
-    opacity: 0; // or color: transparent;
-  }  
-}
-
-@mixin resizebar-container-common($controller) {
-  // Container takes controller's width-height and propagate to children. Be careful with display: content;
-  overflow: hidden;
-  display: grid;
-  &::before, &::after, & > * {
-    grid-column: 1;
-    grid-row: 1;      
-  }
-  // NB: 'Controller' skin should be transparent - don't forget if own element is used 
-  &::before, &::after {
-    pointer-events: none;
-  }
-  // Move controller to backstage
-  &::before, &::after, & > :not(#{$controller}) {
-    z-index: 1;
   }
 }
