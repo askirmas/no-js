@@ -1,8 +1,5 @@
 <style>
 @import url(../resizebar.css);
-:root {
-  --resizebar-size: 2em;
-}
 </style>
 <main>
   <div class="content Main">
@@ -43,6 +40,19 @@
     <div class="content"></div>
   </div>
 </main>
+<style>
+.resizebar_container__bottom::before {
+  height: 0.5rem;
+}
+.resizebar_container__right::before {
+  justify-self: stretch;
+}
+.resizebar_container__left::before {
+}
+.resizebar_container__top::before {
+  height: 100%
+}
+</style>
 <style>
 main {
   display: grid;
@@ -144,13 +154,10 @@ code {
 .resizebar_container__left::before,
 .resizebar_container__right::before {
   content: "<>";
-  /*1st option*/
-  justify-self: stretch;
 }
 .resizebar_container__bottom::before,
 .resizebar_container__top::before {
   content: "^v";
-  /*2nd option*/
-  height: 100% /*var(--resizebar-size)*/;
 }
+
 </style>

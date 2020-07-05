@@ -1,5 +1,5 @@
 @mixin resizebar(
-  $size: var(--resizebar-size, 0.5rem),
+  $size: auto,
   $controller: ".resizebar_controller",
   $container: ".resizebar_container",
   $delimiter: "__",
