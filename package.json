@@ -4,8 +4,8 @@
   "description": "Pure CSS stuff",
   "scripts": {
     "build": "npm run build/resizebar",
-    "build/resizebar": "bash resizebar/build.sh",
-    "resizebar:dev": "npx sass ./resizebar/build.scss resizebar.css --watch",
+    "build/resizebar": "./resizebar/build.sh",
+    "resizebar:dev": "./resizebar/build.sh --watch",
     "test": "npm run build",
     "release": "np"
   },
