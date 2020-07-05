@@ -21,7 +21,7 @@
 
     &left {
       grid-template-areas: 'Bar Content';
-      grid-template-columns: $size 1fr;
+      grid-template-columns: minmax($size, 1em) min-content /*NB! Not 1fr*/;
     }
     &right {
       grid-template-areas: 'Content Bar';
