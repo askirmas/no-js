@@ -1,5 +1,11 @@
+<style>
+@import url(../resizebar.css);
+:root {
+  --resizebar-size: 2em;
+}
+</style>
 <main>
-  <div class="content">
+  <div class="content Main">
     <a href="https://askirmas.github.io/no-js/resizebar/demo.html">You are here</a>
     <code>
       /* HTML */
@@ -20,58 +26,48 @@
       @import "~@kirmas/resizebar/core.scss";
     </code>
   </div>
-  <div class="resizebar_container__right">
+  <div class="Sidebar resizebar_container__right">
     <div class="resizebar_controller"></div>
-    <div class="content"><b>Favorites</b><br/>Resizebar on left</div>
+    <div class="content"></div>
   </div>
-  <div class="resizebar_container__bottom">
+  <div class="Header resizebar_container__bottom">
     <div class="resizebar_controller"></div>
-    <div class="content"><b>Header</b><br>Resizebar on bottom</div>
+    <div class="content"></div>
   </div>
-  <div class="resizebar_container__left">
+  <div class="Details resizebar_container__left">
     <div class="resizebar_controller"></div>
-    <div class="content"><b>Details</b><br/>Resizebar on right</div>
+    <div class="content"></div>
   </div>
-  <div class="resizebar_container__top">
+  <div class="Footer resizebar_container__top">
     <div class="resizebar_controller"></div>
-    <div class="content"><b>Footer</b><br>Resizebar on top</div>
+    <div class="content"></div>
   </div>
 </main>
 <style>
-@import url(../resizebar.css);
-code {
-  white-space: pre;
-}
 main {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-rows: auto 1fr auto;
+  grid-template-columns: auto 1fr min-content;
+  grid-template-rows: min-content 1fr min-content;
   height: 100%;
-  white-space: pre;
-  word-break: break-all;
   text-align: center;
 }
-main > .content {
+.Main {
   grid-column: 2;
   grid-row: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 }
-main > .resizebar_container__right {
+.Sidebar {
   grid-column: 1;
   grid-row: 1 / 3;
 }
-main > .resizebar_container__bottom {
+.Header {
   grid-column: 2 / 4;
   grid-row: 1;
 }
-main > .resizebar_container__left {
+.Details {
   grid-column: 3;
   grid-row: 2 / 4;
 }
-main > .resizebar_container__top {
+.Footer {
   grid-column: 1 / 3;
   grid-row: 3;
 }
@@ -79,10 +75,59 @@ main > .resizebar_container__top {
 <style>
 body {
   margin: 0px;
-  --resizebar-size: 2em;
+}
+code {
+  white-space: pre;
 }
 
-.resizebar_container__left,
+.content {
+  display: inline-grid;
+  align-content: flex-start;
+  min-width: 100px;
+  min-height: 100px;
+  box-sizing: border-box;
+  border: 10px solid red;
+}
+.content::before {
+  font-weight: bold;
+}
+
+.Main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  word-wrap: break-word;
+  white-space: pre;
+}
+
+.Sidebar .content::before {
+  content: "Sidebar";
+}
+.Sidebar .content::after {
+  content: "Resizebar on right";
+}
+.Header .content::before {
+  content: "Header";
+}
+.Header .content::after {
+  content: "Resizebar on bottom";
+}
+.Details .content::before {
+  content: "Details";
+}
+.Details .content::after {
+  content: "Resizebar on left";
+}
+.Footer .content::before {
+  content: "Footer";
+}
+.Footer .content::after {
+  content: "Resizebar on top";
+}
+</style>
+<style>
+  .resizebar_container__left,
 .resizebar_container__right,
 .resizebar_container__top,
 .resizebar_container__bottom {
@@ -118,13 +163,6 @@ body {
 }
 .resizebar_container__bottom::before {
   margin-bottom: calc(-1 * var(--resizebar-size));
-  align-self: flex-end;
-}
-
-.content {
-  min-width: 100px;
-  min-height: 100px;
-  box-sizing: border-box;
-  border: 10px solid red;
+  align-self: end;
 }
 </style>
