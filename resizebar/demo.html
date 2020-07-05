@@ -1,33 +1,63 @@
-<link rel="stylesheet" type="text/css" href="../resizebar.css">
 <main>
-  <div class="content"></div>
+  <div class="content">
+    <a href="https://askirmas.github.io/no-js/resizebar/demo.html">You are here</a>
+    <code>
+      /* HTML */
+      &lt;link rel="stylesheet" href="https://askirmas.github.io/no-js/resizebar.css"&gt;
+    </code>
+    or
+    <code>
+      /* CSS */
+      @import url(https://askirmas.github.io/no-js/resizebar.css);
+    </code>
+    or
+    <code>
+      /* terminal */
+      $ npm install --save @kirmas/no-js
+    </code>
+    <code>
+      /* SCSS */
+      @import "~@kirmas/resizebar/core.scss";
+    </code>
+  </div>
   <div class="resizebar_container__right">
     <div class="resizebar_controller"></div>
-    <div class="content"></div>
+    <div class="content"><b>Favorites</b><br/>Resizebar on left</div>
   </div>
   <div class="resizebar_container__bottom">
     <div class="resizebar_controller"></div>
-    <div class="content"></div>
+    <div class="content"><b>Header</b><br>Resizebar on bottom</div>
   </div>
   <div class="resizebar_container__left">
     <div class="resizebar_controller"></div>
-    <div class="content"></div>
+    <div class="content"><b>Details</b><br/>Resizebar on right</div>
   </div>
   <div class="resizebar_container__top">
     <div class="resizebar_controller"></div>
-    <div class="content"></div>
+    <div class="content"><b>Footer</b><br>Resizebar on top</div>
   </div>
 </main>
 <style>
+@import url(../resizebar.css);
+code {
+  white-space: pre;
+}
 main {
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: auto 1fr auto;
   height: 100%;
+  white-space: pre;
+  word-break: break-all;
+  text-align: center;
 }
 main > .content {
   grid-column: 2;
   grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 main > .resizebar_container__right {
   grid-column: 1;
@@ -96,8 +126,5 @@ body {
   min-height: 100px;
   box-sizing: border-box;
   border: 10px solid red;
-}
-.content::before {
-  content: "content";
 }
 </style>

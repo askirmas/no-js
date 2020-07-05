@@ -6,13 +6,16 @@ Pure CSS. Check compatibility [::-webkit-scrollbar](https://developer.mozilla.or
 <link rel="stylesheet" href="https://askirmas.github.io/no-js/resizebar.css">
 ```
 
+```css
+@import url(https://askirmas.github.io/no-js/resizebar.css);
+```
+ 
+
 ```bash
 $ npm install --save @kirmas/no-js
 ```
 
 ```scss
-@import "~@kirmas/resizebar";
-/* OR */
 @import "~@kirmas/resizebar/core";
 
 ```
