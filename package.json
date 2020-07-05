@@ -1,6 +1,6 @@
 {
   "name": "@kirmas/no-js",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Pure CSS stuff",
   "scripts": {
     "build": "npm run build/resizebar",
@@ -36,6 +36,10 @@
     "access": "public"
   },
   "keywords": [
-    "pure-css", "css", "scss", "resize", "resize bar"
+    "pure-css",
+    "css",
+    "scss",
+    "resize",
+    "resize bar"
   ]
 }
