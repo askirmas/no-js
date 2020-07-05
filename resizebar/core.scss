@@ -35,6 +35,8 @@
     $sides: left, right, top, bottom;
     @each $side in $sides {
       &#{$side} {
+        @content;
+        
         // Container takes controller's width-height and propagate to children. Be careful with display: content;
         overflow: hidden;
         display: grid;
