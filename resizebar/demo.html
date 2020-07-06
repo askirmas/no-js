@@ -55,36 +55,27 @@
 </style>
 <style>
 main {
-  display: grid;
-  grid-template-columns: auto 1fr min-content;
-  grid-template-rows: min-content 1fr min-content;
   height: 100%;
-  text-align: center;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'Sidebar Header Header'
+    'Sidebar Main Details'
+    'Footer Footer Details'
+  ;
 }
-.Main {
-  grid-column: 2;
-  grid-row: 2;
-}
-.Sidebar {
-  grid-column: 1;
-  grid-row: 1 / 3;
-}
-.Header {
-  grid-column: 2 / 4;
-  grid-row: 1;
-}
-.Details {
-  grid-column: 3;
-  grid-row: 2 / 4;
-}
-.Footer {
-  grid-column: 1 / 3;
-  grid-row: 3;
-}
+.Main {grid-area: Main;}
+.Sidebar {grid-area: Sidebar;}
+.Header {grid-area: Header;}
+.Details {grid-area: Details;}
+.Footer {grid-area: Footer;}
 </style>
 <style>
 body {
   margin: 0px;
+  text-align: center;
 }
 code {
   white-space: pre;

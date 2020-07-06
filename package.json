@@ -4,7 +4,7 @@
   "description": "Pure CSS stuff",
   "scripts": {
     "build": "npm run build/resizebar",
-    "build/resizebar": "./resizebar/build.sh",
+    "build/resizebar": "./resizebar/build.sh --style=compressed --no-source-map",
     "resizebar:dev": "./resizebar/build.sh --watch",
     "test": "npm run build",
     "release": "np"

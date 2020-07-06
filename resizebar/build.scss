@@ -1,2 +1,4 @@
 @import "core";
-@include resizebar();
+@include resizebar() {
+  // opacity: 1;
+}

@@ -1,0 +1,101 @@
+<style>
+@import url(../resizebar.css);
+</style>
+<main>
+  <div class="SidebarRC resizebar_controller__right"></div>
+  <div class="HeaderRC resizebar_controller__bottom"></div>
+  <div class="DetailsRC resizebar_controller__left"></div>
+  <div class="FooterRC resizebar_controller__top"></div>
+  <div class="content Sidebar"></div>
+  <div class="content Header"></div>
+  <div class="content Details"></div>
+  <div class="content Footer"></div>
+  <div class="content Main"></div>
+</main>
+<style>
+.resizebar_controller {
+  min-width: 100px;
+  min-height: 100px;
+}
+main {
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  --resize-bar-size: 10px;
+  grid-template-columns: min-content var(--resize-bar-size) 1fr var(--resize-bar-size) max-content;
+  grid-template-rows: max-content var(--resize-bar-size) 1fr var(--resize-bar-size) max-content;
+  grid-template-areas:
+    'Sidebar SideRB Header Header Header'
+    'Sidebar SideRB HeadRB HeadRB HeadRB'
+    'Sidebar SideRB Main   DetRB  Details'
+    'FootRB  FootRB FootRB DetRB  Details'
+    'Footer  Footer Footer DetRB  Details'
+  ;
+}
+.Main {grid-area: Main;}
+.Sidebar {grid-area: Sidebar;}
+.Header {grid-area: Header;}
+.Details {grid-area: Details;}
+.Footer {grid-area: Footer;}
+.SidebarRC {grid-area: Sidebar / Sidebar / Sidebar / SideRB;}
+.HeaderRC {grid-area: Header / Header / HeadRB;}
+.DetailsRC {grid-area: DetRB / DetRB / Details / Details ;}
+.FooterRC {grid-area: FootRB / FootRB / Footer ;}
+</style>
+<style>
+body {
+  margin: 0px;
+  text-align: center;
+}
+code {
+  white-space: pre;
+}
+.content {
+  display: grid;
+  align-content: flex-start;
+  min-width: 100px;
+  min-height: 100px;
+  box-sizing: border-box;
+  border: 10px solid red;
+}
+.content::before {
+  font-weight: bold;
+}
+
+.Main {
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  word-wrap: break-word;
+  white-space: pre;
+}
+
+.Sidebar .content::before {
+  content: "Sidebar";
+}
+.Sidebar .content::after {
+  content: "Resizebar on right";
+}
+.Header .content::before {
+  content: "Header";
+}
+.Header .content::after {
+  content: "Resizebar on bottom";
+}
+.Details .content::before {
+  content: "Details";
+}
+.Details .content::after {
+  content: "Resizebar on left";
+}
+.Footer .content::before {
+  content: "Footer";
+}
+.Footer .content::after {
+  content: "Resizebar on top";
+}
+</style>
+<style>
+
+</style>

@@ -7,22 +7,35 @@
   $height: 100vh,
   $width: 100vw
 ) {
-  // #{$controller} {
-  // }
+  #{$controller} {
+    @include resizebar-controller-common();    
+    @content;
+  }
 
   #{$container}#{$delimiter} {
-    // By default scrolls are at right and bottom sides. Obvious transform for desired effect without
-    &left > #{$controller} {
-      transform: scaleX(-1);
-    }
-    &top > #{$controller} {
-      transform: scaleY(-1);
-    }
-
     &left {
       grid-template-areas: 'Bar Content';
       grid-template-columns: minmax($size, 1em) min-content /*NB! Not 1fr*/;
+      & > #{$controller} {
+        // By default scrolls are at right and bottom sides. Obvious transform for desired effect without
+        transform: scaleX(-1);
+      }  
     }
+    @at-root #{$controller}#{$delimiter}left {
+      transform: scaleX(-1);
+    }    
+
+    &top {
+      grid-template-areas: 'Bar' 'Content';
+      grid-template-rows: $size 1fr;
+      & > #{$controller} {
+        transform: scaleY(-1);
+      }  
+    }
+    @at-root #{$controller}#{$delimiter}top {
+      transform: scaleY(-1);
+    }
+
     &right {
       grid-template-areas: 'Content Bar';
       grid-template-columns: 1fr $size;
@@ -30,16 +43,20 @@
         justify-self: right;
       }  
     }
-    &top {
-      grid-template-areas: 'Bar' 'Content';
-      grid-template-rows: $size 1fr;
+    @at-root #{$controller}#{$delimiter}right {
+      justify-self: right;
     }
+
+
     &bottom {
       grid-template-areas: 'Content' 'Bar';
       grid-template-rows: 1fr $size;
       & > #{$controller} {
         align-self: end;
       }  
+    }
+    @at-root #{$controller}#{$delimiter}bottom {
+      align-self: end;
     }
 
     $sides: left, right, top, bottom;
@@ -58,22 +75,16 @@
           grid-area: Content;
         }
 
-        & > #{$controller} {  
-          @include resizebar-controller-common();
-          $orientation: if($side == left or $side == right, horizontal, vertical); 
-          resize: $orientation;
-          @if ($orientation == horizontal) {
-            min-width: $size;
-            &::-webkit-scrollbar {
-              width: #{$size};
-              height: #{$height}; 
-            }  
-          } @else {
-            min-height: $size;
-            &::-webkit-scrollbar {
-              width: #{$width};
-              height: #{$size};
-            }
+        & > #{$controller} {
+          grid-area: 1 / 1 / -1 / -1;
+          @include resize-controller($side, $size, $width, $height) {
+            @content;
+          }    
+        }
+
+        @at-root #{$controller}#{$delimiter}#{$side} {
+          @include resize-controller($side, $size, $width, $height) {
+            @content;
           }
         }
       }
@@ -82,8 +93,6 @@
 }
 
 @mixin resizebar-controller-common {
-  grid-area: 1 / 1 / -1 / -1;
-
   // Check resizer.html to see why other options are not satisfying  
   overflow: scroll;
 
@@ -99,3 +108,23 @@
     // color: transparent;
   }  
 } 
+
+@mixin resize-controller($side, $size, $width, $height) {    
+  @include resizebar-controller-common();
+  @content;      
+  $orientation: if($side == left or $side == right, horizontal, vertical); 
+  resize: $orientation;
+  @if ($orientation == horizontal) {
+    min-width: $size;
+    &::-webkit-scrollbar {
+      width: #{$size};
+      height: #{$height}; 
+    }  
+  } @else {
+    min-height: $size;
+    &::-webkit-scrollbar {
+      width: #{$width};
+      height: #{$size};
+    }
+  }
+}
