@@ -25,28 +25,22 @@ Demonstration at [demo.html](./demo.html)
 ## Usage
 
 ```html
-<div class="resize_container__right">
+<div class="resize_controller__right">
     <div class="resize_controller"></div>
     <div>Content</div>
     <div>Resizer skin</div>
 </div>
 ```
-TBD
 ```html
-<div class="resize_container">
-    <div class="resize_controller__left"></div>
-    <div>Content</div>
-    <div>Resizer skin</div>
-</div>
+<div style="grid-column: 1; grid-row: 1 / span 2; margin-right: calc(-1 * var(--resizer-width))" class="resize_controller__right"/>
+<div style="grid-column: 2; grid-row: 1 / span 2; width: var(--resizer-width)">Resizer skin</div>
+<div style="grid-column: 1; grid-row: 1">Content 1</div>
+<div style="grid-column: 1; grid-row: 2">Content 2</div>
 ```
 TBD
 ```html
-<div style="grid-column: 1 / span 2" class="resize_container__left">
-    <div class="resize_controller"></div>
-    <div>Resizer skin</div>
-</div>
-<div style="grid-column: 1">Content 1</div>
-<div style="grid-column: 2">Content 2</div>
-
-
+<div style="grid-column: 1 / span 2" class="resize_controller__left"/>
+<div>Resizer skin</div>
+<div style="grid-row: 1">Content 1</div>
+<div style="grid-row: 2">Content 2</div>
 ```
