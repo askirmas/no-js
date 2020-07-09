@@ -1,0 +1,102 @@
+@import "setup";
+
+input, select, option {
+  // @include bords-reset(); 
+}
+
+input[type="checkbox"],
+input[type="radio"],
+option:checked {
+  &::before {
+    @include material-icon();
+  }
+}
+
+input {
+  [placeholder]::placeholder {
+    // display: block !important;
+  }
+  &[type="checkbox"], &[type="radio"] {
+    -webkit-appearance: none;
+    @include material-host();
+    &::after {
+      content: attr(data-label);
+    }
+  }
+  &[type="radio"] {
+    &:checked {
+      @include beforing("radio_button_checked");
+    }
+    &:not(:checked) {
+      @include beforing("radio_button_unchecked");
+    }  
+  }
+}
+
+select[multiple] option,
+input[type="checkbox"]:not(.MSwitch) {
+  @include material-host();
+  &:checked {
+    @include beforing("check_box");
+  }
+  &:not(:checked) {
+    @include beforing("check_box_outline_blank");
+  }
+}
+input[type="checkbox"].MSwitch {
+  flex-flow: row-reverse;
+  &:checked {
+    @include beforing("toggle_on");
+  }
+  &:not(:checked) {
+    @include beforing("toggle_off");
+  }
+  &::after {
+    flex: 1;
+  }
+}
+
+input[type="search"] {
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    width: 1em;
+    height: 1em;
+    @include material-bgr("close");
+  }
+  &::-webkit-textfield-decoration-container {
+    @include material-bgr("search");
+    padding-left: 1.5em;
+  }
+}
+// select[multiple] {
+//   position: relative;
+//   overflow: hidden;
+//   option {
+//     height: 100%;
+//     background-color: white;
+//     box-sizing: border-box;
+//     &:not(:first-child) {
+//       border: {
+//         left: var(--border);
+//         right: var(--border);
+//       }
+//     }
+//     &:last-child {
+//       border-bottom: var(--border);  
+//     }  
+//     &:hover {
+//       background-color: lightgrey;
+//     }
+//   }
+
+//   &:hover {
+//     overflow: visible;
+//   }
+//   &:not(:hover) {
+//     option {
+//       border: none;
+//       width: min-content;
+//       display: inline;
+//     }
+//   }
+// }

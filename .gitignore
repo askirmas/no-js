@@ -1,2 +1,4 @@
 node_modules
+.next
 *.css.map
+minimal-material/origin.css

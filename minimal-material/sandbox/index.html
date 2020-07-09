@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="../material.css"/>
+<main>
+<fieldset>
+  <legend><a href="https://material.io/components/selection-controls">boolean input</a></legend>
+  <input data-label="checkbox" type="checkbox">
+  <input data-label="checkbox checked" type="checkbox" checked>
+  <input data-label="radio" type="radio">
+  <input data-label="radio checked" type="radio" checked>
+  <input data-label="switch" class="MSwitch" type="checkbox">
+  <input data-label="switch checked" class="MSwitch" type="checkbox" checked>
+</fieldset>
+<fieldset>
+  <legend>dropdown</legend>
+  <select>
+    <option>option 1</option>
+    <option>option 2</option>
+  </select>
+  <select class="hover">
+    <option>option 1</option>
+    <option>option 2</option>
+  </select>
+  <select multiple>
+    <option selected></option>
+    <option>option 1</option>
+    <option selected>option 2</option>
+  </select>
+  <select multiple class="hover">
+    <option selected></option>
+    <option>option 1</option>
+    <option selected>option 2</option>
+  </select>
+</fieldset>
+<fieldset>
+  <legend><a href="https://material.io/components/buttons">buttons</a></legend>
+  contained
+  <button>button</button>
+  outlined
+  <input type="button" data-label="input button">
+  text
+  <input type="submit" data-label="input submit">
+
+  <input type="submit" data-label="input iconed" data-icon="star_rate">
+</fieldset>
+<fieldset>
+  <legend>input</legend>
+  <input placeholder="Search" type="search" results="5" autosave="temp">
+  <input placeholder="Number" type="number">
+  <input placeholder="Text" type="text">
+</fieldset>
+</main>
+<style>
+main {
+  overflow-y: overlay;
+  overflow-x: hidden;
+  resize: both;
+  display: inline-grid;
+  padding: 1rem;
+  border: 1px solid black;
+  grid-template-columns: 1fr;
+}
+fieldset {
+  display: grid;
+  grid-template-columns: 100%;
+  overflow: hidden;
+}
+</style>

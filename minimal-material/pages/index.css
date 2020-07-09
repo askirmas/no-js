@@ -1,0 +1,19 @@
+article {
+  display: inline-grid;
+  grid-template-columns: repeat(auto-fit, minmax(max-content, 1px));
+  grid-template-rows: repeat(auto-fit, minmax(max-content, 1px));
+  grid-auto-flow: row;
+  column-gap: 1em;
+}
+legend, h3 {
+  grid-column: 1 / -1;
+}
+section, section > div {
+  display: contents;
+}
+section > div::after {
+  content: "";
+  width: 4px;
+  background-color: grey;
+  z-index: 1000;
+}

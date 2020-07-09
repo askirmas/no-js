@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "./minimal-material"
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "minimal-material/node_modules/typescript/lib"
+	}
+}
