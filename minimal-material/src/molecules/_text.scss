@@ -62,7 +62,8 @@
   font-weight: #{$medium};
   font-size: calc(0.875 * #{$unit});
   text-transform: uppercase;
-  line-height: calc(2.25 * #{$unit});
+  // line-height: calc(2.25 * #{$unit});
+  line-height: calc(1.5 * #{$unit}); 
   letter-spacing: calc(0.078125 * #{$unit});
 }
 @mixin text-caption() {

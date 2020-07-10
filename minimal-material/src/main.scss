@@ -97,5 +97,9 @@
         }
       }
     }
+
+    &2_ {
+      @import "./molecules/layout_grid";
+    }
   }  
 }

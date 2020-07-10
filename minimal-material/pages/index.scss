@@ -1,5 +1,5 @@
 @use "../src/utils";
-article {
+.suite-1 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(auto-fit, minmax(max-content, 1px));
@@ -13,6 +13,16 @@ article {
     }
     &:nth-of-type(2) > * {
       grid-column: 2;
+    }
+  }
+}
+
+.suite_vertical {
+  display: inline-grid;
+  gap: 1em;
+  & > section {
+    &, & > div {
+      display: contents;
     }
   }
 }
@@ -35,6 +45,18 @@ article {
       } 
     }
   }
+}
+
+.box-check > * {
+  outline-width: 1px;
+  outline-style: dotted;
+  outline-color: green;
+  // out: 1px dotted green;
+  &::before, &::after {
+    background-color: hsl(0, 100%, 50%, 0.2);
+  }
+  background-color: hsl(240, 100%, 50%, 0.4);
+  background-clip: border-box;
 }
 
 /* article {

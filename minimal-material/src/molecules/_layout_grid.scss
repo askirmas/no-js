@@ -1,0 +1,186 @@
+& {
+  $icon-button: 1.125;
+
+  @function u($k) {
+    @return calc(#{$k} * #{$unit});
+  }
+
+  @mixin core($icon-size: 1.5) {
+    &::before {
+      @include text-button();
+      height: u(1.5);
+    }
+    &::after {
+      font-size: u($icon-size);
+      width: 1em;
+      height: 1em;
+    }
+  }
+
+  @mixin order() {
+    grid-auto-flow: column;
+    &::before {
+      order: 2;
+    }
+    &::after {
+      order: 1;
+    }
+  }
+  @mixin order-rev() {
+    grid-auto-flow: column; // except fab-rev and tab-v
+    &::before {
+      order: 1;
+    }
+    &::after {
+      order: 2;
+    }
+  }  
+  @mixin order-vert() {
+    grid-auto-flow: row; // except fab-rev and tab-v
+    &::before {
+      order: 2;
+    }
+    &::after {
+      order: 1;
+    }
+  }  
+
+  @mixin margin-fab-icon() {
+    margin-left: u(-0.25);
+  }
+  @mixin margin-fab_rev-icon() {
+    margin-right: u(-0.25);
+  }
+
+  @mixin horiz() {
+    // height: max-content;
+    width: max-content;
+    display: inline-grid;
+    grid-auto-rows: u(1.5); // // button ?
+    grid-auto-columns: max-content;
+    align-items: center;
+    justify-items: center; // optional
+    align-content: center;
+    justify-content: center;
+  }
+  @mixin gap() {
+    column-gap: u(0.5);
+  }
+  @mixin gap-fab() {
+    column-gap: u(0.75);
+  }
+
+  @mixin margin-button {
+    margin: u(0.5) u(1);
+  }
+
+  @mixin padding-tab-item {
+    padding: u(0.75) u(1.5);
+  }
+  @mixin padding-icon-button {
+    padding: u(0.75) u(0.75);
+  }
+  @mixin padding-fab-icon {
+    padding: u(1) u(1);
+  }
+  @mixin padding-fab-min {
+    padding: u(0.5) u(0.5);
+  }
+  @mixin padding-fab {
+    padding: u(0.75) u(1.25);
+  }
+  @mixin padding-button {
+    padding: u(0.375) u(1);
+  }
+
+  @mixin border-rounded() {
+    border-radius: $radius;
+  }
+  @mixin border-fab() {
+    border-radius: u(1.5);
+  }
+
+  &tab_item {
+    @include core();
+    @include horiz();
+    @include gap();
+    @include padding-tab-item();
+    @include order();
+    &::after { @import "./icon/core"; }
+  }
+
+  &tab_item_vert {
+    @include core();
+    @include horiz();
+    @include padding-tab-item();
+    @include order-vert();
+    &::after { @import "./icon/core"; }
+  }
+
+  &icon_button {
+    @include core();
+    @include horiz();
+    @include padding-icon-button();
+    @include order();
+    @include border-fab();
+    &::after {@import "./icon/core";}
+    &::before {display: none;}
+  }
+
+  &fab_icon {
+    @include core();
+    @include horiz();
+    @include padding-fab-icon();
+    @include order();
+    @include border-fab();
+    &::after {@import "./icon/core";}
+    &::before {display: none;}
+  }
+
+  &fab_min {
+    @include core();
+    @include horiz();
+    @include padding-fab-min();
+    @include order();
+    @include border-fab();
+    &::after { @import "./icon/core"; }
+    &::before {display: none;}
+  }
+
+  &fab {
+    @include core();
+    @include horiz();
+    @include gap-fab();
+    @include padding-fab();
+    @include border-fab();
+    @include order();
+    &::after {
+      @include margin-fab-icon();
+      @import "./icon/core";
+    }
+  }
+
+  &fab_rev {
+    @include core();
+    @include horiz();
+    @include gap-fab();
+    @include padding-fab();
+    @include border-fab();
+    @include order-rev();
+    &::after {
+      @import "./icon/core";
+      @include margin-fab_rev-icon();
+    }
+  }
+
+  &button {
+    @include margin-button();
+    @include core(1.125);
+    @include horiz();
+    @include gap();
+    @include padding-button();
+    @include border-rounded();
+    @include order();
+    &::after { @import "./icon/core"; }
+  }
+}
