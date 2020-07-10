@@ -1,3 +1,4 @@
+
 @at-root {
   :root {
     @import "quarks/color-source"
@@ -15,25 +16,28 @@
     ;
     /* text */
     & {
-      &headline1 {@include headline1(); }
-      &headline2 {@include headline2(); }
-      &headline3 {@include headline3(); }
-      &headline4 {@include headline4(); }
-      &headline5 {@include headline5(); }
-      &headline6 {@include headline6(); }
-      &subtitle1 {@include subtitle1(); }
-      &subtitle2 {@include subtitle2(); }
-      &body1 {@include body1(); }
-      &body2 {@include body2(); }
-      &button {@include button(); }
-      &caption {@include caption(); }
-      &overline {@include overline(); }
+      &text_headline1 {@include text-headline1(); }
+      &text_headline2 {@include text-headline2(); }
+      &text_headline3 {@include text-headline3(); }
+      &text_headline4 {@include text-headline4(); }
+      &text_headline5 {@include text-headline5(); }
+      &text_headline6 {@include text-headline6(); }
+      &text_subtitle1 {@include text-subtitle1(); }
+      &text_subtitle2 {@include text-subtitle2(); }
+      &text_body1 {@include text-body1(); }
+      &text_body2 {@include text-body2(); }
+      &text_button {@include text-button(); }
+      &text_caption {@include text-caption(); }
+      &text_overline {@include text-overline(); }
     }
 
     /* icon-button*/
     &icon_button {
-      @import "./molecules/icon/container";
+      @import "./molecules/containers/icon";
       &::before {
+        display: none;
+      }
+      &::after {
         @import "./molecules/icon/core";
       }
 
@@ -48,6 +52,49 @@
       }
       @include active() {
         @include state-white-1($state-white-active);
+      }
+    }
+
+    &tab {
+      &_item {
+        @mixin tab-item-core() {
+          &::before {
+            @include text-button();     
+          } 
+          &::after {
+            padding-right: $padding-quater;
+            font-size: $padding;
+          }
+          color: hsla(265, 0, 0, 0.54);
+        
+          @include hover() {
+            background-color: hsl(265, 100%, 98%);
+          }
+          @include active() {
+            color: hsl(265, 100%, 47%);
+          }
+        }
+        &, &_small {    
+          &::after {
+            @import "./molecules/icon/core";
+          }
+        }        
+        & {
+          @import "./molecules/containers/tab-item";
+          @include tab-item-core();
+          &._bordered {
+            box-sizing: border-box;
+            border-bottom: 2px solid currentColor;
+          }
+        }
+        &_small {
+          @import "./molecules/containers/tab-item-small";
+          @include tab-item-core();
+          &._bordered::before {
+            box-sizing: border-box;
+            border-bottom: 2px solid currentColor;
+          }
+        }
       }
     }
   }  

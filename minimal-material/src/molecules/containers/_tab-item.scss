@@ -1,0 +1,10 @@
+& {
+  height: $padding-double;
+  padding: 0 $padding;
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: row-reverse;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}

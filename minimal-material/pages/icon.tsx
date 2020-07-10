@@ -1,7 +1,5 @@
 import { CSSProperties } from "react";
 const base = "mm_icon_button" 
-, demo = `${base}__demo`
-, stated = `${base} _`
 
 export default function Icon() {
   return (
@@ -47,15 +45,10 @@ export default function Icon() {
         </div>
       </section>
       <section>
-        <style>{`
-          .${base}::before {
-            content: "favorite";
-          }
-        `}</style>
-        <div className={base}></div>
-        <div className={`${stated}hover`}></div>
-        <div className={`${stated}focus`}></div>
-        <div className={`${stated}active`}></div>
+        <div className={`${base} content_favorites`}></div>
+        <div className={`${base} _hover content_favorites`}></div>
+        <div className={`${base} _focus content_favorites`}></div>
+        <div className={`${base} _active content_favorites`}></div>
       </section>
     </article>
   );

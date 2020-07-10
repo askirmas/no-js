@@ -26,6 +26,11 @@
   --regular: 400;
   --medium: 500;
   /* sizes */
-  --unit: 1rem; // font size
   --radius: 4px;  
+  --unit: 1rem; // font size
+  --size-big: calc(4.5 * var(--unit));
+  --padding: calc(1.5 * var(--unit));
+  --padding-double: calc(3 * var(--unit));
+  --padding-half: calc(0.75 * var(--unit));  
+  --padding-quater: calc(0.375 * var(--unit));  
 }

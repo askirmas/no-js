@@ -14,13 +14,13 @@ $post: "/v6/24px.svg";
   display: flex;
   align-items: center;
   width: 100%;
-  &::before {
+  &::after {
     @include material-icon()
   }
 }
 
-@mixin beforing($content) {
-  &::before {
+@mixin iconing($content) {
+  &::after {
     content: $content;
     @content;
   }

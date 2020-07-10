@@ -31,3 +31,16 @@
   }
   @return unquote($return); 
 }
+
+@mixin content($icon, $content) {
+  @if ($icon != null) {
+    &::after {
+      content: $icon;
+    }  
+  }
+  @if ($content != null) {
+    &::before {
+      content: $content;
+    }  
+  }
+}

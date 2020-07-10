@@ -1,0 +1,12 @@
+& {
+  height: $size-big;
+  padding: 0 $padding;
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: column-reverse;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+  // box-sizing: border-box;
+  // border-bottom: 1px solid transparent;
+}

@@ -7,7 +7,7 @@ input, select, option {
 input[type="checkbox"],
 input[type="radio"],
 option:checked {
-  &::before {
+  &::after {
     @include material-icon();
   }
 }

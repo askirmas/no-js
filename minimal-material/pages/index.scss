@@ -1,3 +1,4 @@
+@use "../src/utils";
 article {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -16,6 +17,25 @@ article {
   }
 }
 
+.content_ {
+  &recents {
+    @include utils.content("access_time", "recents");
+  }
+  &nearby {
+    @include utils.content("near_me", "nearby");
+  }
+  &favorites {
+    @include utils.content("favorite", "favorites");
+  }
+
+  &tab {
+    @each $title in ("One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve") {
+      &_#{$title} {
+        @include utils.content(null, "Tab " $title);
+      } 
+    }
+  }
+}
 
 /* article {
   display: inline-grid;
