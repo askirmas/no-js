@@ -4,7 +4,8 @@ import App from 'next/app'
 
 /* import styles in _app, not in doc https://github.com/zeit/next-plugins/issues/282#issuecomment-436661879 */
 import "../origin.css"
-import "./index.css"
+import "./index.scss"
+import "../src/main.scss"
 
 class MyApp extends App {
   // Only uncomment this method if you have blocking data requirements for

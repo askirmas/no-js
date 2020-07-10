@@ -1,0 +1,80 @@
+@mixin headline1() {
+  font-weight: #{$light};
+  font-size: calc(6 * #{$unit});
+  line-height: 1;
+  letter-spacing: calc(-0.09375 * #{$unit});
+}
+@mixin headline2() {
+  font-weight: #{$light};
+  font-size: calc(3.75 * #{$unit});
+  line-height: 1;
+  letter-spacing: calc(-0.03125 * #{$unit});
+}
+@mixin headline3() {
+  font-weight: #{$regular};
+  font-size: calc(3 * #{$unit});
+  line-height: calc(3.125 * #{$unit});
+  letter-spacing: calc(0 * #{$unit});
+}
+@mixin headline4() {
+  font-weight: #{$regular};
+  font-size: calc(2.125 * #{$unit});
+  line-height: calc(2.5 * #{$unit});
+  letter-spacing: calc(0.015625 * #{$unit});
+}
+@mixin headline5() {
+  font-weight: #{$regular};
+  font-size: calc(1.5 * #{$unit});
+  line-height: calc(2 * #{$unit});
+  letter-spacing: calc(0 * #{$unit});
+}
+@mixin headline6() {
+  font-weight: #{$medium};
+  font-size: calc(1.25 * #{$unit});
+  line-height: calc(2 * #{$unit});
+  letter-spacing: calc(0.009375 * #{$unit});
+}
+@mixin subtitle1() {
+  font-weight: #{$regular};
+  font-size: calc(1 * #{$unit});
+  line-height: calc(1.75 * #{$unit});
+  letter-spacing: calc(0.009375 * #{$unit});
+}
+@mixin subtitle2() {
+  font-weight: #{$medium};
+  font-size: calc(0.875 * #{$unit});
+  line-height: calc(1.375 * #{$unit});
+  letter-spacing: calc(0.00625 * #{$unit});
+}
+@mixin body1() {
+  font-weight: #{$regular};
+  font-size: calc(1 * #{$unit});
+  line-height: calc(1.5 * #{$unit});
+  letter-spacing: calc(0.03125 * #{$unit});
+}
+@mixin body2() {
+  font-weight: #{$regular};
+  font-size: calc(0.875 * #{$unit});
+  line-height: calc(1.25 * #{$unit});
+  letter-spacing: calc(0.015625 * #{$unit});
+}
+@mixin button() {
+  font-weight: #{$medium};
+  font-size: calc(0.875 * #{$unit});
+  text-transform: uppercase;
+  line-height: calc(2.25 * #{$unit});
+  letter-spacing: calc(0.078125 * #{$unit});
+}
+@mixin caption() {
+  font-weight: #{$regular};
+  font-size: calc(0.75 * #{$unit});
+  line-height: calc(1.25 * #{$unit});
+  letter-spacing: calc(0.025 * #{$unit});
+}
+@mixin overline() {
+  font-weight: #{$medium};
+  font-size: calc(0.75 * #{$unit});
+  line-height: calc(2 * #{$unit});
+  text-transform: uppercase;
+  letter-spacing: calc(0.125 * #{$unit});
+}
