@@ -1,0 +1,9 @@
+& {
+  $size: calc(1.5 * #{$unit});
+  width: $size;
+  height: $size;
+  font-size: $size;
+  padding: calc(0.75 * #{$unit});
+  border-radius: 50%;
+  border: 0px solid transparent;
+}

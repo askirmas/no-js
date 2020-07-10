@@ -1,8 +1,24 @@
 & {
   /* basic colors*/
-  --white-data: 0, 0, 100%;
-  --black-data: 0, 0, 0;
-  --primary-data: 265, 100%, 47%;
+  --primary-h: 265;
+  --primary-s: 100%;
+  --primary-l: 47%;
+  --primary-data: var(--primary-h), var(--primary-s), var(--primary-l);
+  --white-h:
+    var(--primary-h)
+    /* 0 */
+  ;
+  --white-s:
+    /* var(--primary-s) */
+    0%
+  ;
+  --white-l: 100%;
+  --white-data: var(--white-h), var(--white-s), var(--white-l);
+  --black-h: var(--primary-h) /*0*/;
+  --black-s: var(--primary-s) /*0*/;
+  --black-l: 0;
+  --black-data: var(--black-h), var(--black-s), var(--black-l);
+  /*additional colors*/
   --secondary-data: 180, 99%, 27%;
   --error-data: 349, 100%, 35%; 
   /* font weight*/

@@ -1,0 +1,33 @@
+@mixin hover() {
+  @at-root #{modifiers(&, "hover")} {
+    @content;
+  }
+}
+
+@mixin focus() {
+  @at-root #{modifiers(&, "focus")} {
+    @content;
+  }
+}
+
+@mixin focus-within() {
+  @at-root #{modifiers(&, "focus-within")} {
+    @content;
+  }
+}
+
+@mixin active() {
+  @at-root #{modifiers(&, "active")} {
+    @content;
+  }
+}
+
+@function modifiers($ctx, $mod) {
+  $return: "";
+  $isFirst: true;
+  @each $delimiter in $delimiters  {
+    $return: $return + if($isFirst, "", ", ") + $ctx + $delimiter + $mod; 
+    $isFirst: false;
+  }
+  @return unquote($return); 
+}
