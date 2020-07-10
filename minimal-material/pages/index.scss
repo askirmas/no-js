@@ -3,7 +3,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(auto-fit, minmax(max-content, 1px));
-  grid-auto-flow: dense;
   column-gap: 1em;
 
   & > section {
@@ -19,7 +18,10 @@
 
 .suite_vertical {
   display: inline-grid;
-  gap: 1em;
+  grid-template-columns: repeat(auto-fill, minmax(min-content, 1px));
+  // grid-template-rows: repeat(auto-fit, minmax(max-content, 1px));
+  grid-auto-rows: max-content;
+  grid-auto-flow: dense;
   & > section {
     &, & > div {
       display: contents;
@@ -47,16 +49,18 @@
   }
 }
 
-.box-check > * {
-  outline-width: 1px;
-  outline-style: dotted;
-  outline-color: green;
-  // out: 1px dotted green;
-  &::before, &::after {
-    background-color: hsl(0, 100%, 50%, 0.2);
+.box-check {
+  *:not(fieldset):not(legend) {
+    outline-width: 1px;
+    outline-style: dotted;
+    outline-color: green;
+    // out: 1px dotted green;
+    &::before, &::after {
+      background-color: hsl(0, 100%, 50%, 0.2);
+    }
+    background-color: hsl(240, 100%, 50%, 0.4);
+    background-clip: border-box;
   }
-  background-color: hsl(240, 100%, 50%, 0.4);
-  background-clip: border-box;
 }
 
 /* article {
