@@ -1,0 +1,44 @@
+<input class="native" type="text" required="" placeholder="Username">
+<input class="bgr" type="text" required="" placeholder=" ">
+
+<main class="bgr"></main>
+<style>
+
+input {
+  /* display: block; */
+  padding: 1.5em 0;
+  font-size: 1rem;
+}
+
+main {
+  width: 300px;
+  height: 100px;
+  background-color: azure;
+}
+.native::placeholder {
+  transition-duration: 1s;
+  transition-property: transform;
+}
+.native:focus::placeholder {
+  /*idea from https://mildrenben.github.io/surface/ */
+  transform: translateY(-1.5em);
+  font-size: 11px;
+}   
+
+.bgr {
+  background-repeat: no-repeat;
+  /* https://stackoverflow.com/a/59066059/9412937 */
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='1.5em' width='10em'><text y='1em' fill='gray'>Type Something...</text></svg>");
+  background-position-x: left;
+  background-position-y: center;
+  
+  transition-property: background-position, background-size;
+  transition-duration: 1s;
+  background-size: 100%;
+}
+input.bgr:not(:placeholder-shown), .bgr:focus {
+  background-position-y: top;
+  background-size: 50%;
+}
+
+</style>
