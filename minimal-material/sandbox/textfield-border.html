@@ -1,14 +1,16 @@
 <main></main>
 <input type="search" placeholder=" " inputmode="text">
+<svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="10em"><line x1="0" y1="0.75em" x2="10em" y2="0.75em" style="stroke:black; stroke-width: 4px"/><text x="1em" y="1em" style="stroke:white; stroke-width:1em">Type Something1</text><text x="1em" y="1em" fill="gray">Type Something</text></svg>
 <style>
 /*check https://stackoverflow.com/a/61041829/9412937*/
+
 
 main,
 input::-webkit-textfield-decoration-container {
   
   background-repeat: no-repeat;
   /* https://stackoverflow.com/a/41902064/9412937 */
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='1.5em' width='10em'><text y='1em' style='stroke:white; stroke-width:1em'>Type Something...</text><text y='1em' fill='gray'>Type Something...</text></svg>");
+  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="10em"><line x1="0" y1="1em" x2="0" y2="10em" style="stroke:black; stroke-width: 10px"/><text y="1em" style="stroke:white; stroke-width:1em">Type Something...</text><text y="1em" fill="gray">Type Something...</text></svg>');
   background-position-x: 1em;
   background-position-y: top;
   background-size: 50%;  
@@ -51,7 +53,7 @@ main {
   overflow: visible;
   border-width: 2em;
   outline-width: 4px;
-  outline-color: blue;
+  outline-color: hsla(270, 100%, 50%, 0.5);
   outline-offset: -1.25em;
   outline-style: solid;
 }
