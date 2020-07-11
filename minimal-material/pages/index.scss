@@ -17,11 +17,14 @@
 }
 
 .suite_vertical {
-  display: inline-grid;
-  grid-template-columns: repeat(auto-fill, minmax(min-content, 1px));
+  display: grid;
+  overflow: hidden;
+  width: 100%;
+  // grid-template-columns: repeat(auto-fill, minmax(max-content, 1px));
+  grid-auto-columns: max-content;
   // grid-template-rows: repeat(auto-fit, minmax(max-content, 1px));
   grid-auto-rows: max-content;
-  grid-auto-flow: dense;
+  grid-auto-flow: row;
   & > section {
     &, & > div {
       display: contents;
