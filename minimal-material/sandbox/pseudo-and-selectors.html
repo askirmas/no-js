@@ -1,0 +1,11 @@
+<div></div>
+<div>abc</div>
+<div><span></span></div>
+<style>
+div:empty::before {
+  content: "<";
+}
+div:empty::after {
+  content: ">";
+}
+</style>
