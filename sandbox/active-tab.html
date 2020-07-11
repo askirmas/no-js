@@ -1,0 +1,51 @@
+<header>
+  <input name="tab" type="radio">
+  <input name="tab" type="radio">
+  <input name="tab" type="radio">
+  <div></div>
+</header>
+<style>
+header {
+  display: inline-grid;
+  grid-auto-columns: 100px;
+  grid-auto-flow: column;
+  position: relative;
+  overflow: hidden;
+  justify-items: center;
+}
+header > input {
+  grid-row: 1;
+}
+input:checked:nth-child(1) ~ div {
+  --checked: 1;
+} 
+input:checked:nth-child(2) ~ div {
+  --checked: 2;
+} 
+input:checked:nth-child(3) ~ div {
+  --checked: 3;
+} 
+
+div {
+  position: relative;
+  height: 0;
+  grid-column: 1;
+  grid-row: 2;
+  order: 1000;
+  width: 100%;
+}
+div::after {
+  position: absolute;
+  pointer-events: none;
+  content: "";
+  height: 2px;
+  background-color: red;
+  width: 100%;
+  left: calc(100% * (var(--checked, 0) - 1));
+  bottom: 0;
+  transition-property: left;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+</style>
