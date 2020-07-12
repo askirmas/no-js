@@ -39,6 +39,7 @@
 main {
   display: grid;
   gap: 1em;
+  grid-template-columns: repeat(auto-fill, minmax(600px, max-content));
 }
 </style>
 <style>
@@ -46,8 +47,10 @@ div::before {
   content: var(--icon) var(--title) var(--br) var(--description);  
 }
 div {
+  display: inline-block;
   white-space: pre;
   height: max-content;
+  max-width: 37.5rem;
 }
 div::before,
 div::after {
@@ -91,8 +94,12 @@ div::first-line {
   font-weight: bold;
 }
 
+div::first-letter {
+  vertical-align: bottom;
+}
 .first_letter_none::first-letter {
   float: none;
+  vertical-align: middle;
 }
 .first_letter_left::first-letter {
   float: left;
