@@ -1,0 +1,82 @@
+<main>
+  <span></span>
+  <div class="white op0"></div>
+  <div class="colored op0"></div>
+  <div class="white op1"></div>
+  <div class="colored op1"></div>
+  <div class="white op3"></div>
+  <div class="colored op3"></div>
+  <div class="white op2 act"></div>
+  <div class="colored op2"></div>
+  <div class="white op3 act"></div>
+  <div class="colored op3"></div>
+  <div class="white op3"></div>
+  <div class="colored op3 act"></div>
+  <div class="white op2"></div>
+  <div class="colored op2"></div>
+
+</main>
+<style>
+:root {
+  --hue: 265;
+  --saturation: 100%;
+  --light: 47%;
+}
+main {
+  display: grid;
+  grid-template-columns: 325px 100px 125px 100px;
+  grid-template-rows: repeat(7, 100px);
+  grid-auto-flow: dense;
+}
+div {
+  z-index: 1;
+  background-color: hsl(
+    var(--hue),
+    var(--saturation),
+    var(--overlay)
+  );
+}
+.white {
+  grid-column: 2;
+}
+.colored {
+  grid-column: 4;
+}
+span {
+  background-image: url(https://lh3.googleusercontent.com/i8NIdt2zYs4lxN9BCqkp7rhcgj_nSmhV4oFAmkSOLQu2tTbAH9crfADeIJK8UfjLjEeaunw01LFeGJ2xCMTR2_RsLyG7V-us2WwM7Wk=w1064-v0);
+  background-repeat: no-repeat;
+  background-position-x: -100px;
+  background-position-y: -80px;
+  position: relative;
+  width: 800px;
+  height: 700px;
+  grid-column: 1;
+  grid-row: 1;
+}
+</style>
+<style>
+.op0 { --overlay_index: 0;}
+.op1 { --overlay_index: 1;}
+.op2 { --overlay_index: 2;}
+.op3 { --overlay_index: 3;}
+.white {
+  --overlay: calc(100% - 4% * var(--overlay_index) * 1);
+}
+.white:not(.act) {
+  --saturation: 0;
+  --light: 100%;
+}
+.white.act {
+  --overlay: calc(100% - 4 * var(--overlay_index) * var(--light) / 100);
+  /* --saturation: calc(96% - 0.02% * var(--overlay_index)); */
+}
+.colored:not(.op0) {
+  --saturation: 87%;
+}
+.colored {
+  --overlay: calc(var(--light) + (100% - var(--light)) * 8 * var(--overlay_index) / 100);
+}
+.colored.act {
+  --overlay_index: 4;
+}
+</style>
