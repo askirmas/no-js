@@ -1,0 +1,127 @@
+<main>
+  <div class="list_item data1"></div>
+  <div class="list_item data2"></div>
+  <div class="list_item data3"></div>
+  <div class="list_item data4"></div>
+  <div class="list_item data3"> </div>
+  <div class="list_item data4"> </div>
+  <input class="list_input data1" type="checkbox"/>
+  <input class="list_input data2" type="checkbox"/>
+</main>
+<style>
+:root {
+  font-size: 16px;
+}
+</style>
+<style>
+.list_item,
+.list_input {
+  display: block;
+  position: relative;
+  max-width: 600px;
+  height: max-content;
+  padding-right: 1em;
+
+}
+.list_item:not(:empty) {
+  padding-left: 3.5em;
+}
+.list_item:empty,
+.list_input {
+  padding-left: 1em;
+}
+.list_item {
+  padding-top: calc(0.75em + 0.125em);
+  padding-bottom: calc(0.75em + 0.125em);
+}
+.list_input {
+  width: 100%;
+  font-size: inherit;
+  font-family: inherit;
+  margin: 0;
+  -webkit-appearance: none;
+  padding-top: calc(0.75em + 0.125em + 0.25em);
+  padding-bottom: calc(0.75em + 0.125em + 0.25em);
+}
+
+.list_item::before, .list_item::after,
+.list_input::before, .list_input::after {
+  line-height: 1.5;
+}
+.list_item::before,
+.list_input::before {
+  white-space: pre;
+  margin-left: 3.5em;
+}
+.list_item::after,
+.list_input::after {
+  position: absolute;
+  width: 1.5em;
+  height: 1.5em;
+  /* transform: perspective(1px) translateY(-50%); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list_item:not(:empty)::after,
+.list_input::after {
+  position: absolute;
+  right: 1em;
+}
+.list_item:empty::after {
+  left: 1em;
+}
+.list_item::after {
+  top: calc(50% - 0.75em);
+}
+.list_input::after {
+  top: calc(50% - 1.25em);
+}
+
+.list_item::first-line,
+.list_input::first-line {
+  font-weight: 700;
+}
+.list_item > *:first-child,
+.list_input::after {
+  width: 2.5em;
+  height: 2.5em;
+}
+.list_input:checked::after {
+  content: "V"
+}
+.list_input:not(:checked)::after {
+  content: "0"
+}
+/* .list_item_single_1line {
+  grid-template-columns: [padding-left] 1rem [padding-left content] 1fr [content padding-right] 1rem [padding-right];
+  grid-template-rows: 
+} */
+
+</style>
+<style>
+.data1::before,
+.data3::before {
+  content: "Title only";
+}
+.data2::before,
+.data4::before {
+  content: "Title" "\A" "Description";
+}
+.data3::after,
+.data4::after {
+  content: "X";
+}
+
+</style>
+<style>
+.list_item, .list_input {
+  box-sizing: border-box;
+  border: 1px dotted black;
+}
+.list_item::after, .list_input::after {
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+</style>
