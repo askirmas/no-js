@@ -1,26 +1,26 @@
 <main>
   <span></span>
-  <div class="white op0"></div>
-  <div class="colored op0"></div>
-  <div class="white op1"></div>
-  <div class="colored op1"></div>
-  <div class="white op3"></div>
-  <div class="colored op3"></div>
-  <div class="white op2 act"></div>
-  <div class="colored op2"></div>
-  <div class="white op3 act"></div>
-  <div class="colored op3"></div>
-  <div class="white op3"></div>
-  <div class="colored op3 act"></div>
-  <div class="white op2"></div>
-  <div class="colored op2"></div>
+  <div class="white ov_in0"></div>
+  <div class="colored ov_in0"></div>
+  <div class="white ov_in1"></div>
+  <div class="colored ov_in1"></div>
+  <div class="white ov_in3"></div>
+  <div class="colored ov_in3"></div>
+  <div class="white ov_in2 act"></div>
+  <div class="colored ov_in2"></div>
+  <div class="white ov_in3 act"></div>
+  <div class="colored ov_in3"></div>
+  <div class="white ov_in3"></div>
+  <div class="colored ov_in3 act"></div>
+  <div class="white ov_in2"></div>
+  <div class="colored ov_in2"></div>
 
 </main>
 <style>
 :root {
-  --hue: 265;
-  --saturation: 100%;
-  --light: 47%;
+  --primary-hue: 265;
+  --primary-saturation: 1;
+  --primary-light: 0.47;
 }
 main {
   display: grid;
@@ -31,9 +31,9 @@ main {
 div {
   z-index: 1;
   background-color: hsl(
-    var(--hue),
-    var(--saturation),
-    var(--overlay)
+    var(--primary-hue),
+    calc(100% * var(--saturation, var(--primary-saturation))),
+    calc(100% * var(--light))
   );
 }
 .white {
@@ -55,28 +55,40 @@ span {
 }
 </style>
 <style>
-.op0 { --overlay_index: 0;}
-.op1 { --overlay_index: 1;}
-.op2 { --overlay_index: 2;}
-.op3 { --overlay_index: 3;}
+.ov_in0 { --overlay_index: 0;}
+.ov_in1 { --overlay_index: 1;}
+.ov_in2 { --overlay_index: 2;}
+.ov_in3 { --overlay_index: 3;}
 .white {
-  --overlay: calc(100% - 4% * var(--overlay_index) * 1);
-}
-.white:not(.act) {
-  --saturation: 0;
-  --light: 100%;
+  --light: (
+    1
+    - 0.04 * var(--overlay_index)
+    * 1
+  );
 }
 .white.act {
-  --overlay: calc(100% - 4 * var(--overlay_index) * var(--light) / 100);
-  /* --saturation: calc(96% - 0.02% * var(--overlay_index)); */
-}
-.colored:not(.op0) {
-  --saturation: 87%;
+  --light: (
+    1
+    - 0.04 * var(--overlay_index)
+    * var(--primary-light)
+  );
+  /* --saturation: (0.96 - 0.02 * var(--overlay_index)); */
 }
 .colored {
-  --overlay: calc(var(--light) + (100% - var(--light)) * 8 * var(--overlay_index) / 100);
+  --light: (
+    var(--primary-light)
+    + 0.08 * var(--overlay_index)
+    * (1 - var(--primary-light))
+  );
 }
 .colored.act {
   --overlay_index: 4;
+}
+.white:not(.act) {
+  --saturation: 0;
+  --primary-light: 1;
+}
+.colored:not(.ov_in0) {
+  --primary-saturation: 0.87;
 }
 </style>
