@@ -1,0 +1,135 @@
+<main>
+  <div class="first_letter_left"></div>
+
+  <div class="first_letter_left Description"></div>
+
+  <div class="first_letter_left Icon"></div>
+  <div class="first_letter_right Icon"></div>
+
+  <div class="first_letter_left Icon Ava"></div>
+  <div class="first_letter_right Icon Ava"></div>
+
+  <div class="first_letter_none Icon Description"></div>
+  <div class="first_letter_left Icon Description"></div>
+  <div class="first_letter_right Icon Description"></div>
+
+  <div class="first_letter_none Icon Ava Description"></div>
+  <div class="first_letter_left Icon Ava Description"></div>
+  <div class="first_letter_right Icon Ava Description"></div>
+  
+
+</main>
+<style data-title="env">
+:root {
+  font-size: 16px;
+  --title: "Title";
+  --br: "\A";  
+}
+main {
+  display: grid;
+  gap: 1em;
+  /* grid-template-columns: max-content; */
+  /* grid-template-columns: repeat(auto-fit, minmax(600px, min-content)); */
+}
+</style>
+<style>
+.Icon {
+  --icon: "\e87e";
+}
+.Description {
+  --description: var(--br) "Description";
+}
+div::before {
+  content: var(--icon, "") var(--title) var(--description, "");  
+}
+div {
+  /* display: inline-block; */
+  display: table-cell;
+  vertical-align: bottom;
+  white-space: pre;
+  height: max-content;
+  max-width: 37.5rem;
+}
+
+/* div::before,
+div::after, */
+div {
+  line-height: 1.5em;
+}
+.Icon::first-letter {
+  font-size: 1.5rem;
+}
+div.Ava::first-letter {
+  font-size: 2.5rem;
+  line-height: 1.5em;
+}
+
+div::before {
+  display: list-item;
+  vertical-align: bottom;
+  /* height: max-content; */
+  font-family: 'Roboto';
+  text-decoration: underline;
+}
+
+div.Icon::first-letter {
+  /* line-height: 1.5rem; */
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+div::first-line {
+  font-family: 'Roboto';
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
+div.Icon::first-letter {
+  vertical-align: bottom;
+}
+.first_letter_none.Icon::first-letter {
+  float: none;
+  vertical-align: bottom;
+}
+.first_letter_left.Icon::first-letter {
+  float: left;
+}
+.first_letter_right.Icon::first-letter {
+  float: right;
+}
+</style>
+<style data-title="boxes">
+div {
+  border: 1px solid black;
+}
+div::before {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+div::first-line {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+div.Icon::first-letter {
+  background-color: rgba(0, 0, 255, 0.3);
+}
+</style>
+<style data-title="fonts">
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i');  
+  @font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  /* src: url(../flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2'); */
+  src: url(https://fonts.gstatic.com/s/materialicons/v48/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+</style>
