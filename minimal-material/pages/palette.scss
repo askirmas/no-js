@@ -1,27 +1,79 @@
-:root {
-  --primary-hue: 265;
-  --primary-saturation: 1;
-  --primary-light: 0.47;
+$primary-hue: 265;
+$primary-saturation: 1;
+$magic-saturation: 0.87;
+$primary-light: 0.47;
+$step: 0.04;
+
+@mixin bgr-color($saturation, $light) {
+  background-color: hsl(
+    $primary-hue,
+    calc(100% * #{$saturation}),
+    calc(100% * #{$light})
+  );
 }
+
+@function light-line($index, $start, $ending, $step-k) {
+  @return calc(
+    #{$start}
+    + #{$step} * (#{$step-k})
+    * #{$index}
+    * #{$ending}
+  );
+}
+
+.ov_in0 { --overlay_index: 0;}
+.ov_in1 { --overlay_index: 1;}
+.ov_in2 { --overlay_index: 2;}
+.ov_in3 { --overlay_index: 3;}
+.white {
+  &.act {
+    @include bgr-color(
+      /* (0.96 - 0.02 * var(--overlay_index)) */
+      $primary-saturation,
+      light-line(var(--overlay_index), 1, $primary-light, -1)
+    );      
+  }  
+  &:not(.act) {
+    @include bgr-color(
+      0,
+      light-line(var(--overlay_index), 1, 1, -1)
+    );      
+  }  
+}
+.colored {
+  $light: light-line(
+    var(--overlay_index),
+    $primary-light,
+    1 - $primary-light,
+    2
+  );
+  &.act {
+    --overlay_index: 4;
+  }
+  &:not(.ov_in0) {
+    @include bgr-color($magic-saturation, $light);
+  }  
+
+  &.ov_in0 {
+    @include bgr-color($primary-saturation, $light);
+  }
+ 
+}
+
 main {
   display: grid;
   grid-template-columns: 325px 100px 125px 100px;
   grid-template-rows: repeat(7, 100px);
   grid-auto-flow: dense;
 }
-div {
-  z-index: 1;
-  background-color: hsl(
-    var(--primary-hue),
-    calc(100% * var(--saturation, var(--primary-saturation))),
-    calc(100% * var(--light))
-  );
-}
+
 .white {
   grid-column: 2;
+  z-index: 1;
 }
 .colored {
   grid-column: 4;
+  z-index: 1;
 }
 span {
   background-image: url(https://lh3.googleusercontent.com/i8NIdt2zYs4lxN9BCqkp7rhcgj_nSmhV4oFAmkSOLQu2tTbAH9crfADeIJK8UfjLjEeaunw01LFeGJ2xCMTR2_RsLyG7V-us2WwM7Wk=w1064-v0);
@@ -33,41 +85,4 @@ span {
   height: 700px;
   grid-column: 1;
   grid-row: 1;
-}
-
-.ov_in0 { --overlay_index: 0;}
-.ov_in1 { --overlay_index: 1;}
-.ov_in2 { --overlay_index: 2;}
-.ov_in3 { --overlay_index: 3;}
-.white {
-  --light: (
-    1
-    - 0.04 * var(--overlay_index)
-    * 1
-  );
-}
-.white.act {
-  --light: (
-    1
-    - 0.04 * var(--overlay_index)
-    * var(--primary-light)
-  );
-  /* --saturation: (0.96 - 0.02 * var(--overlay_index)); */
-}
-.colored {
-  --light: (
-    var(--primary-light)
-    + 0.08 * var(--overlay_index)
-    * (1 - var(--primary-light))
-  );
-}
-.colored.act {
-  --overlay_index: 4;
-}
-.white:not(.act) {
-  --saturation: 0;
-  --primary-light: 1;
-}
-.colored:not(.ov_in0) {
-  --primary-saturation: 0.87;
 }
