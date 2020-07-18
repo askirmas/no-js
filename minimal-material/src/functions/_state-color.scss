@@ -1,0 +1,48 @@
+$-step: 0.04;
+
+@function -light-value($index, $start, $ending, $step-k, $step: $-step) {
+  $k: $step * $step-k * $ending;
+  @if type-of($index) == number {
+    @return $start + $k * $index;
+  } @else {
+    @return calc(#{$start} + #{$k} * #{$index});
+  }
+}
+
+@function on-white($index: 0, $acted: false, $hue, $saturation, $light) {
+  $sat: 0;
+  $light-end: 1;
+
+  @if ($acted) {
+    /* (0.96 - 0.02 * $index) */
+    $sat: $saturation;
+    $light-end: $light;
+  }
+
+  @return hsl(
+    $hue,
+    100% * $sat,
+    calc(100% * #{-light-value(
+      $index,
+      1,
+      $light-end,
+      -1
+    )})
+  );
+}
+
+
+@function on-color($index: 0, $acted: false, $hue, $saturation, $light, $magic-saturation) {
+  $sat: if($index == 0, $saturation, $magic-saturation); 
+
+  @return hsl(
+    $hue,
+    100% * $sat,
+    calc(100% * #{-light-value(
+      if($acted, "(#{$index} + 1)", $index),
+      $light,
+      1 - $light,
+      2
+    )})
+  );
+}

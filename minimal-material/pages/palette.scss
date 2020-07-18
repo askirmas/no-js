@@ -1,63 +1,31 @@
-$primary-hue: 265;
-$primary-saturation: 1;
-$magic-saturation: 0.87;
-$primary-light: 0.47;
-$step: 0.04;
+@use "theme";
+@use "../src/atoms/background-color" with (
+  $-hue: theme.$primary-hue,
+  $-saturation: theme.$primary-saturation,
+  $-light: theme.$primary-light
+);
+@use "../src/quarks/overlays";
 
-@mixin bgr-color($saturation, $light) {
-  background-color: hsl(
-    $primary-hue,
-    calc(100% * #{$saturation}),
-    calc(100% * #{$light})
-  );
+.ov_in {
+  &0 { --overlay_index: #{overlays.$enabled};}
+  &1 { --overlay_index: #{overlays.$hover};}
+  &2 { --overlay_index: #{overlays.$selected};}
+  &3 { --overlay_index: #{overlays.$focus};}  
 }
-
-@function light-line($index, $start, $ending, $step-k) {
-  @return calc(
-    #{$start}
-    + #{$step} * (#{$step-k})
-    * #{$index}
-    * #{$ending}
-  );
-}
-
-.ov_in0 { --overlay_index: 0;}
-.ov_in1 { --overlay_index: 1;}
-.ov_in2 { --overlay_index: 2;}
-.ov_in3 { --overlay_index: 3;}
 .white {
+  @include background-color.on_white(var(--overlay_index));      
   &.act {
-    @include bgr-color(
-      /* (0.96 - 0.02 * var(--overlay_index)) */
-      $primary-saturation,
-      light-line(var(--overlay_index), 1, $primary-light, -1)
-    );      
-  }  
-  &:not(.act) {
-    @include bgr-color(
-      0,
-      light-line(var(--overlay_index), 1, 1, -1)
-    );      
+    @include background-color.on_white(var(--overlay_index), true);      
   }  
 }
 .colored {
-  $light: light-line(
-    var(--overlay_index),
-    $primary-light,
-    1 - $primary-light,
-    2
-  );
-  &.act {
-    --overlay_index: 4;
-  }
-  &:not(.ov_in0) {
-    @include bgr-color($magic-saturation, $light);
-  }  
-
+  @include background-color.on_color(var(--overlay_index));
   &.ov_in0 {
-    @include bgr-color($primary-saturation, $light);
+    @include background-color.on_color();
   }
- 
+  &.act {
+    @include background-color.on_color(overlays.$actived, true);
+  } 
 }
 
 main {

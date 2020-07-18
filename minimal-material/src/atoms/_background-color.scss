@@ -1,0 +1,14 @@
+@use "../functions/state-color";
+
+$-hue: 265 !default;
+$-saturation: 1 !default;
+$-light: 0.47 !default;
+$-magic-saturation: 0.87 !default;
+
+@mixin on_white($index: 0, $acted: false, $hue: $-hue, $saturation: $-saturation, $light: $-light) {
+  background-color: state-color.on_white($index, $acted, $hue, $saturation, $light);
+}
+
+@mixin on_color($index: 0, $acted: false, $hue: $-hue, $saturation: $-saturation, $light: $-light, $magic-saturation: $-magic-saturation) {
+  background-color: state-color.on_color($index, $acted, $hue, $saturation, $light, $magic-saturation);
+}
