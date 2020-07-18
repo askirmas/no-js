@@ -1,88 +1,90 @@
-@import "../calc";
-
 $-unit: 1rem !default;
+
+@import "../u";
+
+
 $-light: 300 !default;
 $-regular: 400 !default;
 $-medium: 500 !default;
 
 @mixin headline1() {
   font-weight: #{$-light};
-  font-size: ce(6, "*", #{$-unit});
+  font-size: u(6);
   line-height: 1;
-  letter-spacing: ce(-0.09375, "*", #{$-unit});
+  letter-spacing: u(-0.09375);
 }
 @mixin headline2() {
   font-weight: #{$-light};
-  font-size: ce(3.75, "*", #{$-unit});
+  font-size: u(3.75);
   line-height: 1;
-  letter-spacing: ce(-0.03125, "*", #{$-unit});
+  letter-spacing: u(-0.03125);
 }
 @mixin headline3() {
   font-weight: #{$-regular};
-  font-size: ce(3, "*", #{$-unit});
-  line-height: ce(3.125, "*", #{$-unit});
-  letter-spacing: ce(0, "*", #{$-unit});
+  font-size: u(3);
+  line-height: u(3.125);
+  letter-spacing: u(0);
 }
 @mixin headline4() {
   font-weight: #{$-regular};
-  font-size: ce(2.125, "*", #{$-unit});
-  line-height: ce(2.5, "*", #{$-unit});
-  letter-spacing: ce(0.015625, "*", #{$-unit});
+  font-size: u(2.125);
+  line-height: u(2.5);
+  letter-spacing: u(0.015625);
 }
 @mixin headline5() {
   font-weight: #{$-regular};
-  font-size: ce(1.5, "*", #{$-unit});
-  line-height: ce(2, "*", #{$-unit});
-  letter-spacing: ce(0, "*", #{$-unit});
+  font-size: u(1.5);
+  line-height: u(2);
+  letter-spacing: u(0);
 }
 @mixin headline6() {
   font-weight: #{$-medium};
-  font-size: ce(1.25, "*", #{$-unit});
-  line-height: ce(2, "*", #{$-unit});
-  letter-spacing: ce(0.009375, "*", #{$-unit});
+  font-size: u(1.25);
+  line-height: u(2);
+  letter-spacing: u(0.009375);
 }
 @mixin subtitle1() {
   font-weight: #{$-regular};
-  font-size: ce(1, "*", #{$-unit});
-  line-height: ce(1.75, "*", #{$-unit});
-  letter-spacing: ce(0.009375, "*", #{$-unit});
+  font-size: u(1);
+  line-height: u(1.75);
+  letter-spacing: u(0.009375);
 }
 @mixin subtitle2() {
   font-weight: #{$-medium};
-  font-size: ce(0.875, "*", #{$-unit});
-  line-height: ce(1.375, "*", #{$-unit});
-  letter-spacing: ce(0.00625, "*", #{$-unit});
+  font-size: u(0.875);
+  line-height: u(1.375);
+  letter-spacing: u(0.00625);
 }
 @mixin body1() {
   font-weight: #{$-regular};
-  font-size: ce(1, "*", #{$-unit});
-  line-height: ce(1.5, "*", #{$-unit});
-  letter-spacing: ce(0.03125, "*", #{$-unit});
+  font-size: u(1);
+  line-height: u(1.5);
+  letter-spacing: u(0.03125);
 }
 @mixin body2() {
   font-weight: #{$-regular};
-  font-size: ce(0.875, "*", #{$-unit});
-  line-height: ce(1.25, "*", #{$-unit});
-  letter-spacing: ce(0.015625, "*", #{$-unit});
+  font-size: u(0.875);
+  line-height: u(1.25);
+  letter-spacing: u(0.015625);
 }
 /* Icon's 1.5 may be useful */ 
 @mixin button($line: 2.25) {
   font-weight: #{$-medium};
-  font-size: ce(0.875, "*", #{$-unit});
+  font-size: u(0.875);
   text-transform: uppercase;
-  line-height: ce($line, "*", #{$-unit});
-  letter-spacing: ce(0.078125, "*", #{$-unit});
+  line-height: u($line);
+  letter-spacing: u(0.078125);
 }
 @mixin caption() {
   font-weight: #{$-regular};
-  font-size: ce(0.75, "*", #{$-unit});
-  line-height: ce(1.25, "*", #{$-unit});
-  letter-spacing: ce(0.025, "*", #{$-unit});
+  font-size: u(0.75);
+  line-height: u(1.25);
+  letter-spacing: u(0.025);
 }
 @mixin overline() {
   font-weight: #{$-medium};
-  font-size: ce(0.75, "*", #{$-unit});
-  line-height: ce(2, "*", #{$-unit});
+  font-size: u(0.75);
+  line-height: u(2);
   text-transform: uppercase;
-  letter-spacing: ce(0.125, "*", #{$-unit});
+  letter-spacing: u(0.125);
 }

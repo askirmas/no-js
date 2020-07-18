@@ -1,12 +1,9 @@
 @use "text";
-@import "../calc";
-$-unit: 1rem !default;
+
+@import "../u";
+// $-unit: 1rem !default;
 
 // $icon-button: 1.125;
-
-@function u($k) {
-  @return ce($k,"*", $-unit);
-}
 
 @mixin core($icon-size: 1.5) {
   &::before {
