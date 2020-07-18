@@ -64,3 +64,10 @@
   };
 }
 
+@function hsl-($hue, $saturation, $lightness) {
+  @return hsl(
+    c($hue),
+    ce(100%, "*", $saturation),
+    ce(100%, "*", $lightness)
+  );
+}
