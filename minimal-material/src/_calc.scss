@@ -1,0 +1,66 @@
+/** Expression with 1 operator */
+@function e($a, $operator, $b, $withBrackets: false) {
+  @if (type-of($a) == string) or (type-of($b) == string) {
+    $exp: "#{$a} #{$operator} #{$b}";
+    @return if($withBrackets, "(#{$exp})", $exp);
+  } @else {
+    @if $operator == "+" {
+      @return $a + $b;
+    } @else if $operator == "-" {
+      @return $a - $b;
+    } @else if $operator == "*" {
+      @return $a * $b;
+    } @else if $operator == "/" {
+      @return $a / $b;
+    } @else {
+      @error "Unknown operator '#{operator}'";
+    }
+  } 
+}
+
+/** `calc` on demand */ 
+@function c($e) {
+  @return if(type-of($e) == string, calc(#{$e}), $e);
+}
+
+/** Shortcut for `c(e(...))` - usage CSS' `calc` on demand */
+@function ce($a, $operator, $b, $withBrackets: false) {
+  @return c(e($a, $operator, $b, $withBrackets));
+}
+
+/** Multiproduct */ 
+@function m($members...) {
+ @return es("*", $members...);
+}
+
+/** Sum */
+@function s($members...) {
+  @return es("+", $members...);
+ }
+ 
+/** Expression on 1 operator and any count of members*/ 
+@function es($operator, $members...) {
+  $number: 1;
+  $string: null;
+
+  @each $member in $members {
+    @if type-of($member) == number {
+      $number: e($number, $operator, $member);
+    } @else {
+      @if $string == null {
+        $string: $member;
+      } @else {
+        $string: e($number, $operator, $member);
+      }
+    }
+  } 
+
+  @if $string == null {
+    @return $number;
+  } @else if $number == 1 {
+    @return $string;
+  } @else {
+    @return e($number, $operator, $string);
+  };
+}
+
