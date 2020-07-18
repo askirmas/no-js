@@ -1,5 +1,17 @@
 @use "../src/molecules/text";
 
+article.Typography {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: 1fr 1fr;
+  section:nth-child(1) > * {
+    grid-column: 1;
+  }
+  section:nth-child(2) > * {
+    grid-column: 2;
+  }
+}
+
 .mm_ {
   &headline1 {@include text.headline1()};
   &headline2 {@include text.headline2()};
@@ -12,8 +24,6 @@
   &body1 {@include text.body1()};
   &body2 {@include text.body2()};
   &button {@include text.button()};
-  // &text {@include text.text()};
   &caption {@include text.caption()};
   &overline {@include text.overline()};
-
 }

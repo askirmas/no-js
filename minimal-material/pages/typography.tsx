@@ -1,7 +1,7 @@
 import "./typography.scss";
 
 export default function Typoraphy() {
-  return <article>
+  return <article className="Typography">
     <section><Examples className="mdc-typography--"/></section>
     <section><Examples className="mm_"/></section>
   </article>
