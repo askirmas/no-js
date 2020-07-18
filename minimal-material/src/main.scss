@@ -1,3 +1,4 @@
+@use "../src/molecules/text";
 
 @at-root {
   :root {
@@ -16,19 +17,19 @@
     ;
     /* text */
     & {
-      &text_headline1 {@include text-headline1(); }
-      &text_headline2 {@include text-headline2(); }
-      &text_headline3 {@include text-headline3(); }
-      &text_headline4 {@include text-headline4(); }
-      &text_headline5 {@include text-headline5(); }
-      &text_headline6 {@include text-headline6(); }
-      &text_subtitle1 {@include text-subtitle1(); }
-      &text_subtitle2 {@include text-subtitle2(); }
-      &text_body1 {@include text-body1(); }
-      &text_body2 {@include text-body2(); }
-      &text_button {@include text-button(); }
-      &text_caption {@include text-caption(); }
-      &text_overline {@include text-overline(); }
+      &text_headline1 {@include text.headline1(); }
+      &text_headline2 {@include text.headline2(); }
+      &text_headline3 {@include text.headline3(); }
+      &text_headline4 {@include text.headline4(); }
+      &text_headline5 {@include text.headline5(); }
+      &text_headline6 {@include text.headline6(); }
+      &text_subtitle1 {@include text.subtitle1(); }
+      &text_subtitle2 {@include text.subtitle2(); }
+      &text_body1 {@include text.body1(); }
+      &text_body2 {@include text.body2(); }
+      &text_button {@include text.button(); }
+      &text_caption {@include text.caption(); }
+      &text_overline {@include text.overline(); }
     }
 
     /* icon-button*/
@@ -59,7 +60,7 @@
       &_item {
         @mixin tab-item-core() {
           &::before {
-            @include text-button();     
+            @include text.button();     
           } 
           &::after {
             padding-right: $padding-quater;

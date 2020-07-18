@@ -1,0 +1,19 @@
+@use "../src/molecules/text";
+
+.mm_ {
+  &headline1 {@include text.headline1()};
+  &headline2 {@include text.headline2()};
+  &headline3 {@include text.headline3()};
+  &headline4 {@include text.headline4()};
+  &headline5 {@include text.headline5()};
+  &headline6 {@include text.headline6()};
+  &subtitle1 {@include text.subtitle1()};
+  &subtitle2 {@include text.subtitle2()};
+  &body1 {@include text.body1()};
+  &body2 {@include text.body2()};
+  &button {@include text.button()};
+  // &text {@include text.text()};
+  &caption {@include text.caption()};
+  &overline {@include text.overline()};
+
+}

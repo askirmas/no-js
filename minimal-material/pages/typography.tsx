@@ -1,3 +1,5 @@
+import "./typography.scss";
+
 export default function Typoraphy() {
   return <article>
     <section><Examples className="mdc-typography--"/></section>
