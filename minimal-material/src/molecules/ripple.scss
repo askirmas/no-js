@@ -1,0 +1,38 @@
+/* Ripple effect */
+/* Based on https://codepen.io/finnhvman/pen/jLXKJw */
+
+@mixin ripple-source(
+  $bgr,
+  /*more value - less clicked circle point*/
+  $ratio: 100,
+  $ripple-end: transparent
+) {
+  $boundary: 100% / $ratio;
+
+  background-color: $bgr;
+  background-image: radial-gradient(
+    circle,
+    $ripple-end $boundary,
+    $bgr $boundary
+  );
+  /* math.sqrt(2) */
+  background-size: 1.41 * 100% * $ratio;
+}
+
+@mixin ripple-target($bgr) {
+  background-color: $bgr;
+  background-size: 100%;
+  transition-duration: 0s;
+}
+
+@mixin ripple($bgr, $bgr-ripple) {
+  background-position: center;
+  transition-property: background-color, background-size;
+
+  &:hover {
+    @include ripple-source($bgr);
+  }
+  &:active {
+    @include ripple-target($bgr-ripple);
+  }  
+}
