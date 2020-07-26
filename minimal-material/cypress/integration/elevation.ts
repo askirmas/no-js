@@ -1,5 +1,5 @@
-describe("typography", () => {
-  const page = "typography"
+describe("elevation", () => {
+  const page = "elevation"
   before(() => cy.visit(page))
 
   it('screenshots', () => cy

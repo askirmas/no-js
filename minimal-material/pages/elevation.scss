@@ -1,21 +1,28 @@
-article {
+article.elevation {
   display: grid;
   grid-auto-flow: dense;
-  grid-template-columns: 100px 100px;
-  grid-auto-rows: 50px;
-  gap: 2em;
-}
-.elevation-demo-surface {
-  grid-column: 1;
-}
+  grid-template-columns: max-content max-content;
+  grid-auto-rows: max-content;
+  .elevation-demo-surface {
+    grid-column: 1;
+  }
+  
+  @import "../src/atoms/elevation.scss";
+  .mm_elevation__ {
+    @for $index from 0 through 24 {
+      &#{$index} {
+        grid-column: 2;
+        @include elevation($index);
+      }
+    } 
+  }  
 
-
-@import "../src/atoms/elevation.scss";
-.mm_elevation__ {
-  @for $index from 0 through 24 {
-    &#{$index} {
-      grid-column: 2;
-      @include elevation($index)
+  [data-cy] {
+    margin: 2em;
+    display: inline;
+    > * {
+      width: 100px;
+      height: 50px;
     }
-  } 
+  }
 }
