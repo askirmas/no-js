@@ -1,8 +1,12 @@
 import "./ripple.scss"
 
 export default function Ripple() {
-  return <>
+  const page = "ripple"
+
+  return <article className={page}>
     <button className="ripple"></button>
-    <main className="ripple"></main>
-  </>
+    <div className="ripple"></div>
+
+    <button className="ripple_2"></button>
+  </article>
 }

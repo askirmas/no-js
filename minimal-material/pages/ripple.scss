@@ -1,19 +1,23 @@
-:root {
+article.ripple {
   --bgr: hsl(207, 90%, 62%);
   --bgr-ripple: hsl(207, 90%, 70%);
-}
 
-
-.ripple {
-  transition-duration: 1s;
-  @import "../src/molecules/ripple.scss";
-  @include ripple(var(--bgr), var(--bgr-ripple));
-}
-
-main, button {
-  width: 100px;
-  height: 100px;
-}
-main {
-  border: 1px solid black;
+  .ripple {
+    @import "../src/molecules/ripple.scss";
+    &, &_2 {
+      transition-duration: 1s;    
+    }
+    @include ripple(var(--bgr), var(--bgr-ripple));
+    &_2 {
+      @include ripple(var(--bgr), null, var(--bgr-ripple));
+    }
+  }
+  
+  div, button {
+    width: 100px;
+    height: 100px;
+  }
+  div {
+    border: 1px solid black;
+  }  
 }

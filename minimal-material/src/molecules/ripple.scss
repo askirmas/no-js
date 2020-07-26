@@ -3,9 +3,9 @@
 
 @mixin ripple-source(
   $bgr,
+  $ripple-end: transparent,
   /*more value - less clicked circle point*/
-  $ratio: 100,
-  $ripple-end: transparent
+  $ratio: 100
 ) {
   $boundary: 100% / $ratio;
 
@@ -19,18 +19,22 @@
   background-size: 1.41 * 100% * $ratio;
 }
 
-@mixin ripple-target($bgr) {
-  background-color: $bgr;
+@mixin ripple-target($bgr: null) {
+  @if $bgr != null {
+    background-color: $bgr;
+  }
   background-size: 100%;
   transition-duration: 0s;
 }
 
-@mixin ripple($bgr, $bgr-ripple) {
-  background-position: center;
+@mixin ripple($bgr, $bgr-ripple, $bgr-back: transparent) {
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  background-position-y: 50%;
   transition-property: background-color, background-size;
 
   &:hover {
-    @include ripple-source($bgr);
+    @include ripple-source($bgr, $bgr-back);
   }
   &:active {
     @include ripple-target($bgr-ripple);
