@@ -2,9 +2,7 @@
 
 @at-root {
   :root {
-    @import "quarks/color-source"
-    , "quarks/opacity-source"
-    , "quarks/params-source"
+    @import "quarks/params-source"
     ;
     font-family: Roboto, sans_serif;
   }
@@ -30,7 +28,6 @@
       &text_overline {@include text.overline(); }
     }
 
-   
     &tab {
       &_item {
         @mixin tab-item-core() {
