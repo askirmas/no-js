@@ -1,6 +1,10 @@
 @import "../calc";
+$-hue: 265 !default;
+$-saturation: 1 !default;
+$-light: 0.47 !default;
+$-magic-saturation: 0.86 !default;
 
-$-step: 0.04;
+$-step: 0.04 !default;
 
 @function -light-value($index, $start, $ending, $step-k, $step: $-step) {
   @return e(
@@ -11,7 +15,13 @@ $-step: 0.04;
   );
 }
 
-@function on-white($index, $acted, $hue, $saturation, $light) {
+@function on-white(
+  $index: 0,
+  $acted: false,
+  $hue: $-hue,
+  $saturation: $-saturation,
+  $light: $-light
+) {
   $sat: 0;
   $light-end: 1;
 
@@ -34,7 +44,14 @@ $-step: 0.04;
 }
 
 
-@function on-color($index, $acted, $hue, $saturation, $light, $magic-saturation) {
+@function on-color(
+  $index: 0,
+  $acted: false,
+  $hue: $-hue,
+  $saturation: $-saturation,
+  $light: $-light,
+  $magic-saturation: $-magic-saturation
+) {
   $sat: if($index == 0, $saturation, $magic-saturation); 
 
   @return hsl-(

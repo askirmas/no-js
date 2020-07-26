@@ -1,10 +1,19 @@
+@use "theme";
+@use "../src/quarks/overlays";
+@use "../src/functions/state-color" with (
+  $-hue: theme.$primary-hue,
+  $-saturation: theme.$primary-saturation,
+  $-light: theme.$primary-light,
+  $-magic-saturation: theme.$primary-magic-saturation
+);
+
 @use "../src/molecules/ripple" with (
-  $-bgr: hsl(207, 90%, 62%),
+  $-bgr: state-color.on_color(overlays.$hover)
 );
 
 article.ripple {
-  $bgr: hsl(207, 90%, 62%);
-  $bgr-ripple: hsl(207, 90%, 70%);
+  $bgr: state-color.on_color(overlays.$hover);
+  $bgr-ripple: state-color.on_color(overlays.$activated, true);;
 
   .ripple {
     &, &_2 {

@@ -30,7 +30,7 @@
       @include background-color.on_color();
     }
     &.act {
-      @include background-color.on_color(overlays.$actived, true);
+      @include background-color.on_color(overlays.$activated, true);
     } 
   }
 
