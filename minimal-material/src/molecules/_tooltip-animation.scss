@@ -14,10 +14,10 @@ $-max: 1.5s !default;
   opacity: 0;
 }
 
-@mixin -end() {
+@mixin -end($opacity: 1) {
   clip-path: polygon(0 0, 1000% 0, 1000% 1000%, 0 1000%);
   transform: scale(1);
-  opacity: 1;
+  opacity: $opacity;
 }
 
 @mixin off(
@@ -29,9 +29,9 @@ $-max: 1.5s !default;
 
   @include -start();
   transition: {
-    property: transform, opacity, clip-path;
-    delay: $delay;
-    duration: $duration;
+    property: clip-path, transform, opacity;
+    delay: $delay, $delay + $duration, $delay;
+    duration: $duration, 0s, $duration;
   }
 }
 
@@ -42,8 +42,8 @@ $-max: 1.5s !default;
 ) {
   @include -end();
   transition: {
-    duration: $duration;
-    delay: $delay;
+    delay: $delay, $delay, 0s;
+    duration: $duration, $duration, 0s;
   }
   animation: {
     duration: $duration;
@@ -57,6 +57,9 @@ $-max: 1.5s !default;
 @keyframes tooltip-hidding {
   0% {
     @include -end();
+  }
+  99.9% {
+   @include -end(0);
   }
   100% {
     @include -start();
