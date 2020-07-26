@@ -1,42 +1,58 @@
 /* Ripple effect */
 /* Based on https://codepen.io/finnhvman/pen/jLXKJw */
 
-@mixin ripple-source(
-  $bgr,
-  $ripple-end: transparent,
+$-bgr: null !default;
+$-bgr-ripple: null !default;
+$-bgr-back: transparent !default;
+$-ratio: 100 !default;
+$-hover: ":hover";
+$-active: ":active";
+
+@mixin source(
+  $bgr: $-bgr,
+  $bgr-back: $-bgr-back,  
   /*more value - less clicked circle point*/
-  $ratio: 100
+  $ratio: $-ratio
 ) {
   $boundary: 100% / $ratio;
 
   background-color: $bgr;
   background-image: radial-gradient(
     circle,
-    $ripple-end $boundary,
+    $bgr-back $boundary,
     $bgr $boundary
   );
   /* math.sqrt(2) */
-  background-size: 1.41 * 100% * $ratio;
+  background-size: 100% * 1.41 * $ratio;
 }
 
-@mixin ripple-target($bgr: null) {
-  @if $bgr != null {
-    background-color: $bgr;
+@mixin target($bgr-ripple: $-bgr-ripple) {
+  @if $bgr-ripple != null {
+    background-color: $bgr-ripple;
   }
   background-size: 100%;
   transition-duration: 0s;
 }
 
-@mixin ripple($bgr, $bgr-ripple, $bgr-back: transparent) {
+@mixin base() {
   background-repeat: no-repeat;
   background-position-x: 50%;
   background-position-y: 50%;
   transition-property: background-color, background-size;
+}
 
-  &:hover {
-    @include ripple-source($bgr, $bgr-back);
+@mixin ripple(
+  $bgr: $-bgr,
+  $bgr-ripple: $-bgr-ripple,
+  $bgr-back: $-bgr-back,
+  $hover: $-hover,
+  $active: $-active
+) {
+  @include base();
+  &#{$hover} {
+    @include source($bgr, $bgr-back);
   }
-  &:active {
-    @include ripple-target($bgr-ripple);
+  &#{$active} {
+    @include target($bgr-ripple);
   }  
 }

@@ -1,15 +1,19 @@
+@use "../src/molecules/ripple" with (
+  $-bgr: hsl(207, 90%, 62%),
+);
+
 article.ripple {
-  --bgr: hsl(207, 90%, 62%);
-  --bgr-ripple: hsl(207, 90%, 70%);
+  $bgr: hsl(207, 90%, 62%);
+  $bgr-ripple: hsl(207, 90%, 70%);
 
   .ripple {
     @import "../src/molecules/ripple.scss";
     &, &_2 {
       transition-duration: 1s;    
     }
-    @include ripple(var(--bgr), var(--bgr-ripple));
+    @include ripple.ripple($bgr, $bgr-ripple);
     &_2 {
-      @include ripple(var(--bgr), null, var(--bgr-ripple));
+      @include ripple.ripple($bgr, transparent, $bgr-ripple);
     }
   }
   
