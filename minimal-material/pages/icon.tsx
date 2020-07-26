@@ -1,7 +1,7 @@
 import { CSSProperties } from "react";
 import "./icon.scss"
 
-const base = "mm_icon_button" 
+const base = "mm0_icon_button" 
 , mdcBase = "mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
 , mdcIcon = 'material-icons'
 , mdcIconButton = `${mdcIcon} mdc-icon-button__icon`
