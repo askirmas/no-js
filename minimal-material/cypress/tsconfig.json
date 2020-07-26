@@ -1,0 +1,10 @@
+{
+  "extends": "@kirmas/template-cypress/tsconfig",
+  "compilerOptions": {
+    "baseUrl": "../node_modules"
+  },
+  "include": [
+    "**/*.js",
+    "**/*.ts"
+  ]  
+}

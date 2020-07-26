@@ -41,5 +41,6 @@
     "scss",
     "resize",
     "resize bar"
-  ]
+  ],
+  "dependencies": {}
 }

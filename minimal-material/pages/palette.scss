@@ -6,51 +6,53 @@
 );
 @use "../src/quarks/overlays";
 
-.ov_in {
-  &0 { --overlay_index: #{overlays.$enabled};}
-  &1 { --overlay_index: #{overlays.$hover};}
-  &2 { --overlay_index: #{overlays.$selected};}
-  &3 { --overlay_index: #{overlays.$focus};}  
-}
-.white {
-  @include background-color.on_white(var(--overlay_index));      
-  &.act {
-    @include background-color.on_white(var(--overlay_index), true);      
-  }  
-}
-.colored {
-  @include background-color.on_color(var(--overlay_index));
-  &.ov_in0 {
-    @include background-color.on_color();
+.palette {
+  .ov_in {
+    &0 { --overlay_index: #{overlays.$enabled};}
+    &1 { --overlay_index: #{overlays.$hover};}
+    &2 { --overlay_index: #{overlays.$selected};}
+    &3 { --overlay_index: #{overlays.$focus};}  
   }
-  &.act {
-    @include background-color.on_color(overlays.$actived, true);
-  } 
-}
+  .white {
+    @include background-color.on_white(var(--overlay_index));      
+    &.act {
+      @include background-color.on_white(var(--overlay_index), true);      
+    }  
+  }
+  .colored {
+    @include background-color.on_color(var(--overlay_index));
+    &.ov_in0 {
+      @include background-color.on_color();
+    }
+    &.act {
+      @include background-color.on_color(overlays.$actived, true);
+    } 
+  }
 
-main {
-  display: grid;
-  grid-template-columns: 325px 100px 125px 100px;
-  grid-template-rows: repeat(7, 100px);
-  grid-auto-flow: dense;
-}
+  main {
+    display: grid;
+    grid-template-columns: 325px 100px 125px 100px;
+    grid-template-rows: repeat(7, 100px);
+    grid-auto-flow: dense;
+  }
 
-.white {
-  grid-column: 2;
-  z-index: 1;
-}
-.colored {
-  grid-column: 4;
-  z-index: 1;
-}
-span {
-  background-image: url(https://lh3.googleusercontent.com/i8NIdt2zYs4lxN9BCqkp7rhcgj_nSmhV4oFAmkSOLQu2tTbAH9crfADeIJK8UfjLjEeaunw01LFeGJ2xCMTR2_RsLyG7V-us2WwM7Wk=w1064-v0);
-  background-repeat: no-repeat;
-  background-position-x: -100px;
-  background-position-y: -80px;
-  position: relative;
-  width: 800px;
-  height: 700px;
-  grid-column: 1;
-  grid-row: 1;
+  .white {
+    grid-column: 2;
+    z-index: 1;
+  }
+  .colored {
+    grid-column: 4;
+    z-index: 1;
+  }
+  span {
+    background-image: url(https://lh3.googleusercontent.com/i8NIdt2zYs4lxN9BCqkp7rhcgj_nSmhV4oFAmkSOLQu2tTbAH9crfADeIJK8UfjLjEeaunw01LFeGJ2xCMTR2_RsLyG7V-us2WwM7Wk=w1064-v0);
+    background-repeat: no-repeat;
+    background-position-x: -100px;
+    background-position-y: -80px;
+    position: relative;
+    width: 800px;
+    height: 700px;
+    grid-column: 1;
+    grid-row: 1;
+  }
 }

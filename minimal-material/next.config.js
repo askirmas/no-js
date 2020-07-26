@@ -3,6 +3,8 @@ const withCss = require('@zeit/next-css')
 // , withImages = require('next-images')
 // , withSourceMaping = require('@zeit/next-source-maps')
 
+// , sassImplementation = require('sass')
+
 module.exports = //withImages(
   withCss(
     withSass(
@@ -13,7 +15,7 @@ module.exports = //withImages(
             sassOptions: {
               includePath: [`${module.dirname}/node_modules`]
             },
-            implementation: require('sass')
+            // implementation: sassImplementation
           }
         }
       //)

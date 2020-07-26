@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "./minimal-material"
+		},
+		{
+			"path": "./minimal-material/configs"
 		}
 	],
 	"settings": {

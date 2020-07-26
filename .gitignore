@@ -2,3 +2,10 @@ node_modules
 .next
 *.css.map
 minimal-material/origin.css
+
+**/cypress/fixtures/example.json
+**/cypress/integration/examples
+**/out
+
+coverage
+.nyc_output

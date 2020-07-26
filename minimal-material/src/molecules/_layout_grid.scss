@@ -8,7 +8,7 @@
 @mixin core($icon-size: 1.5) {
   &::before {
     /* todo: remove */
-    @include text.button();
+    @include text.button(1.75);
     height: u(1.5);
   }
   &::after {

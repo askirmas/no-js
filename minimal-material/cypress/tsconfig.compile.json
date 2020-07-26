@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "baseUrl": "../../node_modules",
+    "noEmit": false,
+    "resolveJsonModule": true,
+    "outDir": "dist",
+    "declaration": true
+  },
+  "include": [
+    "**/*.js",
+    "**/*.ts"
+  ]
+}

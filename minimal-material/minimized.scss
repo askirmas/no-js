@@ -1,0 +1,19 @@
+
+@import "@material/button/mdc-button"
+, "./sandbox/setup.scss"
+;
+
+.matmin_button__demo {
+  background-color: black;
+  &::after {
+    @include material-icon();
+    @extend .mdc-button__icon;
+    content: "favorite";
+  }
+  &::before {
+    @extend .mdc-button__label;
+    content: "icon"
+  }
+  @extend .mdc-button--raised;
+  @extend .mdc-button;
+}

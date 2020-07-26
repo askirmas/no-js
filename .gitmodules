@@ -1,0 +1,3 @@
+[submodule "minimal-material/configs"]
+	path = minimal-material/configs
+	url = git@github.com:askirmas/configs.git

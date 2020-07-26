@@ -1,18 +1,22 @@
 @use "../src/molecules/text";
 
-article.Typography {
+article.typography {
   display: grid;
   grid-auto-flow: dense;
   grid-template-columns: 1fr 1fr;
-  section:nth-child(1) > * {
-    grid-column: 1;
-  }
-  section:nth-child(2) > * {
-    grid-column: 2;
+  grid-auto-rows: max-content;
+  & > section {
+    display: contents;
+    &:nth-child(1) > * {
+      grid-column: 1;
+    }
+    &:nth-child(2) > * {
+      grid-column: 2;
+    }  
   }
 }
 
-.mm_ {
+.mm_typography_ {
   &headline1 {@include text.headline1()};
   &headline2 {@include text.headline2()};
   &headline3 {@include text.headline3()};

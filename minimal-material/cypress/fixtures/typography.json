@@ -1,0 +1,15 @@
+{
+  "headline1": {"tagName": "h1", "content": "Headline 1"},
+  "headline2": {"tagName": "h2", "content": "Headline 2"},
+  "headline3": {"tagName": "h3", "content": "Headline 3"},
+  "headline4": {"tagName": "h4", "content": "Headline 4"},
+  "headline5": {"tagName": "h5", "content": "Headline 5"},
+  "headline6": {"tagName": "h6", "content": "Headline 6"},
+  "subtitle1": {"tagName": "h6", "content": "Subtitle 1"},
+  "subtitle2": {"tagName": "h6", "content": "Subtitle 2"},
+  "body1": {"tagName": "p", "content": "Body 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam."},
+  "body2": {"tagName": "p", "content": "Body 2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid ad quas sunt voluptatum officia dolorum cumque, possimus nihil molestias sapiente necessitatibus dolor saepe inventore, soluta id accusantium voluptas beatae."},
+  "button": {"tagName": "span", "content": "Button text"},
+  "caption": {"tagName": "span", "content": "Caption text"},
+  "overline": {"tagName": "span", "content": "Overline text"}
+}

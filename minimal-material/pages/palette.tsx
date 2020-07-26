@@ -1,7 +1,7 @@
 import "./palette.scss"
 
 export default function Palette() {
-  return <main>
+  return <main className="palette">
     <span></span>
     <div className="white ov_in0"></div>
     <div className="colored ov_in0"></div>
