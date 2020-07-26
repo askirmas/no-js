@@ -41,7 +41,7 @@ $-active: ":active";
   transition-property: background-color, background-size;
 }
 
-@mixin ripple(
+@mixin apply(
   $bgr: $-bgr,
   $bgr-ripple: $-bgr-ripple,
   $bgr-back: $-bgr-back,

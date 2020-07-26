@@ -7,13 +7,12 @@ article.ripple {
   $bgr-ripple: hsl(207, 90%, 70%);
 
   .ripple {
-    @import "../src/molecules/ripple.scss";
     &, &_2 {
       transition-duration: 1s;    
     }
-    @include ripple.ripple($bgr, $bgr-ripple);
+    @include ripple.apply($bgr, $bgr-ripple);
     &_2 {
-      @include ripple.ripple($bgr, transparent, $bgr-ripple);
+      @include ripple.apply($bgr, transparent, $bgr-ripple);
     }
   }
   
