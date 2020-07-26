@@ -7,6 +7,11 @@
 @use "../src/quarks/overlays";
 
 .palette {
+  display: grid;
+  grid-template-columns: 325px 100px 125px 100px;
+  grid-template-rows: repeat(7, 100px);
+  grid-auto-flow: dense;
+
   .ov_in {
     &0 { --overlay_index: #{overlays.$enabled};}
     &1 { --overlay_index: #{overlays.$hover};}
@@ -29,13 +34,6 @@
     } 
   }
 
-  main {
-    display: grid;
-    grid-template-columns: 325px 100px 125px 100px;
-    grid-template-rows: repeat(7, 100px);
-    grid-auto-flow: dense;
-  }
-
   .white {
     grid-column: 2;
     z-index: 1;
@@ -45,7 +43,7 @@
     z-index: 1;
   }
   span {
-    background-image: url(https://lh3.googleusercontent.com/i8NIdt2zYs4lxN9BCqkp7rhcgj_nSmhV4oFAmkSOLQu2tTbAH9crfADeIJK8UfjLjEeaunw01LFeGJ2xCMTR2_RsLyG7V-us2WwM7Wk=w1064-v0);
+    background-image: url(/material-palette.png);
     background-repeat: no-repeat;
     background-position-x: -100px;
     background-position-y: -80px;
