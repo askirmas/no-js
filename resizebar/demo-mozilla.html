@@ -1,0 +1,34 @@
+<div class="moz_container">
+  <div class="moz_resizer"></div>
+</div>
+<style>
+:root {
+  --moz-resizer: 15px;
+  --resizer-size: 8px;
+}
+.moz_container {
+  background-color: green; 
+  overflow: hidden;
+  width: 500px;
+  height: 100%;
+  display: grid;
+}
+.moz_resizer {
+  scrollbar-width: auto;
+  scrollbar-color: red blue;
+  height: 100%;
+  overflow-y: scroll;
+  resize: horizontal;
+  background-color: yellow;
+  transform-origin: bottom right;
+  /* transform: scale(calc((100vw + 100vh) / var(--moz-resizer))); */
+  transform: scale(100);
+  opacity: 0.5;
+  /* clip-path: polygon(
+    100% 0%,
+    100% 100%,
+    calc(100% - var(--resizer-size)) 100%,
+    calc(100% - var(--resizer-size)) 0%
+  ); */
+}
+</style>
