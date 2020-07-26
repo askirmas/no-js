@@ -1,0 +1,16 @@
+@use "../src/utils";
+
+article.icon {
+  display: grid;
+  grid-template-columns: max-content;
+  & > section {
+    display: contents;
+  }
+  // .content_ {
+  //   @each $icon in (favorite_border, wifi) {
+  //     &#{$icon} {
+  //       @include utils.content($icon);
+  //     }
+  //   } 
+  // }
+}

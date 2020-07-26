@@ -32,7 +32,7 @@
   @return unquote($return); 
 }
 
-@mixin content($icon, $content) {
+@mixin content($icon: null, $content: null) {
   @if ($icon != null) {
     &::after {
       content: $icon;

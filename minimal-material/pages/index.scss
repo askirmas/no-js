@@ -43,6 +43,13 @@
     @include utils.content("favorite", "favorites");
   }
 
+  &favorite_border {
+    @include utils.content("favorite_border", "favorite_border");
+  }
+  &wifi {
+    @include utils.content("wifi", "wifi");
+  }
+
   &tab {
     @each $title in ("One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve") {
       &_#{$title} {
