@@ -1,4 +1,6 @@
 @use "../src/utils";
+@use "../src/molecules/text";
+@use "theme";
 
 article.icon {
   display: grid;
@@ -13,4 +15,99 @@ article.icon {
   //     }
   //   } 
   // }
+}
+
+.mm_ { /* icon-button*/
+  @import "../src/_core"
+  , "../src/quarks/params-const"
+  ;
+
+  &icon_button {
+    @import "../src/molecules/containers/icon";
+    position: relative;
+
+    $tooltip-duration: 150ms;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    justify-items: center;
+    align-items: center;
+
+    &::before, &::after {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    &::before {
+      @include text.caption();
+      color: theme.$tooltip-color;
+      background-color: theme.$tooltip-bgr;
+      padding: {
+        left: 0.5rem;
+        right: 0.5rem;
+      };
+      line-height: 1.5rem;
+      width: max-content;
+      border-radius: 4px;
+      position: relative;
+      top: calc(200%);
+
+      // display: none;
+      z-index: 1;
+      transform: scale(0.5);
+      opacity: 0;
+      clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+      transition-property: transform, opacity, clip-path;
+      transition-delay: $tooltip-duration;
+      transition-duration: $tooltip-duration;
+    }
+    &::after {
+      @import "../src/molecules/icon/core";
+    }
+
+    @include hover() {
+      @include state-white-1($state-white-hover);
+      &::before {
+        clip-path: polygon(0 0, 1000% 0, 1000% 1000%, 0 1000%);
+        // display: initial;
+        transform: scale(1);
+        opacity: 1;
+        transition-delay: $tooltip-duration / 2;
+        transition-duration: $tooltip-duration / 2; 
+      }
+    }
+    @include focus() {
+      @include state-white-1($state-white-focus);
+    }
+    @include focus-within() {
+      @include state-white-1($state-white-focus);
+    }
+    @include active() {
+      @include state-white-1($state-white-active);
+    }
+  }
+}
+
+@keyframes tooltip-on {
+  0% {
+    z-index: 1;
+    display: initial;
+    opacity: 1;
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes tooltip-off {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    display: none;
+  }
 }
