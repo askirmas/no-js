@@ -4,4 +4,17 @@
   font-size: $padding;
   padding: $padding-half;
   border-radius: 50%;
+
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  justify-items: center;
+  align-items: center;
+
+  &::before, &::after {
+    grid-column: 1;
+    grid-row: 1;
+  }
 }

@@ -1,0 +1,14 @@
+& {
+  @include text.caption();
+  color: theme.$tooltip-color;
+  background-color: theme.$tooltip-bgr;
+  padding: {
+    left: 0.5rem;
+    right: 0.5rem;
+  };
+  line-height: 1.5rem;
+  width: max-content;
+  border-radius: 4px;
+  position: relative;
+  top: calc(200%);
+}
