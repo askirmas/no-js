@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import "./icon.scss"
+import "./icon_button.scss"
 
 const base = "mm0_icon_button" 
 , mdcBase = "mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
@@ -14,7 +14,7 @@ const base = "mm0_icon_button"
 
 
 export default function Icon() {
-  return <article className="icon">
+  return <article className="icon_button">
     <section>
       <div>
         <button {...{

@@ -1,5 +1,5 @@
-describe('icon', () => {
-  const page = "icon"
+describe('icon_button', () => {
+  const page = "icon_button"
   before(() => cy.visit(page))
   it('screenshots', () => cy
     .get('[data-cy]')

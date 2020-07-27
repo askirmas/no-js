@@ -9,7 +9,7 @@
 );
 @use "../src/quarks/overlays";
 
-article.icon {
+article.icon_button {
   display: grid;
   grid-template-columns: max-content;
   grid-auto-rows: 6rem;
