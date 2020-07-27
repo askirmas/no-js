@@ -21,7 +21,8 @@ $-medium: 500 !default;
   font-weight: #{$-light};
   font-size: u(6);
   line-height: 1;
-  letter-spacing: u(-0.09375);
+  // letter-spacing: u(-1.5 / 16);
+  letter-spacing: -0.015625em;
   @include -margin-block(1em);
   @include -common();
 }
@@ -29,7 +30,8 @@ $-medium: 500 !default;
   font-weight: #{$-light};
   font-size: u(3.75);
   line-height: 1;
-  letter-spacing: u(-0.03125);
+  // letter-spacing: u(-0.5 / 16);
+  letter-spacing: -0.0083333333em;
   @include -margin-block(0.83em);
   @include -common();
 }
@@ -37,7 +39,8 @@ $-medium: 500 !default;
   font-weight: #{$-regular};
   font-size: u(3);
   line-height: u(3.125);
-  letter-spacing: u(0);
+  // letter-spacing: u(0);
+  letter-spacing: 0; // aka normal
   @include -margin-block(1em);
   @include -common();
 }
@@ -45,7 +48,8 @@ $-medium: 500 !default;
   font-weight: #{$-regular};
   font-size: u(2.125);
   line-height: u(2.5);
-  letter-spacing: u(0.015625);
+  // letter-spacing: u(0.25 / 16);
+  letter-spacing: 0.0073529412em;
   @include -margin-block(1.33em);
   @include -common();
 }
@@ -53,7 +57,8 @@ $-medium: 500 !default;
   font-weight: #{$-regular};
   font-size: u(1.5);
   line-height: u(2);
-  letter-spacing: u(0);
+  // letter-spacing: u(0);
+  letter-spacing: 0;
   @include -margin-block(1.67em);
   @include -common();
 }
@@ -61,7 +66,8 @@ $-medium: 500 !default;
   font-weight: #{$-medium};
   font-size: u(1.25);
   line-height: u(2);
-  letter-spacing: u(0.015625);
+  // letter-spacing: u(0.25 / 16);
+  letter-spacing: 0.0125em;
   @include -margin-block(2.33em);
   @include -common();
 }
@@ -69,7 +75,8 @@ $-medium: 500 !default;
   font-weight: #{$-regular};
   font-size: u(1);
   line-height: u(1.75);
-  letter-spacing: u(0.009375);
+  // letter-spacing: u(0.15 / 16);
+  letter-spacing: 0.009375em;
   @include -margin-block(2.33em);
   @include -common();
 }
@@ -77,7 +84,8 @@ $-medium: 500 !default;
   font-weight: #{$-medium};
   font-size: u(0.875);
   line-height: u(1.375);
-  letter-spacing: u(0.00625);
+  // letter-spacing: u(0.1 / 16);
+  letter-spacing: 0.0071428571em;
   @include -margin-block(2.33em);
   @include -common();
 }
@@ -85,7 +93,8 @@ $-medium: 500 !default;
   font-weight: #{$-regular};
   font-size: u(1);
   line-height: u(1.5);
-  letter-spacing: u(0.03125);
+  // letter-spacing: u(0.5 / 16);
+  letter-spacing: 0.03125em;
   @include -margin-block(1em);
   @include -common();
 }
@@ -93,7 +102,8 @@ $-medium: 500 !default;
   font-weight: #{$-regular};
   font-size: u(0.875);
   line-height: u(1.25);
-  letter-spacing: u(0.015625);
+  // letter-spacing: u(0.25 / 16);
+  letter-spacing: 0.0178571429em;
   @include -margin-block(1em);
   @include -common();
 }
@@ -103,14 +113,16 @@ $-medium: 500 !default;
   font-size: u(0.875);
   text-transform: uppercase;
   line-height: u($line);
-  letter-spacing: u(0.078125);
+  // letter-spacing: u(1.25 / 16);
+  letter-spacing: 0.0892857143em;
   @include -common();
 }
 @mixin caption() {
   font-weight: #{$-regular};
   font-size: u(0.75);
   line-height: u(1.25);
-  letter-spacing: u(0.025);
+  // letter-spacing: u(0.4 / 16);
+  letter-spacing: 0.0333333333em;
   @include -common();
 }
 @mixin overline() {
@@ -118,7 +130,8 @@ $-medium: 500 !default;
   font-size: u(0.75);
   line-height: u(2);
   text-transform: uppercase;
-  letter-spacing: u(0.125);
+  // letter-spacing: u(2 / 16);
+  letter-spacing: 0.1666666667em;
   @include -common();
 }
 
