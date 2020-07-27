@@ -47,10 +47,11 @@ export default function Icon() {
           "data-cy": "wifi"
         }}></div>
       </div>
-      <div>
+      <div {...{
+        "data-cy": "wifi-hover"
+      }}>
         <div {...{
           "className": `${base} _hover content_wifi`,
-          // "data-cy": "wifi-hover"
         }}></div>
       </div>
       <div>
@@ -59,10 +60,11 @@ export default function Icon() {
           "data-cy": "favorite_border"
         }}></div>
       </div>
-      <div>
+      <div {... {
+        "data-cy": "favorite_border-hover"
+      }}>
         <div {...{
           "className": `${base} _hover content_favorite_border`,
-          // "data-cy": "favorite_border-hover"
         }}></div>
       </div>
     </section>

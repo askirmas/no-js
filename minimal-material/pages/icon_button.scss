@@ -11,10 +11,14 @@
 
 article.icon_button {
   display: grid;
-  grid-template-columns: max-content;
+  grid-template-columns: 7rem;
   grid-auto-rows: 6rem;
   & > section {
     display: contents;
+    & > div {
+      display: flex;
+      justify-content: center;
+    }
   }
   // .content_ {
   //   @each $icon in (favorite_border, wifi) {
