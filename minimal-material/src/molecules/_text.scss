@@ -6,65 +6,80 @@ $-light: 300 !default;
 $-regular: 400 !default;
 $-medium: 500 !default;
 
+@mixin -common() {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
 @mixin headline1() {
   font-weight: #{$-light};
   font-size: u(6);
   line-height: 1;
   letter-spacing: u(-0.09375);
+  @include -common();
 }
 @mixin headline2() {
   font-weight: #{$-light};
   font-size: u(3.75);
   line-height: 1;
   letter-spacing: u(-0.03125);
+  @include -common();
 }
 @mixin headline3() {
   font-weight: #{$-regular};
   font-size: u(3);
   line-height: u(3.125);
   letter-spacing: u(0);
+  @include -common();
 }
 @mixin headline4() {
   font-weight: #{$-regular};
   font-size: u(2.125);
   line-height: u(2.5);
   letter-spacing: u(0.015625);
+  @include -common();
 }
 @mixin headline5() {
   font-weight: #{$-regular};
   font-size: u(1.5);
   line-height: u(2);
   letter-spacing: u(0);
+  @include -common();
 }
 @mixin headline6() {
   font-weight: #{$-medium};
   font-size: u(1.25);
   line-height: u(2);
-  letter-spacing: u(0.009375);
+  letter-spacing: u(0.005625);
+  @include -common();
 }
 @mixin subtitle1() {
   font-weight: #{$-regular};
   font-size: u(1);
   line-height: u(1.75);
   letter-spacing: u(0.009375);
+  @include -common();
 }
 @mixin subtitle2() {
   font-weight: #{$-medium};
   font-size: u(0.875);
   line-height: u(1.375);
   letter-spacing: u(0.00625);
+  @include -common();
 }
 @mixin body1() {
   font-weight: #{$-regular};
   font-size: u(1);
   line-height: u(1.5);
   letter-spacing: u(0.03125);
+  @include -common();
 }
 @mixin body2() {
   font-weight: #{$-regular};
   font-size: u(0.875);
   line-height: u(1.25);
   letter-spacing: u(0.015625);
+  @include -common();
 }
 /* Icon's 1.5 may be useful */ 
 @mixin button($line: 2.25) {
@@ -73,12 +88,14 @@ $-medium: 500 !default;
   text-transform: uppercase;
   line-height: u($line);
   letter-spacing: u(0.078125);
+  @include -common();
 }
 @mixin caption() {
   font-weight: #{$-regular};
   font-size: u(0.75);
   line-height: u(1.25);
   letter-spacing: u(0.025);
+  @include -common();
 }
 @mixin overline() {
   font-weight: #{$-medium};
@@ -86,4 +103,6 @@ $-medium: 500 !default;
   line-height: u(2);
   text-transform: uppercase;
   letter-spacing: u(0.125);
+  @include -common();
 }
+

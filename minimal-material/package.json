@@ -3,11 +3,16 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "predev": "sass origin_use.scss origin.css --no-source-map --load-path=node_modules",
     "dev": "next",
     "compile": "next build && next export",
-    "spec": "cy",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "spec": "npm run spec/firefox",
+    "spec/firefox": "npm run cy --run=firefox",
+    "spec/chrome": "npm run cy --run=chrome",
+    "prespec": "cy_png",
+    "cy": "cy",
+    "-postspec": "nyc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "-predev": "sass origin_use.scss origin.css --no-source-map --load-path=node_modules"
   },
   "author": "",
   "license": "MIT",

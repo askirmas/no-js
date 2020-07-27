@@ -16,43 +16,55 @@ const base = "mm0_icon_button"
 export default function Icon() {
   return <article className="icon">
     <section>
-      <button {...{
-        "className": `${mdcBase} ${mdcIcon}`,
-        "style": mdcRippleStyle,
-        "data-cy": "wifi"
-      }}>
-        wifi
-      </button>
-      <button  {...{
-        "className": mdcBase,
-        "style": mdcRippleStyle,
-        "data-cy": "favorite_border"
-      }}>
-        <i className={`${mdcIconButton} ${mdcIconButton}--on`}>
-          favorite
-        </i>
-        <i className={mdcIconButton}>
-          favorite_border
-        </i>
-      </button>
+      <div>
+        <button {...{
+          "className": `${mdcBase} ${mdcIcon}`,
+          "style": mdcRippleStyle,
+          "data-cy": "wifi"
+        }}>
+          wifi
+        </button>
+      </div>
+      <div>
+        <button  {...{
+          "className": mdcBase,
+          "style": mdcRippleStyle,
+          "data-cy": "favorite_border"
+        }}>
+          <i className={`${mdcIconButton} ${mdcIconButton}--on`}>
+            favorite
+          </i>
+          <i className={mdcIconButton}>
+            favorite_border
+          </i>
+        </button>
+      </div>
     </section>
     <section>
-      <div {...{
-        "className": `${base} content_wifi`,
-        "data-cy": "wifi"
-      }}></div>
-      <div {...{
-        "className": `${base} _hover content_wifi`,
-        // "data-cy": "wifi-hover"
-      }}></div>
-      <div {...{
-        "className": `${base} content_favorite_border`,
-        "data-cy": "favorite_border"
-      }}></div>
-      <div {...{
-        "className": `${base} _hover content_favorite_border`,
-        // "data-cy": "favorite_border-hover"
-      }}></div>
+      <div>
+        <div {...{
+          "className": `${base} content_wifi`,
+          "data-cy": "wifi"
+        }}></div>
+      </div>
+      <div>
+        <div {...{
+          "className": `${base} _hover content_wifi`,
+          // "data-cy": "wifi-hover"
+        }}></div>
+      </div>
+      <div>
+        <div {...{
+          "className": `${base} content_favorite_border`,
+          "data-cy": "favorite_border"
+        }}></div>
+      </div>
+      <div>
+        <div {...{
+          "className": `${base} _hover content_favorite_border`,
+          // "data-cy": "favorite_border-hover"
+        }}></div>
+      </div>
     </section>
   </article>
 }

@@ -5,6 +5,9 @@ article.typography {
   grid-auto-flow: dense;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: max-content;
+  [data-cy]:not([data-cy^="body"]) {
+    width: max-content;
+  }
   & > section {
     display: contents;
     &:nth-child(1) > * {

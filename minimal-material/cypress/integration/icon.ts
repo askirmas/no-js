@@ -5,7 +5,8 @@ describe('icon', () => {
     .get('[data-cy]')
     .each($el => cy
       .wrap($el)
-      .matchImageSnapshot(`${page} ${$el[0].dataset.cy}`)
+      .toMatchImageSnapshot({name: `${page} ${$el[0].dataset.cy}`})
+      // .matchImageSnapshot(`${page} ${$el[0].dataset.cy}`)
     )
   )
 })

@@ -12,6 +12,7 @@
 article.icon {
   display: grid;
   grid-template-columns: max-content;
+  grid-auto-rows: 6rem;
   & > section {
     display: contents;
   }
