@@ -1,7 +1,7 @@
+$-z-index: 1;
+
 $-duration-in: 150ms !default;
 $-delay-in: 150ms !default;
-
-$-z-index: 1;
 
 $-duration-out: 75ms !default;
 $-delay-out: 75ms !default;
@@ -32,27 +32,22 @@ $-max: 1.5s !default;
   opacity: $opacity;
 }
 
-/// Fusion
-@mixin off(
+/// Molecule
+@mixin timing-out(
   $duration: $-duration-in,
   $delay: $-delay-in,
-  $z-index: $-z-index
 ) {
   transition: {
     delay: $delay, $delay + $duration, $delay;
-    duration: $duration, 0s, $duration;
+    duration: $duration, 0s, $duration;  
     // delay: $delay;
     // duration: $duration;
   }
-  @include start();
-  @include base($z-index)
 }
 
-/// Fusion
-@mixin on(
+@mixin timing-in(
   $duration: $-duration-out,
   $delay: $-delay-out,
-  $max: $-max
 ) {
   transition: {
     delay: $delay, $delay, 0s;
@@ -60,15 +55,42 @@ $-max: 1.5s !default;
     // delay: $delay;
     // duration: $duration;
   }
+}
+
+@mixin disappear-animation (
+  $duration: $-duration-in,
+  $max: $-max
+) {
+  animation: {
+    duration: $duration;
+    delay: $max;
+    name: tooltip-hidding;
+    fill-mode: forwards;
+  };
+}
+/// Fusion
+@mixin off(
+  $duration: $-duration-out,
+  $delay: $-delay-out,
+  $z-index: $-z-index
+) {
+  @include timing-out($duration, $delay);
+  @include start();
+  @include base($z-index)
+}
+
+/// Fusion
+@mixin on(
+  $duration-in: $-duration-in,
+  $duration-out: $-duration-out,
+  $delay: $-delay-in,
+  $max: $-max
+) {
+  @include timing-in($duration-in, $delay);
 
   //TODO Conflicts in Firefox with start-transition
-  @supports not( -moz-appearance: none ){
-    animation: {
-      duration: $duration;
-      delay: $max;
-      name: tooltip-hidding;
-      fill-mode: forwards;
-    };
+  @supports not( -moz-appearance: none ) {
+    @include disappear-animation($duration-out, $max);
   }
 
   @include end();
