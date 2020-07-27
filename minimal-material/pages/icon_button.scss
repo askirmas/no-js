@@ -8,6 +8,7 @@
   $-light: theme.$primary-light
 );
 @use "../src/quarks/overlays";
+@use "../src/molecules/material-icon";
 
 article.icon_button {
   display: grid;
@@ -41,7 +42,7 @@ article.icon_button {
       @include tooltip-animation.off()
     }
     &::after {
-      @import "../src/molecules/icon/core";
+      @include material-icon.apply();
     }
 
     @include hover() {

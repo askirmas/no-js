@@ -1,3 +1,5 @@
+@use "opt";
+
 $-unit: 1rem !default;
 
 @import "../u";
@@ -6,10 +8,6 @@ $-light: 300 !default;
 $-regular: 400 !default;
 $-medium: 500 !default;
 
-@mixin -common() {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
 @mixin -margin-block($value) {
   margin-block: {
     start: $value;
@@ -24,7 +22,7 @@ $-medium: 500 !default;
   letter-spacing: u(-1.5 / 16);
   // letter-spacing: -0.015625em;
   @include -margin-block(1em);
-  @include -common();
+  @include opt.smooth();
 }
 @mixin headline2() {
   font-weight: #{$-light};
@@ -33,7 +31,7 @@ $-medium: 500 !default;
   letter-spacing: u(-0.5 / 16);
   // letter-spacing: -0.0083333333em;
   @include -margin-block(0.83em);
-  @include -common();
+  @include opt.smooth();
 }
 @mixin headline3() {
   font-weight: #{$-regular};
@@ -42,7 +40,7 @@ $-medium: 500 !default;
   letter-spacing: u(0);
   // letter-spacing: 0; // aka normal
   @include -margin-block(1em);
-  @include -common();
+  @include opt.smooth();
 }
 @mixin headline4() {
   font-weight: #{$-regular};
@@ -51,7 +49,7 @@ $-medium: 500 !default;
   letter-spacing: u(0.25 / 16);
   // letter-spacing: 0.0073529412em;
   @include -margin-block(1.33em);
-  @include -common();
+  @include opt.smooth();
 }
 @mixin headline5() {
   font-weight: #{$-regular};
@@ -60,7 +58,7 @@ $-medium: 500 !default;
   letter-spacing: u(0);
   // letter-spacing: 0;
   @include -margin-block(1.67em);
-  @include -common();
+  @include opt.smooth();
 }
 @mixin headline6() {
   font-weight: #{$-medium};
@@ -69,7 +67,7 @@ $-medium: 500 !default;
   letter-spacing: u(0.25 / 16);
   // letter-spacing: 0.0125em;
   @include -margin-block(2.33em);
-  @include -common();
+  @include opt.smooth();
 }
 @mixin subtitle1() {
   font-weight: #{$-regular};
@@ -78,7 +76,7 @@ $-medium: 500 !default;
   letter-spacing: u(0.15 / 16);
   // letter-spacing: 0.009375em;
   @include -margin-block(2.33em);
-  @include -common();
+  @include opt.smooth();
 }
 @mixin subtitle2() {
   font-weight: #{$-medium};
@@ -87,7 +85,7 @@ $-medium: 500 !default;
   letter-spacing: u(0.1 / 16);
   // letter-spacing: 0.0071428571em;
   @include -margin-block(2.33em);
-  @include -common();
+  @include opt.smooth();
 }
 @mixin body1() {
   font-weight: #{$-regular};
@@ -96,7 +94,7 @@ $-medium: 500 !default;
   letter-spacing: u(0.5 / 16);
   // letter-spacing: 0.03125em;
   @include -margin-block(1em);
-  @include -common();
+  @include opt.smooth();
 }
 @mixin body2() {
   font-weight: #{$-regular};
@@ -105,7 +103,7 @@ $-medium: 500 !default;
   letter-spacing: u(0.25 / 16);
   // letter-spacing: 0.0178571429em;
   @include -margin-block(1em);
-  @include -common();
+  @include opt.smooth();
 }
 /* Icon's 1.5 may be useful */ 
 @mixin button($line: 2.25) {
@@ -115,7 +113,7 @@ $-medium: 500 !default;
   line-height: u($line);
   letter-spacing: u(1.25 / 16);
   // letter-spacing: 0.0892857143em;
-  @include -common();
+  @include opt.smooth();
 }
 @mixin caption() {
   font-weight: #{$-regular};
@@ -123,7 +121,7 @@ $-medium: 500 !default;
   line-height: u(1.25);
   letter-spacing: u(0.4 / 16);
   // letter-spacing: 0.0333333333em;
-  @include -common();
+  @include opt.smooth();
 }
 @mixin overline() {
   font-weight: #{$-medium};
@@ -132,6 +130,6 @@ $-medium: 500 !default;
   text-transform: uppercase;
   letter-spacing: u(2 / 16);
   // letter-spacing: 0.1666666667em;
-  @include -common();
+  @include opt.smooth();
 }
 

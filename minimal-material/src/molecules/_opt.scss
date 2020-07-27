@@ -1,0 +1,18 @@
+@mixin smooth() {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;  
+}
+
+@mixin forIcon() {
+  /* Support for all WebKit browsers. */
+  -webkit-font-feature-settings: 'liga';
+
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-font-feature-settings: 'liga';
+  
+  /* Support for IE. */
+  font-feature-settings: 'liga';      
+}

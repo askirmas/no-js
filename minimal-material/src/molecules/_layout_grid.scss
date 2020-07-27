@@ -1,5 +1,5 @@
 @use "text";
-
+@use "material-icon";
 @import "../u";
 // $-unit: 1rem !default;
 
@@ -101,7 +101,7 @@
   @include gap();
   @include padding-tab-item();
   @include order();
-  &::after { @import "./icon/core"; }
+  &::after { @include material-icon.apply(); }
 }
 
 &tab_item_vert {
@@ -109,7 +109,7 @@
   @include horiz();
   @include padding-tab-item();
   @include order-vert();
-  &::after { @import "./icon/core"; }
+  &::after { @include material-icon.apply(); }
 }
 
 &icon_button {
@@ -118,7 +118,7 @@
   @include padding-icon-button();
   @include order();
   @include border-fab();
-  &::after {@import "./icon/core";}
+  &::after {@include material-icon.apply();}
   &::before {display: none;}
 }
 
@@ -128,7 +128,7 @@
   @include padding-fab-icon();
   @include order();
   @include border-fab();
-  &::after {@import "./icon/core";}
+  &::after {@include material-icon.apply();}
   &::before {display: none;}
 }
 
@@ -138,7 +138,7 @@
   @include padding-fab-min();
   @include order();
   @include border-fab();
-  &::after { @import "./icon/core"; }
+  &::after { @include material-icon.apply(); }
   &::before {display: none;}
 }
 
@@ -151,7 +151,7 @@
   @include order();
   &::after {
     @include margin-fab-icon();
-    @import "./icon/core";
+    @include material-icon.apply();
   }
 }
 
@@ -163,7 +163,7 @@
   @include border-fab();
   @include order-rev();
   &::after {
-    @import "./icon/core";
+    @include material-icon.apply();
     @include margin-fab_rev-icon();
   }
 }
@@ -177,5 +177,5 @@
   @include border-rounded();
   @include order();
   min-width: u(4);
-  &::after { @import "./icon/core"; }
+  &::after { @include material-icon.apply(); }
 }

@@ -1,4 +1,5 @@
 @use "../src/molecules/text";
+@use "../src/molecules/material-icon";
 
 @at-root {
   :root {
@@ -49,7 +50,7 @@
         }
         &, &_small {    
           &::after {
-            @import "./molecules/icon/core";
+            @include material-icon.apply();
           }
         }        
         & {
