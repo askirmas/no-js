@@ -3,6 +3,7 @@ import React from 'react'
 import App from 'next/app'
 
 /* import styles in _app, not in doc https://github.com/zeit/next-plugins/issues/282#issuecomment-436661879 */
+import "./reset.css"
 import "../origin.css"
 import "./index.scss"
 import "../src/main.scss"
