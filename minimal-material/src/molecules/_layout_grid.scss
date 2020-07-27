@@ -20,30 +20,18 @@
 
 @mixin order() {
   grid-auto-flow: column;
-  &::before {
-    order: 2;
-  }
-  &::after {
-    order: 1;
-  }
+  &::before { order: 2; }
+  &::after { order: 1; }
 }
 @mixin order-rev() {
   grid-auto-flow: column; // except fab-rev and tab-v
-  &::before {
-    order: 1;
-  }
-  &::after {
-    order: 2;
-  }
+  &::before {order: 1;}
+  &::after {order: 2;}
 }  
 @mixin order-vert() {
   grid-auto-flow: row; // except fab-rev and tab-v
-  &::before {
-    order: 2;
-  }
-  &::after {
-    order: 1;
-  }
+  &::before {order: 2;}
+  &::after {order: 1;}
 }  
 
 @mixin margin-fab-icon() {
@@ -57,12 +45,18 @@
   // height: max-content;
   width: max-content;
   display: inline-grid;
-  grid-auto-rows: u(1.5); // // button ?
-  grid-auto-columns: max-content;
-  align-items: center;
-  justify-items: center; // optional
-  align-content: center;
-  justify-content: center;
+  grid-auto: {
+    rows: u(1.5); // // button ?
+    columns: max-content;
+  }
+  align: {
+    items: center;
+    content: center;
+  }
+  justify: {
+    items: center;  // optional
+    content: center;
+  }
 }
 @mixin gap() {
   column-gap: u(0.5);
