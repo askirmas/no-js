@@ -1,7 +1,15 @@
-$enabled: 1 !default;
+$enabled: 0 !default;
+/** :hover */ 
 $hover: 1 !default;
+/** :focus, :focus-within */ 
 $focus: 3 !default;
+/** :checked with state icon */
 $selected: 2 !default;
+/** :checked without state icon */
 $activated: 3 !default;
-$pressed: 3 !default;
+/** :active */
+$pressed: 3 !default; // on_color is 4
+/** need custom */
 $dragged: 2 !default;
+/** :disabled */
+$disabled: 7.75 !default; // on_color.saturation := 0, textColor: 0,0,50%, on_white bgr white, color.opacity: 38 or 62
