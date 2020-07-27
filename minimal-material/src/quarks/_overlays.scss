@@ -13,3 +13,5 @@ $pressed: 3 !default; // on_color is 4
 $dragged: 2 !default;
 /** :disabled */
 $disabled: 7.75 !default; // on_color.saturation := 0, textColor: 0,0,50%, on_white bgr white, color.opacity: 38 or 62
+
+//TODO $hover-and-selected = $hover + $selected
