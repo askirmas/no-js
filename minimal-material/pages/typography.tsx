@@ -1,3 +1,4 @@
+import {createElement} from 'react'
 import pageData from "../cypress/fixtures/typography.json"
 import "./typography.scss";
 
@@ -6,21 +7,24 @@ const pageName = "typography"
 export default function Typoraphy() {
   return <article className={pageName}>
     <Examples prefix="mdc-" delimiter="--"/>
-    <Examples prefix="mm_" delimiter="_"/>
+    <Examples tag="div" prefix="mm_" delimiter="_"/>
   </article>
 }
 
-function Examples({prefix, delimiter}: Record<"prefix"|"delimiter", string>) {
+function Examples(
+  {prefix, delimiter, tag}
+  : Record<"prefix"|"delimiter", string> & {tag?: string}
+) {
   const children = Object.entries(pageData)
-  .map(([key, {tagName: Tag, content}]) =>
-    <Tag {...{
+  .map(([key, {tagName, content}]) => createElement(
+    tag ?? tagName,
+    {
       key,
       "className": `${prefix}${pageName}${delimiter}${key}`,
       "data-cy": key
-    }}>{
-      content
-    }</Tag>
-  )
+    },
+    content
+  ))
 
   return <section>{children}</section>
 }
