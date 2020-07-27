@@ -14,7 +14,7 @@ $-max: 1.5s !default;
 ) {
   z-index: $z-index;
   $props: clip-path, transform, opacity;
-  will-change: $props;
+  // will-change: $props;
   transition-property: $props;
 }
 
