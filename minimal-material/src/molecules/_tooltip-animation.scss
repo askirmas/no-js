@@ -8,60 +8,80 @@ $-delay-out: 75ms !default;
 
 $-max: 1.5s !default;
 
-@mixin -start() {
+/// Molecule
+@mixin base(
+  $z-index: $-z-index
+) {
+  z-index: $z-index;
+  $props: clip-path, transform, opacity;
+  will-change: $props;
+  transition-property: $props;
+}
+
+/// Molecule
+@mixin start() {
   clip-path: polygon(0 0, 0 0, 0 0, 0 0);
   transform: scale(0.5);
   opacity: 0;
 }
 
-@mixin -end($opacity: 1) {
+/// Molecule
+@mixin end($opacity: 1) {
   clip-path: polygon(0 0, 1000% 0, 1000% 1000%, 0 1000%);
   transform: scale(1);
   opacity: $opacity;
 }
 
+/// Fusion
 @mixin off(
   $duration: $-duration-in,
   $delay: $-delay-in,
   $z-index: $-z-index
 ) {
-  z-index: 1;
-
-  @include -start();
   transition: {
-    property: clip-path, transform, opacity;
     delay: $delay, $delay + $duration, $delay;
     duration: $duration, 0s, $duration;
+    // delay: $delay;
+    // duration: $duration;
   }
+  @include start();
+  @include base($z-index)
 }
 
+/// Fusion
 @mixin on(
   $duration: $-duration-out,
   $delay: $-delay-out,
   $max: $-max
 ) {
-  @include -end();
   transition: {
     delay: $delay, $delay, 0s;
     duration: $duration, $duration, 0s;
+    // delay: $delay;
+    // duration: $duration;
   }
-  animation: {
-    duration: $duration;
-    delay: $max;
-    name: tooltip-hidding;
-    iteration-count: 1;
-    fill-mode: forwards;
-  };
+
+  //TODO Conflicts in Firefox with start-transition
+  @supports not( -moz-appearance: none ){
+    animation: {
+      duration: $duration;
+      delay: $max;
+      name: tooltip-hidding;
+      fill-mode: forwards;
+    };
+  }
+
+  @include end();
 }
 
 @keyframes tooltip-hidding {
-  0% {
-    @include -end();
+  from {
+    @include end();
   }
-  99.9% {
-   @include -end(0);
+  99% {
+    @include end(0);
   }
-  100% {
-    @include -start();
+  to {
+    @include start();
   }
 }
