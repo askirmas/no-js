@@ -1,3 +1,5 @@
+@use "../src/atoms/elevation.scss";
+
 article.elevation {
   $width: 100px;
   $height: 50px;
@@ -17,13 +19,12 @@ article.elevation {
   .elevation-demo-surface {
     grid-column: 1;
   }
-  
-  @import "../src/atoms/elevation.scss";
+    
   .mm_elevation__ {
     @for $index from 0 through 24 {
       &#{$index} {
         grid-column: 2;
-        @include elevation($index);
+        @include elevation.apply($index);
       }
     } 
   }  

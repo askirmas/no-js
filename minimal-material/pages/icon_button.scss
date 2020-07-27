@@ -2,7 +2,7 @@
 @use "../src/molecules/text";
 @use "theme";
 @use "../src/molecules/tooltip-animation";
-@use "../src/atoms/background-color" with (
+@use "../src/atoms/state-background" with (
   $-hue: theme.$primary-hue,
   $-saturation: theme.$primary-saturation,
   $-light: theme.$primary-light
@@ -46,20 +46,20 @@ article.icon_button {
     }
 
     @include hover() {
-      @include background-color.on_white(overlays.$hover);
+      @include state-background.on_white(overlays.$hover);
       &::before {
         @include tooltip-animation.on()
       }
     }
     @include focus() {
-      @include background-color.on_white(overlays.$focus);
+      @include state-background.on_white(overlays.$focus);
     }
     @include focus-within() {
-      @include background-color.on_white(overlays.$focus);
+      @include state-background.on_white(overlays.$focus);
     }
     @include active() {
       //TODO add ripple
-      @include background-color.on_white(overlays.$activated);
+      @include state-background.on_white(overlays.$activated);
     }
   }
 }

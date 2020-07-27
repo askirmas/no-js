@@ -1,5 +1,5 @@
 @import "../functions/elevation";
 
-@mixin elevation($index) {
+@mixin apply($index) {
   box-shadow: elevation($index);
 }

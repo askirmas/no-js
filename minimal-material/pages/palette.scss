@@ -1,5 +1,5 @@
 @use "theme";
-@use "../src/atoms/background-color" with (
+@use "../src/atoms/state-background" with (
   $-hue: theme.$primary-hue,
   $-saturation: theme.$primary-saturation,
   $-light: theme.$primary-light
@@ -19,18 +19,18 @@
     &3 { --overlay_index: #{overlays.$focus};}  
   }
   .white {
-    @include background-color.on_white(var(--overlay_index));      
+    @include state-background.on_white(var(--overlay_index));      
     &.act {
-      @include background-color.on_white(var(--overlay_index), true);      
+      @include state-background.on_white(var(--overlay_index), true);      
     }  
   }
   .colored {
-    @include background-color.on_color(var(--overlay_index));
+    @include state-background.on_color(var(--overlay_index));
     &.ov_in0 {
-      @include background-color.on_color();
+      @include state-background.on_color();
     }
     &.act {
-      @include background-color.on_color(overlays.$activated, true);
+      @include state-background.on_color(overlays.$activated, true);
     } 
   }
 
