@@ -13,7 +13,7 @@
   &fab_icon {
     @include layout--fab_icon();
     @include border-radius--fab();
-    &::before {
+    &#{$-entity-title} {
       //TODO: @include tooltip();  
       display: none;
     }  
@@ -21,7 +21,7 @@
   &fab_min {
     @include layout--fab_min();
     @include border-radius--fab();
-    &::before {
+    &#{$-entity-title} {
       //TODO: @include tooltip();  
       display: none;
       @include tooltip();      
@@ -42,7 +42,7 @@
   &icon_button {
     @include layout--icon_button();
     @include border-radius--fab();
-    &::before {
+    &#{$-entity-title} {
       @include tooltip();      
     }
   }

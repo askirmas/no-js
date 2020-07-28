@@ -52,7 +52,7 @@
   @include flow_order--horizontal();
 
   @include padding--fab();
-  &::after {
+  &#{$-entity-icon} {
     @include margin--fab-icon();
   }
 }
@@ -65,7 +65,7 @@
   @include flow_order--horizontal-rev();
 
   @include padding--fab();
-  &::after {
+  &#{$-entity-icon} {
     @include margin--fab_rev-icon();
   }
 }

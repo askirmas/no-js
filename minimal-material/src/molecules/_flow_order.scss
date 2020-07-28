@@ -1,23 +1,23 @@
 @mixin flow_order--horizontal() {
   grid-auto-flow: column;
-  &::before { order: 2; }
-  &::after { order: 1; }
+  &#{$-entity-title} { order: 2; }
+  &#{$-entity-icon} { order: 1; }
 }
 
 @mixin flow_order--horizontal-rev() {
   grid-auto-flow: column;
-  &::before {order: 1;}
-  &::after {order: 2;}
+  &#{$-entity-title} {order: 1;}
+  &#{$-entity-icon} {order: 2;}
 }
 
 @mixin flow_order--vertical() {
   grid-auto-flow: row;
-  &::before {order: 2;}
-  &::after {order: 1;}
+  &#{$-entity-title} {order: 2;}
+  &#{$-entity-icon} {order: 1;}
 }  
 
 @mixin flow_order--coincide() {
-  &::before, &::after {
+  &#{$-entity-title}, &#{$-entity-icon} {
     grid-column: 1;
     grid-row: 1;
   }

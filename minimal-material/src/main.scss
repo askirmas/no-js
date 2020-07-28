@@ -32,10 +32,10 @@
       ;  
       &_item {
         @mixin tab-item-core() {
-          &::before {
+          &#{$-entity-title} {
             @include typography--button();     
           } 
-          &::after {
+          &#{$-entity-icon} {
             padding-right: $padding-quater;
             font-size: $padding;
           }
@@ -49,7 +49,7 @@
           }
         }
         &, &_small {    
-          &::after {
+          &#{$-entity-icon} {
             @import "../src/molecules/material_icon";
             @include material_icon();
           }
@@ -65,7 +65,7 @@
         &_small {
           @import "./molecules/containers/tab-item-small";
           @include tab-item-core();
-          &._bordered::before {
+          &._bordered#{$-entity-title} {
             box-sizing: border-box;
             border-bottom: 2px solid currentColor;
           }

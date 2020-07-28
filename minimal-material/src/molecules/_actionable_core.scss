@@ -10,11 +10,11 @@
 
 /* todo: remove 2 molecules */
 @mixin actionable_core--default($icon-size: $-icon-size) {
-  &::before {
+  &#{$-entity-title} {
     @include typography--button(1.75);
     height: u($-icon-size);
   }
-  &::after {
+  &#{$-entity-icon} {
     @include sizing--icon($icon-size);
     @include material_icon();
   }
@@ -23,10 +23,10 @@
 @mixin actionable_core--icon_button() {
   @include sizing--icon();
 
-  &::before {
+  &#{$-entity-title} {
     @include typography--caption($-icon-size);
   }
-  &::after {
+  &#{$-entity-icon} {
     @include material_icon();
   }  
 }

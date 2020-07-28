@@ -30,13 +30,13 @@ article.icon_button {
   
   ;
   &icon_button {
-    &::before {
+    &#{$-entity-title} {
       @include tooltip_animation--off();
     }
   
     @include hover() {
       @include background-color--on_white($-overlay--hover);
-      &::before {
+      &#{$-entity-title} {
         @include tooltip_animation--on()
       }
     }
