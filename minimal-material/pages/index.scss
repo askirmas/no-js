@@ -35,22 +35,32 @@
   @import "theme"
   , "../src/utils"
   ;
-  
+
+  &wifi_icon {
+    @include content("wifi");
+  }
+
+  &favorite_toggler {
+    @include content("favorite_border", null, "favorite"); 
+  }
+
+  &bookmark_toggler {
+    @include content("star_border", "Bookmark", "star"); 
+  }
+
   &recents {
     @include content("access_time", "recents");
   }
   &nearby {
     @include content("near_me", "nearby");
   }
-  &favorites {
-    @include content("favorite", "favorites");
+
+  &wifi_icon {
+    @include content("wifi");
   }
 
-  &favorite_border {
-    @include content("favorite_border", "favorite_border");
-  }
-  &wifi {
-    @include content("wifi", "wifi");
+  &favorite_toggler {
+    @include content("favorite_border", null, "favorite"); 
   }
 
   &tab {

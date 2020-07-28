@@ -1,13 +1,10 @@
 article.icon_button {
+  padding: 1em;  
   grid-template-columns: repeat(auto-fill, 7rem);
   grid-auto-rows: min-content;
   grid-auto-flow: row;
-  figure,
-  li {
-    height: 6rem;
-    display: flex;
-    justify-content: center;
-  }
+  gap: 1em;
+
   // .content_ {
   //   @each $icon in (favorite_border, wifi) {
   //     &#{$icon} {
@@ -15,6 +12,9 @@ article.icon_button {
   //     }
   //   } 
   // }
+  .mdc-icon-button._hover::before {
+    opacity: 0.04;
+  }  
 }
 
 .mm0_ {
@@ -27,24 +27,47 @@ article.icon_button {
   ;
   
   &icon_button {
-    &, &_, &_hover, &_focus, &_active {
+    &, &_toggler,
+    &_, &_hover, &_focus, &_activated, &_checked, &_disabled, &_pressed, &_dragging, &_selected {
       @include block-icon_button--enabled();
     }
-    &:hover, &_hover {
+    &:hover, &_toggler:hover,
+    &_hover {
       @include block-icon_button--hovering();      
     }
-    &:focus, &:focus-within, &_focus {
+    &:focus, &_toggler:focus, &:focus-within, &_toggler:focus-within,
+    &_focus {
       @include block-icon_button--focusing();
     }
-    &:active, &_active {
+    &:checked, &_activated {
       @include block-icon_button--activating();
     }  
 
+    &_selected {
+      @include block-icon_button--selecting();
+    }
+
+    &:active, &_toggler:active,
+    &_pressed {
+      @include block-icon_button--pressing();
+    }
+
+    &_dragging {
+      @include block-icon_button--dragging();
+    }
+
+    &:disabled, &_toggler:disabled,
+    &_disabled {
+      @include block-icon_button--disabling();
+    }
+
     // animation
     &#{$-entity-title} {
-      @include tooltip_animation--off();
+      &/*, &:active*/ {
+        @include tooltip_animation--off();
+      }
     }
-    &:hover {
+    &:hover/*:not(:active)*/ {
       &#{$-entity-title} {
         @include tooltip_animation--on()
       }

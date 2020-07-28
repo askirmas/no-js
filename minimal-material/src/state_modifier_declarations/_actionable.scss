@@ -42,20 +42,59 @@
 @mixin block-icon_button--enabled() {
   @include layout--icon_button();
   @include border-radius--fab();
+
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  
+  outline: none;
+  box-sizing: content-box;
+  margin: 0;
+  cursor: pointer;
+  
   &#{$-entity-title} {
     @include tooltip();
     @include visuality--hidden(); 
   }
 }
+
+@mixin block-icon_button--disabling() {
+  pointer-events: none;
+  cursor: default;
+  &#{$-entity-icon} {
+    // opacity: 0.38;
+    color: rgba(0, 0, 0, 0.38);
+  }
+}
+
 @mixin block-icon_button--hovering() {
   @include background-color--on_white($-overlay--hover);
   &#{$-entity-title} {
     @include visuality--shown(); 
   }
 }
+
 @mixin block-icon_button--focusing() {
   @include background-color--on_white($-overlay--focus);
+  // &#{$-entity-title} {
+  //   @include visuality--hidden(); 
+  // }
 }
-@mixin block-icon_button--activating() {
-  @include background-color--on_white($-overlay--activated);
+
+@mixin block-icon_button--pressing() {
+  @include background-color--on_white($-overlay--pressed);
 }  
+
+
+@mixin block-icon_button--activating() {
+  @include background-color--on_white($-overlay--activated, true);
+}  
+
+@mixin block-icon_button--selecting() {
+  @include background-color--on_white($-overlay--selected, true);
+}  
+
+@mixin block-icon_button--dragging() {
+  @include background-color--on_white($-overlay--dragged);
+}  
+// on // off // error

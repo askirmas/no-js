@@ -14,6 +14,10 @@ figure {
   margin-inline-start: 0;
   margin-inline-end: 0;  
 }
+figcaption {
+  width: max-content;
+  height: max-content;
+}
 
 #__next {
   display: grid;
@@ -32,4 +36,13 @@ figure {
 a[id][href] {
   grid-column: 1 / -1;
   scroll-behavior: smooth;
+}
+
+figure {
+  display: grid;
+  justify-items: center;
+  gap: 2.5rem;
+}
+ul {
+  grid-column: 1 / -1;
 }

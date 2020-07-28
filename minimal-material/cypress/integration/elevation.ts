@@ -9,7 +9,7 @@ describe("elevation", () => {
       .within(({0: {dataset: {cy: name = "!"}}}) => cy
         .log(name)
         .root()
-        .scrollIntoView()
+        .scrollIntoCenter()
         .toMatchImageSnapshot({name: `${page} ${name}`})
         // .matchImageSnapshot(`${page} ${name}`)
         // .compareSnapshot(`${page} ${name}`)

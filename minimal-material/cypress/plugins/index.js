@@ -16,4 +16,4 @@
  * @type {Cypress.PluginConfig}
  */
 
-module.exports =require("@kirmas/template-cypress/plugins")
+module.exports = require("@kirmas/template-cypress/plugins")

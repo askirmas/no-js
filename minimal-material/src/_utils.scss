@@ -1,9 +1,17 @@
-@mixin content($icon: null, $content: null) {
+@mixin content($icon: null, $content: null, $icon-on: null) {
+
   @if ($icon != null) {
     &#{$-entity-icon} {
       content: $icon;
     }  
   }
+
+  @if ($icon-on != null) {
+    &:checked#{$-entity-icon} {
+      content: $icon-on;
+    }
+  }
+
   @if ($content != null) {
     &#{$-entity-title} {
       content: $content;
