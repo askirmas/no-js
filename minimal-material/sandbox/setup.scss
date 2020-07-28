@@ -15,7 +15,7 @@ $post: "/v6/24px.svg";
   align-items: center;
   width: 100%;
   &::after {
-    @include material-icon()
+    @include material_icon()
   }
 }
 
@@ -26,7 +26,7 @@ $post: "/v6/24px.svg";
   }
 }
 
-@mixin material-icon() {
+@mixin material_icon() {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;

@@ -1,5 +1,5 @@
-@use "../src/molecules/text";
-@use "../src/molecules/material-icon";
+@use "../src/molecules/typography";
+@use "../src/molecules/material_icon";
 
 @at-root {
   :root {
@@ -9,31 +9,31 @@
   }
 
   .mm_ {
-    @import "_core"
-    , "quarks/params-const"
-    ;
     /* text */
     & {
-      &text_headline1 {@include text.headline1(); }
-      &text_headline2 {@include text.headline2(); }
-      &text_headline3 {@include text.headline3(); }
-      &text_headline4 {@include text.headline4(); }
-      &text_headline5 {@include text.headline5(); }
-      &text_headline6 {@include text.headline6(); }
-      &text_subtitle1 {@include text.subtitle1(); }
-      &text_subtitle2 {@include text.subtitle2(); }
-      &text_body1 {@include text.body1(); }
-      &text_body2 {@include text.body2(); }
-      &text_button {@include text.button(); }
-      &text_caption {@include text.caption(); }
-      &text_overline {@include text.overline(); }
+      &text_headline1 {@include typography.headline1(); }
+      &text_headline2 {@include typography.headline2(); }
+      &text_headline3 {@include typography.headline3(); }
+      &text_headline4 {@include typography.headline4(); }
+      &text_headline5 {@include typography.headline5(); }
+      &text_headline6 {@include typography.headline6(); }
+      &text_subtitle1 {@include typography.subtitle1(); }
+      &text_subtitle2 {@include typography.subtitle2(); }
+      &text_body1 {@include typography.body1(); }
+      &text_body2 {@include typography.body2(); }
+      &text_button {@include typography.button(); }
+      &text_caption {@include typography.caption(); }
+      &text_overline {@include typography.overline(); }
     }
 
     &tab {
+      @import "_core"
+      , "params"
+      ;  
       &_item {
         @mixin tab-item-core() {
           &::before {
-            @include text.button();     
+            @include typography.button();     
           } 
           &::after {
             padding-right: $padding-quater;
@@ -50,7 +50,7 @@
         }
         &, &_small {    
           &::after {
-            @include material-icon.apply();
+            @include material_icon.apply();
           }
         }        
         & {
@@ -73,7 +73,7 @@
     }
 
     &2_ {
-      @import "./molecules/layout_grid";
+      @import "./blocks/actionable";
     }
   }  
 }

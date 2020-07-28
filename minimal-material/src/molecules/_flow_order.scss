@@ -1,0 +1,24 @@
+@mixin horizontal() {
+  grid-auto-flow: column;
+  &::before { order: 2; }
+  &::after { order: 1; }
+}
+
+@mixin horizontal-rev() {
+  grid-auto-flow: column;
+  &::before {order: 1;}
+  &::after {order: 2;}
+}
+
+@mixin vertical() {
+  grid-auto-flow: row;
+  &::before {order: 2;}
+  &::after {order: 1;}
+}  
+
+@mixin coincide() {
+  &::before, &::after {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}

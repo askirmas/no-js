@@ -1,0 +1,35 @@
+@use "../molecules/typography";
+@use "../molecules/material_icon";
+
+$-icon-size: 1.5;
+
+@import "../u";
+
+@mixin icon-sizing($icon-size: $-icon-size) {
+  font-size: u($icon-size);
+  width: 1em;
+  height: 1em;
+}
+
+/* todo: remove 2 molecules */
+@mixin default($icon-size: $-icon-size) {
+  &::before {
+    @include typography.button(1.75);
+    height: u($-icon-size);
+  }
+  &::after {
+    @include icon-sizing($icon-size);
+    @include material_icon.apply();
+  }
+}
+
+@mixin icon_button() {
+  @include icon-sizing();
+
+  &::before {
+    @include typography.caption($-icon-size);
+  }
+  &::after {
+    @include material_icon.apply();
+  }  
+}

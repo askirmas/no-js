@@ -1,4 +1,4 @@
-@import "../functions/elevation";
+@import "../quarks/elevation";
 
 @mixin apply($index) {
   box-shadow: elevation($index);

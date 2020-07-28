@@ -1,0 +1,48 @@
+@use "../atoms/border-radius";
+@use "../molecules/tooltip_colors";
+@use "../fusions/actionable_layout";
+@use "../fusions/tooltip";
+
+@import "../u";
+
+& {
+  &tab_item {
+    @include actionable_layout.tab_item();
+  }
+  &tab_item_vert {
+    @include actionable_layout.tab_item_vert();
+  }
+  &fab_icon {
+    @include actionable_layout.fab_icon();
+    @include border-radius.fab();
+    &::before {
+      display: none;
+    }  
+  }
+  &fab_min {
+    @include actionable_layout.fab_min();
+    @include border-radius.fab();
+    &::before {
+      display: none;
+    }  
+  }
+  &fab {
+    @include actionable_layout.fab();
+    @include border-radius.fab();
+  }
+  &fab_rev {
+    @include actionable_layout.fab_rev();
+    @include border-radius.fab();
+  }
+  &button {
+    @include actionable_layout.button();
+    @include border-radius.default();
+  }
+  &icon_button {
+    @include actionable_layout.icon_button();
+    @include border-radius.fab();
+    &::before {
+      @include tooltip.apply();      
+    }
+  }
+}

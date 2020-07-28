@@ -5,8 +5,10 @@ import TabItem from "../mwcr/TabItem";
 import ButtonFloat from "../mwcr/ButtonFloat";
 import FieldSet from "../Components/Fieldset";
 
+import "./layouts.scss";
+
 export default function Layouts() {
-  return <article className="suite_vertical">
+  return <article className="layouts suite_vertical">
     <FieldSet legend="button">
       <FieldSet legend="G">
         <Button {...{outlined: true}}>Outlined</Button>

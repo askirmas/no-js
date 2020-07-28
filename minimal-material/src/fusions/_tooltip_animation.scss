@@ -1,0 +1,39 @@
+$-z-index: 1;
+
+$-duration-in: 150ms !default;
+$-delay-in: 150ms !default;
+
+$-duration-out: 75ms !default;
+$-delay-out: 75ms !default;
+
+$-max: 1.5s !default;
+
+@import "../molecules/tooltip_animation";
+
+/// Fusion
+@mixin off(
+  $duration: $-duration-out,
+  $delay: $-delay-out,
+  $z-index: $-z-index
+) {
+  @include timing-out($duration, $delay);
+  @include start();
+  @include base($z-index)
+}
+
+/// Fusion
+@mixin on(
+  $duration-in: $-duration-in,
+  $duration-out: $-duration-out,
+  $delay: $-delay-in,
+  $max: $-max
+) {
+  @include timing-in($duration-in, $delay);
+
+  //TODO Conflicts in Firefox with start-transition
+  @supports not( -moz-appearance: none ) {
+    @include disappear-animation($duration-out, $max);
+  }
+
+  @include end();
+}

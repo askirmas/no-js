@@ -1,0 +1,7 @@
+@import "../u";
+@mixin default() {
+  column-gap: u(0.5);
+}
+@mixin fab() {
+  column-gap: u(0.75);
+}

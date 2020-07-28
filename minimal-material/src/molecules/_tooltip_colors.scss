@@ -1,0 +1,8 @@
+$-color: white !default;
+// $tooltip-bgr: hsl(198, 20%, 17%);
+$-bgr: hsla(0, 0%, 38%, 0.9) !default;
+
+@mixin apply() {
+  color: $-color;
+  background-color: $-bgr;
+}

@@ -6,8 +6,6 @@ $-bgr-ripple: null !default;
 //TODO White with opacity?
 $-bgr-back: transparent !default;
 $-ratio: 100 !default;
-$-hover: ":hover";
-$-active: ":active";
 
 @mixin source(
   $bgr: $-bgr,
@@ -17,14 +15,16 @@ $-active: ":active";
 ) {
   $boundary: 100% / $ratio;
 
-  background-color: $bgr;
-  background-image: radial-gradient(
-    circle,
-    $bgr-back $boundary,
-    $bgr $boundary
-  );
-  /* math.sqrt(2) */
-  background-size: 100% * 1.41 * $ratio;
+  background: {
+    color: $bgr;
+    image: radial-gradient(
+      circle,
+      $bgr-back $boundary,
+      $bgr $boundary
+    );
+    /* math.sqrt(2) */
+    size: 100% * 1.41 * $ratio;  
+  };
 }
 
 @mixin target($bgr-ripple: $-bgr-ripple) {
@@ -36,24 +36,11 @@ $-active: ":active";
 }
 
 @mixin base() {
-  background-repeat: no-repeat;
-  background-position-x: 50%;
-  background-position-y: 50%;
+  background: {
+    repeat: no-repeat;
+    position-x: 50%;
+    position-y: 50%;
+  };
   transition-property: background-color, background-size;
 }
 
-@mixin apply(
-  $bgr: $-bgr,
-  $bgr-ripple: $-bgr-ripple,
-  $bgr-back: $-bgr-back,
-  $hover: $-hover,
-  $active: $-active
-) {
-  @include base();
-  &#{$hover} {
-    @include source($bgr, $bgr-back);
-  }
-  &#{$active} {
-    @include target($bgr-ripple);
-  }  
-}

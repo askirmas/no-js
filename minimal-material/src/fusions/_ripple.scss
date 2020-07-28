@@ -1,0 +1,29 @@
+/* Ripple effect */
+/* Based on https://codepen.io/finnhvman/pen/jLXKJw */
+
+$-bgr: null !default;
+$-bgr-ripple: null !default;
+//TODO White with opacity?
+$-bgr-back: transparent !default;
+$-ratio: 100 !default;
+$-hover: ":hover" !default;
+$-active: ":active" !default;
+
+@import "../molecules/ripple";
+
+@mixin apply(
+  $bgr: $-bgr,
+  $bgr-ripple: $-bgr-ripple,
+  $bgr-back: $-bgr-back,
+  $hover: $-hover,
+  $active: $-active,
+  $ratio: $-ratio
+) {
+  @include base();
+  &#{$hover} {
+    @include source($bgr, $bgr-back, $ratio);
+  }
+  &#{$active} {
+    @include target($bgr-ripple);
+  }  
+}

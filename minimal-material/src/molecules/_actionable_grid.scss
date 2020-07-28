@@ -1,0 +1,40 @@
+@use "../molecules/typography";
+@use "../molecules/material_icon";
+
+$-icon-size: 1.5;
+
+@import "../u";
+
+@mixin default() {
+  // height: max-content;
+  width: max-content;
+  display: inline-grid;
+  
+  grid-auto: {
+    rows: u($-icon-size); // // button ?
+    columns: max-content;
+  }
+  align: {
+    items: center;
+    content: center;
+  }
+  justify: {
+    items: center;  // optional
+    content: center;
+  }
+}
+
+@mixin icon_button() {
+  
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  justify-items: center;
+  align-items: center;
+  &::before {
+    position: relative;
+    top: calc(200%);  
+  }
+}

@@ -6,7 +6,7 @@
 .matmin_button__demo {
   background-color: black;
   &::after {
-    @include material-icon();
+    @include material_icon();
     @extend .mdc-button__icon;
     content: "favorite";
   }

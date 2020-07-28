@@ -1,0 +1,10 @@
+@use "../atoms/border-radius";
+@use "../atoms/padding_actionable";
+@use "../molecules/tooltip_colors";
+
+@mixin apply() {
+  @include tooltip_colors.apply();
+  @include border-radius.default();
+  width: max-content;
+  @include padding_actionable.min();  
+}
