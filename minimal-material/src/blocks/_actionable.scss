@@ -1,6 +1,6 @@
 & {
   @import "../atoms/border-radius"
-  , "../fusions/actionable_layout"
+  , "../fusions/layout_grid"
   , "../fusions/tooltip"
   ;
   
@@ -24,7 +24,6 @@
     &#{$-entity-title} {
       //TODO: @include tooltip();  
       display: none;
-      @include tooltip();      
     }  
   }
   &fab {
