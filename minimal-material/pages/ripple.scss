@@ -1,27 +1,15 @@
-@use "theme";
-@use "../src/consts/overlays";
-
 article.ripple {
-  $-hue: theme.$primary-hue;
-  $-saturation: theme.$primary-saturation;
-  $-light: theme.$primary-light;
-  $-magic-saturation: theme.$primary-magic-saturation;
-  $-step: 0.04;
-  
-  @import "../src/quarks/state_color";
-  $bgr: on_color(overlays.$hover);
-  $bgr-ripple: on_color(overlays.$activated, true);;
-
-  @import "../src/fusions/ripple"
+  @import "theme"
+  , "../src/fusions/ripple"
   ;
 
   .ripple {
     &, &_2 {
       transition-duration: 1s;    
     }
-    @include ripple($bgr, $bgr-ripple);
+    @include ripple($-bgr, $-ripple-bgr-color);
     &_2 {
-      @include ripple($bgr, transparent, $bgr-ripple);
+      @include ripple($-bgr, transparent, $-ripple-bgr-color);
     }
   }
   

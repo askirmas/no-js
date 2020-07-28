@@ -1,7 +1,5 @@
 @import "calc";
 
-$-unit: 1rem !default;
-
 @function u($k, $unit: $-unit) {
   @return ce($k,"*", $-unit);
 }

@@ -1,15 +1,5 @@
-$-z-index: 1;
-
-$-duration-in: 150ms !default;
-$-delay-in: 150ms !default;
-
-$-duration-out: 75ms !default;
-$-delay-out: 75ms !default;
-
-$-max: 1.5s !default;
-
 @mixin tooltip_animation--base(
-  $z-index: $-z-index
+  $z-index: $-tooltip-z-index
 ) {
   z-index: $z-index;
   $props: clip-path, transform, opacity;
@@ -55,7 +45,7 @@ $-max: 1.5s !default;
 
 @mixin tooltip_animation--disappear_animation (
   $duration: $-duration-in,
-  $max: $-max
+  $max: $-duration-max
 ) {
   animation: {
     duration: $duration;

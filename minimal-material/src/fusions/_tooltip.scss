@@ -1,7 +1,6 @@
-@import "../u"
-, "../molecules/tooltip_colors"
+@import "../molecules/tooltip_colors"
 , "../atoms/border-radius"
-, "../atoms/padding_actionable"
+, "../atoms/padding"
 ;
 
 @mixin tooltip() {

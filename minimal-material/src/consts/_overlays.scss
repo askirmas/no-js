@@ -1,17 +1,17 @@
-$enabled: 0 !default;
+$-overlay--enabled: 0 !default;
 /** :hover */ 
-$hover: 1 !default;
+$-overlay--hover: 1 !default;
 /** :focus, :focus-within */ 
-$focus: 3 !default;
+$-overlay--focus: 3 !default;
 /** :checked with state icon */
-$selected: 2 !default;
+$-overlay--selected: 2 !default;
 /** :checked without state icon */
-$activated: 3 !default;
+$-overlay--activated: 3 !default;
 /** :active */
-$pressed: 3 !default; // on_color is 4
+$-overlay--pressed: 3 !default; // on_color is 4
 /** need custom */
-$dragged: 2 !default;
+$-overlay--dragged: 2 !default;
 /** :disabled */
-$disabled: 7.75 !default; // on_color.saturation := 0, textColor: 0,0,50%, on_white bgr white, color.opacity: 38 or 62
+$-overlay--disabled: 7.75 !default; // on_color.saturation := 0, textColor: 0,0,50%, on_white bgr white, color.opacity: 38 or 62
 
-//TODO $hover-and-selected = $hover + $selected
+//TODO $-overlay--hover-and-selected = $-overlay--hover + $-overlay--selected

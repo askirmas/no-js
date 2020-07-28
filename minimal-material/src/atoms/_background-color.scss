@@ -1,0 +1,7 @@
+@mixin background-color--on_white($index: 0, $acted: false, $hue: $-hue, $saturation: $-saturation, $light: $-light) {
+  background-color: on_white($index, $acted, $hue, $saturation, $light);
+}
+
+@mixin background-color--on_color($index: 0, $acted: false, $hue: $-hue, $saturation: $-saturation, $light: $-light, $magic-saturation: $-magic-saturation) {
+  background-color: on_color($index, $acted, $hue, $saturation, $light, $magic-saturation);
+}

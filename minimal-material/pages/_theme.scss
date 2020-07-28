@@ -1,11 +1,48 @@
-$primary-hue: 265;
-$primary-saturation: 1;
-$primary-light: 0.47;
-$primary-magic-saturation: 0.87;
-$secondary-hue: 180;
-$secondary-saturation: 0.99;
-$secondary-light: 0.27;
+@import "../src/consts/overlays"
+, "../src/quarks/state_color"
+;
 
-$tooltip-color: white;
+$-unit: 1rem !default;
+
+$-hue: 265;
+$-saturation: 1;
+$-light: 0.47;
+$-magic-saturation: 0.87;
+// $secondary-hue: 180;
+// $secondary-saturation: 0.99;
+// $secondary-light: 0.27;
+
+$-step: 0.04;
+$-icon-size: 1.5;
+
+$-tooltip-z-index: 1;
+
+$-duration-in: 150ms !default;
+$-delay-in: 150ms !default;
+
+$-duration-out: 75ms !default;
+$-delay-out: 75ms !default;
+
+$-duration-max: 1.5s !default;
+
+$-elevation-opacity-1: 0.2 !default;
+$-elevation-opacity-2: 0.14 !default;
+$-elevation-opacity-3: $-elevation-opacity-2 - $-elevation-opacity-1 !default;
+
+$-bgr: on_color($-overlay--hover);
+$-ripple-bgr-color: on_color($-overlay--activated, true);;
+
+//TODO White with opacity?
+$-ripple-bgr-back: transparent !default;
+$-ripple-ratio: 100 !default;
+
+$-mod-hover: ":hover" !default;
+$-mod-active: ":active" !default;
+
+$-weight-light: 300 !default;
+$-weight-regular: 400 !default;
+$-weight-medium: 500 !default;
+
+$-tooltip-color: white !default;
 // $tooltip-bgr: hsl(198, 20%, 17%);
-$tooltip-bgr: hsla(0, 0%, 38%, 0.9);
+$-tooltip-bgr: hsla(0, 0%, 38%, 0.9) !default;

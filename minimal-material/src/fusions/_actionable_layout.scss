@@ -1,14 +1,11 @@
-@import "../u"
-, "../atoms/column-gap"
+@import "../atoms/column-gap"
 , "../atoms/min-width"
-, "../atoms/margin_actionable"
-, "../atoms/padding_actionable"
+, "../atoms/margin"
+, "../atoms/padding"
 , "../molecules/actionable_core"
 , "../molecules/actionable_grid"
 , "../molecules/flow_order"
 ;
-
-// $icon-button: 1.125;
 
 @mixin layout--tab_item() {
   @include actionable_core--default();

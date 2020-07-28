@@ -1,5 +1,3 @@
-@import "../src/atoms/elevation";
-
 article.elevation {  
   $width: 100px;
   $height: 50px;
@@ -21,6 +19,10 @@ article.elevation {
   }
     
   .mm_elevation__ {
+    @import "theme"
+    , "../src/atoms/box-shadow"
+    ;
+    
     @for $index from 0 through 24 {
       &#{$index} {
         grid-column: 2;

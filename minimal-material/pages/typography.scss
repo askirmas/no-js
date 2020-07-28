@@ -21,7 +21,10 @@ article.typography {
 }
 
 .mm_typography_ {
-  @import "../src/molecules/typography";
+  @import "theme"
+  , "../src/u"
+  , "../src/molecules/typography";
+
   &headline1 {@include typography--headline1()};
   &headline2 {@include typography--headline2()};
   &headline3 {@include typography--headline3()};

@@ -1,20 +1,12 @@
-$-bgr: null !default;
-$-bgr-ripple: null !default;
-//TODO White with opacity?
-$-bgr-back: transparent !default;
-$-ratio: 100 !default;
-$-hover: ":hover" !default;
-$-active: ":active" !default;
-
 @import "../molecules/ripple";
 
 @mixin ripple(
   $bgr: $-bgr,
-  $bgr-ripple: $-bgr-ripple,
-  $bgr-back: $-bgr-back,
-  $hover: $-hover,
-  $active: $-active,
-  $ratio: $-ratio
+  $bgr-ripple: $-ripple-bgr-color,
+  $bgr-back: $-ripple-bgr-back,
+  $hover: $-mod-hover,
+  $active: $-mod-active,
+  $ratio: $-ripple-ratio
 ) {
   @include ripple--base();
   &#{$hover} {

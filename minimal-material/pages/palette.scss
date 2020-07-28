@@ -1,13 +1,6 @@
-@use "theme";
-@use "../src/consts/overlays";
-
 .palette {
-  $-hue: theme.$primary-hue;
-  $-saturation: theme.$primary-saturation;
-  $-light: theme.$primary-light;
-  $-magic-saturation: 0.87;
-  $-step: 0.04;
-  @import "../src/atoms/state_background";
+  @import "theme"
+  , "../src/atoms/background-color";
 
   display: grid;
   grid-template-columns: 325px 100px 125px 100px;
@@ -15,24 +8,24 @@
   grid-auto-flow: dense;
 
   .ov_in {
-    &0 { --overlay_index: #{overlays.$enabled};}
-    &1 { --overlay_index: #{overlays.$hover};}
-    &2 { --overlay_index: #{overlays.$selected};}
-    &3 { --overlay_index: #{overlays.$focus};}  
+    &0 { --overlay_index: #{$-overlay--enabled};}
+    &1 { --overlay_index: #{$-overlay--hover};}
+    &2 { --overlay_index: #{$-overlay--selected};}
+    &3 { --overlay_index: #{$-overlay--focus};}  
   }
   .white {
-    @include state_background--on_white(var(--overlay_index));      
+    @include background-color--on_white(var(--overlay_index));      
     &.act {
-      @include state_background--on_white(var(--overlay_index), true);      
+      @include background-color--on_white(var(--overlay_index), true);      
     }  
   }
   .colored {
-    @include state_background--on_color(var(--overlay_index));
+    @include background-color--on_color(var(--overlay_index));
     &.ov_in0 {
-      @include state_background--on_color();
+      @include background-color--on_color();
     }
     &.act {
-      @include state_background--on_color(overlays.$activated, true);
+      @include background-color--on_color($-overlay--activated, true);
     } 
   }
 

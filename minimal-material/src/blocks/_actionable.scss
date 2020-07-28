@@ -1,9 +1,9 @@
-@import "../atoms/border-radius"
-, "../fusions/actionable_layout"
-, "../fusions/tooltip"
-;
-
 & {
+  @import "../atoms/border-radius"
+  , "../fusions/actionable_layout"
+  , "../fusions/tooltip"
+  ;
+  
   &tab_item {
     @include layout--tab_item();
   }
@@ -14,6 +14,7 @@
     @include layout--fab_icon();
     @include border-radius--fab();
     &::before {
+      //TODO: @include tooltip();  
       display: none;
     }  
   }
@@ -21,7 +22,9 @@
     @include layout--fab_min();
     @include border-radius--fab();
     &::before {
+      //TODO: @include tooltip();  
       display: none;
+      @include tooltip();      
     }  
   }
   &fab {

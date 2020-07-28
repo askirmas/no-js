@@ -1,7 +1,5 @@
-$-icon-size: 1.5;
 
-@import "../u"
-, "../molecules/typography"
+@import "../molecules/typography"
 , "../molecules/material_icon";
 
 @mixin sizing--icon($icon-size: $-icon-size) {

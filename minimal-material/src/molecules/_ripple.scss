@@ -3,9 +3,9 @@
 
 @mixin ripple--source(
   $bgr: $-bgr,
-  $bgr-back: $-bgr-back,  
+  $bgr-back: $-ripple-bgr-back,  
   /*more value - less clicked circle point*/
-  $ratio: $-ratio
+  $ratio: $-ripple-ratio
 ) {
   $boundary: 100% / $ratio;
 
@@ -21,7 +21,7 @@
   };
 }
 
-@mixin ripple--target($bgr-ripple: $-bgr-ripple) {
+@mixin ripple--target($bgr-ripple: $-ripple-bgr-color) {
   @if $bgr-ripple != null {
     background-color: $bgr-ripple;
   }

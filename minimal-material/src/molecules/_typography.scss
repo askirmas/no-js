@@ -1,15 +1,9 @@
-$-unit: 1rem !default;
-$-light: 300 !default;
-$-regular: 400 !default;
-$-medium: 500 !default;
-
-@import "../u"
-, "../atoms/margin-block"
+@import "../atoms/margin-block"
 , "../atoms/opt"
 ;
 
 @mixin typography--headline1() {
-  font-weight: #{$-light};
+  font-weight: #{$-weight-light};
   font-size: u(6);
   line-height: 1;
   letter-spacing: u(-1.5 / 16);
@@ -18,7 +12,7 @@ $-medium: 500 !default;
   @include font-smoothing--typography();
 }
 @mixin typography--headline2() {
-  font-weight: #{$-light};
+  font-weight: #{$-weight-light};
   font-size: u(3.75);
   line-height: 1;
   letter-spacing: u(-0.5 / 16);
@@ -27,7 +21,7 @@ $-medium: 500 !default;
   @include font-smoothing--typography();
 }
 @mixin typography--headline3() {
-  font-weight: #{$-regular};
+  font-weight: #{$-weight-regular};
   font-size: u(3);
   line-height: u(3.125);
   letter-spacing: u(0);
@@ -36,7 +30,7 @@ $-medium: 500 !default;
   @include font-smoothing--typography();
 }
 @mixin typography--headline4() {
-  font-weight: #{$-regular};
+  font-weight: #{$-weight-regular};
   font-size: u(2.125);
   line-height: u(2.5);
   letter-spacing: u(0.25 / 16);
@@ -45,7 +39,7 @@ $-medium: 500 !default;
   @include font-smoothing--typography();
 }
 @mixin typography--headline5() {
-  font-weight: #{$-regular};
+  font-weight: #{$-weight-regular};
   font-size: u(1.5);
   line-height: u(2);
   letter-spacing: u(0);
@@ -54,7 +48,7 @@ $-medium: 500 !default;
   @include font-smoothing--typography();
 }
 @mixin typography--headline6() {
-  font-weight: #{$-medium};
+  font-weight: #{$-weight-medium};
   font-size: u(1.25);
   line-height: u(2);
   letter-spacing: u(0.25 / 16);
@@ -63,7 +57,7 @@ $-medium: 500 !default;
   @include font-smoothing--typography();
 }
 @mixin typography--subtitle1() {
-  font-weight: #{$-regular};
+  font-weight: #{$-weight-regular};
   font-size: u(1);
   line-height: u(1.75);
   letter-spacing: u(0.15 / 16);
@@ -72,7 +66,7 @@ $-medium: 500 !default;
   @include font-smoothing--typography();
 }
 @mixin typography--subtitle2() {
-  font-weight: #{$-medium};
+  font-weight: #{$-weight-medium};
   font-size: u(0.875);
   line-height: u(1.375);
   letter-spacing: u(0.1 / 16);
@@ -81,7 +75,7 @@ $-medium: 500 !default;
   @include font-smoothing--typography();
 }
 @mixin typography--body1() {
-  font-weight: #{$-regular};
+  font-weight: #{$-weight-regular};
   font-size: u(1);
   line-height: u(1.5);
   letter-spacing: u(0.5 / 16);
@@ -90,7 +84,7 @@ $-medium: 500 !default;
   @include font-smoothing--typography();
 }
 @mixin typography--body2() {
-  font-weight: #{$-regular};
+  font-weight: #{$-weight-regular};
   font-size: u(0.875);
   line-height: u(1.25);
   letter-spacing: u(0.25 / 16);
@@ -100,7 +94,7 @@ $-medium: 500 !default;
 }
 /* Icon's 1.5 may be useful */ 
 @mixin typography--button($line: 2.25) {
-  font-weight: #{$-medium};
+  font-weight: #{$-weight-medium};
   font-size: u(0.875);
   text-transform: uppercase;
   line-height: u($line);
@@ -109,7 +103,7 @@ $-medium: 500 !default;
   @include font-smoothing--typography();
 }
 @mixin typography--caption($line: 1.25) {
-  font-weight: #{$-regular};
+  font-weight: #{$-weight-regular};
   font-size: u(0.75);
   line-height: u($line);
   letter-spacing: u(0.4 / 16);
@@ -117,7 +111,7 @@ $-medium: 500 !default;
   @include font-smoothing--typography();
 }
 @mixin typography--overline() {
-  font-weight: #{$-medium};
+  font-weight: #{$-weight-medium};
   font-size: u(0.75);
   line-height: u(2);
   text-transform: uppercase;

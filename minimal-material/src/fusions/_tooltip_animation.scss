@@ -1,19 +1,9 @@
-$-z-index: 1;
-
-$-duration-in: 150ms !default;
-$-delay-in: 150ms !default;
-
-$-duration-out: 75ms !default;
-$-delay-out: 75ms !default;
-
-$-max: 1.5s !default;
-
 @import "../molecules/tooltip_animation";
 
 @mixin tooltip_animation--off(
   $duration: $-duration-out,
   $delay: $-delay-out,
-  $z-index: $-z-index
+  $z-index: $-tooltip-z-index
 ) {
   @include tooltip_animation--timing_out($duration, $delay);
   @include tooltip_animation--start();
@@ -24,7 +14,7 @@ $-max: 1.5s !default;
   $duration-in: $-duration-in,
   $duration-out: $-duration-out,
   $delay: $-delay-in,
-  $max: $-max
+  $max: $-duration-max
 ) {
   @include tooltip_animation--timing_in($duration-in, $delay);
 
