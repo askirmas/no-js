@@ -1,3 +1,5 @@
+@import "../atomic_singletons/animation-name";
+
 @mixin tooltip_animation--base(
   $z-index: $-tooltip-z-index
 ) {
@@ -47,23 +49,10 @@
   $duration: $-duration-in,
   $max: $-duration-max
 ) {
+  @include animation-name__tooltip_hidding();
   animation: {
     duration: $duration;
     delay: $max;
-    name: tooltip_hidding;
     fill-mode: forwards;
   };
-}
-
-//TODO quark
-@keyframes tooltip_hidding {
-  from {
-    @include tooltip_animation--end();
-  }
-  99% {
-    @include tooltip_animation--end(0);
-  }
-  to {
-    @include tooltip_animation--start();
-  }
 }
