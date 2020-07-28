@@ -1,0 +1,38 @@
+@mixin -line-height($line) {
+  line-height: u($line);
+}
+
+@mixin line-height--self() {
+  line-height: 1;
+}
+
+@mixin line-height--h3() {
+  line-height: u(3.125);
+}
+
+@mixin line-height--h4() {
+  line-height: u(2.5);
+}
+
+@mixin line-height--button() {
+  line-height: u(2.25);
+}
+
+@mixin line-height--double() {
+  line-height: u(2);
+}
+
+@mixin line-height--subtitle1() {
+  line-height: u(1.75);
+}
+
+@mixin line-height--subtitle2() {
+  line-height: u(1.375);
+}
+
+@mixin line-height--body1() {
+  line-height: u(1.5);
+}
+@mixin line-height--body2() {
+  line-height: u(1.25);
+}

@@ -1,19 +1,24 @@
-@import "../atoms/opt";
+@import "../atoms/opt"
+, "../atoms/font-weight"
+, "../atoms/line-height"
+, "../atoms/letter-spacing"
+, "../atoms/text-transform"
+;
 
 @mixin material_icon() {
   font-family: 'Material Icons';
   font-style: normal;
 
-  font-weight: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
+  @include line-height--self();
+  @include letter-spacing--normal();
+  @include text-transform--none();
 
   display: inline-block;
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
 
+  @include font-weight--regular();
   @include font-smoothing--typography();
   @include fallback--icon();
 }

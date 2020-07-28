@@ -1,122 +1,124 @@
 @import "../atoms/margin-block"
 , "../atoms/opt"
+, "../atoms/font-size"
+, "../atoms/font-weight"
+, "../atoms/line-height"
+, "../atoms/letter-spacing"
+, "../atoms/text-transform"
 ;
 
 @mixin typography--headline1() {
-  font-weight: #{$-weight-light};
-  font-size: u(6);
-  line-height: 1;
-  letter-spacing: u(-1.5 / 16);
-  // letter-spacing: -0.015625em;
+  @include font-weight--light(); 
+  @include font-size--h1();
+  @include line-height--self();
+  @include letter-spacing--h1();
   @include margin-block(1em);
   @include font-smoothing--typography();
 }
 @mixin typography--headline2() {
-  font-weight: #{$-weight-light};
-  font-size: u(3.75);
-  line-height: 1;
-  letter-spacing: u(-0.5 / 16);
-  // letter-spacing: -0.0083333333em;
+  @include font-weight--light(); 
+  @include font-size--h2();
+  @include line-height--self();
+  @include letter-spacing--h2();
   @include margin-block(0.83em);
   @include font-smoothing--typography();
 }
 @mixin typography--headline3() {
-  font-weight: #{$-weight-regular};
-  font-size: u(3);
-  line-height: u(3.125);
-  letter-spacing: u(0);
-  // letter-spacing: 0; // aka normal
+  @include font-weight--regular(); 
+  @include font-size--h3();
+  @include line-height--h3();
+  @include letter-spacing--none();
   @include margin-block(1em);
   @include font-smoothing--typography();
 }
 @mixin typography--headline4() {
-  font-weight: #{$-weight-regular};
-  font-size: u(2.125);
-  line-height: u(2.5);
-  letter-spacing: u(0.25 / 16);
-  // letter-spacing: 0.0073529412em;
+  @include font-weight--regular(); 
+  @include font-size--h4();
+  @include line-height--h4();
+  @include letter-spacing--body();
   @include margin-block(1.33em);
   @include font-smoothing--typography();
 }
 @mixin typography--headline5() {
-  font-weight: #{$-weight-regular};
-  font-size: u(1.5);
-  line-height: u(2);
-  letter-spacing: u(0);
-  // letter-spacing: 0;
+  @include font-weight--regular(); 
+  @include font-size--h5();
+  @include line-height--double();
+  @include letter-spacing--none();
   @include margin-block(1.67em);
   @include font-smoothing--typography();
 }
 @mixin typography--headline6() {
-  font-weight: #{$-weight-medium};
-  font-size: u(1.25);
-  line-height: u(2);
-  letter-spacing: u(0.25 / 16);
-  // letter-spacing: 0.0125em;
+  @include font-weight--medium(); 
+  @include font-size--h6();
+  @include line-height--double();
+  @include letter-spacing--body();
   @include margin-block(2.33em);
   @include font-smoothing--typography();
 }
 @mixin typography--subtitle1() {
-  font-weight: #{$-weight-regular};
-  font-size: u(1);
-  line-height: u(1.75);
-  letter-spacing: u(0.15 / 16);
-  // letter-spacing: 0.009375em;
+  @include font-weight--regular(); 
+  @include font-size--normal();
+  @include line-height--subtitle1();
+  @include letter-spacing--subtitle1();
   @include margin-block(2.33em);
   @include font-smoothing--typography();
 }
 @mixin typography--subtitle2() {
-  font-weight: #{$-weight-medium};
-  font-size: u(0.875);
-  line-height: u(1.375);
-  letter-spacing: u(0.1 / 16);
-  // letter-spacing: 0.0071428571em;
+  @include font-weight--medium(); 
+  @include font-size--sub();
+  @include line-height--subtitle2();
+  @include letter-spacing--subtitle2();
   @include margin-block(2.33em);
   @include font-smoothing--typography();
 }
 @mixin typography--body1() {
-  font-weight: #{$-weight-regular};
-  font-size: u(1);
-  line-height: u(1.5);
-  letter-spacing: u(0.5 / 16);
-  // letter-spacing: 0.03125em;
+  @include font-weight--regular(); 
+  @include font-size--normal();
+  @include line-height--body1();
+  @include letter-spacing--body1();
   @include margin-block(1em);
   @include font-smoothing--typography();
 }
 @mixin typography--body2() {
-  font-weight: #{$-weight-regular};
-  font-size: u(0.875);
-  line-height: u(1.25);
-  letter-spacing: u(0.25 / 16);
-  // letter-spacing: 0.0178571429em;
+  @include font-weight--regular(); 
+  @include font-size--sub();
+  @include line-height--body2();
+  @include letter-spacing--body();
   @include margin-block(1em);
   @include font-smoothing--typography();
 }
 /* Icon's 1.5 may be useful */ 
-@mixin typography--button($line: 2.25) {
-  font-weight: #{$-weight-medium};
-  font-size: u(0.875);
-  text-transform: uppercase;
-  line-height: u($line);
-  letter-spacing: u(1.25 / 16);
-  // letter-spacing: 0.0892857143em;
+@mixin typography--button($line: null) {
+  @include font-weight--medium(); 
+  @include font-size--sub();
+  @if $line == null {
+    @include line-height--button();
+  } @else {
+    @include -line-height($line);
+  }
+
+  @include letter-spacing--button();
+  @include text-transform--uppercase();
   @include font-smoothing--typography();
 }
-@mixin typography--caption($line: 1.25) {
-  font-weight: #{$-weight-regular};
-  font-size: u(0.75);
-  line-height: u($line);
-  letter-spacing: u(0.4 / 16);
-  // letter-spacing: 0.0333333333em;
+@mixin typography--caption($line: null) {
+  @include font-weight--regular(); 
+  @include font-size--min();
+  @if $line == null {
+    @include line-height--body2();
+  } @else {
+    @include -line-height($line);
+  }
+  
+  @include letter-spacing--caption();
   @include font-smoothing--typography();
 }
 @mixin typography--overline() {
-  font-weight: #{$-weight-medium};
-  font-size: u(0.75);
-  line-height: u(2);
-  text-transform: uppercase;
-  letter-spacing: u(2 / 16);
-  // letter-spacing: 0.1666666667em;
+  @include font-weight--medium(); 
+  @include font-size--min();
+  @include line-height--double();
+  @include text-transform--uppercase();
+  @include letter-spacing--overline();
   @include font-smoothing--typography();
 }
 

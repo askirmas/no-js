@@ -1,14 +1,7 @@
-
-@import "../atoms/width"
-, "../atoms/height"
-, "../molecules/typography"
-, "../molecules/material_icon";
-
-@mixin sizing--icon($icon-size: $-icon-size) {
-  font-size: u($icon-size);
-  @include height--one_char();
-  @include width--one_char();
-}
+@import "../molecules/typography"
+, "../molecules/material_icon"
+, "../molecules/sizing"
+;
 
 /* todo: remove 2 molecules */
 @mixin actionable_core--default($icon-size: $-icon-size) {

@@ -1,0 +1,11 @@
+@mixin font-weight--light() {
+  font-weight: #{$-weight-light}; 
+}
+
+@mixin font-weight--regular() {
+  font-weight: #{$-weight-regular}; 
+}
+
+@mixin font-weight--medium() {
+  font-weight: #{$-weight-medium}; 
+}
