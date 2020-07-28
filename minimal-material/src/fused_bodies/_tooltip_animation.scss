@@ -6,7 +6,6 @@
   $z-index: $-tooltip-z-index
 ) {
   @include tooltip_animation--timing_out($duration, $delay);
-  @include tooltip_animation--start();
   @include tooltip_animation--base($z-index)
 }
 
@@ -22,6 +21,4 @@
   @supports not( -moz-appearance: none ) {
     @include tooltip_animation--disappear_animation($duration-out, $max);
   }
-
-  @include tooltip_animation--end();
 }

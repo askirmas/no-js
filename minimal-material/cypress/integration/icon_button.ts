@@ -5,6 +5,7 @@ describe('icon_button', () => {
     .get('[data-cy]')
     .each($el => cy
       .wrap($el)
+      .scrollIntoView()
       .toMatchImageSnapshot({name: `${page} ${$el[0].dataset.cy}`})
       // .matchImageSnapshot(`${page} ${$el[0].dataset.cy}`)
     )

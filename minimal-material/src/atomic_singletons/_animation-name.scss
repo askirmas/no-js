@@ -2,13 +2,13 @@
   animation-name: tooltip_hidding;
   @keyframes tooltip_hidding {
     from {
-      @include tooltip_animation--end();
+      @include visuality--shown();
     }
     99% {
-      @include tooltip_animation--end(0);
+      @include visuality--shown(0);
     }
     to {
-      @include tooltip_animation--start();
+      @include visuality--hidden();
     }
   }  
 }

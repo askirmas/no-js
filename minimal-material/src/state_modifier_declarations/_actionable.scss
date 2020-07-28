@@ -1,0 +1,61 @@
+@import "../atomic_singletons/border-radius"
+, "../fused_bodies/layout_grid"
+, "../fused_bodies/tooltip"
+, "../molecule_snippets/visuality"
+;
+
+@mixin block-tab_item--enabled() {
+  @include layout--tab_item();
+}
+@mixin block-tab_item_vert--enabled() {
+  @include layout--tab_item_vert();
+}
+@mixin block-fab_icon--enabled() {
+  @include layout--fab_icon();
+  @include border-radius--fab();
+  &#{$-entity-title} {
+    //TODO: @include tooltip();  
+    display: none;
+  }  
+}
+@mixin block-fab_min--enabled() {
+  @include layout--fab_min();
+  @include border-radius--fab();
+  &#{$-entity-title} {
+    //TODO: @include tooltip();  
+    display: none;
+  }  
+}
+@mixin block-fab--enabled() {
+  @include layout--fab();
+  @include border-radius--fab();
+}
+@mixin block-fab_rev--enabled() {
+  @include layout--fab_rev();
+  @include border-radius--fab();
+}
+@mixin block-button--enabled() {
+  @include layout--button();
+  @include border-radius--default();
+}
+
+@mixin block-icon_button--enabled() {
+  @include layout--icon_button();
+  @include border-radius--fab();
+  &#{$-entity-title} {
+    @include tooltip();
+    @include visuality--hidden(); 
+  }
+}
+@mixin block-icon_button--hovering() {
+  @include background-color--on_white($-overlay--hover);
+  &#{$-entity-title} {
+    @include visuality--shown(); 
+  }
+}
+@mixin block-icon_button--focusing() {
+  @include background-color--on_white($-overlay--focus);
+}
+@mixin block-icon_button--activating() {
+  @include background-color--on_white($-overlay--activated);
+}  

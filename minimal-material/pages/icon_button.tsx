@@ -41,9 +41,15 @@ export default function Icon() {
       </div>
     </section>
     <section>
-      <div>
+    <div>
         <div {...{
           "className": `${base} content_wifi`,
+          // "data-cy": "wifi"
+        }}></div>
+      </div>
+      <div>
+        <div {...{
+          "className": `${base}_ content_wifi`,
           "data-cy": "wifi"
         }}></div>
       </div>
@@ -51,12 +57,18 @@ export default function Icon() {
         "data-cy": "wifi-hover"
       }}>
         <div {...{
-          "className": `${base} _hover content_wifi`,
+          "className": `${base}_hover content_wifi`,
         }}></div>
       </div>
       <div>
         <div {...{
           "className": `${base} content_favorite_border`,
+          // "data-cy": "favorite_border"
+        }}></div>
+      </div>
+      <div>
+        <div {...{
+          "className": `${base}_ content_favorite_border`,
           "data-cy": "favorite_border"
         }}></div>
       </div>
@@ -64,9 +76,9 @@ export default function Icon() {
         "data-cy": "favorite_border-hover"
       }}>
         <div {...{
-          "className": `${base} _hover content_favorite_border`,
+          "className": `${base}_hover content_favorite_border`,
         }}></div>
       </div>
-    </section>
+    </section> 
   </article>
 }

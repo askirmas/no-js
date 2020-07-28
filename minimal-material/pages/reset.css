@@ -12,3 +12,11 @@ body {
   display: grid;
 }
 
+#__next > article {
+  overflow: auto;
+  display: grid;
+}
+#__next > article::after {
+  content: "";
+  grid-column: 1 / -1;
+}

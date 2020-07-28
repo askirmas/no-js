@@ -2,16 +2,11 @@ article.elevation {
   $width: 100px;
   $height: 50px;
 
-  overflow: auto;
-
-  display: grid;
   grid-auto-flow: dense;
   grid-template-columns: max-content max-content;
   grid-auto-rows: max-content;
   &::after {
-    content: "";
     height: $height;
-    grid-column: 1 / -1;
   }
 
   .elevation-demo-surface {

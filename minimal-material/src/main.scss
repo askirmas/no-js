@@ -27,8 +27,7 @@
     }
 
     &tab {
-      @import "_core"
-      , "params"
+      @import "core"
       ;  
       &_item {
         @mixin tab-item-core() {
@@ -41,10 +40,10 @@
           }
           color: hsla(265, 0, 0, 0.54);
         
-          @include hover() {
+          &:hover, &_hover {
             background-color: hsl(265, 100%, 98%);
           }
-          @include active() {
+          &:active, &_active {
             color: hsl(265, 100%, 47%);
           }
         }
@@ -76,8 +75,16 @@
     &2_ {      
       @import "u"
       , "../pages/theme"
-      , "./block_declarations/actionable"
+      , "./state_modifier_declarations/actionable"
       ;
+      &tab_item { @include block-tab_item--enabled(); }
+      &tab_item_vert { @include block-tab_item_vert--enabled(); }
+      &fab_icon { @include block-fab_icon--enabled(); }
+      &fab_min { @include block-fab_min--enabled(); }
+      &fab { @include block-fab--enabled(); }
+      &fab_rev { @include block-fab_rev--enabled(); }
+      &button { @include block-button--enabled(); }
+      &icon_button { @include block-icon_button--enabled(); }       
     }
   }  
 }
