@@ -1,11 +1,8 @@
-@use "../molecules/typography";
-@use "../molecules/material_icon";
-
 $-icon-size: 1.5;
 
 @import "../u";
 
-@mixin default() {
+@mixin grid--default() {
   // height: max-content;
   width: max-content;
   display: inline-grid;
@@ -24,7 +21,7 @@ $-icon-size: 1.5;
   }
 }
 
-@mixin icon_button() {
+@mixin grid--icon_button() {
   
   position: relative;
 

@@ -2,7 +2,7 @@ $-color: white !default;
 // $tooltip-bgr: hsl(198, 20%, 17%);
 $-bgr: hsla(0, 0%, 38%, 0.9) !default;
 
-@mixin apply() {
+@mixin tooltip_colors() {
   color: $-color;
   background-color: $-bgr;
 }

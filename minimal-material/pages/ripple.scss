@@ -1,27 +1,27 @@
 @use "theme";
 @use "../src/consts/overlays";
-@use "../src/quarks/state_color" with (
-  $-hue: theme.$primary-hue,
-  $-saturation: theme.$primary-saturation,
-  $-light: theme.$primary-light,
-  $-magic-saturation: theme.$primary-magic-saturation
-);
-
-@use "../src/fusions/ripple" with (
-  $-bgr: state_color.on_color(overlays.$hover)
-);
 
 article.ripple {
-  $bgr: state_color.on_color(overlays.$hover);
-  $bgr-ripple: state_color.on_color(overlays.$activated, true);;
+  $-hue: theme.$primary-hue;
+  $-saturation: theme.$primary-saturation;
+  $-light: theme.$primary-light;
+  $-magic-saturation: theme.$primary-magic-saturation;
+  $-step: 0.04;
+  
+  @import "../src/quarks/state_color";
+  $bgr: on_color(overlays.$hover);
+  $bgr-ripple: on_color(overlays.$activated, true);;
+
+  @import "../src/fusions/ripple"
+  ;
 
   .ripple {
     &, &_2 {
       transition-duration: 1s;    
     }
-    @include ripple.apply($bgr, $bgr-ripple);
+    @include ripple($bgr, $bgr-ripple);
     &_2 {
-      @include ripple.apply($bgr, transparent, $bgr-ripple);
+      @include ripple($bgr, transparent, $bgr-ripple);
     }
   }
   

@@ -1,6 +1,3 @@
-/* Ripple effect */
-/* Based on https://codepen.io/finnhvman/pen/jLXKJw */
-
 $-bgr: null !default;
 $-bgr-ripple: null !default;
 //TODO White with opacity?
@@ -11,7 +8,7 @@ $-active: ":active" !default;
 
 @import "../molecules/ripple";
 
-@mixin apply(
+@mixin ripple(
   $bgr: $-bgr,
   $bgr-ripple: $-bgr-ripple,
   $bgr-back: $-bgr-back,
@@ -19,11 +16,11 @@ $-active: ":active" !default;
   $active: $-active,
   $ratio: $-ratio
 ) {
-  @include base();
+  @include ripple--base();
   &#{$hover} {
-    @include source($bgr, $bgr-back, $ratio);
+    @include ripple--source($bgr, $bgr-back, $ratio);
   }
   &#{$active} {
-    @include target($bgr-ripple);
+    @include ripple--target($bgr-ripple);
   }  
 }

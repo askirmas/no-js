@@ -1,6 +1,3 @@
-@use "../src/molecules/typography";
-@use "../src/molecules/material_icon";
-
 @at-root {
   :root {
     @import "quarks/params-source"
@@ -9,21 +6,23 @@
   }
 
   .mm_ {
+    @import "../src/molecules/typography";
+
     /* text */
     & {
-      &text_headline1 {@include typography.headline1(); }
-      &text_headline2 {@include typography.headline2(); }
-      &text_headline3 {@include typography.headline3(); }
-      &text_headline4 {@include typography.headline4(); }
-      &text_headline5 {@include typography.headline5(); }
-      &text_headline6 {@include typography.headline6(); }
-      &text_subtitle1 {@include typography.subtitle1(); }
-      &text_subtitle2 {@include typography.subtitle2(); }
-      &text_body1 {@include typography.body1(); }
-      &text_body2 {@include typography.body2(); }
-      &text_button {@include typography.button(); }
-      &text_caption {@include typography.caption(); }
-      &text_overline {@include typography.overline(); }
+      &text_headline1 {@include typography--headline1(); }
+      &text_headline2 {@include typography--headline2(); }
+      &text_headline3 {@include typography--headline3(); }
+      &text_headline4 {@include typography--headline4(); }
+      &text_headline5 {@include typography--headline5(); }
+      &text_headline6 {@include typography--headline6(); }
+      &text_subtitle1 {@include typography--subtitle1(); }
+      &text_subtitle2 {@include typography--subtitle2(); }
+      &text_body1 {@include typography--body1(); }
+      &text_body2 {@include typography--body2(); }
+      &text_button {@include typography--button(); }
+      &text_caption {@include typography--caption(); }
+      &text_overline {@include typography--overline(); }
     }
 
     &tab {
@@ -33,7 +32,7 @@
       &_item {
         @mixin tab-item-core() {
           &::before {
-            @include typography.button();     
+            @include typography--button();     
           } 
           &::after {
             padding-right: $padding-quater;
@@ -50,7 +49,8 @@
         }
         &, &_small {    
           &::after {
-            @include material_icon.apply();
+            @import "../src/molecules/material_icon";
+            @include material_icon();
           }
         }        
         & {

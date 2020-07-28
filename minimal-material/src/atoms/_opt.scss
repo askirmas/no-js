@@ -1,9 +1,9 @@
-@mixin font-smooth() {
+@mixin font-smoothing--typography() {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;  
 }
 
-@mixin forIcon() {
+@mixin fallback--icon() {
   /* Support for all WebKit browsers. */
   -webkit-font-feature-settings: 'liga';
 

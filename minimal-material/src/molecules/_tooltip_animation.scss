@@ -8,8 +8,7 @@ $-delay-out: 75ms !default;
 
 $-max: 1.5s !default;
 
-/// Molecule
-@mixin base(
+@mixin tooltip_animation--base(
   $z-index: $-z-index
 ) {
   z-index: $z-index;
@@ -18,22 +17,19 @@ $-max: 1.5s !default;
   transition-property: $props;
 }
 
-/// Molecule
-@mixin start() {
+@mixin tooltip_animation--start() {
   clip-path: polygon(0 0, 0 0, 0 0, 0 0);
   transform: scale(0.5);
   opacity: 0;
 }
 
-/// Molecule
-@mixin end($opacity: 1) {
+@mixin tooltip_animation--end($opacity: 1) {
   clip-path: polygon(0 0, 1000% 0, 1000% 1000%, 0 1000%);
   transform: scale(1);
   opacity: $opacity;
 }
 
-/// Molecule
-@mixin timing-out(
+@mixin tooltip_animation--timing_out(
   $duration: $-duration-in,
   $delay: $-delay-in,
 ) {
@@ -45,7 +41,7 @@ $-max: 1.5s !default;
   }
 }
 
-@mixin timing-in(
+@mixin tooltip_animation--timing_in(
   $duration: $-duration-out,
   $delay: $-delay-out,
 ) {
@@ -57,26 +53,27 @@ $-max: 1.5s !default;
   }
 }
 
-@mixin disappear-animation (
+@mixin tooltip_animation--disappear_animation (
   $duration: $-duration-in,
   $max: $-max
 ) {
   animation: {
     duration: $duration;
     delay: $max;
-    name: tooltip-hidding;
+    name: tooltip_hidding;
     fill-mode: forwards;
   };
 }
 
-@keyframes tooltip-hidding {
+//TODO quark
+@keyframes tooltip_hidding {
   from {
-    @include end();
+    @include tooltip_animation--end();
   }
   99% {
-    @include end(0);
+    @include tooltip_animation--end(0);
   }
   to {
-    @include start();
+    @include tooltip_animation--start();
   }
 }

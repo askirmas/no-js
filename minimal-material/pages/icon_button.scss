@@ -1,13 +1,17 @@
 // @use "../src/utils";
 @use "theme";
-@use "../src/fusions/tooltip_animation";
-@use "../src/atoms/state_background" with (
-  $-hue: theme.$primary-hue,
-  $-saturation: theme.$primary-saturation,
-  $-light: theme.$primary-light
-);
 @use "../src/consts/overlays";
 @use "../src/fusions/actionable_layout";
+
+$-hue: theme.$primary-hue;
+$-saturation: theme.$primary-saturation;
+$-light: theme.$primary-light;
+$-step: 0.04;
+
+@import "../src/atoms/state_background"
+, "../src/fusions/tooltip_animation";
+;
+
 
 article.icon_button {
   display: grid;
@@ -36,24 +40,24 @@ article.icon_button {
   ;
   &icon_button {
     &::before {
-      @include tooltip_animation.off();
+      @include tooltip_animation--off();
     }
   
     @include hover() {
-      @include state_background.on_white(overlays.$hover);
+      @include state_background--on_white(overlays.$hover);
       &::before {
-        @include tooltip_animation.on()
+        @include tooltip_animation--on()
       }
     }
     @include focus() {
-      @include state_background.on_white(overlays.$focus);
+      @include state_background--on_white(overlays.$focus);
     }
     @include focus-within() {
-      @include state_background.on_white(overlays.$focus);
+      @include state_background--on_white(overlays.$focus);
     }
     @include active() {
       //TODO add ripple
-      @include state_background.on_white(overlays.$activated);
+      @include state_background--on_white(overlays.$activated);
     }  
   }
 }

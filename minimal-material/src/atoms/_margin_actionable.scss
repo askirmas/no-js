@@ -1,10 +1,9 @@
-@import "../u";
-@mixin fab-icon() {
+@mixin margin--fab-icon() {
   margin-left: u(-0.25);
 }
-@mixin fab_rev-icon() {
+@mixin margin--fab_rev-icon() {
   margin-right: u(-0.25);
 }
-@mixin button {
+@mixin margin--button {
   margin: u(0.5) u(1);
 }

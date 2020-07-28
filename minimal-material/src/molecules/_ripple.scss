@@ -1,13 +1,7 @@
 /* Ripple effect */
 /* Based on https://codepen.io/finnhvman/pen/jLXKJw */
 
-$-bgr: null !default;
-$-bgr-ripple: null !default;
-//TODO White with opacity?
-$-bgr-back: transparent !default;
-$-ratio: 100 !default;
-
-@mixin source(
+@mixin ripple--source(
   $bgr: $-bgr,
   $bgr-back: $-bgr-back,  
   /*more value - less clicked circle point*/
@@ -27,7 +21,7 @@ $-ratio: 100 !default;
   };
 }
 
-@mixin target($bgr-ripple: $-bgr-ripple) {
+@mixin ripple--target($bgr-ripple: $-bgr-ripple) {
   @if $bgr-ripple != null {
     background-color: $bgr-ripple;
   }
@@ -35,7 +29,7 @@ $-ratio: 100 !default;
   transition-duration: 0s;
 }
 
-@mixin base() {
+@mixin ripple--base() {
   background: {
     repeat: no-repeat;
     position-x: 50%;

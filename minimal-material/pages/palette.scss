@@ -1,12 +1,14 @@
 @use "theme";
-@use "../src/atoms/state_background" with (
-  $-hue: theme.$primary-hue,
-  $-saturation: theme.$primary-saturation,
-  $-light: theme.$primary-light
-);
 @use "../src/consts/overlays";
 
 .palette {
+  $-hue: theme.$primary-hue;
+  $-saturation: theme.$primary-saturation;
+  $-light: theme.$primary-light;
+  $-magic-saturation: 0.87;
+  $-step: 0.04;
+  @import "../src/atoms/state_background";
+
   display: grid;
   grid-template-columns: 325px 100px 125px 100px;
   grid-template-rows: repeat(7, 100px);
@@ -19,18 +21,18 @@
     &3 { --overlay_index: #{overlays.$focus};}  
   }
   .white {
-    @include state_background.on_white(var(--overlay_index));      
+    @include state_background--on_white(var(--overlay_index));      
     &.act {
-      @include state_background.on_white(var(--overlay_index), true);      
+      @include state_background--on_white(var(--overlay_index), true);      
     }  
   }
   .colored {
-    @include state_background.on_color(var(--overlay_index));
+    @include state_background--on_color(var(--overlay_index));
     &.ov_in0 {
-      @include state_background.on_color();
+      @include state_background--on_color();
     }
     &.act {
-      @include state_background.on_color(overlays.$activated, true);
+      @include state_background--on_color(overlays.$activated, true);
     } 
   }
 

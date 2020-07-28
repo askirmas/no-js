@@ -1,48 +1,46 @@
-@use "../atoms/border-radius";
-@use "../molecules/tooltip_colors";
-@use "../fusions/actionable_layout";
-@use "../fusions/tooltip";
-
-@import "../u";
+@import "../atoms/border-radius"
+, "../fusions/actionable_layout"
+, "../fusions/tooltip"
+;
 
 & {
   &tab_item {
-    @include actionable_layout.tab_item();
+    @include layout--tab_item();
   }
   &tab_item_vert {
-    @include actionable_layout.tab_item_vert();
+    @include layout--tab_item_vert();
   }
   &fab_icon {
-    @include actionable_layout.fab_icon();
-    @include border-radius.fab();
+    @include layout--fab_icon();
+    @include border-radius--fab();
     &::before {
       display: none;
     }  
   }
   &fab_min {
-    @include actionable_layout.fab_min();
-    @include border-radius.fab();
+    @include layout--fab_min();
+    @include border-radius--fab();
     &::before {
       display: none;
     }  
   }
   &fab {
-    @include actionable_layout.fab();
-    @include border-radius.fab();
+    @include layout--fab();
+    @include border-radius--fab();
   }
   &fab_rev {
-    @include actionable_layout.fab_rev();
-    @include border-radius.fab();
+    @include layout--fab_rev();
+    @include border-radius--fab();
   }
   &button {
-    @include actionable_layout.button();
-    @include border-radius.default();
+    @include layout--button();
+    @include border-radius--default();
   }
   &icon_button {
-    @include actionable_layout.icon_button();
-    @include border-radius.fab();
+    @include layout--icon_button();
+    @include border-radius--fab();
     &::before {
-      @include tooltip.apply();      
+      @include tooltip();      
     }
   }
 }

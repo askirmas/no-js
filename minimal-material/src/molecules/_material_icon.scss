@@ -1,6 +1,6 @@
-@use "../atoms/opt";
+@import "../atoms/opt";
 
-@mixin apply() {
+@mixin material_icon() {
   font-family: 'Material Icons';
   font-style: normal;
 
@@ -14,6 +14,6 @@
   word-wrap: normal;
   direction: ltr;
 
-  @include opt.font-smooth();
-  @include opt.forIcon();
+  @include font-smoothing--typography();
+  @include fallback--icon();
 }

@@ -1,4 +1,3 @@
-@import "../u";
-@mixin button() {
+@mixin min-width--button() {
   min-width: u(4);
 }

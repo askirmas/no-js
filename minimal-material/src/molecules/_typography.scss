@@ -1,129 +1,128 @@
-@use "../atoms/opt";
-@use "../atoms/margin-block";
-
 $-unit: 1rem !default;
-
-@import "../u";
-
 $-light: 300 !default;
 $-regular: 400 !default;
 $-medium: 500 !default;
 
-@mixin headline1() {
+@import "../u"
+, "../atoms/margin-block"
+, "../atoms/opt"
+;
+
+@mixin typography--headline1() {
   font-weight: #{$-light};
   font-size: u(6);
   line-height: 1;
   letter-spacing: u(-1.5 / 16);
   // letter-spacing: -0.015625em;
-  @include margin-block.apply(1em);
-  @include opt.font-smooth();
+  @include margin-block(1em);
+  @include font-smoothing--typography();
 }
-@mixin headline2() {
+@mixin typography--headline2() {
   font-weight: #{$-light};
   font-size: u(3.75);
   line-height: 1;
   letter-spacing: u(-0.5 / 16);
   // letter-spacing: -0.0083333333em;
-  @include margin-block.apply(0.83em);
-  @include opt.font-smooth();
+  @include margin-block(0.83em);
+  @include font-smoothing--typography();
 }
-@mixin headline3() {
+@mixin typography--headline3() {
   font-weight: #{$-regular};
   font-size: u(3);
   line-height: u(3.125);
   letter-spacing: u(0);
   // letter-spacing: 0; // aka normal
-  @include margin-block.apply(1em);
-  @include opt.font-smooth();
+  @include margin-block(1em);
+  @include font-smoothing--typography();
 }
-@mixin headline4() {
+@mixin typography--headline4() {
   font-weight: #{$-regular};
   font-size: u(2.125);
   line-height: u(2.5);
   letter-spacing: u(0.25 / 16);
   // letter-spacing: 0.0073529412em;
-  @include margin-block.apply(1.33em);
-  @include opt.font-smooth();
+  @include margin-block(1.33em);
+  @include font-smoothing--typography();
 }
-@mixin headline5() {
+@mixin typography--headline5() {
   font-weight: #{$-regular};
   font-size: u(1.5);
   line-height: u(2);
   letter-spacing: u(0);
   // letter-spacing: 0;
-  @include margin-block.apply(1.67em);
-  @include opt.font-smooth();
+  @include margin-block(1.67em);
+  @include font-smoothing--typography();
 }
-@mixin headline6() {
+@mixin typography--headline6() {
   font-weight: #{$-medium};
   font-size: u(1.25);
   line-height: u(2);
   letter-spacing: u(0.25 / 16);
   // letter-spacing: 0.0125em;
-  @include margin-block.apply(2.33em);
-  @include opt.font-smooth();
+  @include margin-block(2.33em);
+  @include font-smoothing--typography();
 }
-@mixin subtitle1() {
+@mixin typography--subtitle1() {
   font-weight: #{$-regular};
   font-size: u(1);
   line-height: u(1.75);
   letter-spacing: u(0.15 / 16);
   // letter-spacing: 0.009375em;
-  @include margin-block.apply(2.33em);
-  @include opt.font-smooth();
+  @include margin-block(2.33em);
+  @include font-smoothing--typography();
 }
-@mixin subtitle2() {
+@mixin typography--subtitle2() {
   font-weight: #{$-medium};
   font-size: u(0.875);
   line-height: u(1.375);
   letter-spacing: u(0.1 / 16);
   // letter-spacing: 0.0071428571em;
-  @include margin-block.apply(2.33em);
-  @include opt.font-smooth();
+  @include margin-block(2.33em);
+  @include font-smoothing--typography();
 }
-@mixin body1() {
+@mixin typography--body1() {
   font-weight: #{$-regular};
   font-size: u(1);
   line-height: u(1.5);
   letter-spacing: u(0.5 / 16);
   // letter-spacing: 0.03125em;
-  @include margin-block.apply(1em);
-  @include opt.font-smooth();
+  @include margin-block(1em);
+  @include font-smoothing--typography();
 }
-@mixin body2() {
+@mixin typography--body2() {
   font-weight: #{$-regular};
   font-size: u(0.875);
   line-height: u(1.25);
   letter-spacing: u(0.25 / 16);
   // letter-spacing: 0.0178571429em;
-  @include margin-block.apply(1em);
-  @include opt.font-smooth();
+  @include margin-block(1em);
+  @include font-smoothing--typography();
 }
 /* Icon's 1.5 may be useful */ 
-@mixin button($line: 2.25) {
+@mixin typography--button($line: 2.25) {
   font-weight: #{$-medium};
   font-size: u(0.875);
   text-transform: uppercase;
   line-height: u($line);
   letter-spacing: u(1.25 / 16);
   // letter-spacing: 0.0892857143em;
-  @include opt.font-smooth();
+  @include font-smoothing--typography();
 }
-@mixin caption($line: 1.25) {
+@mixin typography--caption($line: 1.25) {
   font-weight: #{$-regular};
   font-size: u(0.75);
   line-height: u($line);
   letter-spacing: u(0.4 / 16);
   // letter-spacing: 0.0333333333em;
-  @include opt.font-smooth();
+  @include font-smoothing--typography();
 }
-@mixin overline() {
+@mixin typography--overline() {
   font-weight: #{$-medium};
   font-size: u(0.75);
   line-height: u(2);
   text-transform: uppercase;
   letter-spacing: u(2 / 16);
   // letter-spacing: 0.1666666667em;
-  @include opt.font-smooth();
+  @include font-smoothing--typography();
 }
 

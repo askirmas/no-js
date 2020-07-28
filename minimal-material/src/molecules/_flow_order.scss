@@ -1,22 +1,22 @@
-@mixin horizontal() {
+@mixin flow_order--horizontal() {
   grid-auto-flow: column;
   &::before { order: 2; }
   &::after { order: 1; }
 }
 
-@mixin horizontal-rev() {
+@mixin flow_order--horizontal-rev() {
   grid-auto-flow: column;
   &::before {order: 1;}
   &::after {order: 2;}
 }
 
-@mixin vertical() {
+@mixin flow_order--vertical() {
   grid-auto-flow: row;
   &::before {order: 2;}
   &::after {order: 1;}
 }  
 
-@mixin coincide() {
+@mixin flow_order--coincide() {
   &::before, &::after {
     grid-column: 1;
     grid-row: 1;

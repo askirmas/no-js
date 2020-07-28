@@ -1,6 +1,6 @@
-@use "../src/atoms/elevation.scss";
+@import "../src/atoms/elevation";
 
-article.elevation {
+article.elevation {  
   $width: 100px;
   $height: 50px;
 
@@ -24,7 +24,7 @@ article.elevation {
     @for $index from 0 through 24 {
       &#{$index} {
         grid-column: 2;
-        @include elevation.apply($index);
+        @include box-shadow--elevation($index);
       }
     } 
   }  

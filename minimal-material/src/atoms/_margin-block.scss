@@ -1,4 +1,4 @@
-@mixin apply($start, $end: $start) {
+@mixin margin-block($start, $end: $start) {
   margin-block: {
     start: $start;
     end: $end;
