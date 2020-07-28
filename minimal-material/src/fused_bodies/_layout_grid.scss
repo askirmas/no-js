@@ -1,10 +1,10 @@
-@import "../atoms/column-gap"
-, "../atoms/min-width"
-, "../atoms/margin"
-, "../atoms/padding"
-, "../molecules/actionable_core"
-, "../molecules/actionable_grid"
-, "../molecules/flow_order"
+@import "../atomic_singletons/column-gap"
+, "../atomic_singletons/min-width"
+, "../atomic_singletons/margin"
+, "../atomic_singletons/padding"
+, "../molecule_snippets/actionable_core"
+, "../molecule_snippets/actionable_grid"
+, "../molecule_snippets/flow_order"
 ;
 
 @mixin layout--tab_item() {

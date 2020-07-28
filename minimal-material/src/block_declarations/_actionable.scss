@@ -1,7 +1,7 @@
 & {
-  @import "../atoms/border-radius"
-  , "../fusions/layout_grid"
-  , "../fusions/tooltip"
+  @import "../atomic_singletons/border-radius"
+  , "../fused_bodies/layout_grid"
+  , "../fused_bodies/tooltip"
   ;
   
   &tab_item {

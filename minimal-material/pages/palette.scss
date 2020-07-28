@@ -1,6 +1,6 @@
 .palette {
   @import "theme"
-  , "../src/atoms/background-color";
+  , "../src/atomic_singletons/background-color";
 
   display: grid;
   grid-template-columns: 325px 100px 125px 100px;

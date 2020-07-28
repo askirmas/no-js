@@ -1,6 +1,6 @@
-@import "../atoms/width"
-, "../atoms/height"
-, "../atoms/font-size"
+@import "../atomic_singletons/width"
+, "../atomic_singletons/height"
+, "../atomic_singletons/font-size"
 ;
 
 @mixin sizing--icon($icon-size: $-icon-size) {

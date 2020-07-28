@@ -23,7 +23,7 @@ article.typography {
 .mm_typography_ {
   @import "theme"
   , "../src/u"
-  , "../src/molecules/typography";
+  , "../src/molecule_snippets/typography";
 
   &headline1 {@include typography--headline1()};
   &headline2 {@include typography--headline2()};

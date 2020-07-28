@@ -1,4 +1,4 @@
-@import "../molecules/tooltip_animation";
+@import "../molecule_snippets/tooltip_animation";
 
 @mixin tooltip_animation--off(
   $duration: $-duration-out,

@@ -1,7 +1,7 @@
-@import "../atoms/border-radius"
-, "../atoms/padding"
-, "../atoms/width"
-, "../molecules/tooltip_colors"
+@import "../atomic_singletons/border-radius"
+, "../atomic_singletons/padding"
+, "../atomic_singletons/width"
+, "../molecule_snippets/tooltip_colors"
 ;
 
 @mixin tooltip() {

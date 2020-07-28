@@ -1,13 +1,13 @@
 @at-root {
   :root {
-    @import "quarks/params-source"
+    @import "quark_values/params-source"
     ;
     font-family: Roboto, sans_serif;
   }
 
   .mm_ {    
     @import "../pages/theme"
-    , "../src/molecules/typography";
+    , "../src/molecule_snippets/typography";
 
     /* text */
     & {
@@ -50,12 +50,12 @@
         }
         &, &_small {    
           &#{$-entity-icon} {
-            @import "../src/molecules/material_icon";
+            @import "../src/molecule_snippets/material_icon";
             @include material_icon();
           }
         }        
         & {
-          @import "./molecules/containers/tab-item";
+          @import "./molecule_snippets/containers/tab-item";
           @include tab-item-core();
           &._bordered {
             box-sizing: border-box;
@@ -63,7 +63,7 @@
           }
         }
         &_small {
-          @import "./molecules/containers/tab-item-small";
+          @import "./molecule_snippets/containers/tab-item-small";
           @include tab-item-core();
           &._bordered#{$-entity-title} {
             box-sizing: border-box;
@@ -76,7 +76,7 @@
     &2_ {      
       @import "u"
       , "../pages/theme"
-      , "./blocks/actionable"
+      , "./block_declarations/actionable"
       ;
     }
   }  

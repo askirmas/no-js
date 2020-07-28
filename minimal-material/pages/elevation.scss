@@ -20,7 +20,7 @@ article.elevation {
     
   .mm_elevation__ {
     @import "theme"
-    , "../src/atoms/box-shadow"
+    , "../src/atomic_singletons/box-shadow"
     ;
     
     @for $index from 0 through 24 {

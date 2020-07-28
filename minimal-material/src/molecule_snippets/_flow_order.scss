@@ -1,4 +1,4 @@
-@import "../atoms/order";
+@import "../atomic_singletons/order";
 
 @mixin flow_order--horizontal() {
   grid-auto-flow: column;

@@ -1,8 +1,8 @@
-@import "../atoms/opt"
-, "../atoms/font-weight"
-, "../atoms/line-height"
-, "../atoms/letter-spacing"
-, "../atoms/text-transform"
+@import "../atomic_singletons/opt"
+, "../atomic_singletons/font-weight"
+, "../atomic_singletons/line-height"
+, "../atomic_singletons/letter-spacing"
+, "../atomic_singletons/text-transform"
 ;
 
 @mixin material_icon() {
