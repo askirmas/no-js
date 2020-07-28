@@ -1,0 +1,13 @@
+@import "../calc";
+
+@mixin disabled--with_opacity() {
+  color: hsl-(0, 0, 1 - $-opacity-disabler);
+}
+
+@mixin disabled--with_color() {
+  color: hsl-(0, 0, 1 - $-opacity-disabler);
+}
+
+@mixin disabled--with_color_alpha() {
+  color: hsl-(0, 0, 1 - $-opacity-disabler);
+}

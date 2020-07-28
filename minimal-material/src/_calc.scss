@@ -1,4 +1,4 @@
-/** Expression with 1 operator */
+/// Expression with 1 operator
 @function e($a, $operator, $b, $withBrackets: false) {
   @if (type-of($a) == string) or (type-of($b) == string) {
     $exp: "#{$a} #{$operator} #{$b}";
@@ -18,27 +18,36 @@
   } 
 }
 
-/** `calc` on demand */ 
+/// Add brackets only if expression
+@function b($value) {
+  @return if(
+    type-of($value) == string,
+    "(#{$value})",
+    $value
+  );
+}
+
+/// `calc` on demand
 @function c($e) {
   @return if(type-of($e) == string, calc(#{$e}), $e);
 }
 
-/** Shortcut for `c(e(...))` - usage CSS' `calc` on demand */
+/// Shortcut for `c(e(...))` - usage CSS' `calc` on demand
 @function ce($a, $operator, $b, $withBrackets: false) {
   @return c(e($a, $operator, $b, $withBrackets));
 }
 
-/** Multiproduct */ 
+/// Multiproduct
 @function m($members...) {
  @return es("*", $members...);
 }
 
-/** Sum */
+/// Sum
 @function s($members...) {
   @return es("+", $members...);
  }
  
-/** Expression on 1 operator and any count of members*/ 
+/// Expression on 1 operator and any count of members
 @function es($operator, $members...) {
   $number: 1;
   $string: null;
@@ -64,10 +73,16 @@
   };
 }
 
-@function hsl-($hue, $saturation, $lightness) {
-  @return hsl(
-    c($hue),
-    ce(100%, "*", $saturation),
-    ce(100%, "*", $lightness)
-  );
+@function hsl-($hue, $saturation, $lightness, $opacity: 1) {
+  $h: c($hue);
+  $s: ce(100%, "*", $saturation);
+  $l: ce(100%, "*", $lightness);
+
+  @if $opacity == 1 {
+    @return hsl($h, $s, $l);  
+  } @else {
+    @return hsla($h, $s, $l,
+      c($opacity)
+    );
+  }
 }

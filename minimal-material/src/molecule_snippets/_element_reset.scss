@@ -1,0 +1,12 @@
+@import "../atomic_singletons/appearence"
+, "../atomic_singletons/margin"
+;
+
+@mixin element_reset() {
+
+  @include margin--none();
+  @include apparence--none();
+  outline: none;
+  box-sizing: content-box;
+  cursor: pointer;
+}

@@ -1,0 +1,5 @@
+@mixin pointer-events--none() {
+  pointer-events: none;
+  // should be redundant
+  cursor: default;
+}

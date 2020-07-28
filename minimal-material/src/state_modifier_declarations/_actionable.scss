@@ -1,7 +1,9 @@
 @import "../atomic_singletons/border-radius"
+, "../atomic_singletons/pointer-events"
+, "../molecule_snippets/disable_visually"
+, "../molecule_snippets/visuality"
 , "../fused_bodies/layout_grid"
 , "../fused_bodies/tooltip"
-, "../molecule_snippets/visuality"
 ;
 
 @mixin block-tab_item--enabled() {
@@ -43,15 +45,6 @@
   @include layout--icon_button();
   @include border-radius--fab();
 
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  
-  outline: none;
-  box-sizing: content-box;
-  margin: 0;
-  cursor: pointer;
-  
   &#{$-entity-title} {
     @include tooltip();
     @include visuality--hidden(); 
@@ -59,11 +52,9 @@
 }
 
 @mixin block-icon_button--disabling() {
-  pointer-events: none;
-  cursor: default;
+  @include pointer-events--none();
   &#{$-entity-icon} {
-    // opacity: 0.38;
-    color: rgba(0, 0, 0, 0.38);
+    @include disabled--with_color();
   }
 }
 

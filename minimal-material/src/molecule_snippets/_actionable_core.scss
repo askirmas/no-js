@@ -1,10 +1,11 @@
 @import "../molecule_snippets/typography"
 , "../molecule_snippets/material_icon"
 , "../molecule_snippets/sizing"
-;
+, "../molecule_snippets/element_reset";
 
 /* todo: remove 2 molecule_snippets */
 @mixin actionable_core--default($icon-size: $-icon-size) {
+  @include element_reset();
   &#{$-entity-title} {
     @include typography--button(1.75);
     @include height--icon();
@@ -17,7 +18,8 @@
 
 @mixin actionable_core--icon_button() {
   @include sizing--icon();
-
+  @include element_reset();
+  
   &#{$-entity-title} {
     @include typography--caption($-icon-size);
   }
