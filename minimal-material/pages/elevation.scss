@@ -5,9 +5,6 @@ article.elevation {
   grid-auto-flow: dense;
   grid-template-columns: max-content max-content;
   grid-auto-rows: max-content;
-  &::after {
-    height: $height;
-  }
 
   .elevation-demo-surface {
     grid-column: 1;

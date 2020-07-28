@@ -15,70 +15,69 @@ const base = "mm0_icon_button"
 
 export default function Icon() {
   return <article className="icon_button">
-    <section>
-      <div>
-        <button {...{
-          "className": `${mdcBase} ${mdcIcon}`,
-          "style": mdcRippleStyle,
-          "data-cy": "wifi"
-        }}>
-          wifi
-        </button>
-      </div>
-      <div>
-        <button  {...{
-          "className": mdcBase,
-          "style": mdcRippleStyle,
-          "data-cy": "favorite_border"
-        }}>
-          <i className={`${mdcIconButton} ${mdcIconButton}--on`}>
-            favorite
-          </i>
-          <i className={mdcIconButton}>
-            favorite_border
-          </i>
-        </button>
-      </div>
-    </section>
-    <section>
-    <div>
-        <div {...{
-          "className": `${base} content_wifi`,
-          // "data-cy": "wifi"
-        }}></div>
-      </div>
-      <div>
-        <div {...{
-          "className": `${base}_ content_wifi`,
-          "data-cy": "wifi"
-        }}></div>
-      </div>
+    <a id="mdc" href="#mdc">MDC</a>
+    <figure>
+      <button {...{
+        "className": `${mdcBase} ${mdcIcon}`,
+        "style": mdcRippleStyle,
+        "data-cy": "wifi"
+      }}>
+        wifi
+      </button>
+    </figure>
+    <figure>
+      <button  {...{
+        "className": mdcBase,
+        "style": mdcRippleStyle,
+        "data-cy": "favorite_border"
+      }}>
+        <i className={`${mdcIconButton} ${mdcIconButton}--on`}>
+          favorite
+        </i>
+        <i className={mdcIconButton}>
+          favorite_border
+        </i>
+      </button>
+    </figure>
+    <a id="mm" href="#mm">MM in action</a>
+    <figure>
       <div {...{
-        "data-cy": "wifi-hover"
-      }}>
-        <div {...{
-          "className": `${base}_hover content_wifi`,
-        }}></div>
-      </div>
-      <div>
-        <div {...{
-          "className": `${base} content_favorite_border`,
-          // "data-cy": "favorite_border"
-        }}></div>
-      </div>
-      <div>
-        <div {...{
-          "className": `${base}_ content_favorite_border`,
-          "data-cy": "favorite_border"
-        }}></div>
-      </div>
-      <div {... {
-        "data-cy": "favorite_border-hover"
-      }}>
-        <div {...{
-          "className": `${base}_hover content_favorite_border`,
-        }}></div>
-      </div>
-    </section> 
+        "className": `${base} content_wifi`,
+        // "data-cy": "wifi"
+      }}></div>
+    </figure>
+    <figure>
+      <div {...{
+        "className": `${base} content_favorite_border`,
+        // "data-cy": "favorite_border"
+      }}></div>
+    </figure>
+    <a id="states" href="#states">MM state modifiers</a>
+    <figure>
+      <div {...{
+        "className": `${base}_ content_wifi`,
+        "data-cy": "wifi"
+      }}></div>
+    </figure>
+    <figure {...{
+      "data-cy": "wifi-hover"
+    }}>
+      <div {...{
+        "className": `${base}_hover content_wifi`,
+      }}></div>
+    </figure>
+    <figure>
+      <div {...{
+        "className": `${base}_ content_favorite_border`,
+        "data-cy": "favorite_border"
+      }}></div>
+    </figure>
+    <figure {... {
+      "data-cy": "favorite_border-hover"
+    }}>
+      <div {...{
+        "className": `${base}_hover content_favorite_border`,
+      }}></div>
+    </figure>
   </article>
 }
