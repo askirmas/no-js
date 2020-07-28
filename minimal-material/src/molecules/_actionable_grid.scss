@@ -1,6 +1,8 @@
+@import "../atoms/width";
+
 @mixin grid--default() {
   // height: max-content;
-  width: max-content;
+  @include width--one_line;
   display: inline-grid;
   
   grid-auto: {
@@ -18,16 +20,15 @@
 }
 
 @mixin grid--icon_button() {
-  
-  position: relative;
-
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 100%;
   justify-items: center;
   align-items: center;
-  &#{$-entity-title} {
+  &, &#{$-entity-title} {
     position: relative;
+  }
+  &#{$-entity-title} {
     top: calc(200%);  
   }
 }

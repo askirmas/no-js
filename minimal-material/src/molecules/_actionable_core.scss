@@ -1,18 +1,20 @@
 
-@import "../molecules/typography"
+@import "../atoms/width"
+, "../atoms/height"
+, "../molecules/typography"
 , "../molecules/material_icon";
 
 @mixin sizing--icon($icon-size: $-icon-size) {
   font-size: u($icon-size);
-  width: 1em;
-  height: 1em;
+  @include height--one_char();
+  @include width--one_char();
 }
 
 /* todo: remove 2 molecules */
 @mixin actionable_core--default($icon-size: $-icon-size) {
   &#{$-entity-title} {
     @include typography--button(1.75);
-    height: u($-icon-size);
+    @include height--icon();
   }
   &#{$-entity-icon} {
     @include sizing--icon($icon-size);

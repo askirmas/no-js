@@ -1,0 +1,7 @@
+@mixin width--one_line() {
+  width: max-content;
+}
+
+@mixin width--one_char() {
+  width: 1em;  
+}

@@ -1,11 +1,12 @@
-@import "../molecules/tooltip_colors"
-, "../atoms/border-radius"
+@import "../atoms/border-radius"
 , "../atoms/padding"
+, "../atoms/width"
+, "../molecules/tooltip_colors"
 ;
 
 @mixin tooltip() {
   @include tooltip_colors();
   @include border-radius--default();
-  width: max-content;
+  @include width--one_line();
   @include padding--min();  
 }

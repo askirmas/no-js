@@ -1,19 +1,21 @@
+@import "../atoms/order";
+
 @mixin flow_order--horizontal() {
   grid-auto-flow: column;
-  &#{$-entity-title} { order: 2; }
-  &#{$-entity-icon} { order: 1; }
+  &#{$-entity-title} { @include order--last(); }
+  &#{$-entity-icon} { @include order--first(); }
 }
 
 @mixin flow_order--horizontal-rev() {
   grid-auto-flow: column;
-  &#{$-entity-title} {order: 1;}
-  &#{$-entity-icon} {order: 2;}
+  &#{$-entity-title} { @include order--first(); }
+  &#{$-entity-icon} { @include order--first(); }
 }
 
 @mixin flow_order--vertical() {
   grid-auto-flow: row;
-  &#{$-entity-title} {order: 2;}
-  &#{$-entity-icon} {order: 1;}
+  &#{$-entity-title} { @include order--first(); }
+  &#{$-entity-icon} { @include order--first(); }
 }  
 
 @mixin flow_order--coincide() {
