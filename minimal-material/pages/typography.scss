@@ -2,9 +2,9 @@ article.typography {
   grid-auto-flow: dense;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: max-content;
-  // &::after {
-  //   height: 4rem;
-  // }
+  &::after {
+    height: 4rem;
+  }
 
   [data-cy]:not([data-cy^="body"]) {
     width: max-content;
