@@ -23,7 +23,7 @@
   @include material_icon_core();
 
   &#{$-entity-title} {
-    @include font-family--Roboto(); 
+    @include font-family--main(); 
     @include typography--caption($-icon-size);
   }
 }

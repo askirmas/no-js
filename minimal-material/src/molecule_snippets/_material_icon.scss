@@ -12,7 +12,7 @@
 }
 
 @mixin material_icon_core() {
-  @include font-family--Material_Icon();
+  @include font-family--icon();
   @include line-height--self();
   @include font-smoothing--typography();
 }

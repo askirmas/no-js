@@ -1,8 +1,9 @@
 @at-root {
   :root {
     @import "quark_values/params-source"
-    ;
-    font-family: Roboto, sans_serif;
+    , "../pages/theme"
+    , "atomic_singletons/font-family";
+    @include font-family--main();
   }
 
   .mm_ {    
