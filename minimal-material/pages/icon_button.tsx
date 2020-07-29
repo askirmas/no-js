@@ -124,23 +124,27 @@ export default function Icon() {
         "data-cy": "wifi"
       }}></div>
     </Figure>
-    <Figure caption="Hover">
-      <div {...{
+    <Figure caption="button Hover">
+      <button {...{
         "data-cy": "wifi hover",
         "className": `${base}_hover content_wifi_icon`,
-      }}></div>
+      }}></button>
     </Figure>
-    <Figure caption="Focus">
-      <div {...{
+    <Figure caption="in-but Focus">
+      <input {...{
+        "type": "button",
         "data-cy": "wifi focus",
         "className": `${base}_focus content_wifi_icon`,
-      }}></div>
+        "value": "wifi",
+      }}/>
     </Figure>
-    <Figure caption="Pressed">
-      <div {...{
+    <Figure caption="input Pressed">
+      <input {...{
+        "type": "submit",
         "className": `${base}_pressed content_wifi_icon`,
+        "value": "wifi",
         "data-cy": "wifi pressed"
-      }}></div>
+      }}/>
     </Figure>
 
     <Figure caption="Dragging">
@@ -164,7 +168,7 @@ export default function Icon() {
       }}></div>
     </Figure>
 
-    <Figure caption="Off">
+    <Figure caption="checkbox Off">
       <input {...{
         "type": "checkbox",
         "className": `${base}_ content_favorite_toggler`,
@@ -172,7 +176,7 @@ export default function Icon() {
       }}/>
     </Figure>
     
-    <Figure caption="On">
+    <Figure caption="checkbox On">
       <input {...{
         "type": "checkbox",
         "checked": true,

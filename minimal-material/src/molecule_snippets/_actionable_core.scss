@@ -1,4 +1,5 @@
-@import "../molecule_snippets/typography"
+@import "../atomic_singletons/font-family"
+, "../molecule_snippets/typography"
 , "../molecule_snippets/material_icon"
 , "../molecule_snippets/sizing"
 , "../molecule_snippets/element_reset";
@@ -19,11 +20,10 @@
 @mixin actionable_core--icon_button() {
   @include sizing--icon();
   @include element_reset();
-  
+  @include material_icon_core();
+
   &#{$-entity-title} {
+    @include font-family--Roboto(); 
     @include typography--caption($-icon-size);
   }
-  &#{$-entity-icon} {
-    @include material_icon();
-  }  
 }
