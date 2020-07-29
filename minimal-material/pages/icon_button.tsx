@@ -1,28 +1,42 @@
 import {PropsWithChildren, CSSProperties } from "react";
 import "./icon_button.scss"
 
-const base = "mm0_icon_button" 
-, mdcBase = "mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
-, mdc__on = "mdc-icon-button--on"
-, mdc__focus = "mdc-ripple-upgraded--background-focused"
-, mdc__ripple_on = "mdc-ripple-upgraded--foreground-activation"
-// , mdc__ripple_off = "mdc-ripple-upgraded--foreground-deactivation"
-, mdcIcon = 'material-icons'
-, mdcIconButton = `${mdcIcon} mdc-icon-button__icon`
+const _hover = '_hover'
+, base = "mm0_icon_button"
+
+, mdcRipple_Name = `mdc-ripple-upgraded`
+, mdc__unb = `${mdcRipple_Name}--unbounded` 
+, mdc__focusing = `${mdcRipple_Name}--background-focused`
+, mdc__rippling = `${mdcRipple_Name}--foreground-activation`
+// , mdc__unrippling = `${mdcRipple_Name}--foreground-deactivation`
 , mdcRippleStyle =             {
   "--mdc-ripple-fg-size": "28px",
   "--mdc-ripple-fg-scale": "1.71429",
   "--mdc-ripple-left": "10px",
   "--mdc-ripple-top": "10px",
 } as CSSProperties
+, mdcIcon = 'material-icons'
+, mdcIconButton_Name = "mdc-icon-button"
+, mdcIconButton_Base = `${mdcIconButton_Name} ${mdc__unb} ${mdcRipple_Name}`
+, mdcIconButton__Oning = `${mdcIconButton_Name}--on`
 
+, mdcIconButton = `${mdcIconButton_Base} ${mdcIcon}`
+, mdcIconButton__On = `${mdcIconButton_Base} ${mdcIconButton__Oning}`
+, mdcIconButton_Icon = `${mdcIcon} ${mdcIconButton_Name}__icon`
+, mdcIconButton_Icon__On = `${mdcIconButton_Icon} ${mdcIconButton_Icon}--on`
+
+// function MdcIconButton({}: PropsWithChildren<{
+
+// }>) {
+
+// }
 
 export default function Icon() {
   const children = <>
-    <i className={`${mdcIconButton} ${mdcIconButton}--on`}>
+    <i className={mdcIconButton_Icon__On}>
       favorite
     </i>
-    <i className={mdcIconButton}>
+    <i className={mdcIconButton_Icon}>
       favorite_border
     </i>
   </>
@@ -34,7 +48,7 @@ export default function Icon() {
     <Figure caption="Disabled">
       <button {...{
         disabled: true,
-        "className": `${mdcBase} ${mdcIcon}`,
+        "className": mdcIconButton,
         "style": mdcRippleStyle,
         "data-cy": "wifi disabled"
       }}>wifi</button>
@@ -42,7 +56,7 @@ export default function Icon() {
 
     <Figure caption="Enabled">
       <button {...{
-        "className": `${mdcBase} ${mdcIcon}`,
+        "className": mdcIconButton,
         "style": mdcRippleStyle,
         "data-cy": "wifi"
       }}>wifi</button>
@@ -50,7 +64,7 @@ export default function Icon() {
 
     <Figure caption="Hover">
       <button {...{
-        "className": `${mdcBase} ${mdcIcon} _hover`,
+        "className": `${mdcIconButton} ${_hover}`,
         "style": mdcRippleStyle,
         "data-cy": "wifi hover"
       }}>wifi</button>
@@ -58,7 +72,7 @@ export default function Icon() {
 
     <Figure caption="Focus">
       <button {...{
-        "className": `${mdcBase} ${mdcIcon} ${mdc__focus}`,
+        "className": `${mdcIconButton} ${mdc__focusing}`,
         "style": mdcRippleStyle,
         "data-cy": "wifi focus"
       }}>wifi</button>      
@@ -66,16 +80,15 @@ export default function Icon() {
 
     <Figure caption="Pressed and focus">
       <button {...{
-        "className": `${mdcBase} ${mdcIcon} ${mdc__focus} ${mdc__ripple_on}`,
+        "className": `${mdcIconButton} ${mdc__focusing} ${mdc__rippling}`,
         "style": mdcRippleStyle,
         "data-cy": "wifi pressed-focusing"
       }}>wifi</button>
     </Figure>
 
-
     <Figure caption="Pressed">
       <button {...{
-        "className": `${mdcBase} ${mdcIcon} ${mdc__focus} ${mdc__ripple_on}`,
+        "className": `${mdcIconButton} ${mdc__focusing} ${mdc__rippling}`,
         "style": mdcRippleStyle,
         "data-cy": "wifi pressed"
       }}>wifi</button>
@@ -83,7 +96,7 @@ export default function Icon() {
 
     <Figure caption="!!! Activated?!">
       <button {...{
-        "className": `${mdcBase} ${mdcIcon} ${mdc__on}`,
+        "className": `${mdcIconButton} ${mdcIconButton__Oning}`,
         "aria-pressed": "true",
         "style": mdcRippleStyle,
         // "data-cy": "wifi activated"
@@ -92,7 +105,7 @@ export default function Icon() {
 
     <Figure caption="Off">
       <button  {...{
-        "className": mdcBase,
+        "className": mdcIconButton_Base,
         "style": mdcRippleStyle,
         "data-cy": "favorite_border"
       }}>{
@@ -101,7 +114,7 @@ export default function Icon() {
     </Figure>
     <Figure caption="On">
       <button  {...{
-        "className": `${mdcBase} ${mdc__on}`,
+        "className": `${mdcIconButton__On}`,
         "style": mdcRippleStyle,
         "data-cy": "favorite_border on"
       }}>{
@@ -127,7 +140,7 @@ export default function Icon() {
     <Figure caption="button Hover">
       <button {...{
         "data-cy": "wifi hover",
-        "className": `${base}_hover content_wifi_icon`,
+        "className": `${base}${_hover} content_wifi_icon`,
       }}></button>
     </Figure>
     <Figure caption="in-but Focus">
@@ -189,7 +202,7 @@ export default function Icon() {
       <input {...{
         "type": "checkbox",
         "checked": true,
-        "className": `${base}_hover content_bookmark_toggler`
+        "className": `${base}${_hover} content_bookmark_toggler`
       }}/>
     </Figure>
 

@@ -8,6 +8,8 @@ import "../origin.css"
 import "./index.scss"
 import "../src/main.scss"
 
+import "../mdc/hover.scss"
+
 class MyApp extends App {
   // Only uncomment this method if you have blocking data requirements for
   // every single page in your application. This disables the ability to

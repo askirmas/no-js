@@ -1,5 +1,11 @@
-article {
+article.color-mix {
   --hue: 265;
+  
+  div {
+    color: grey;
+    font-weight: bold;
+    position: relative;
+  }
 
   section {
     display: grid;
@@ -80,10 +86,4 @@ article {
       );
     }
   }
-}
-
-div {
-  color: grey;
-  font-weight: bold;
-  position: relative;
 }

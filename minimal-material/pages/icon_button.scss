@@ -4,17 +4,6 @@ article.icon_button {
   grid-auto-rows: min-content;
   grid-auto-flow: row;
   gap: 1em;
-
-  // .content_ {
-  //   @each $icon in (favorite_border, wifi) {
-  //     &#{$icon} {
-  //       @include utils.content($icon);
-  //     }
-  //   } 
-  // }
-  .mdc-icon-button._hover::before {
-    opacity: 0.04;
-  }  
 }
 
 .mm0_ {

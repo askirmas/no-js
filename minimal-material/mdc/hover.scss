@@ -1,0 +1,8 @@
+._hover {
+  &.mdc-icon-button,
+  &.mdc-button .mdc-button__ripple {
+    &::before {
+      opacity: 0.04;
+    }  
+  }
+}
