@@ -1,0 +1,53 @@
+<div class="rippling"></div>
+<div class="rippling rippleWithXY"></div>
+
+<style>
+.rippling, .position {
+  border: 1px solid black;
+  width: 500px;
+  height: 300px;
+  background-repeat: no-repeat;
+  transition-property: background-color, background-size;
+  transition-duration: 1s;
+}
+.rippling {
+  transition-timing-function: ease-in;
+  /* transition-timing-function: cubic-bezier(0,-1.19,0,2.01); */
+
+  background-color: hsl(265, 100%, 50%);
+  
+  /* background-position: var(--x) var(--y); */
+  /* without XY*/
+  background-position-x: 50%;
+  background-position-y: 50%; 
+
+
+  background-size: 14100% 14100%;
+  
+  background-image: radial-gradient(
+    circle at var(--x, center) var(--y, center), 
+    /* circle at center center, */
+    transparent 1%,
+    hsl(265, 100%, 50%) 1%
+  );
+}
+
+.rippling:active {
+  background-color: hsl(265, 100%, 50%, 0.8);
+  background-size: 100% 100%;
+  transition-duration: 0s;
+}
+
+</style>
+<script>
+  document.body.addEventListener("mouseup", ({clientX, clientY, target}) => {
+    if (!target.classList.contains('rippleWithXY'))
+      return
+    const {left, top} = target.getBoundingClientRect()
+    , {style} = target
+    style.setProperty('background-position', 'initial')
+    style.setProperty('--x', `${clientX - left}px`)
+    style.setProperty('--y', `${clientY - top }px`)
+
+  }, true)
+</script>
