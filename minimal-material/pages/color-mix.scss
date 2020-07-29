@@ -1,0 +1,89 @@
+article {
+  --hue: 265;
+
+  section {
+    display: grid;
+    margin: 0.25em;
+  }
+  
+  & > section {
+    &::before {
+      content: attr(class);
+    }
+    & > section {
+      grid-auto-flow: column;
+      & > section > section {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+
+  .overlayed::after {
+    opacity: calc(var(--mix) / 100);
+
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+  }
+
+  .hsl {
+    .overlayed {
+      background-color: hsl(var(--hue), 100%, calc(var(--l0) * 1%));
+      &::after {
+        background-color: hsl(var(--hue), 0%, calc(var(--l1) * 1%));
+      }
+    }
+
+    .calced {
+      background-color: hsl(var(--hue),
+        100%,
+        calc(1% * (
+          var(--l0) * (100 - var(--mix))
+          + var(--l1) * var(--mix)
+        ) / 100)
+      );
+    }
+  }
+
+  .rgb {
+    .overlayed {
+      background-color: rgb(
+        var(--red),
+        var(--green),
+        var(--blue)
+      );
+      &::after {
+        background-color: rgb(
+          calc(var(--l1) * 2.56),
+          calc(var(--l1) * 2.56),
+          calc(var(--l1) * 2.56)
+        );  
+      }
+    }
+    .calced {
+      background-color: rgba(
+        calc((
+          var(--red) * (100 - var(--mix))
+          + var(--l1) * 2.56 * var(--mix)
+        ) / 100),
+        calc((
+          var(--green) * (100 - var(--mix))
+          + var(--l1) * 2.56 * var(--mix)
+        ) / 100),
+        calc((
+          var(--blue) * (100 - var(--mix))
+          + var(--l1) * 2.56 * var(--mix)
+        ) / 100),
+      );
+    }
+  }
+}
+
+div {
+  color: grey;
+  font-weight: bold;
+  position: relative;
+}
