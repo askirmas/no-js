@@ -1,0 +1,98 @@
+/// https://css-tricks.com/flexbox-truncated-text/
+article.ellipsed-row {
+  &, section {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+
+  @mixin ellipse-me() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .me {
+    .content- {
+      &0::before, &2::before { content: "some small content"; }
+      &1::before { content: "LONG CONTENT LONG CONTENT LONG CONTENT LONG CONTENT LONG CONTENT LONG CONTENT"; }
+    }
+    .container {
+      @include ellipse-me();
+      & > * {
+        display: inline;
+      }
+      &::before {
+        content: " ¯\\_(ツ)_/¯ ";
+        float: right;
+      }
+    }
+  } 
+
+  .ex1 {
+    .flex-parent {
+      display: flex;
+    }
+    .long-and-truncated {
+      & {
+        flex: 1; 
+        @include ellipse-me();
+      }
+
+      &-with-child-corrected {
+        flex: 1;
+        min-width: 0; /* or some value */
+        h2 {
+          @include ellipse-me();
+        }
+      }
+    }
+    .short-and-fixed {
+      white-space: nowrap;
+    }    
+
+    & {
+      .short-and-fixed div {
+        width: 30px;
+        height: 30px;
+        border-radius: 10px;
+        background: lightgreen;
+        display: inline-block;
+      }    
+      .flex-parent {
+        align-items: center;
+        padding: 10px;
+        margin: 30px 0;
+      }
+      h2 {
+        font-size: 1rem;
+        font-weight: normal;
+      }
+    }
+  }
+  .ex2 {
+    .outer {
+      border: 1px solid red;
+      display: flex;
+      .inner {
+        /* display: flex */          /* removed */
+        min-width: 0;
+        flex: 1;
+        @include ellipse-me();
+  
+        .child {
+          display: inline;             /* adjusted */
+          // white-space: nowrap;
+          // flex: 1;
+        }  
+      }
+      .btn {
+        flex: 0 0 auto;
+      }  
+    }
+  }
+
+  * {
+    margin: 15px 1px
+  }
+
+}

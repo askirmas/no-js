@@ -1,5 +1,5 @@
-import {Fragment, CSSProperties} from 'react'
-import "./color-mix.scss"
+import {CSSProperties} from 'react'
+import "./sandbox--color-mix.scss"
 
 const lightStarts = [25, 50, 75]
 , rgbs = [
