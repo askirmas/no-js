@@ -181,12 +181,11 @@ export default function Icon() {
       }}/>
     </Figure>
 
-    <Figure caption="With tooltip">
+    <Figure data-cy="bookmark_toggler hover">
       <input {...{
         "type": "checkbox",
         "checked": true,
-        "className": `${base}_hover content_bookmark_toggler`,
-        "data-cy": "bookmark_toggler hover"
+        "className": `${base}_hover content_bookmark_toggler`
       }}/>
     </Figure>
 
@@ -223,15 +222,16 @@ export default function Icon() {
 
 function Figure({
   caption, children, "data-cy": cy
-}: PropsWithChildren<{
+}: PropsWithChildren<Partial<{
   "caption": string
-  "data-cy"?: string
-}>
+  "data-cy": string
+}>>
 ) {
-  return <figure data-cy={cy}>
-    {children}
-    <figcaption>{caption}</figcaption>
-  </figure>
+  return <figure data-cy={cy}>{
+    children
+  }{
+    caption && <figcaption>{caption}</figcaption>
+  }</figure>
 }
 
 function A({content}: {content: string}) {
