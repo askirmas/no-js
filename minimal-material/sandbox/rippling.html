@@ -1,53 +1,79 @@
-<div class="rippling"></div>
-<div class="rippling rippleWithXY"></div>
+<div class="bgr"></div>
+<div class="bgr rippling"></div>
+<div class="bgr rippling withClickXY"></div>
 
 <style>
-.rippling, .position {
+:root {
+  --opacity-ripple: 0.8;
+  --hue: 265;
+  --saturation: 100%;
+  --light: 50%;
+  --ripple-duration: 1s;
+  --ripple-fade: 1s;
+  --ripple-out: 1s;
+}
+div {
+  transition-timing-function: ease-in;
   border: 1px solid black;
-  width: 500px;
-  height: 300px;
+  width: 100%;
+  height: 33%;
+  --bgr: hsl(var(--hue), var(--saturation), var(--light));
   background-repeat: no-repeat;
-  transition-property: background-color, background-size;
-  transition-duration: 1s;
+}
+.bgr {
+  background-color: var(--bgr);
 }
 .rippling {
-  transition-timing-function: ease-in;
-  /* transition-timing-function: cubic-bezier(0,-1.19,0,2.01); */
-
-  background-color: hsl(265, 100%, 50%);
-  
-  /* background-position: var(--x) var(--y); */
-  /* without XY*/
-  background-position-x: 50%;
-  background-position-y: 50%; 
-
-
   background-size: 14100% 14100%;
-  
   background-image: radial-gradient(
-    circle at var(--x, center) var(--y, center), 
-    /* circle at center center, */
+    circle at var(--click-x-px, center) var(--click-y-px, center), 
     transparent 1%,
-    hsl(265, 100%, 50%) 1%
+    var(--bgr) 1%
   );
+
+  background-position: 50% 50%;  
+
+  transition-property: background-size, background-color;
+
+  transition-delay: 0s, var(--ripple-fade);
+  transition-duration: var(--ripple-duration), var(--ripple-out);
+}
+.rippling:active {
+  background-color: hsla(var(--hue), var(--saturation), var(--light), var(--opacity-ripple));
+  background-size: 100% 100%;
+  
+  transition-delay: 0s, 0s;
+  transition-duration: 0s, 0s;
 }
 
-.rippling:active {
-  background-color: hsl(265, 100%, 50%, 0.8);
-  background-size: 100% 100%;
-  transition-duration: 0s;
+.withClickXY {
+  background-position: initial;
 }
 
 </style>
 <script>
-  document.body.addEventListener("mouseup", ({clientX, clientY, target}) => {
-    if (!target.classList.contains('rippleWithXY'))
+  clickPositionAgent()
+
+  function clickPositionAgent(host = document.body, options = {
+    propX: "--click-x-px",
+    propY: "--click-y-px",
+    classCheck: "withClickXY",
+    noPx: false
+  }) {
+    const fn = clickPositionSetter.bind(options)
+    host.addEventListener("mouseup", fn, true)
+    return () => host.removeEventListener("mouseup", fn)
+  }
+
+  function clickPositionSetter({clientX, clientY, target}) {
+    if (!target.classList.contains(this.classCheck))
       return
+
     const {left, top} = target.getBoundingClientRect()
     , {style} = target
-    style.setProperty('background-position', 'initial')
-    style.setProperty('--x', `${clientX - left}px`)
-    style.setProperty('--y', `${clientY - top }px`)
+    , postfix = this.noPx ? '' : 'px'
 
-  }, true)
+    style.setProperty(this.propX, `${clientX - left}${postfix}`)
+    style.setProperty(this.propY, `${clientY - top}${postfix}`)
+  }
 </script>
