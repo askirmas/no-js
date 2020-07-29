@@ -86,9 +86,17 @@ export default function Icon() {
       }}>wifi</button>
     </Figure>
 
+    <Figure caption="Pressed and hover">
+      <button {...{
+        "className": `${mdcIconButton} _hover ${mdc__rippling}`,
+        "style": mdcRippleStyle,
+        "data-cy": "wifi pressed-hover"
+      }}>wifi</button>
+    </Figure>
+
     <Figure caption="Pressed">
       <button {...{
-        "className": `${mdcIconButton} ${mdc__focusing} ${mdc__rippling}`,
+        "className": `${mdcIconButton} ${mdc__rippling}`,
         "style": mdcRippleStyle,
         "data-cy": "wifi pressed"
       }}>wifi</button>

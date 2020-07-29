@@ -6,7 +6,10 @@ describe('icon_button', () => {
     .each($el => cy
       .wrap($el)
       .scrollIntoCenter()
-      .toMatchImageSnapshot({name: `${page} ${$el[0].dataset.cy}`})
+      .toMatchImageSnapshot({
+        name: `${page} ${$el[0].dataset.cy}`,
+        disableTimersAndAnimations: false
+      })
       // .matchImageSnapshot(`${page} ${$el[0].dataset.cy}`)
     )
   )
