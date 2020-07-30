@@ -3,7 +3,6 @@
 ;
 
 @mixin element_reset() {
-
   @include margin--none();
   @include apparence--none();
   outline: none;
@@ -11,4 +10,5 @@
   border-width: 0;
   border-style: solid;
   cursor: pointer;
+  text-decoration: none;
 }

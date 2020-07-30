@@ -90,6 +90,7 @@
 @mixin block-icon_button--enabled() {
   @include layout--icon_button();
   @include border-radius--fab();
+  @include colorize-icon_button(0);
   &#{$-entity-title} {
     @include tooltip();
     @include visuality--hidden(); 
@@ -101,21 +102,21 @@
 }
 
 @mixin block-icon_button--hovering() {
-  @include background-color--on_surface($-overlay--hover);
+  @include colorize-icon_button($-overlay--hover);
   &#{$-entity-title} {
     @include visuality--shown(); 
   }
 }
 
 @mixin block-icon_button--focusing() {
-  @include background-color--on_surface($-overlay--focus);
+  @include colorize-icon_button($-overlay--focus);
   // &#{$-entity-title} {
   //   @include visuality--hidden(); 
   // }
 }
 
 @mixin block-icon_button--pressing() {
-  @include background-color--on_surface($-overlay--pressed);
+  @include colorize-icon_button($-overlay--pressed);
 }  
 
 
@@ -128,6 +129,6 @@
 }  
 
 @mixin block-icon_button--dragging() {
-  @include background-color--on_surface($-overlay--dragged);
+  @include colorize-icon_button($-overlay--dragged);
 }  
 // on // off // error

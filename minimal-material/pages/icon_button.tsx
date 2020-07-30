@@ -168,19 +168,12 @@ export default function Icon() {
       }}/>
     </Figure>
 
-    {/* <Figure caption="Dragging">
+    <Figure caption="Dragging">
       <a {...{
         "href": "#",
         "className": `${base}_dragging content_wifi_icon`,
         "data-cy": "wifi dragging"
       }}/>
-    </Figure> */}
-
-    <Figure caption="Dragging">
-      <div {...{
-        "className": `${base}_dragging content_wifi_icon`,
-        "data-cy": "wifi dragging"
-      }}></div>
     </Figure>
 
     <Figure caption="Activated">
