@@ -9,7 +9,7 @@
   );
 }
 
-@function on-white(
+@function on_white(
   $index: 0,
   $acted: false,
   $hue: $-hue,
@@ -38,7 +38,7 @@
 }
 
 
-@function on-color(
+@function on_color(
   $index: 0,
   $acted: false,
   $hue: $-hue,
@@ -62,4 +62,18 @@
       2
     )      
   );
+}
+
+@function on_surface(
+  $index: 0,
+  $red: $-main-red,
+  $green: $-main-green,
+  $blue: $-main-blue
+) {
+  @return rgb-(
+    $red,
+    $green,
+    $blue,
+    m($index, $-step)
+  )
 }

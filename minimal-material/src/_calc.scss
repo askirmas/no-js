@@ -73,16 +73,51 @@
   };
 }
 
-@function hsl-($hue, $saturation, $lightness, $opacity: 1) {
+@function hsl-($hue, $saturation, $lightness, $opacity: null) {
+  @if $opacity == 0 {
+    @return transparent;
+  }
+
   $h: c($hue);
   $s: ce(100%, "*", $saturation);
   $l: ce(100%, "*", $lightness);
 
-  @if $opacity == 1 {
+  @if $opacity == null {
     @return hsl($h, $s, $l);  
   } @else {
     @return hsla($h, $s, $l,
       c($opacity)
     );
   }
+}
+
+@function rgb-($red, $green, $blue, $opacity: null) {
+  @if $opacity == 0 {
+    @return transparent;
+  }
+
+  $r: c($red);
+  $g: c($green);
+  $b: c($blue);
+  @if $opacity == null {
+    @return rgb($r, $g, $b);  
+  } @else {
+    @return rgba($r, $g, $b,
+      c($opacity)
+    );
+  }
+}
+
+@function rgb-mix(
+  $r1, $g1, $b1,
+  $r2, $g2, $b2,
+  $m
+) {
+  // $g2 * $m + $g1 - $g1* $m,
+  // $m * ($b2 - $b1) + $b1 => s(m($m, e($b2, "-", $b1)), $b1)
+  @return rgb-(
+    s(m($m, e($r2, "-", $r1)), $r1),
+    s(m($m, e($g2, "-", $g1)), $g1),
+    s(m($m, e($b2, "-", $b1)), $b1)
+  );
 }

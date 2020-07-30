@@ -84,7 +84,7 @@
       &fab_min { @include block-fab_min--enabled(); }
       &fab { @include block-fab--enabled(); }
       &fab_rev { @include block-fab_rev--enabled(); }
-      &button { @include block-button--enabled(); }
+      &button { @include block-button_text--enabled(); }
       &icon_button { @include block-icon_button--enabled(); }       
     }
   }  

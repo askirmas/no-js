@@ -1,7 +1,9 @@
 @import "../atomic_singletons/border-radius"
-, "../atomic_singletons/pointer-events"
-, "../molecule_snippets/disable_visually"
+, "../atomic_singletons/box-sizing"
+, "../atomic_singletons/background-color"
+, "../atomic_singletons/border-width"
 , "../molecule_snippets/visuality"
+, "../fused_bodies/disable"
 , "../fused_bodies/layout"
 , "../fused_bodies/tooltip"
 ;
@@ -36,15 +38,58 @@
   @include layout--fab_rev();
   @include border-radius--fab();
 }
-@mixin block-button--enabled() {
+
+@mixin block-button-base() {
   @include layout--button();
   @include border-radius--default();
+  @include box-sizing--border();
 }
+
+@mixin block-button_text--disabled() {
+  @include block-button-base();
+  @include disable--stroke();
+}
+@mixin block-button_outlined--disabled() {
+  @include block-button-base();
+  @include disable--stroke();
+  @include border-width--exists();
+}
+@mixin block-button_unelevated--disabled() {
+  @include block-button-base();
+  @include disable--fill();
+}
+@mixin block-button_raised--disabled() {
+  @include block-button-base();
+  @include disable--fill();
+}
+
+@mixin block-button_text--enabled() {
+  @include block-button-base();
+  @include colorize-button_outlined(0);
+}
+@mixin block-button_outlined--enabled() {
+  @include block-button-base();
+  @include colorize-button_outlined(0);
+  @include border-width--exists();
+}
+@mixin block-button_unelevated--enabled() {
+  @include block-button-base();
+  @include colorize-button_filled(0);
+}
+@mixin block-button_raised--enabled() {
+  @include block-button-base();
+  @include colorize-button_filled(0);
+  @include box-shadow--elevation(2);
+}
+
+//TODO @mixin block-button_shaped--enabled() {
+//   @include layout--button();
+//   @include border-radius--default();
+// }
 
 @mixin block-icon_button--enabled() {
   @include layout--icon_button();
   @include border-radius--fab();
-
   &#{$-entity-title} {
     @include tooltip();
     @include visuality--hidden(); 
@@ -52,28 +97,25 @@
 }
 
 @mixin block-icon_button--disabling() {
-  @include pointer-events--none();
-  &#{$-entity-icon} {
-    @include disabled--with_color();
-  }
+  @include disable--stroke();
 }
 
 @mixin block-icon_button--hovering() {
-  @include background-color--on_white($-overlay--hover);
+  @include background-color--on_surface($-overlay--hover);
   &#{$-entity-title} {
     @include visuality--shown(); 
   }
 }
 
 @mixin block-icon_button--focusing() {
-  @include background-color--on_white($-overlay--focus);
+  @include background-color--on_surface($-overlay--focus);
   // &#{$-entity-title} {
   //   @include visuality--hidden(); 
   // }
 }
 
 @mixin block-icon_button--pressing() {
-  @include background-color--on_white($-overlay--pressed);
+  @include background-color--on_surface($-overlay--pressed);
 }  
 
 
@@ -86,6 +128,6 @@
 }  
 
 @mixin block-icon_button--dragging() {
-  @include background-color--on_white($-overlay--dragged);
+  @include background-color--on_surface($-overlay--dragged);
 }  
 // on // off // error

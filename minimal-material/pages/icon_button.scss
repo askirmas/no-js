@@ -7,10 +7,8 @@ article.icon_button {
 }
 
 .mm0_ {
-  @import "../src/_core"
-  , "../src/u"
+  @import "../src/u"
   , "theme"
-  , "../src/atomic_singletons/background-color"
   , "../src/fused_bodies/tooltip_animation"
   , "../src/state_modifier_declarations/actionable"
   ;

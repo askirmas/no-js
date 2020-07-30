@@ -40,12 +40,16 @@
     @include content("wifi");
   }
 
-  &favorite_toggler {
-    @include content("favorite_border", null, "favorite"); 
+  &favorite_button {
+    @include content("favorite_border", "Like", "favorite", false); 
   }
 
   &bookmark_toggler {
-    @include content("star_border", "Bookmark", "star"); 
+    @include content("star_border", "Star it", "star", "Unstar it");
+  }
+
+  &default_button {
+    @include content(null, "Default"); 
   }
 
   &recents {
@@ -57,18 +61,6 @@
 
   &wifi_icon {
     @include content("wifi");
-  }
-
-  &favorite_toggler {
-    @include content("favorite_border", null, "favorite"); 
-  }
-
-  &tab {
-    @each $title in ("One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve") {
-      &_#{$title} {
-        @include content(null, "Tab " $title);
-      } 
-    }
   }
 }
 

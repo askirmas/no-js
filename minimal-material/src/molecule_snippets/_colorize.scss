@@ -1,0 +1,96 @@
+@mixin -colorize-actionable(
+  $main-red, $main-green, $main-blue,
+  $back-red, $back-green, $back-blue,
+  $state
+) {
+  $color: rgb-($main-red, $main-green, $main-blue);
+  color: $color;
+  border-color: $color;
+  background-color: rgb-mix(
+    $back-red, $back-green, $back-blue,
+    $main-red, $main-green, $main-blue,
+    m($state, $-step)
+  );
+}
+
+@mixin colorize-disable--fill() {
+  $color: rgb-mix(
+    $-surface-red, $-surface-green, $-surface-blue,
+    $-main-red, $-main-green, $-main-blue,
+    $-opacity-disabler
+  );
+  color: $color;
+  border-color: $color;
+  background-color: rgb-mix(
+    $-surface-red, $-surface-green, $-surface-blue,
+    $-main-red, $-main-green, $-main-blue,
+    m($-overlay--disabled, $-step)
+  );
+} 
+
+@mixin colorize-disable--stroke() {
+  $color: rgb-mix(
+    $-surface-red, $-surface-green, $-surface-blue,
+    $-main-red, $-main-green, $-main-blue,
+    $-opacity-disabler
+  );
+  color: $color;
+  border-color: $color;
+  background-color: rgb-(
+    $-surface-red, $-surface-green, $-surface-blue,
+  );
+} 
+
+
+@mixin colorize-tooltip() {
+  color: $-tooltip-color;
+  background-color: $-tooltip-bgr;
+}
+
+@mixin colorize-icon_button($state) {
+  @include -colorize-actionable(
+    $-main-red,
+    $-main-green,
+    $-main-blue,
+    $-surface-red,
+    $-surface-green,
+    $-surface-blue,
+    $state
+  );
+}
+
+@mixin colorize-button_outlined($state) {
+  @include -colorize-actionable(
+    $-primary-red,
+    $-primary-green,
+    $-primary-blue,
+    $-surface-red,
+    $-surface-green,
+    $-surface-blue,
+    $state
+  );
+}
+
+@mixin colorize-button_filled($state) {
+  @include -colorize-actionable(
+    $-surface-red,
+    $-surface-green,
+    $-surface-blue,
+    $-primary-red,
+    $-primary-green,
+    $-primary-blue,
+    $state
+  );
+}
+
+@mixin colorize-fab($state) {
+  @include -colorize-actionable(
+    $-surface-red,
+    $-surface-green,
+    $-surface-blue,
+    $-secondary-red,
+    $-secondary-green,
+    $-secondary-blue,
+    $state
+  );
+}

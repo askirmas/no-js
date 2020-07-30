@@ -12,6 +12,6 @@ $-overlay--pressed: 3 !default; // on_color is 4
 /** need custom */
 $-overlay--dragged: 2 !default;
 /** :disabled */
-$-overlay--disabled: 7.75 !default; // on_color.saturation := 0, textColor: 0,0,50%, on_white bgr white, color.opacity: 38 or 62
+$-overlay--disabled: 3 !default; // on_color.saturation := 0, textColor: 0,0,50%, on_white bgr white, color.opacity: 38 or 62
 
 //TODO $-overlay--hover-and-selected = $-overlay--hover + $-overlay--selected

@@ -13,9 +13,9 @@ article.palette {
     &3 { --overlay_index: #{$-overlay--focus};}  
   }
   .white {
-    @include background-color--on_white(var(--overlay_index));      
+    @include background-color--on_surface(var(--overlay_index));      
     &.act {
-      @include background-color--on_white(var(--overlay_index), true);      
+      @include background-color--on_surface(var(--overlay_index), true);      
     }  
   }
   .colored {

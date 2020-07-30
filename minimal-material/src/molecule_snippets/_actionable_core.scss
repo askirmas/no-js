@@ -8,7 +8,7 @@
 @mixin actionable_core--default($icon-size: $-icon-size) {
   @include element_reset();
   &#{$-entity-title} {
-    @include typography--button(1.75);
+    @include typography--button(1.5);
     @include height--icon();
   }
   &#{$-entity-icon} {

@@ -1,20 +1,32 @@
-@mixin content($icon: null, $content: null, $icon-on: null) {
+$-mod-on: ':checked' !default;
+
+@function falseFall($val, $default: none) {
+  @return if($val == false, $default, $val);
+}
+
+@mixin content($icon: null, $content: null, $icon-on: null, $content-on: null) {
 
   @if ($icon != null) {
     &#{$-entity-icon} {
-      content: $icon;
+      content: falseFall($icon);
     }  
   }
 
   @if ($icon-on != null) {
-    &:checked#{$-entity-icon} {
-      content: $icon-on;
+    &#{$-mod-on}#{$-entity-icon} {
+      content: falseFall($icon-on);
     }
   }
 
   @if ($content != null) {
     &#{$-entity-title} {
-      content: $content;
+      content: falseFall($content);
+    }  
+  }
+
+  @if ($content-on != null) {
+    &#{$-mod-on}#{$-entity-title} {
+      content: falseFall($content-on);
     }  
   }
 }

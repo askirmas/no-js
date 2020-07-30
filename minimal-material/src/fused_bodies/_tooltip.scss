@@ -2,11 +2,11 @@
 , "../atomic_singletons/padding"
 , "../atomic_singletons/width"
 , "../atomic_singletons/pointer-events"
-, "../molecule_snippets/tooltip_colors"
+, "../molecule_snippets/colorize"
 ;
 
 @mixin tooltip() {
-  @include tooltip_colors();
+  @include colorize-tooltip();
   @include border-radius--default();
   @include width--one_line(); // TODO or white-space: nowrap;
   @include padding--min();

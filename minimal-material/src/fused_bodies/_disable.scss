@@ -1,0 +1,15 @@
+@import "../atomic_singletons/pointer-events";
+@import "../atomic_singletons/box-shadow";
+@import "../molecule_snippets/colorize";
+
+@mixin disable--fill() {
+  @include colorize-disable--fill();
+  @include pointer-events--none();
+  @include box-shadow--elevation(0);
+}
+
+@mixin disable--stroke() {
+  @include colorize-disable--stroke();
+  @include pointer-events--none();
+  @include box-shadow--elevation(0);
+}

@@ -1,5 +1,5 @@
 @function -elevation-shadow-helper($v-offset, $blur, $spread, $bg-opacity) {
-  @return 0px #{$v-offset}px #{$blur}px #{$spread}px hsla(0, 0%, 0%, $bg-opacity);
+  @return 0px #{$v-offset}px #{$blur}px #{$spread}px hsl-(0, 0, 0, $bg-opacity);
 }
 
 @function elevation($index) {
@@ -38,7 +38,11 @@
   @else if $index == 23 { $v-offset-1: 11; $blur-1: 14; $spread-1: -7; $blur-2: 36; $spread-2:  3; $v-offset-3:  9; $blur-3: 44; $spread-3:  8; }
   @else if $index == 24 { $v-offset-1: 11; $blur-1: 15; $spread-1: -7; $blur-2: 38; $spread-2:  3; $v-offset-3:  9; $blur-3: 46; $spread-3:  8; }
 
-  @return -elevation-shadow-helper($v-offset-1, $blur-1, $spread-1, $-elevation-opacity-1)
-  , -elevation-shadow-helper($index, $blur-2, $spread-2, $-elevation-opacity-2)
-  , -elevation-shadow-helper($v-offset-3, $blur-3, $spread-3, $-elevation-opacity-3);
+  $elevation-opacity-1: if($index == 0, 0, $-elevation-opacity-1);
+  $elevation-opacity-2: if($index == 0, 0, $-elevation-opacity-2);
+  $elevation-opacity-3: if($index == 0, 0, $-elevation-opacity-3);
+
+  @return -elevation-shadow-helper($v-offset-1, $blur-1, $spread-1, $elevation-opacity-1)
+  , -elevation-shadow-helper($index, $blur-2, $spread-2, $elevation-opacity-2)
+  , -elevation-shadow-helper($v-offset-3, $blur-3, $spread-3, $elevation-opacity-3);
 }

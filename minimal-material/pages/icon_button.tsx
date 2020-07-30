@@ -168,6 +168,14 @@ export default function Icon() {
       }}/>
     </Figure>
 
+    {/* <Figure caption="Dragging">
+      <a {...{
+        "href": "#",
+        "className": `${base}_dragging content_wifi_icon`,
+        "data-cy": "wifi dragging"
+      }}/>
+    </Figure> */}
+
     <Figure caption="Dragging">
       <div {...{
         "className": `${base}_dragging content_wifi_icon`,
@@ -192,7 +200,7 @@ export default function Icon() {
     <Figure caption="checkbox Off">
       <input {...{
         "type": "checkbox",
-        "className": `${base}_ content_favorite_toggler`,
+        "className": `${base}_ content_favorite_button`,
         "data-cy": "favorite_border"
       }}/>
     </Figure>
@@ -201,7 +209,7 @@ export default function Icon() {
       <input {...{
         "type": "checkbox",
         "checked": true,
-        "className": `${base}_ content_favorite_toggler`,
+        "className": `${base}_ content_favorite_button`,
         "data-cy": "favorite_border on"
       }}/>
     </Figure>
@@ -219,19 +227,19 @@ export default function Icon() {
     <Figure caption="">
       <input {...{
         "type": "checkbox",
-        "className": `${base} content_wifi_icon`,
-        // "data-cy": "favorite_border"
+        "className": `${base}_toggler content_bookmark_toggler`,
+        // "data-cy": "content_bookmark_toggler"
       }}/>
     </Figure>
 
     <Figure caption="">
       <input {...{
         "type": "checkbox",
-        "className": `${base}_toggler content_bookmark_toggler`,
-        // "data-cy": "favorite_border"
+        "className": `${base}_toggler content_favorite_button`,
+        // "data-cy": "favorite_button"
       }}/>
     </Figure>
-    
+
     <A content="TBD"/> 
     
     <ul>
