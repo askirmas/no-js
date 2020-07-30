@@ -1,0 +1,19 @@
+<input type="search" placeholder=" " inputmode="text">
+<style>
+/* input, */
+:host(input),
+input:host {
+  display: grid;
+  -webkit-appearance: none;
+  grid-template-columns: 1fr 1fr;
+}
+input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  background-color: blue;
+  width: 10px;
+  height: 10px;
+}
+input::placeholder {
+  background-color: red;
+}
+</style>

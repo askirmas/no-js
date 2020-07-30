@@ -3,47 +3,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="10em"><line x1="0" y1="0.75em" x2="10em" y2="0.75em" style="stroke:black; stroke-width: 4px"/><text x="1em" y="1em" style="stroke:white; stroke-width:1em">Type Something1</text><text x="1em" y="1em" fill="gray">Type Something</text></svg>
 <style>
 /*check https://stackoverflow.com/a/61041829/9412937*/
-
-
+:root {
+  --place-0: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="10em"><text y="1em" fill="gray">Type Something...</text></svg>');
+  /* https://stackoverflow.com/a/41902064/9412937 */
+  --place-1: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="10em"><text y="1em" style="stroke:white; stroke-width:1.5em">Type Something...</text><text y="1em" fill="gray">Type Something...</text></svg>');
+}
+main {
+  display: none;
+}
 main,
 input::-webkit-textfield-decoration-container {
   
   background-repeat: no-repeat;
-  /* https://stackoverflow.com/a/41902064/9412937 */
-  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="10em"><line x1="0" y1="1em" x2="0" y2="10em" style="stroke:black; stroke-width: 10px"/><text y="1em" style="stroke:white; stroke-width:1em">Type Something...</text><text y="1em" fill="gray">Type Something...</text></svg>');
-  background-position-x: 1em;
-  background-position-y: top;
-  background-size: 50%;  
+  
+  /* background-image: var(--place-1); */
+  background-position: 1em -0.5em;
   background-clip: border-box;
+  /* background-color: hsla(0, 0%, 100%, 0.5); */
 
-}
-
-input::-webkit-textfield-decoration-container {
-  /* background-color: hsla(0, 100%, 50%, 0.5); */
-  height: 1.5em;
-  left: 0;
-  right: 0;
-  position: absolute;
-  top: -2.25em;
   z-index: 10;
+  box-sizing: border-box;
+  position: absolute;
+  
+  left: 0.5em;
+  width: calc(600px - 2em);
+  top: 1em;
+  
+  height: calc(100% + 2em);
+  
+  border-radius: 2em;
+  border-width: 0.5em;
+  /* border-left-width: 0; */
+  border-bottom-width: 50px;
+  border-bottom-left-radius: 60px / 4px;
+  border-color: hsla(240, 100%, 50%, 0.5);
+  border-style: solid;
+  border-image-source: var(--place-0);
+  /* border-image-slice: 100%; */
+  border-image-width: auto;
+  /* border-image-outset: 10px;  */
+  border-image-repeat: repeat; 
+  
+  box-shadow: inset 0px 0px 0 10px hsla(0, 100%, 50%, 0.5);
+  /* box-shadow: inset -71px -65px 0px 81px rgba(0,0,0,0.75); */
 }
 
-main, input {
-  overflow: visible;
-  position: relative;
+input {
   width: 300px;
   height: 100px;
+  border-radius: 1em;
+  border-color: transparent;
+  border-width: 0;  
+
+  margin: 1em;
+
+}
+main, input {
+  background-color: hsla(120, 100%, 50%, 0.5);
+  position: relative;
+  
+  padding: 0;
   font-size: 1rem;
 
-  box-sizing: border-box;
-  border-radius: 1em;
-  border-style: solid;
-
-  border-color: hsla(0, 0%, 0%, 0.2);
-  border-top-color: transparent;
-
-  border-width: 4px;  
-  /* border-top-width: 0px; */
+  /* box-sizing: content-box; */  
 }
 
 
