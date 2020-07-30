@@ -5,7 +5,8 @@
   $z-index: $-tooltip-z-index
 ) {
   z-index: $z-index;
-  $props: clip-path, transform, opacity;
+  // display-none? overflow-hidden? 
+  $props: transform, opacity;
   // will-change: $props;
   transition-property: $props;
 }
@@ -15,8 +16,8 @@
   $delay: $-delay-in,
 ) {
   transition: {
-    delay: $delay, $delay + $duration, $delay;
-    duration: $duration, 0s, $duration;  
+    delay: $delay + $duration, $delay;
+    duration: 0s, $duration;  
     // delay: $delay;
     // duration: $duration;
   }
@@ -27,8 +28,8 @@
   $delay: $-delay-out,
 ) {
   transition: {
-    delay: $delay, $delay, 0s;
-    duration: $duration, $duration, 0s;
+    delay: $delay, $delay;
+    duration: $duration, 0s;
     // delay: $delay;
     // duration: $duration;
   }

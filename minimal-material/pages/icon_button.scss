@@ -50,19 +50,21 @@ article.icon_button {
       @include block-icon_button--disabling();
     }
 
-    // animation
-    &#{$-entity-title} {
-      &/*, &:active*/ {
-        @include tooltip_animation--off();
-      }
-    }
-    &:hover/*:not(:active)*/ {
+    &, &_toggler {
+      // animation
       &#{$-entity-title} {
-        @include tooltip_animation--on()
+        &/*, &:active*/ {
+          @include tooltip_animation--off();
+        }
       }
+      &:hover/*:not(:active)*/ {
+        &#{$-entity-title} {
+          @include tooltip_animation--on()
+        }
+      }
+      &:active {
+        //TODO add ripple
+      }  
     }
-    &:active {
-      //TODO add ripple
-    }  
   }
 }
