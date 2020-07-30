@@ -1,18 +1,18 @@
-@import "../atomic_singletons/column-gap"
+@import "../atomic_singletons/gap"
 , "../atomic_singletons/min-width"
 , "../atomic_singletons/margin"
 , "../atomic_singletons/padding"
 , "../molecule_snippets/actionable_core"
-, "../molecule_snippets/actionable_grid"
-, "../molecule_snippets/flow_order"
+, "../molecule_snippets/wireframe"
+, "../molecule_snippets/flow_direction"
 ;
 
 @mixin layout--tab_item() {
   @include actionable_core--default();
   
-  @include grid--default();
-  @include column-gap--default();
-  @include flow_order--horizontal();
+  @include wireframe-grid--default();
+  @include gap--default();
+  @include flow_direction--horizontal();
 
   @include padding--tab_item();
 }
@@ -20,8 +20,8 @@
 @mixin layout--tab_item_vert() {
   @include actionable_core--default();
 
-  @include grid--default();
-  @include flow_order--vertical();
+  @include wireframe-grid--default();
+  @include flow_direction--vertical();
 
   @include padding--tab_item();
 }
@@ -29,8 +29,8 @@
 @mixin layout--fab_min() {
   @include actionable_core--default();
 
-  @include grid--default();
-  @include flow_order--horizontal();
+  @include wireframe-grid--default();
+  @include flow_direction--horizontal();
 
   @include padding--fab_min();
 }
@@ -38,8 +38,8 @@
 @mixin layout--fab_icon() {
   @include actionable_core--default();
 
-  @include grid--default();
-  @include flow_order--horizontal();
+  @include wireframe-grid--default();
+  @include flow_direction--horizontal();
 
   @include padding--fab_icon();
 }
@@ -47,9 +47,9 @@
 @mixin layout--fab() {
   @include actionable_core--default();
   
-  @include grid--default();
-  @include column-gap--fab();
-  @include flow_order--horizontal();
+  @include wireframe-grid--default();
+  @include gap--fab();
+  @include flow_direction--horizontal();
 
   @include padding--fab();
   &#{$-entity-icon} {
@@ -60,9 +60,9 @@
 @mixin layout--fab_rev() {
   @include actionable_core--default();
 
-  @include grid--default();
-  @include column-gap--fab();
-  @include flow_order--horizontal-rev();
+  @include wireframe-grid--default();
+  @include gap--fab();
+  @include flow_direction--horizontal-rev();
 
   @include padding--fab();
   &#{$-entity-icon} {
@@ -73,9 +73,9 @@
 @mixin layout--button() {
 
   @include actionable_core--default(1.125);
-  @include grid--default();
-  @include column-gap--default();
-  @include flow_order--horizontal();
+  @include wireframe-grid--default();
+  @include gap--default();
+  @include flow_direction--horizontal();
 
   @include margin--button();
   @include padding--button();
@@ -86,7 +86,7 @@
 @mixin layout--icon_button() {
   @include actionable_core--icon_button();
 
-  @include grid--icon_button();
-  @include flow_order--coincide();
+  @include wireframe-flex--icon_button();
+  @include flow_direction--vertical();
   @include padding--icon_button();
 }

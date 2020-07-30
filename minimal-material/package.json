@@ -9,8 +9,8 @@
     "spec/firefox": "npm run cy --run=firefox -- $@",
     "spec/chrome": "npm run cy --run=chrome -- $@",
     "prespec": "cy_png",
+    "postspec": "find ./cypress/integration/__image_snapshots__/* -type d | xargs -d'\\n' rm -rf && exit 0 nyc",
     "cy": "cy $@",
-    "-postspec": "nyc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "-predev": "sass origin_use.scss origin.css --no-source-map --load-path=node_modules"
   },

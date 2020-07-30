@@ -1,6 +1,6 @@
 @import "../atomic_singletons/width";
 
-@mixin grid--default() {
+@mixin wireframe-grid--default() {
   // height: max-content;
   @include width--one_line;
   display: inline-grid;
@@ -19,7 +19,7 @@
   }
 }
 
-@mixin grid--icon_button() {
+@mixin -wireframe-grid--icon_button() {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 100%;
@@ -31,4 +31,13 @@
   &#{$-entity-title} {
     top: calc(200%);  
   }
+}
+
+
+@mixin wireframe-flex--icon_button() {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: u(2);
+  @include gap--tooltip();
 }

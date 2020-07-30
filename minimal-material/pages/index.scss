@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(auto-fit, minmax(max-content, 1px));
-  column-gap: 1em;
+  gap: 1em;
 
   & > section {
     display: contents;
@@ -91,7 +91,7 @@
   grid-template-columns: repeat(auto-fit, minmax(max-content, 1px));
   grid-template-rows: repeat(auto-fit, minmax(max-content, 1px));
   grid-auto-flow: row;
-  column-gap: 1em;
+  gap: 1em;
 } */
 /* legend, h3 {
   grid-column: 1 / -1;

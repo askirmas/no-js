@@ -1,0 +1,9 @@
+@mixin gap--default() {
+  gap: u(0.5);
+}
+@mixin gap--fab() {
+  gap: u(0.75);
+}
+@mixin gap--tooltip() {
+  gap: u(1.5);
+}
