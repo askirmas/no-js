@@ -13,9 +13,11 @@ module.exports = //withImages(
           assetPrefix: ".",
           sassLoaderOptions: {
             sassOptions: {
-              includePath: [`${module.dirname}/node_modules`]
+              includePaths: [
+                `${__dirname}/node_modules`
+              ],  
             },
-            // implementation: sassImplementation
+          // implementation: sassImplementation
           }
         }
       //)
