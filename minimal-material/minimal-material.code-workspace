@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "./configs"
+		}
+	],
+	"settings": {
+		"deno.enable": false,
+		"typescript.tsdk": "./node_modules/typescript/lib"
+	}
+}
