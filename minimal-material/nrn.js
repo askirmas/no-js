@@ -44,7 +44,7 @@ async function npmRun(patterns, scripts) {
       throw new MatchError(`No scripts found with pattern '${pattern}'`)
 
     for (const script of scripts2run) {
-      await execa('npm', ['run', script], {stdout: 'inherit', stdin: 'inherit'})
+      await execa('npm', ['run', script], {stdout: 'inherit', stdin: 'inherit', stderr: 'inherit'})
       // try {
     
       // } catch (e) {
