@@ -3,7 +3,7 @@ const {keys: $keys} = Object
 , minimatch = require('minimatch')
 , execa = require('execa')
 , patterns = process.argv.slice(2)
-, allowed = /\/[^\.:]*$/i
+, allowed = /\/[^\.:]+$/i
 
 class MatchError extends Error {}
 
