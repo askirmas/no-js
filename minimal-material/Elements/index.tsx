@@ -1,16 +1,39 @@
-import {HTMLAttributes, ButtonHTMLAttributes} from "react"
+import {ButtonHTMLAttributes, CSSProperties} from "react"
 
 const mdcPrefix = 'mdc-'
 , myPrefix = 'mm0_'
+, mdcRipple_Name = `mdc-ripple-upgraded`
+, mdcRipple = {
+  unbounded: `${mdcRipple_Name}--unbounded`,
+  focusing: `${mdcRipple_Name}--background-focused`,
+  activating: `${mdcRipple_Name}--foreground-activation`,
+  // deactivating: `${mdcRipple_Name}--foreground-deactivation`
+}
+, mdcRippleStyle =             {
+  "--mdc-ripple-fg-size": "28px",
+  "--mdc-ripple-fg-scale": "1.71429",
+  "--mdc-ripple-left": "10px",
+  "--mdc-ripple-top": "10px",
+} as CSSProperties
 , mdc = {
   "icon": "material-icons",
   "ripple": `${mdcPrefix}ripple-upgraded`,
   "typography": `${mdcPrefix}typography`,
   "button": `${mdcPrefix}button`,
 }
+, states = {
+  "disabled": "_disable--true",
+  "focus": "_focus",
+  "pressed": "_pressed",
+  "activated": "_activated",
+  "selected": "_selected",
+  "dragging": "_dragging",  
+  "hover": '_hover'
+}
 , myTerms = {
   "button": `${myPrefix}button`,
-  "_disabled": "_disabled"
+  "iconButton": `${myPrefix}icon_button`,
+  "togglerIcon": `${myPrefix}icon_button_toggler` 
 }
 , Mdc = {
   "typography": {
@@ -23,7 +46,7 @@ const mdcPrefix = 'mdc-'
     "Outlined": `${mdc.ripple} ${mdc.button} ${mdc.button}--outlined`,
   }  
 }
-, My = {
+, mm = {
   "button": {
     "Text": `${myTerms.button}_text`,
     "Unelevated": `${myTerms.button}_unelevated`,
@@ -41,16 +64,10 @@ export type tMdcButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "dis
   "icon": string
 }>
 
-export type tMmButtonProps = HTMLAttributes<unknown>
-& Partial<{
-  "tagName": string
-}>
-& Parameters<typeof cnButton>[0]
-
 export {
-  MmButton,
-  Mdc,
-  MdcButton,
+  mm, myTerms, states,
+  Mdc, mdcRipple,
+  MdcButton, MdcIconButton,
 }
 
 function MdcButton({
@@ -79,25 +96,48 @@ function MdcButton({
   </button>
 }
 
-function MmButton({
-  tagName: T = "div",
-  disabled,
-  Kind,
-  className = "",
-  ...etc
-}: tMmButtonProps) {
-  return <T {...{
-    ...etc,
-    className: `${className} ${cnButton({Kind, disabled})}_`
-  }}/>  
-}
+function MdcIconButton({
+  icon, iconOn, checked, className = "", ...etc
+}: ButtonHTMLAttributes<HTMLButtonElement>
+& Partial<
+  {
+    icon: string
+    iconOn: string
+    checked: boolean
+  }
+>) {
 
-function cnButton({
-  disabled,
-  Kind = "Text"
-}: Partial<{
-  "disabled": boolean | string | number
-  "Kind": keyof typeof My.button
-}>) {
-  return `${My.button[Kind]}${disabled ? myTerms._disabled : ""}`
+  const mod_on = "--on"
+  , mdcIcon = 'material-icons'
+  , mdcIconButton_Name = "mdc-icon-button"
+  // unbounded changes anything?
+  , ripple = `${mdcRipple_Name} ${mdcRipple.unbounded}`
+  , mdcIconButton_Base = `${mdcIconButton_Name}`
+  , mdcIconButton__Oning = `${mdcIconButton_Name}${mod_on}`
+  
+  , mdcIconButton_Icon_name = `${mdcIconButton_Name}__icon`
+
+  , mdcIconButton_Icon_base = `${mdcIcon} ${mdcIconButton_Icon_name}`
+  , mdcIconButton_Icon__on = `${mdcIconButton_Icon_base} ${mdcIconButton_Icon_name}${mod_on}`
+
+  return <button {...{
+    ...etc,
+    "className": [
+        className,
+        ripple,
+        mdcIconButton_Base,
+        
+        !iconOn && mdcIcon,
+        checked && mdcIconButton__Oning,
+        
+    ].filter(Boolean).join(' '),
+    "style": mdcRippleStyle
+  }}>{
+    !iconOn
+    ? icon
+    : <>
+      <i className={mdcIconButton_Icon__on}>{iconOn}</i>
+      <i className={mdcIconButton_Icon_base}>{icon}</i>
+    </>
+  }</button>
 }

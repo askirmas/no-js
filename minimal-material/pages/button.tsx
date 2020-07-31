@@ -1,5 +1,5 @@
 import {Fragment} from 'react'
-import {Mdc, MdcButton,MmButton, tMdcButtonProps} from "../Elements"
+import {mm, Mdc, MdcButton, tMdcButtonProps} from "../Elements"
 import content from "../utils/contents"
 import "./button.scss"
 
@@ -21,21 +21,22 @@ export default function Buttons() {
           <div>
             <h3 className={Mdc.typography.Subtitle1}>{title}</h3>
             <MdcButton {...{Kind}} label="Default"/>
-            <MdcButton {...{Kind}} label="Dense" dense="true"/>
+            <MdcButton {...{Kind}} label="Dense" dense={true}/>
             <MdcButton {...{Kind}} label="Icon" icon="favorite"/>
-            <MdcButton {...{Kind}} label="Icon" icon="favorite" disabled="true"/>
+            <MdcButton {...{Kind}} label="Icon" icon="favorite" disabled={true}/>
           </div>
           <div>
-            <MmButton {...{Kind}} className={content.favorite.button} disabled="true"/>
-            <MmButton {...{Kind}} className={content.favorite.button}/>
-            <MmButton {...{Kind}} className={content.default.button}/>
+            <div className={`${mm.button[Kind]} ${content.favorite.button} _disabled--true`}/>
+            <button className={`${mm.button[Kind]} ${content.favorite.button}`} disabled={true}/>
+            <div className={`${mm.button[Kind]} ${content.favorite.button}`}/>
+            <div className={`${mm.button[Kind]} ${content.default.button}`}/>
           </div>
         </Fragment>)
       }
       <div>
         <h3 className={Mdc.typography.Subtitle1}>Shaped Button</h3>
         <MdcButton className="demo-button-shaped" Kind="Unelevated" label="Default"/>
-        <MdcButton className="demo-button-shaped" Kind="Unelevated" label="Dense" dense="true"/>
+        <MdcButton className="demo-button-shaped" Kind="Unelevated" label="Dense" dense={true}/>
         <MdcButton className="demo-button-shaped" Kind="Unelevated" label="Icon" icon="favorite"/>
       </div>
     </section>

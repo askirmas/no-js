@@ -15,14 +15,16 @@ article.icon_button {
   
   &icon_button {
     &, &_toggler,
-    &_, &_hover, &_focus, &_activated, &_checked, &_disabled, &_pressed, &_dragging, &_selected {
+    &_, &_hover, &_focus, &_activated, &_checked, &._disable--true, &_pressed, &_dragging, &_selected {
       @include block-icon_button--enabled();
     }
+
     &:hover, &_toggler:hover,
     &_hover {
       @include block-icon_button--hovering();      
     }
-    &:focus, &_toggler:focus, &:focus-within, &_toggler:focus-within,
+    &:focus, &_toggler:focus,
+    &:focus-within, &_toggler:focus-within,
     &_focus {
       @include block-icon_button--focusing();
     }
@@ -44,7 +46,7 @@ article.icon_button {
     }
 
     &:disabled, &_toggler:disabled,
-    &_disabled {
+    &._disable--true, &._disable--true:disabled {
       @include block-icon_button--disabling();
     }
 

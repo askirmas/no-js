@@ -3,7 +3,7 @@ import ButtonIcon from "../mwcr/ButtonIcon";
 import ButtonToggler from "../mwcr/ButtonToggler";
 import TabItem from "../mwcr/TabItem";
 import ButtonFloat from "../mwcr/ButtonFloat";
-import FieldSet from "../Components/Fieldset";
+import {FieldSet} from "../Components";
 
 export default function Layouts() {
   return <article className="layouts suite_vertical">

@@ -1,168 +1,88 @@
-import {PropsWithChildren, CSSProperties } from "react";
+import {mdcRipple, MdcIconButton, states, myTerms} from "../Elements"
+import { Figure, A } from "../Components"
+import content from "../utils/contents"
+
 import "./icon_button.scss"
 
-const _hover = '_hover'
-, base = "mm0_icon_button"
-
-, mdcRipple_Name = `mdc-ripple-upgraded`
-, mdc__unb = `${mdcRipple_Name}--unbounded` 
-, mdc__focusing = `${mdcRipple_Name}--background-focused`
-, mdc__rippling = `${mdcRipple_Name}--foreground-activation`
-// , mdc__unrippling = `${mdcRipple_Name}--foreground-deactivation`
-, mdcRippleStyle =             {
-  "--mdc-ripple-fg-size": "28px",
-  "--mdc-ripple-fg-scale": "1.71429",
-  "--mdc-ripple-left": "10px",
-  "--mdc-ripple-top": "10px",
-} as CSSProperties
-, mdcIcon = 'material-icons'
-, mdcIconButton_Name = "mdc-icon-button"
-, mdcIconButton_Base = `${mdcIconButton_Name} ${mdc__unb} ${mdcRipple_Name}`
-, mdcIconButton__Oning = `${mdcIconButton_Name}--on`
-
-, mdcIconButton = `${mdcIconButton_Base} ${mdcIcon}`
-, mdcIconButton__On = `${mdcIconButton_Base} ${mdcIconButton__Oning}`
-, mdcIconButton_Icon = `${mdcIcon} ${mdcIconButton_Name}__icon`
-, mdcIconButton_Icon__On = `${mdcIconButton_Icon} ${mdcIconButton_Icon}--on`
-
-// function MdcIconButton({}: PropsWithChildren<{
-
-// }>) {
-
-// }
 
 export default function Icon() {
-  const children = <>
-    <i className={mdcIconButton_Icon__On}>
-      favorite
-    </i>
-    <i className={mdcIconButton_Icon}>
-      favorite_border
-    </i>
-  </>
-
   return  <article className="icon_button">
 
     <A content="MDC"/>
 
     <Figure caption="Disabled">
-      <button {...{
-        disabled: true,
-        "className": mdcIconButton,
-        "style": mdcRippleStyle,
-        "data-cy": "wifi disabled"
-      }}>wifi</button>
+      <MdcIconButton icon="wifi" data-cy="wifi disabled" disabled={true}/>
     </Figure>
 
     <Figure caption="Enabled">
-      <button {...{
-        "className": mdcIconButton,
-        "style": mdcRippleStyle,
-        "data-cy": "wifi"
-      }}>wifi</button>
+      <MdcIconButton icon="wifi" data-cy="wifi"/>
     </Figure>
 
     <Figure caption="Hover">
-      <button {...{
-        "className": `${mdcIconButton} ${_hover}`,
-        "style": mdcRippleStyle,
-        "data-cy": "wifi hover"
-      }}>wifi</button>
+      <MdcIconButton icon="wifi" className={states.hover} data-cy="wifi hover"/>
     </Figure>
 
     <Figure caption="Focus">
-      <button {...{
-        "className": `${mdcIconButton} ${mdc__focusing}`,
-        "style": mdcRippleStyle,
-        "data-cy": "wifi focus"
-      }}>wifi</button>      
+      <MdcIconButton icon="wifi" className={mdcRipple.focusing} data-cy="wifi focus"/>
     </Figure>
 
     <Figure caption="Pressed and focus">
-      <button {...{
-        "className": `${mdcIconButton} ${mdc__focusing} ${mdc__rippling}`,
-        "style": mdcRippleStyle,
-        "data-cy": "wifi pressed-focusing"
-      }}>wifi</button>
+      <MdcIconButton icon="wifi" className={`${mdcRipple.focusing} ${mdcRipple.activating}`} data-cy="wifi pressed-focusing"/>
     </Figure>
 
     <Figure caption="Pressed and hover">
-      <button {...{
-        "className": `${mdcIconButton} _hover ${mdc__rippling}`,
-        "style": mdcRippleStyle,
-        "data-cy": "wifi pressed-hover"
-      }}>wifi</button>
+      <MdcIconButton icon="wifi" className={`${states.hover} ${mdcRipple.activating}`} data-cy="wifi pressed-hover"/>
     </Figure>
 
     <Figure caption="Pressed">
-      <button {...{
-        "className": `${mdcIconButton} ${mdc__rippling}`,
-        "style": mdcRippleStyle,
-        "data-cy": "wifi pressed"
-      }}>wifi</button>
+      <MdcIconButton icon="wifi" className={mdcRipple.activating} data-cy="wifi pressed"/>
     </Figure>
 
     <Figure caption="!!! Activated?!">
-      <button {...{
-        "className": `${mdcIconButton} ${mdcIconButton__Oning}`,
-        "aria-pressed": "true",
-        "style": mdcRippleStyle,
-        // "data-cy": "wifi activated"
-      }}>wifi</button>
+      {/* "data-cy": "wifi activated" */}
+      <MdcIconButton icon="wifi" checked={true} aria-pressed="true"/>
     </Figure>
 
     <Figure caption="Off">
-      <button  {...{
-        "className": mdcIconButton_Base,
-        "style": mdcRippleStyle,
-        "data-cy": "favorite_border"
-      }}>{
-        children
-      }</button>
+      <MdcIconButton icon="favorite_border" iconOn="favorite" data-cy="favorite_border"/>
     </Figure>
     <Figure caption="On">
-      <button  {...{
-        "className": `${mdcIconButton__On}`,
-        "style": mdcRippleStyle,
-        "data-cy": "favorite_border on"
-      }}>{
-        children
-      }</button>
+      <MdcIconButton icon="favorite_border" iconOn="favorite" data-cy="favorite_border on" checked={true}/>
     </Figure>
 
     <A content="MM state modifiers"/>
 
     <Figure caption="Disabled">
       <div {...{
-        "className": `${base}_disabled content_wifi_icon`,
-        "data-cy": "wifi_disabled"
+        "className": `${myTerms.iconButton} ${states.disabled} ${content.wifi.icon}`,
+        "data-cy": "wifi disabled"
       }}></div>
     </Figure>
 
     <Figure caption="Enabled">
       <div {...{
-        "className": `${base}_ content_wifi_icon`,
+        "className": `${myTerms.iconButton}_ ${content.wifi.icon}`,
         "data-cy": "wifi"
       }}></div>
     </Figure>
     <Figure caption="button Hover">
       <button {...{
         "data-cy": "wifi hover",
-        "className": `${base}${_hover} content_wifi_icon`,
+        "className": `${myTerms.iconButton}${states.hover} ${content.wifi.icon}`,
       }}></button>
     </Figure>
     <Figure caption="in-but Focus">
       <input {...{
         "type": "button",
         "data-cy": "wifi focus",
-        "className": `${base}_focus content_wifi_icon`,
+        "className": `${myTerms.iconButton}${states.focus} ${content.wifi.icon}`,
         "value": "wifi",
       }}/>
     </Figure>
     <Figure caption="input Pressed">
       <input {...{
         "type": "submit",
-        "className": `${base}_pressed content_wifi_icon`,
+        "className": `${myTerms.iconButton}${states.pressed} ${content.wifi.icon}`,
         "value": "wifi",
         "data-cy": "wifi pressed"
       }}/>
@@ -171,7 +91,7 @@ export default function Icon() {
     <Figure caption="Dragging">
       <a {...{
         "href": "#",
-        "className": `${base}_dragging content_wifi_icon`,
+        "className": `${myTerms.iconButton}${states.dragging} ${content.wifi.icon}`,
         "data-cy": "wifi dragging"
       }}/>
     </Figure>
@@ -179,30 +99,30 @@ export default function Icon() {
     <Figure caption="Activated">
       <div {...{
         "data-cy": "wifi activated",
-        "className": `${base}_activated content_wifi_icon`,
+        "className": `${myTerms.iconButton}${states.activated} ${content.wifi.icon}`,
       }}></div>
     </Figure>
 
     <Figure caption="Selected">
       <div {...{
         "data-cy": "wifi selected",
-        "className": `${base}_selected content_wifi_icon`,
+        "className": `${myTerms.iconButton}${states.selected} ${content.wifi.icon}`,
       }}></div>
     </Figure>
 
     <Figure caption="checkbox Off">
       <input {...{
         "type": "checkbox",
-        "className": `${base}_ content_favorite_button`,
+        "className": `${myTerms.iconButton}_ ${content.favorite.button}`,
         "data-cy": "favorite_border"
       }}/>
     </Figure>
-    
+
     <Figure caption="checkbox On">
       <input {...{
         "type": "checkbox",
         "checked": true,
-        "className": `${base}_ content_favorite_button`,
+        "className": `${myTerms.iconButton}_ ${content.favorite.button}`,
         "data-cy": "favorite_border on"
       }}/>
     </Figure>
@@ -211,7 +131,7 @@ export default function Icon() {
       <input {...{
         "type": "checkbox",
         "checked": true,
-        "className": `${base}${_hover} content_bookmark_toggler`
+        "className": `${myTerms.iconButton}${states.hover} ${content.bookmark.toggler}`
       }}/>
     </Figure>
 
@@ -220,21 +140,21 @@ export default function Icon() {
     <Figure caption="">
       <input {...{
         "type": "checkbox",
-        "className": `${base}_toggler content_bookmark_toggler`,
-        // "data-cy": "content_bookmark_toggler"
+        "className": `${myTerms.togglerIcon} ${content.bookmark.toggler}`,
+        // "data-cy": "${content.bookmark.toggler}"
       }}/>
     </Figure>
 
     <Figure caption="">
       <input {...{
         "type": "checkbox",
-        "className": `${base}_toggler content_favorite_button`,
+        "className": `${myTerms.togglerIcon} ${content.favorite.button}`,
         // "data-cy": "favorite_button"
       }}/>
     </Figure>
 
-    <A content="TBD"/> 
-    
+    <A content="TBD"/>
+
     <ul>
       <li>Bgr based on current color</li>
       <li>Supply ripple</li>
@@ -244,26 +164,4 @@ export default function Icon() {
       <li>Transitions</li>
     </ul>
   </article>
-}
-
-function Figure({
-  caption, children, "data-cy": cy
-}: PropsWithChildren<Partial<{
-  "caption": string
-  "data-cy": string
-}>>
-) {
-  return <figure data-cy={cy}>{
-    children
-  }{
-    caption && <figcaption>{caption}</figcaption>
-  }</figure>
-}
-
-function A({content}: {content: string}) {
-  const id = content.toLowerCase().replace(/[^a-z0-9]/g, '_')
-  return <a {...{
-    id,
-    href: `#${id}`
-  }}>{content}</a>
 }

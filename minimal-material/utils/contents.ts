@@ -6,6 +6,12 @@ const contentPrefix = "content_"
   "default": {
     "button": `${contentPrefix}default_button`,
   },
+  "wifi": {
+    "icon": `${contentPrefix}wifi_icon`
+  },
+  "bookmark": {
+    "toggler": `${contentPrefix}bookmark_toggler`
+  }  
 }
 
 export default content

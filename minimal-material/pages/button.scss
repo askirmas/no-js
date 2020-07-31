@@ -5,53 +5,33 @@ article.button {
     , "../src/state_modifier_declarations/actionable"
     ;    
 
+    @function disable($context) {
+      @return "#{&}:disabled, #{&}._disabled--true";
+    }
+    
     &button {
       &_text {
-        & {
-          &, &_ {
-            @include block-button_text--enabled()
-          }  
-        }
-        &_disabled {
-          &, &_ {
-            @include block-button_text--disabled()
-          }  
+        @include block-button_text--enabled();
+        @at-root #{disable(&)} {
+          @include block-button_text--disabled();
         }
       }
       &_unelevated {
-        & {
-          &, &_ {
-            @include block-button_unelevated--enabled()
-          }  
-        }
-        &_disabled {
-          &, &_ {
-            @include block-button_unelevated--disabled()
-          }  
+        @include block-button_unelevated--enabled();
+        @at-root #{disable(&)} {
+          @include block-button_unelevated--disabled();
         } 
       }
       &_outlined {
-        & {
-          &, &_ {
-            @include block-button_outlined--enabled()
-          }  
-        }
-        &_disabled {
-          &, &_ {
-            @include block-button_outlined--disabled()
-          }  
+        @include block-button_outlined--enabled();
+        @at-root #{disable(&)} {
+          @include block-button_outlined--disabled();
         } 
       }
       &_raised {
-        & {
-          &, &_ {
-            @include block-button_raised--enabled()
-          }            
-        }
-        &_disabled {
-          &, &_ {
-            @include block-button_raised--disabled()
-          }  
+        @include block-button_raised--enabled();
+        @at-root #{disable(&)} {
+          @include block-button_raised--disabled();
         }  
       } 
     }
