@@ -1,129 +1,43 @@
+import {Fragment} from 'react'
+import {Mdc, MdcButton,MmButton, tMdcButtonProps} from "../Elements"
+import content from "../utils/contents"
 import "./button.scss"
 
+import {gEntry} from "../utils/ts"
+
 export default function Buttons() {
+  const kindTitle: Record<tMdcButtonProps["Kind"], string> = {
+    "Text": "Text Button",
+    "Raised": "Raised Button",
+    "Unelevated": "Unelevated Button",
+    "Outlined": "Outlined Button"
+  }
+
   return <article className="button">
     <section>
+      {
+        Object.entries(kindTitle)
+        .map(([Kind, title]: gEntry<typeof kindTitle>) => <Fragment key={Kind}>
+          <div>
+            <h3 className={Mdc.typography.Subtitle1}>{title}</h3>
+            <MdcButton {...{Kind}} label="Default"/>
+            <MdcButton {...{Kind}} label="Dense" dense="true"/>
+            <MdcButton {...{Kind}} label="Icon" icon="favorite"/>
+            <MdcButton {...{Kind}} label="Icon" icon="favorite" disabled="true"/>
+          </div>
+          <div>
+            <MmButton {...{Kind}} className={content.favorite.button} disabled="true"/>
+            <MmButton {...{Kind}} className={content.favorite.button}/>
+            <MmButton {...{Kind}} className={content.default.button}/>
+          </div>
+        </Fragment>)
+      }
       <div>
-        <h3 className="mdc-typography--subtitle1">Text Button</h3>
-        <button className="mdc-button mdc-ripple-upgraded">
-          <span className="mdc-button__ripple"></span>
-          <span className="mdc-button__label">Default</span>
-        </button>
-        <button className="mdc-button mdc-button--dense mdc-ripple-upgraded">
-          <span className="mdc-button__ripple"></span>
-          <span className="mdc-button__label">Dense</span>
-        </button>
-        <button className="mdc-button mdc-ripple-upgraded">
-          <span className="mdc-button__ripple"></span>
-          <i className="material-icons mdc-button__icon">favorite</i>
-          <span className="mdc-button__label">Icon</span>
-        </button>
-        <button className="mdc-button mdc-ripple-upgraded" disabled={true}>
-          <span className="mdc-button__ripple"></span>
-          <i className="material-icons mdc-button__icon">favorite</i>
-          <span className="mdc-button__label">Icon</span>
-        </button>
+        <h3 className={Mdc.typography.Subtitle1}>Shaped Button</h3>
+        <MdcButton className="demo-button-shaped" Kind="Unelevated" label="Default"/>
+        <MdcButton className="demo-button-shaped" Kind="Unelevated" label="Dense" dense="true"/>
+        <MdcButton className="demo-button-shaped" Kind="Unelevated" label="Icon" icon="favorite"/>
       </div>
-      <div>
-        <h3 className="mdc-typography--subtitle1">Raised Button</h3>
-        <button className="mdc-button mdc-button--raised mdc-ripple-upgraded">
-          <span className="mdc-button__ripple"></span>
-          <span className="mdc-button__label">Default</span>
-        </button>
-        <button className="mdc-button mdc-button--dense mdc-button--raised mdc-ripple-upgraded">
-          <span className="mdc-button__ripple"></span>
-          <span className="mdc-button__label">Dense</span>
-        </button>
-        <button className="mdc-button mdc-button--raised mdc-ripple-upgraded">
-          <span className="mdc-button__ripple"></span>
-          <i className="material-icons mdc-button__icon">favorite</i>
-          <span className="mdc-button__label">Icon</span>
-        </button>
-        <button className="mdc-button mdc-button--raised mdc-ripple-upgraded" disabled={true}>
-          <span className="mdc-button__ripple"></span>
-          <i className="material-icons mdc-button__icon">favorite</i>
-          <span className="mdc-button__label">Icon</span>
-        </button>
-      </div>
-      <div>
-        <h3 className="mdc-typography--subtitle1">Unelevated Button</h3>
-        <button className="mdc-button mdc-button--unelevated mdc-ripple-upgraded">
-          <span className="mdc-button__ripple"></span>
-          <span className="mdc-button__label">Default</span>
-        </button>
-        <button className="mdc-button mdc-button--dense mdc-button--unelevated mdc-ripple-upgraded">
-          <span className="mdc-button__ripple"></span>
-          <span className="mdc-button__label">Dense</span>
-        </button>
-        <button className="mdc-button mdc-button--unelevated mdc-ripple-upgraded">
-          <span className="mdc-button__ripple"></span>
-          <i className="material-icons mdc-button__icon">favorite</i>
-          <span className="mdc-button__label">Icon</span>
-        </button>
-        <button className="mdc-button mdc-button--unelevated mdc-ripple-upgraded" disabled={true}>
-          <span className="mdc-button__ripple"></span>
-          <i className="material-icons mdc-button__icon">favorite</i>
-          <span className="mdc-button__label">Icon</span>
-        </button>
-
-      </div>
-      <div>
-        <h3 className="mdc-typography--subtitle1">Outlined Button</h3>
-        <button className="mdc-button mdc-button--outlined mdc-ripple-upgraded">
-          <span className="mdc-button__ripple"></span>
-          <span className="mdc-button__label">Default</span>
-        </button>
-        <button className="mdc-button mdc-button--dense mdc-button--outlined mdc-ripple-upgraded">
-          <span className="mdc-button__ripple"></span>
-          <span className="mdc-button__label">Dense</span>
-        </button>
-        <button className="mdc-button mdc-button--outlined mdc-ripple-upgraded">
-          <span className="mdc-button__ripple"></span>
-          <i className="material-icons mdc-button__icon">favorite</i>
-          <span className="mdc-button__label">Icon</span>
-        </button>
-        <button className="mdc-button mdc-button--outlined mdc-ripple-upgraded" disabled={true}>
-          <span className="mdc-button__ripple"></span>
-          <i className="material-icons mdc-button__icon">favorite</i>
-          <span className="mdc-button__label">Icon</span>
-        </button>
-      </div>
-      <div>
-        <h3 className="mdc-typography--subtitle1">Shaped Button</h3>
-        <button className="mdc-button mdc-button--unelevated demo-button-shaped mdc-ripple-upgraded">
-          <span className="mdc-button__ripple"></span>
-          <span className="mdc-button__label">Default</span>
-        </button>
-        <button className="mdc-button mdc-button--dense mdc-button--unelevated demo-button-shaped mdc-ripple-upgraded">
-          <span className="mdc-button__ripple"></span>
-          <span className="mdc-button__label">Dense</span>
-        </button>
-        <button className="mdc-button mdc-button--unelevated demo-button-shaped mdc-ripple-upgraded">
-          <span className="mdc-button__ripple"></span>
-          <i className="material-icons mdc-button__icon">favorite</i>
-          <span className="mdc-button__label">Icon</span>
-        </button>
-      </div>
-    </section>
-    <section>
-      <div className="mm0_button_text_disabled_ content_favorite_button"></div>
-      <div className="mm0_button_text_ content_favorite_button"></div>
-      <div className="mm0_button_text_ content_default_button"></div>
-    </section>
-    <section>
-    <div className="mm0_button_unelevated_disabled_ content_favorite_button"></div>
-      <div className="mm0_button_unelevated_ content_favorite_button"></div>
-      <div className="mm0_button_unelevated_ content_default_button"></div>
-    </section>
-    <section>
-      <div className="mm0_button_outlined_disabled_ content_favorite_button"></div>
-      <div className="mm0_button_outlined_ content_favorite_button"></div>
-      <div className="mm0_button_outlined_ content_default_button"></div>
-    </section>
-    <section>
-      <div className="mm0_button_raised_disabled content_favorite_button"></div>
-      <div className="mm0_button_raised_ content_favorite_button"></div>
-      <div className="mm0_button_raised_ content_default_button"></div>
     </section>
   </article>
 }
