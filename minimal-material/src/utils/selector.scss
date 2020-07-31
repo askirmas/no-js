@@ -1,0 +1,26 @@
+// @use "sass:list";
+
+@function selectors($ctx, $args...) {
+  $queries-pre: $ctx;
+  $queries-next: [];
+
+  @each $arg in $args {
+    @each $a in $arg {
+      @for $i from 1 through length($queries-pre) {
+        $q: nth($queries-pre, $i); 
+        $q_next: #{$q}#{$a};
+        $queries-next: append($queries-next, $q_next);
+      }
+    }
+    $queries-pre: $queries-next;
+    $queries-next: [];
+  }
+
+  @return $queries-pre;
+}
+
+@mixin q($args...) {
+  @at-root #{selectors(&, $args...)} {
+    @content;
+  }
+}

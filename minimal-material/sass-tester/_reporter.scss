@@ -1,0 +1,12 @@
+@function reporter($error) {
+  @if $error == null {
+    @return null;
+  }
+  $name: map-get($error, "name");
+  $message:  map-get($error, "message");
+  $expected: map-get($error, "expected");
+  $received: map-get($error, "received");
+
+  @warn $message + "\a--- Expected\a" + $expected + "\a+++ Received\a" + $received;
+  @error $name;
+}

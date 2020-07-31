@@ -1,0 +1,2 @@
+@forward "assertions" as not-* with ($-invert: true);
+@import "assertions";

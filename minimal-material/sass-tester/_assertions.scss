@@ -1,0 +1,13 @@
+$-invert: false !default;
+
+@function eq($v1, $v2) {
+  @if (
+    (not $-invert and $v1 == $v2)
+    or ($-invert and $v1 != $v2 )
+  ) {
+    @return null;
+  }
+  
+  $message: if($-invert, 'Equal', 'Not equal');
+  @return ("message": $message, "expected": $v2, "received": $v1);
+}

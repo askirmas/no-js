@@ -1,0 +1,40 @@
+/** //TODO Also check up
+* https://hugogiraudel.com/2013/10/21/sass-debug/
+* https://www.sitepoint.com/testing-sass-function-5-minutes/
+* https://benkyriakou.com/posts/testing-function-mixin-errors-in-scss
+*/
+
+@import "reporter";
+
+@mixin it($nameOrSuiteOrAssertion, $suites...) {
+  $result: it($nameOrSuiteOrAssertion, $suites...);
+  @content;
+}
+
+@function it($nameOrSuiteOrAssertion, $suites...) {
+  @if type-of($nameOrSuiteOrAssertion) == string {
+    @each $error in $suites {
+      @if $error != null {
+        $error: map-merge($error, ("name": $nameOrSuiteOrAssertion));
+        $error: reporter($error);
+      }
+    }
+  } @else {
+    // @debug type-of($nameOrSuiteOrAssertion);
+    @each $name, $error in $nameOrSuiteOrAssertion {
+      @if $error != null {
+        $error: map-merge($error, ("name": $name));
+        $error: reporter($error);
+      }
+    }
+  }
+  @return null;
+}
+
+@function describe($suites...) {
+  @return null;
+}
+
+@mixin expect() {
+
+}

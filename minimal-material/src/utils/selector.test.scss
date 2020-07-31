@@ -1,0 +1,51 @@
+@use "../../sass-tester/assert.scss";
+@import "../../sass-tester";
+@import "./selector";
+
+// %descr4 {
+//   $r: it(assert.eq(v1, v2));
+// }
+
+
+// %selector {
+//   @include it(
+//     "One ctx only",
+//     selectors(ctx),
+//     ctx
+//   );
+  
+//   @include it(
+//     "One ctx only",
+//     selectors([ctx1 ctx2]),
+//     [ctx1 ctx2]
+//   );  
+
+//   @include it(
+//     "On/Off",
+//     selectors(ctx, [_on _off]),
+//     [
+//       ctx_on
+//       ctx_off
+//     ]
+//   );
+
+//   @include it(
+//     "BEM 2x2x2",
+//     selectors(
+//       [input button],
+//       [__checked __disabled],
+//       [--true --false]
+//     ),
+//     [
+//       input__checked--true
+//       button__checked--true
+//       input__disabled--true
+//       button__disabled--true
+//       input__checked--false
+//       button__checked--false
+//       input__disabled--false
+//       button__disabled--false
+//     ]
+//   );  
+// }
+

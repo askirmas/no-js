@@ -1,0 +1,26 @@
+@use "../sass-tester/assert";
+@import "../sass-tester";
+
+%descr1 {
+  //TBD
+  #{"rads sdfjl sdfds"}: assert.eq(v1, v1);
+}
+
+%descr1 {
+  #{"suite title"}: it("suite 1", assert.eq(v1, v1));
+}
+
+%descr2 {
+  $r: it("suite 1", assert.not-eq(v1, v2));
+}
+
+%descr3 {
+  $r: it((
+    "suite 1": assert.eq(v1, v1),
+    "suite 2": assert.not-eq(v1, v2)
+  ));
+}
+
+@include it("suite 1",
+  assert.eq(v1, v1)
+)

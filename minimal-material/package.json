@@ -4,15 +4,21 @@
   "description": "",
   "scripts": {
     "dev": "next",
-    "test": "npm run test/sass && npm run test/vis",
+    "test": "./nrn test/*",
+
+    "test/sass-tester": "sass --stop-on-error --no-source-map sass-tester/self.test.scss _._test_.css",
+    "test/sass": "sass --stop-on-error --no-source-map src/utils/selector.test.scss _._test_.css",
     "test/vis": "npm run test/vis/firefox -- $@",
+
     "pretest/vis": "next build && next export",
     "posttest/vis": "find ./cypress/integration/__image_snapshots__/* -type d | xargs -d'\\n' rm -rf && exit 0 nyc",
     "test/vis/firefox": "cy_png && npm run cy --run=firefox -- $@",
     "test/vis/chrome": "cy_png && npm run cy --run=chrome -- $@",
-    "cy": "cy $@",
-    "test/sass": "sass --no-source-map src/utils/selector.test.scss src/utils/_._test_.css",
+    
     "posttest/sass": "find . -iname '*._test_.css' | xargs -d'\\n' rm",
+
+    "cy": "cy $@",
+
     "-mdc.build": "sass origin_use.scss origin.css --no-source-map --load-path=node_modules"
   },
   "author": "",
