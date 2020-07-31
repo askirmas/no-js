@@ -4,15 +4,16 @@
   "description": "",
   "scripts": {
     "dev": "next",
-    "compile": "next build && next export",
-    "spec": "npm run spec/firefox -- $@",
-    "spec/firefox": "npm run cy --run=firefox -- $@",
-    "spec/chrome": "npm run cy --run=chrome -- $@",
-    "prespec": "cy_png",
-    "postspec": "find ./cypress/integration/__image_snapshots__/* -type d | xargs -d'\\n' rm -rf && exit 0 nyc",
+    "test": "npm run test/sass && npm run test/vis",
+    "test/vis": "npm run test/vis/firefox -- $@",
+    "pretest/vis": "next build && next export",
+    "posttest/vis": "find ./cypress/integration/__image_snapshots__/* -type d | xargs -d'\\n' rm -rf && exit 0 nyc",
+    "test/vis/firefox": "cy_png && npm run cy --run=firefox -- $@",
+    "test/vis/chrome": "cy_png && npm run cy --run=chrome -- $@",
     "cy": "cy $@",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "mdc.build": "sass origin_use.scss origin.css --no-source-map --load-path=node_modules"
+    "test/sass": "sass --no-source-map src/utils/selector.test.scss src/utils/_._test_.css",
+    "posttest/sass": "find . -iname '*._test_.css' | xargs -d'\\n' rm",
+    "-mdc.build": "sass origin_use.scss origin.css --no-source-map --load-path=node_modules"
   },
   "author": "",
   "license": "MIT",
@@ -20,8 +21,12 @@
     "@kirmas/template-cypress": "file:configs/cypress",
     "@kirmas/template-dev": "file:configs/devDependencies",
     "@kirmas/template-next": "file:configs/next",
+    "@types/execa": "^2.0.0",
+    "@types/minimatch": "^3.0.3",
+    "execa": "^4.0.3",
     "material-components-web": "^7.0.0",
-    "material-design-lite": "^1.3.0"
+    "material-design-lite": "^1.3.0",
+    "minimatch": "^3.0.4"
   },
   "dependencies": {
     "update": "^0.7.4"
