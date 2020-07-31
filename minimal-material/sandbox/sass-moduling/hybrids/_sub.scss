@@ -1,0 +1,33 @@
+// add global directive
+$-private-default: "sub" !default;
+$public-default: "sub" !default;
+
+.class {
+  --private-default: #{$-private-default};
+  --public-default: #{$public-default};
+}
+
+%template {
+  --private-default: #{$-private-default};
+  --public-default: #{$public-default};
+}
+
+@mixin mixin() {
+  --private-default: #{$-private-default};
+  --public-default: #{$public-default};
+}
+
+@mixin mixin-class() {
+  @extend .class;
+}
+
+@mixin mixin-template() {
+  @extend %template;
+}
+
+@function fn() {
+  @return (
+    --private-default: #{$-private-default},
+    --public-default: #{$public-default},
+  );
+}

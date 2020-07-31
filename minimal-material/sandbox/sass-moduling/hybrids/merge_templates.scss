@@ -1,0 +1,9 @@
+@use "extending";
+@use "extending2";
+
+@at-root .r {
+  @extend %template1;
+  &__slot2 {
+    @extend %template1--internal; 
+  }
+}

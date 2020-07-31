@@ -1,0 +1,36 @@
+@use "sub" with (
+  $-private-default: "use",
+  $public-default: "use",
+);
+
+@import "obj2body";
+
+#template {
+  @extend %template;
+}
+
+#class {
+  @extend .class;
+}
+
+#nested {
+  $-private-default: "use/import";
+  $public-default: "use/import";
+  @import "sub";
+
+  #template {
+    @extend %template;
+  }
+  #mixin {
+    @include sub.mixin();
+  }
+  #mixin-class {
+    @include sub.mixin-class();
+  }
+  #mixin-template {
+    @include sub.mixin-template();
+  }
+  #function {
+    @include obj2body(sub.fn());
+  }  
+}

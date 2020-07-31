@@ -1,0 +1,49 @@
+@import "obj2body";
+
+$-private-default: "import";
+$public-default: "import";
+@import "sub";
+
+#class {
+  @extend .class;
+}
+#template {
+  @extend %template;
+}
+#mixin {
+  @include mixin();
+}
+#mixin-class {
+  @include mixin-class();
+}
+#mixin-template {
+  @include mixin-template();
+}
+#function {
+  @include obj2body(fn());
+}
+
+#nested {
+  $-private-default: "import/import";
+  $public-default: "import/import";
+  @import "sub";  
+
+  
+  #template {
+    @extend %template;
+  }
+  #mixin {
+    @include mixin();
+  }
+  #mixin-class {
+    @include mixin-class();
+  }
+  #mixin-template {
+    @include mixin-template();
+  }
+  #function {
+    @include obj2body(fn());
+  }
+  
+}
+

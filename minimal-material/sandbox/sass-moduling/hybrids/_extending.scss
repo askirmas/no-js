@@ -1,0 +1,10 @@
+%template1 {
+  --name: "--template1"; 
+  &--internal {
+    --internal: "--internal";
+  }
+  &.--internal2 {
+    --internal2: "--internal2";
+  }
+}
+

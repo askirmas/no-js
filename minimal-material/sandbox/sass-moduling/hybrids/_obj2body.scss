@@ -1,0 +1,5 @@
+@mixin obj2body($obj) {
+  @each $key, $value in $obj {
+    #{$key}: #{$value};
+  }
+}

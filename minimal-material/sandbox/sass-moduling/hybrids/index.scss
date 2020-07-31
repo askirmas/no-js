@@ -1,0 +1,33 @@
+// #use {
+//   @import "use";
+// }
+
+// #import {
+//   @import "import";
+// }
+
+.extending {
+  // @import "extending";
+}
+
+@at-root .r {
+  // @import "extending";
+  @extend %template1;
+  &__slot2 {
+    @extend %template1--internal; 
+  }
+}
+
+// .my {
+//   @extend %template1;
+//   &__slot {
+//     @extend %template1;
+//   }
+// }
+
+
+
+
+
+
+
