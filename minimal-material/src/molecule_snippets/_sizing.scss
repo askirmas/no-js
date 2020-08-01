@@ -4,7 +4,7 @@
 ;
 
 @mixin sizing--icon($icon-size: $-icon-size) {
-  @include -font-size($icon-size);
+  @include font-size--($icon-size);
   @include height--one_char();
   @include width--one_char();
 }

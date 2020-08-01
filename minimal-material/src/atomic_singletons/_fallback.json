@@ -1,0 +1,8 @@
+{
+  "icon": {
+    "-webkit-font-feature-settings": "'liga'",
+    "text-rendering": "optimizeLegibility",
+    "-moz-font-feature-settings": "'liga'",
+    "font-feature-settings": "'liga'"
+  }
+}

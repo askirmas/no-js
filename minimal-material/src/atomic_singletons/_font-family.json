@@ -1,0 +1,4 @@
+{
+  "main": "#{$-font-family--main}",
+  "icon": "#{$-font-family--icon}"
+}

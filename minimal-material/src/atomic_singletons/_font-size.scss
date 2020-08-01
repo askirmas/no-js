@@ -1,40 +1,31 @@
-//TODO: remove
-@mixin -font-size($size) {
-  font-size: u($size)
-};
-
+/// generated
+@mixin font-size--($size) {
+  font-size: u($size);
+}
 @mixin font-size--h1() {
   font-size: u(6);
 }
-
 @mixin font-size--h2() {
   font-size: u(3.75);
 }
-
 @mixin font-size--h3() {
   font-size: u(3);
 }
-
 @mixin font-size--h4() {
   font-size: u(2.125);
 }
-
 @mixin font-size--h5() {
   font-size: u(1.5);
 }
-
 @mixin font-size--h6() {
   font-size: u(1.25);
 }
-
 @mixin font-size--normal() {
   font-size: u(1);
 }
-
 @mixin font-size--sub() {
   font-size: u(0.875);
 }
-
 @mixin font-size--min() {
   font-size: u(0.75);
 }

@@ -5,20 +5,17 @@
   "scripts": {
     "dev": "next",
     "test": "./nr/nrn.js test/*",
-
     "test/sass-tester": "sass --stop-on-error --no-source-map sass-tester/self.test.scss _._test_.css",
     "test/sass": "sass --stop-on-error --no-source-map src/utils/selector.test.scss _._test_.css",
     "test/vis": "npm run test/vis/ -- $@",
     "test/vis/": "npm run firefox -- $@",
-
     "posttest/sass": "find . -iname '*._test_.css' | xargs -d'\\n' rm",
-
     "pretest/vis": "next build && next export",
     "posttest/vis": "find ./cypress/integration/__image_snapshots__/* -type d | xargs -d'\\n' rm -rf && exit 0 nyc",
     "firefox": "cy_png && npm run cy --run=firefox -- $@",
     "chrome": "cy_png && npm run cy --run=chrome -- $@",
     "cy": "cy $@",
-
+    "cst": "ts-node --project configs/tsconfig.cli.json -T cst/index.ts",
     "-mdc.build": "sass origin_use.scss origin.css --no-source-map --load-path=node_modules"
   },
   "author": "",
@@ -30,6 +27,7 @@
     "@types/execa": "^2.0.0",
     "@types/minimatch": "^3.0.3",
     "execa": "^4.0.3",
+    "globby": "^11.0.1",
     "material-components-web": "^7.0.0",
     "material-design-lite": "^1.3.0",
     "minimatch": "^3.0.4"

@@ -4,7 +4,7 @@
 
 @mixin element_reset() {
   @include margin--none();
-  @include apparence--none();
+  @include appearence--none();
   outline: none;
   box-sizing: content-box;
   border-width: 0;
