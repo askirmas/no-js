@@ -12,7 +12,7 @@
   @include font-size--h1();
   @include line-height--self();
   @include letter-spacing--h1();
-  @include margin-block(1em);
+  @include margin-block--(1em);
   @include font-smoothing--typography();
 }
 @mixin typography--headline2() {
@@ -20,7 +20,7 @@
   @include font-size--h2();
   @include line-height--self();
   @include letter-spacing--h2();
-  @include margin-block(0.83em);
+  @include margin-block--(0.83em);
   @include font-smoothing--typography();
 }
 @mixin typography--headline3() {
@@ -28,7 +28,7 @@
   @include font-size--h3();
   @include line-height--h3();
   @include letter-spacing--none();
-  @include margin-block(1em);
+  @include margin-block--(1em);
   @include font-smoothing--typography();
 }
 @mixin typography--headline4() {
@@ -36,7 +36,7 @@
   @include font-size--h4();
   @include line-height--h4();
   @include letter-spacing--body();
-  @include margin-block(1.33em);
+  @include margin-block--(1.33em);
   @include font-smoothing--typography();
 }
 @mixin typography--headline5() {
@@ -44,7 +44,7 @@
   @include font-size--h5();
   @include line-height--double();
   @include letter-spacing--none();
-  @include margin-block(1.67em);
+  @include margin-block--(1.67em);
   @include font-smoothing--typography();
 }
 @mixin typography--headline6() {
@@ -52,7 +52,7 @@
   @include font-size--h6();
   @include line-height--double();
   @include letter-spacing--body();
-  @include margin-block(2.33em);
+  @include margin-block--(2.33em);
   @include font-smoothing--typography();
 }
 @mixin typography--subtitle1() {
@@ -60,7 +60,7 @@
   @include font-size--normal();
   @include line-height--subtitle1();
   @include letter-spacing--subtitle1();
-  @include margin-block(2.33em);
+  @include margin-block--(2.33em);
   @include font-smoothing--typography();
 }
 @mixin typography--subtitle2() {
@@ -68,7 +68,7 @@
   @include font-size--sub();
   @include line-height--subtitle2();
   @include letter-spacing--subtitle2();
-  @include margin-block(2.33em);
+  @include margin-block--(2.33em);
   @include font-smoothing--typography();
 }
 @mixin typography--body1() {
@@ -76,7 +76,7 @@
   @include font-size--normal();
   @include line-height--body1();
   @include letter-spacing--body1();
-  @include margin-block(1em);
+  @include margin-block--(1em);
   @include font-smoothing--typography();
 }
 @mixin typography--body2() {
@@ -84,7 +84,7 @@
   @include font-size--sub();
   @include line-height--body2();
   @include letter-spacing--body();
-  @include margin-block(1em);
+  @include margin-block--(1em);
   @include font-smoothing--typography();
 }
 /* Icon's 1.5 may be useful */ 

@@ -1,11 +1,9 @@
+/// <reference types="./defs" />
 import {writeFileSync} from 'fs'
 import {parse} from 'path'
 
 const globby = require("globby")
 // , {keys: $keys} = Object
-
-type Dict<T> = Record<string, T>
-type tAtom = Dict<Dict<string> | string>
 
 export default main
 
@@ -18,7 +16,7 @@ function main() {
     const jsonPath = files[i]
     , {dir, name} = parse(jsonPath)
     , namespace = name[0] === "_" ? name.slice(1) : name
-    , data = readJson<tAtom>(jsonPath)
+    , data = readJson<AtomicSingleton>(jsonPath)
     , content: string[] = ["/// generated"]
     , propIndent = "  "
     
@@ -36,7 +34,11 @@ function main() {
           break
         case "object":
           for (const prop in body)
-            content.push(`${propIndent}${prop}: ${body[prop]};`)
+            content.push(`${propIndent}${
+              prop[0] !== "/"
+              ? prop
+              : `${namespace}-${prop.slice(1)}`
+            }: ${body[prop]};`)
           break
         default:
           throw Error('unknown shape...')

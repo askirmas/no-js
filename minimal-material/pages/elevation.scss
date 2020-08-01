@@ -12,6 +12,7 @@ article.elevation {
     
   .mm_elevation__ {
     @import "theme"
+    , "../src/quark_values/elevation"
     , "../src/atomic_singletons/box-shadow"
     ;
     

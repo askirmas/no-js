@@ -1,5 +1,4 @@
-@import "../quark_values/elevation";
-
+/// generated
 @mixin box-shadow--elevation($index) {
   box-shadow: elevation($index);
 }
