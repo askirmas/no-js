@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "next",
-    "test": "./nrn.js test/*",
+    "test": "./nr/nrn.js test/*",
 
     "test/sass-tester": "sass --stop-on-error --no-source-map sass-tester/self.test.scss _._test_.css",
     "test/sass": "sass --stop-on-error --no-source-map src/utils/selector.test.scss _._test_.css",
