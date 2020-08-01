@@ -1,0 +1,19 @@
+{
+  "definitions": {
+    "$refs": [
+      "../atomic_singletons/appearence",
+      "../atomic_singletons/margin"
+    ]
+  },
+  "": {
+    "margin": {"none": []},
+    "appearence": {"none": []},
+    "outline": "none",
+    "box-sizing": "content-box",
+    "border-width": "0",
+    "border-style": "solid",
+    "cursor": "pointer",
+    "text-decoration": "none"
+  }
+}
+

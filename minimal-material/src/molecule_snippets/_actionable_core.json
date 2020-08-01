@@ -1,0 +1,34 @@
+{
+  "definitions": {
+    "$refs": [
+      "../atomic_singletons/font-family", 
+      "../molecule_snippets/typography", 
+      "../molecule_snippets/material_icon", 
+      "../molecule_snippets/sizing", 
+      "../molecule_snippets/element_reset"
+    ]
+  },
+  "default": {
+    "items": [{"$id": "$icon-size", "default": "$-icon-size"}],
+    "&": [{"element_reset": []}],
+    "&#{$-entity-title}": [{
+      "typography--button": 1.5,
+      "height--icon": []
+    }],
+    "&#{$-entity-icon}": [{
+      "sizing--icon": "$icon-size",
+      "material_icon": []
+    }]
+  },
+  "icon_button": {
+    "&": [{
+      "sizing--icon": [],
+      "element_reset": [],
+      "material_icon_core": []
+    }],
+    "&#{$-entity-title}": [{
+      "font-family--main": [],
+      "typography--caption": "$-icon-size"
+    }]
+  }
+}

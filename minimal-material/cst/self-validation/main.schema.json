@@ -1,0 +1,14 @@
+{
+  "$schema": "./main.schema.json",
+  "monad": {
+    "fnArray": ["2"],
+    "fnObject": {"a": 2}
+  },
+  "properties": {
+    "monad": {
+      "anyOf": [
+        {"$ref": "./module.schemas.json"}
+      ]
+    }
+  }
+}

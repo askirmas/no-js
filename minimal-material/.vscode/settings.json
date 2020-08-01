@@ -1,3 +1,18 @@
 {
-  "deno.enable": false
+  "deno.enable": false,
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "src/atomic_singletons/*.json"
+      ],
+      "url": "./cst/atomic_singleton.schema.json"
+    },
+    {
+      "fileMatch": [
+          "*.schemas.*json",
+          "schemas.json"
+      ],
+      "url": "./configs/schemas.schema.json"
+    }
+  ]
 }

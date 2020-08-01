@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "definitions": {
+      "title": "Declarations"
+    }
+  },
+  "additionalProperties": {
+    "title": "Value name",
+    "oneOf": [
+      {"$ref": "#/definitions/QuarkValue"},
+      {
+        "description": "-moz- -webkit- stuff",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/definitions/QuarkValue"
+        }    
+      }
+    ]
+  },
+  "definitions": {
+    "QuarkValue": {
+      "oneOf": [
+        {"$ref": "#/definitions/QuarkPrimitive"},
+        {
+          "title": "Quark Value",
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {"$ref": "#/definitions/QuarkPrimitive"},
+              {"$ref": "#/definitions/QuarkFunction"}
+            ]
+          }
+        } 
+      ]
+    },
+    "QuarkFunction": {
+      "title": "Quark Function",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/QuarkValue"
+      }
+    },
+    "QuarkPrimitive": {
+      "title": "Quark Primitive",
+      "type": ["string", "number"]
+    }
+  }
+}

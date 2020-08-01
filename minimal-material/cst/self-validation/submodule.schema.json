@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "someArr": {
+      "type": "array",
+      "additionalProperties": false
+    },
+    "someObj": {
+      "type": "object",
+      "additionalItems": false
+    }
+  }
+}

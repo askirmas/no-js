@@ -1,0 +1,62 @@
+{
+  "$schema": "./module.schemas.json",
+  "import": {"allOf": [
+    {"$ref": "./submodule.schema.json"}    
+  ]},
+  "properties": {
+    "fnObject": {
+      "title": "objectArgs",
+      "type": "object",
+      "required": ["a"],
+      "additionalProperties": false,
+      "properties": {
+        "a": {
+          "title": "parameter A",
+          "type": "string"
+        }
+      },
+      "@": {
+        "background-color": [{"fnObject": {"a": "true"}, "someObj": []}]
+      }
+    },
+    "fnArray": {
+      "title": "arrayArgs",
+      "type": "array",
+      "additionalItems": false,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": [
+        {
+          "title": "parameter A",
+          "type": "string"
+        }
+      ]  
+    },
+    "properties": {
+      "title": "self validation",
+      "additionalProperties": {
+        "title": "mixin",
+        "allOf": [
+          {"$ref": "http://json-schema.org/draft-07/schema"},
+          {
+            "properties": {
+              "@": {
+                "title": "Implementation",
+                "additionalProperties": {
+                  "type": "array",
+                  "items": [{
+                    "allOf": [
+                      {"properties": {"properties": false}},
+                      {"$ref": "#"},
+                      {"$ref": "#/import"}    
+                    ]
+                  }]
+                }
+              }
+            }
+          }
+        ]    
+      }
+    }
+  }
+}

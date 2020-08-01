@@ -12,7 +12,7 @@ export default main
 main()
 
 function main() {
-  const files = globby.sync("src/**/*.json", {gitignore: true, absolute: true}) 
+  const files = globby.sync("src/**/atomic_singletons/*.json", {gitignore: true, absolute: true}) 
 
   for (let i = files.length; i--;) {
     const jsonPath = files[i]
