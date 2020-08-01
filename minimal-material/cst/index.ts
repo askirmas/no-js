@@ -1,4 +1,5 @@
 /// <reference types="./defs" />
+
 import {writeFileSync} from 'fs'
 import {parse} from 'path'
 
@@ -17,7 +18,7 @@ function main() {
     const jsonPath = files[i]
     , {dir, name} = parse(jsonPath)
     , namespace = name[0] === "_" ? name.slice(1) : name
-    , data = readJson<AtomicSingleton>(jsonPath)
+    , data = readJson<CST.AtomicSingleton>(jsonPath)
     , content: string[] = ["/// generated"]
     , propIndent = "  "
     
@@ -50,18 +51,19 @@ function main() {
       content.push('}')
     } 
 
+    // TODO add JSchema self-validation
     writeFileSync(`${dir}/${name}.scss`, content.join("\n"))
   }
 }
 
-function quarkValue2string(quark: QuarkValue): ValuePrimitive | ValuePrimitive[] {
+function quarkValue2string(quark: CST.QuarkValue): CST.ValuePrimitive | CST.ValuePrimitive[] {
   switch (typeof quark) {
     case "string":
     case "number":
       return quark
   }
   const  {length} = quark
-  , value: ValuePrimitive[] = new Array(length)
+  , value: CST.ValuePrimitive[] = new Array(length)
 
   for (let i = length; i--;) {
     const token = quark[i]
@@ -78,10 +80,10 @@ function quarkValue2string(quark: QuarkValue): ValuePrimitive | ValuePrimitive[]
   return value
 }
 
-function quarkFunc2chunks(expression: QuarkFunction): ValuePrimitive | ValuePrimitive[] {
+function quarkFunc2chunks(expression: CST.QuarkFunction): CST.ValuePrimitive | CST.ValuePrimitive[] {
   const fns = $keys(expression)
   , {length} = fns
-  , out = new Array<ValuePrimitive>(length)
+  , out = new Array<CST.ValuePrimitive>(length)
 
   for (let i = length; i--;) {
     const fnName = fns[i]
@@ -100,7 +102,7 @@ function readJson<T>(path: string): T {
   return require(path)
 }
 
-function join(delimiter: string, values: ValuePrimitive | ValuePrimitive[]) :ValuePrimitive {
+function join(delimiter: string, values: CST.ValuePrimitive | CST.ValuePrimitive[]) :CST.ValuePrimitive {
   return $isArray(values)
   ? values.join(delimiter)
   : values
