@@ -1,0 +1,38 @@
+<p>H HA</p>
+<div></div>
+<div tabindex=""></div>
+<p>H FW HFW HFWA</p>
+<div tabindex="-1"></div>
+<div tabindex="1"></div>
+<style>
+div {
+  border: 1px solid black;
+  width: 150px;
+}
+div::before {
+  content: "no tabindex";
+}
+div[tabindex]::before {
+  content: "tabindex: " attr(tabindex);
+}
+
+div::after {
+  float: right;
+  content: var(--hover, '') var(--focus, '') var(--focus-withing, '') var(--active, '');
+}
+
+div:hover {
+  --hover: "H";
+}
+
+div:focus {
+  --focus: "F";
+}
+div:focus-within {
+  --focus-withing: "W";
+}
+div:active {
+  --active: "A";
+}
+
+</style>
