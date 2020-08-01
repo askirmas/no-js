@@ -3,7 +3,7 @@ const {keys: $keys} = Object
 , minimatch = require('minimatch')
 , execa = require('execa')
 , patterns = process.argv.slice(2)
-, allowed = /\/[^\.:]+$/i
+, allowed = /\/[^\.:\/]+$/i
 
 class MatchError extends Error {}
 
@@ -42,6 +42,9 @@ async function npmRun(patterns, scripts) {
 
     if (scripts2run.length === 0)
       throw new MatchError(`No scripts found with pattern '${pattern}'`)
+
+    console.log(scripts2run)
+    process.exit(0)
 
     for (const script of scripts2run) {
       await execa('npm', ['run', script], {stdout: 'inherit', stdin: 'inherit', stderr: 'inherit'})
