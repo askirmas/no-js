@@ -22,7 +22,9 @@ const mdcPrefix = 'mdc-'
   "ripple": `${mdcPrefix}ripple-upgraded`,
   "typography": `${mdcPrefix}typography`,
   "button": `${mdcPrefix}button`,
+  "iconButton": `${mdcPrefix}icon-button`
 }
+, mod_on = "--on"
 , myTerms = {
   "button": `${myPrefix}button`,
   "icon": `${myPrefix}icon`
@@ -32,6 +34,7 @@ const mdcPrefix = 'mdc-'
     "Subtitle1": `${mdc.typography}--subtitle1`
   },
   "ripple": {
+    // unbounded changes anything?
     "unbounded": `${mdc.ripple} ${mdc.ripple}--unbounded`,
     "focusing": `${mdc.ripple} ${mdc.ripple}--background-focused`,
     "activating": `${mdc.ripple} ${mdc.ripple}--foreground-activation`,
@@ -57,14 +60,22 @@ const mdcPrefix = 'mdc-'
   }
 }
 
-export type tMdcButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> & {
+export type tMdcButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   "Kind": keyof typeof Mdc.button
   "label": string
 } & Partial<{
-  "disabled": boolean | string
-  "dense": boolean | string
+  "dense": boolean
   "icon": string
 }>
+
+type tMdcIconButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+& Partial<
+  {
+    "icon": string
+    "iconOn": string
+    "checked": boolean
+  }
+>
 
 export {
   mm, myTerms, state,
@@ -79,17 +90,15 @@ function MdcButton({
   className = "",
   dense,
   icon,
-  disabled,
+  ...etc
 }: tMdcButtonProps) {
   return <button {...{
-    "className": `${
-      className
-    } ${
-      Mdc.button[Kind]
-    } ${
-      dense ?`${mdc.button}--dense` : ''
-    }`,
-    "disabled": !!disabled
+    "className": [
+      className,
+      Mdc.button[Kind],
+      dense && `${mdc.button}--dense`,
+    ].filter(Boolean).join(' '),
+    ...etc
   }}>
     <span className={`${mdc.button}__ripple`}></span>
     {
@@ -101,37 +110,21 @@ function MdcButton({
 
 function MdcIconButton({
   icon, iconOn, checked, className = "", ...etc
-}: ButtonHTMLAttributes<HTMLButtonElement>
-& Partial<
-  {
-    icon: string
-    iconOn: string
-    checked: boolean
-  }
->) {
+}: tMdcIconButtonProps) {
 
-  const mod_on = "--on"
-  , mdcIcon = 'material-icons'
-  , mdcIconButton_Name = "mdc-icon-button"
-  // unbounded changes anything?
-  , ripple = `${mdc.ripple} ${Mdc.ripple.unbounded}`
-  , mdcIconButton_Base = `${mdcIconButton_Name}`
-  , mdcIconButton__Oning = `${mdcIconButton_Name}${mod_on}`
-  
-  , mdcIconButton_Icon_name = `${mdcIconButton_Name}__icon`
+  const mdcIconButton_Icon_name = `${mdc.iconButton}__icon`
 
-  , mdcIconButton_Icon_base = `${mdcIcon} ${mdcIconButton_Icon_name}`
-  , mdcIconButton_Icon__on = `${mdcIconButton_Icon_base} ${mdcIconButton_Icon_name}${mod_on}`
+  , mdcIconButton_Icon_base = `${mdc.icon} ${mdcIconButton_Icon_name}`
 
   return <button {...{
     ...etc,
     "className": [
         className,
-        ripple,
-        mdcIconButton_Base,
+        Mdc.ripple.unbounded,
+        mdc.iconButton,
         
-        !iconOn && mdcIcon,
-        checked && mdcIconButton__Oning,
+        !iconOn && mdc.icon,
+        checked && `${mdc.iconButton}${mod_on}`,
         
     ].filter(Boolean).join(' '),
     "style": mdcRippleStyle
@@ -139,7 +132,7 @@ function MdcIconButton({
     !iconOn
     ? icon
     : <>
-      <i className={mdcIconButton_Icon__on}>{iconOn}</i>
+      <i className={`${mdcIconButton_Icon_base} ${mdcIconButton_Icon_name}${mod_on}`}>{iconOn}</i>
       <i className={mdcIconButton_Icon_base}>{icon}</i>
     </>
   }</button>
