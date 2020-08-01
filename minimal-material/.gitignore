@@ -1,1 +1,3 @@
 out-*
+
+src/atomic_singletons/*.scss
