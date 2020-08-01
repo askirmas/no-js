@@ -23,34 +23,30 @@ function main() {
     
     for (const id in data) {
       const body = data[id]
+     
       content.push(
         `@mixin ${namespace}--${id}() {`
         //TODO
         .replace(")()", ")")
       )
-      switch (typeof body) {
-        case "string":
-        case "number":
-          content.push(`${propIndent}${namespace}: ${body};`)
-          break
-        case "object":
-          if ($isArray(body)) {
-            content.push(`${propIndent}${namespace}: ${quarkValue2string(body)};`)
-            break
-          }
 
-          for (const prop in body) {
-            const property = prop[0] !== "/"
-            ? prop
-            : `${namespace}-${prop.slice(1)}`
-            , value = quarkValue2string(body[prop])
+      if (
+        typeof body === "string"
+        || typeof body === "number"
+        || $isArray(body)
+      )
+        content.push(`${propIndent}${namespace}: ${join(' ', quarkValue2string(body))}`)
+      else {
+        for (const prop in body) {
+          const property = prop[0] !== "/"
+          ? prop
+          : `${namespace}-${prop.slice(1)}`
+          , value = quarkValue2string(body[prop])
 
-            content.push(`${propIndent}${property}: ${value};`)
-          }
-          break
-        default:
-          throw Error('unknown shape...')
+          content.push(`${propIndent}${property}: ${value};`)
+        }
       }
+      
       content.push('}')
     } 
 
@@ -58,7 +54,7 @@ function main() {
   }
 }
 
-function quarkValue2string(quark: QuarkValue): ValuePrimitive {
+function quarkValue2string(quark: QuarkValue): ValuePrimitive | ValuePrimitive[] {
   switch (typeof quark) {
     case "string":
     case "number":
@@ -75,26 +71,37 @@ function quarkValue2string(quark: QuarkValue): ValuePrimitive {
         value[i] = token
         continue
       default:
-        value[i] = quarkFunc2chunks(token).join(' ')
+        value[i] = join(' ', quarkFunc2chunks(token))
     }
   }
   
-  return value.join(' ')
+  return value
 }
 
-function quarkFunc2chunks(expression: QuarkFunction): ValuePrimitive[] {
+function quarkFunc2chunks(expression: QuarkFunction): ValuePrimitive | ValuePrimitive[] {
   const fns = $keys(expression)
   , {length} = fns
   , out = new Array<ValuePrimitive>(length)
 
   for (let i = length; i--;) {
     const fnName = fns[i]
-    out[i] = `${fnName}(${quarkValue2string(expression[fnName])})`
+    , value = quarkValue2string(expression[fnName])
+    , chunk = `${fnName}(${join(', ', value)})` 
+    
+    out[i] = chunk
   }
 
-  return out
+  return length === 1
+  ? out[0]
+  : out
 }
 
-function readJson<T>(path: string) : T{
+function readJson<T>(path: string): T {
   return require(path)
+}
+
+function join(delimiter: string, values: ValuePrimitive | ValuePrimitive[]) :ValuePrimitive {
+  return $isArray(values)
+  ? values.join(delimiter)
+  : values
 }

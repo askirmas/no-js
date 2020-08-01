@@ -1,40 +1,18 @@
 {
-  "($line)": {
-    "line-height": [{"u": "$line"}]
-  },
+  "($line)": [{"u": "$line"}],
+  "self": 1,
+  "h3": [{"u": 3.125}],
 
-  "self": {
-    "line-height": 1
-  },
+  "h4": [{"u": 2.5}],
 
-  "h3": {
-    "line-height": [{"u": 3.125}]
-  },
+  "button": [{"u": 2.25}],
 
-  "h4": {
-    "line-height": [{"u": 2.5}]
-  },
+  "double": [{"u": 2}],
 
-  "button": {
-    "line-height": [{"u": 2.25}]
-  },
+  "subtitle1": [{"u": 1.75}],
 
-  "double": {
-    "line-height": [{"u": 2}]
-  },
+  "subtitle2": [{"u": 1.375}],
 
-  "subtitle1": {
-    "line-height": [{"u": 1.75}]
-  },
-
-  "subtitle2": {
-    "line-height": [{"u": 1.375}]
-  },
-
-  "body1": {
-    "line-height": [{"u": 1.5}]
-  },
-  "body2": {
-    "line-height": [{"u": 1.25}]
-  }
+  "body1": [{"u": 1.5}],
+  "body2": [{"u": 1.25}]
 }
