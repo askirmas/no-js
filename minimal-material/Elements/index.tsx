@@ -2,25 +2,12 @@ import {ButtonHTMLAttributes, CSSProperties} from "react"
 
 const mdcPrefix = 'mdc-'
 , myPrefix = 'mm0_'
-, mdcRipple_Name = `mdc-ripple-upgraded`
-, mdcRipple = {
-  unbounded: `${mdcRipple_Name}--unbounded`,
-  focusing: `${mdcRipple_Name}--background-focused`,
-  activating: `${mdcRipple_Name}--foreground-activation`,
-  // deactivating: `${mdcRipple_Name}--foreground-deactivation`
-}
 , mdcRippleStyle =             {
   "--mdc-ripple-fg-size": "28px",
   "--mdc-ripple-fg-scale": "1.71429",
   "--mdc-ripple-left": "10px",
   "--mdc-ripple-top": "10px",
 } as CSSProperties
-, mdc = {
-  "icon": "material-icons",
-  "ripple": `${mdcPrefix}ripple-upgraded`,
-  "typography": `${mdcPrefix}typography`,
-  "button": `${mdcPrefix}button`,
-}
 , states = {
   "disabled": ":disabled",
   "focus": ":focus",
@@ -30,15 +17,25 @@ const mdcPrefix = 'mdc-'
   "dragging": "dragging",  
   "hover": ':hover'
 }
+, mdc = {
+  "icon": "material-icons",
+  "ripple": `${mdcPrefix}ripple-upgraded`,
+  "typography": `${mdcPrefix}typography`,
+  "button": `${mdcPrefix}button`,
+}
 , myTerms = {
   "button": `${myPrefix}button`,
-  "icon": `${myPrefix}icon`,
-  "iconButton": `${myPrefix}icon_button`,
-  "togglerIcon": `${myPrefix}icon_button_toggler` 
+  "icon": `${myPrefix}icon`
 }
 , Mdc = {
   "typography": {
     "Subtitle1": `${mdc.typography}--subtitle1`
+  },
+  "ripple": {
+    "unbounded": `${mdc.ripple} ${mdc.ripple}--unbounded`,
+    "focusing": `${mdc.ripple} ${mdc.ripple}--background-focused`,
+    "activating": `${mdc.ripple} ${mdc.ripple}--foreground-activation`,
+    // deactivating: `${mdc.ripple} ${mdc.ripple}--foreground-deactivation`  
   },
   "button": {
     "Text": `${mdc.ripple} ${mdc.button}`,
@@ -71,7 +68,7 @@ export type tMdcButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "dis
 
 export {
   mm, myTerms, state,
-  Mdc, mdcRipple,
+  Mdc,
   MdcButton, MdcIconButton,
 }
 
@@ -117,7 +114,7 @@ function MdcIconButton({
   , mdcIcon = 'material-icons'
   , mdcIconButton_Name = "mdc-icon-button"
   // unbounded changes anything?
-  , ripple = `${mdcRipple_Name} ${mdcRipple.unbounded}`
+  , ripple = `${mdc.ripple} ${Mdc.ripple.unbounded}`
   , mdcIconButton_Base = `${mdcIconButton_Name}`
   , mdcIconButton__Oning = `${mdcIconButton_Name}${mod_on}`
   

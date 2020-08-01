@@ -1,9 +1,10 @@
-import {mdcRipple, MdcIconButton, state, myTerms} from "../Elements"
+import {Mdc, MdcIconButton, state, mm } from "../Elements"
 import { Figure, A } from "../Components"
 import content from "../utils/contents"
 
 import "./icon_button.scss"
 
+const statelessIcon = `${mm.icon.Button}_` 
 
 export default function Icon() {
   return  <article className="icon_button">
@@ -23,19 +24,19 @@ export default function Icon() {
     </Figure>
 
     <Figure caption="Focus">
-      <MdcIconButton icon="wifi" className={mdcRipple.focusing} data-cy="wifi focus"/>
+      <MdcIconButton icon="wifi" className={Mdc.ripple.focusing} data-cy="wifi focus"/>
     </Figure>
 
     <Figure caption="Pressed and focus">
-      <MdcIconButton icon="wifi" className={`${mdcRipple.focusing} ${mdcRipple.activating}`} data-cy="wifi pressed-focusing"/>
+      <MdcIconButton icon="wifi" className={`${Mdc.ripple.focusing} ${Mdc.ripple.activating}`} data-cy="wifi pressed-focusing"/>
     </Figure>
 
     <Figure caption="Pressed and hover">
-      <MdcIconButton icon="wifi" className={mdcRipple.activating} data-cy="wifi pressed-hover" {...state("hover")}/>
+      <MdcIconButton icon="wifi" className={Mdc.ripple.activating} data-cy="wifi pressed-hover" {...state("hover")}/>
     </Figure>
 
     <Figure caption="Pressed">
-      <MdcIconButton icon="wifi" className={mdcRipple.activating} data-cy="wifi pressed"/>
+      <MdcIconButton icon="wifi" className={Mdc.ripple.activating} data-cy="wifi pressed"/>
     </Figure>
 
     <Figure caption="!!! Activated?!">
@@ -53,17 +54,12 @@ export default function Icon() {
     <A content="MM state modifiers"/>
 
     <Figure caption="Disabled">
-      <div {...{
-        "className": `${myTerms.iconButton}_`,
-        ...content("wifi", "icon"),
-        "data-cy": "wifi disabled",
-        ...state("disabled")
-      }}></div>
+      <div className={statelessIcon} data-cy="wifi disabled" {...content("wifi", "icon")} {...state("disabled")}></div>
     </Figure>
 
     <Figure caption="Enabled">
       <div {...{
-        "className": `${myTerms.iconButton}_`,
+        "className": statelessIcon,
         ...content("wifi", "icon"),
         "data-cy": "wifi"
       }}></div>
@@ -71,7 +67,7 @@ export default function Icon() {
     <Figure caption="button Hover">
       <button {...{
         "data-cy": "wifi hover",
-        "className": `${myTerms.iconButton}_`,
+        "className": statelessIcon,
         ...content("wifi", "icon"),
         ...state("hover") 
       }}></button>
@@ -80,7 +76,7 @@ export default function Icon() {
       <input {...{
         "type": "button",
         "data-cy": "wifi focus",
-        "className": `${myTerms.iconButton}_`,
+        "className": statelessIcon,
         ...content("wifi", "icon"),
         "value": "wifi",
         ...state("focus") 
@@ -89,7 +85,7 @@ export default function Icon() {
     <Figure caption="input Pressed">
       <input {...{
         "type": "submit",
-        "className": `${myTerms.iconButton}_`,
+        "className": statelessIcon,
         ...content("wifi", "icon"),
         "value": "wifi",
         "data-cy": "wifi pressed",
@@ -100,7 +96,7 @@ export default function Icon() {
     <Figure caption="Dragging">
       <a {...{
         "href": "#",
-        "className": `${myTerms.iconButton}_`,
+        "className": statelessIcon,
         ...content("wifi", "icon"),
         "data-cy": "wifi dragging",
         ...state("dragging") 
@@ -110,7 +106,7 @@ export default function Icon() {
     <Figure caption="Activated">
       <div {...{
         "data-cy": "wifi activated",
-        "className": `${myTerms.iconButton}_`,
+        "className": statelessIcon,
         ...content("wifi", "icon"),
         ...state("activated")
       }}></div>
@@ -119,7 +115,7 @@ export default function Icon() {
     <Figure caption="Selected">
       <div {...{
         "data-cy": "wifi selected",
-        "className": `${myTerms.iconButton}_`,
+        "className": statelessIcon,
         ...content("wifi", "icon"),
         ...state("selected")
       }}></div>
@@ -128,7 +124,7 @@ export default function Icon() {
     <Figure caption="checkbox Off">
       <input {...{
         "type": "checkbox",
-        "className": `${myTerms.iconButton}_`,
+        "className": statelessIcon,
         ...content("favorite", "button"),
         "data-cy": "favorite_border"
       }}/>
@@ -138,7 +134,7 @@ export default function Icon() {
       <input {...{
         "type": "checkbox",
         "checked": true,
-        "className": `${myTerms.iconButton}_`,
+        "className": statelessIcon,
         "data-cy": "favorite_border on",
         ...content("favorite", "button")
       }}/>
@@ -148,7 +144,7 @@ export default function Icon() {
       <input {...{
         "type": "checkbox",
         "checked": true,
-        "className": `${myTerms.iconButton}_`,
+        "className": statelessIcon,
         ...content("bookmark", "toggler"),
         ...state("hover")
       }}/>
@@ -159,7 +155,7 @@ export default function Icon() {
     <Figure caption="">
       <input {...{
         "type": "checkbox",
-        "className": myTerms.iconButton,
+        "className": mm.icon.Button,
         ...content("bookmark", "toggler"),
         // "data-cy": "${content.bookmark.toggler}"
       }}/>
@@ -168,7 +164,7 @@ export default function Icon() {
     <Figure caption="">
       <input {...{
         "type": "checkbox",
-        "className": myTerms.togglerIcon,
+        "className": mm.icon.Toggler,
         ...content("favorite", "button")
         // "data-cy": "favorite_button"
       }}/>
