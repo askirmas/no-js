@@ -15,40 +15,41 @@ article.icon_button {
   
   &icon_button {
     &, &_toggler,
-    &_, &_hover, &_focus, &_activated, &_checked, &._disable--true, &_pressed, &_dragging, &_selected {
+    &_ {
       @include block-icon_button--enabled();
     }
 
+    &:disabled, &_toggler:disabled,
+    &[data-state=":disabled"], &_[data-state=":disabled"] {
+      @include block-icon_button--disabling();
+    }
+
     &:hover, &_toggler:hover,
-    &_hover {
+    &_[data-state=":hover"] {
       @include block-icon_button--hovering();      
     }
     &:focus, &_toggler:focus,
     &:focus-within, &_toggler:focus-within,
-    &_focus {
+    &_[data-state=":focus"] {
       @include block-icon_button--focusing();
     }
-    &:checked, &_activated {
+    &:checked, &_[data-state=":checked"] {
       @include block-icon_button--activating();
     }  
 
-    &_selected {
+    &_[data-state="selected"] {
       @include block-icon_button--selecting();
     }
 
     &:active, &_toggler:active,
-    &_pressed {
+    &_[data-state=":active"] {
       @include block-icon_button--pressing();
     }
 
-    &_dragging {
+    &_[data-state="dragging"] {
       @include block-icon_button--dragging();
     }
 
-    &:disabled, &_toggler:disabled,
-    &._disable--true, &._disable--true:disabled {
-      @include block-icon_button--disabling();
-    }
 
     &, &_toggler {
       // animation

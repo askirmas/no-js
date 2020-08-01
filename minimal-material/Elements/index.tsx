@@ -22,16 +22,17 @@ const mdcPrefix = 'mdc-'
   "button": `${mdcPrefix}button`,
 }
 , states = {
-  "disabled": "_disable--true",
-  "focus": "_focus",
-  "pressed": "_pressed",
-  "activated": "_activated",
-  "selected": "_selected",
-  "dragging": "_dragging",  
-  "hover": '_hover'
+  "disabled": ":disabled",
+  "focus": ":focus",
+  "pressed": ":active",
+  "activated": ":checked",
+  "selected": "selected",
+  "dragging": "dragging",  
+  "hover": ':hover'
 }
 , myTerms = {
   "button": `${myPrefix}button`,
+  "icon": `${myPrefix}icon`,
   "iconButton": `${myPrefix}icon_button`,
   "togglerIcon": `${myPrefix}icon_button_toggler` 
 }
@@ -52,6 +53,10 @@ const mdcPrefix = 'mdc-'
     "Unelevated": `${myTerms.button}_unelevated`,
     "Outlined": `${myTerms.button}_outlined`,
     "Raised": `${myTerms.button}_raised`,
+  },
+  "icon": {
+    "Button": `${myTerms.icon}_button`,
+    "Toggler": `${myTerms.icon}_button_toggler`
   }
 }
 
@@ -65,10 +70,11 @@ export type tMdcButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "dis
 }>
 
 export {
-  mm, myTerms, states,
+  mm, myTerms, state,
   Mdc, mdcRipple,
   MdcButton, MdcIconButton,
 }
+
 
 function MdcButton({
   Kind,
@@ -140,4 +146,10 @@ function MdcIconButton({
       <i className={mdcIconButton_Icon_base}>{icon}</i>
     </>
   }</button>
+}
+
+function state(s: keyof typeof states) {
+  return {
+    "data-state": states[s]
+  }
 }

@@ -1,0 +1,30 @@
+@import "../pages/theme"
+, "../src/utils"
+;
+
+[data-content="wifi_icon"] {
+  @include content("wifi");
+}
+
+[data-content="favorite_button"] {
+  @include content("favorite_border", "Like", "favorite", false); 
+}
+
+[data-content="bookmark_toggler"] {
+  @include content("star_border", "Star it", "star", "Unstar it");
+}
+
+[data-content="default_button"] {
+  @include content(null, "Default"); 
+}
+
+[data-content="recents"] {
+  @include content("access_time", "recents");
+}
+[data-content="nearby"] {
+  @include content("near_me", "nearby");
+}
+
+[data-content="wifi_icon"] {
+  @include content("wifi");
+}

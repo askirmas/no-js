@@ -6,7 +6,7 @@ article.button {
     ;    
 
     @function disable($context) {
-      @return "#{&}:disabled, #{&}._disabled--true";
+      @return "#{&}:disabled, #{&}[data-state=':disabled']";
     }
     
     &button {

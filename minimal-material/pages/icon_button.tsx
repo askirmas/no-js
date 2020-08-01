@@ -1,4 +1,4 @@
-import {mdcRipple, MdcIconButton, states, myTerms} from "../Elements"
+import {mdcRipple, MdcIconButton, state, myTerms} from "../Elements"
 import { Figure, A } from "../Components"
 import content from "../utils/contents"
 
@@ -19,7 +19,7 @@ export default function Icon() {
     </Figure>
 
     <Figure caption="Hover">
-      <MdcIconButton icon="wifi" className={states.hover} data-cy="wifi hover"/>
+      <MdcIconButton icon="wifi" data-cy="wifi hover" {...state("hover")}/>
     </Figure>
 
     <Figure caption="Focus">
@@ -31,7 +31,7 @@ export default function Icon() {
     </Figure>
 
     <Figure caption="Pressed and hover">
-      <MdcIconButton icon="wifi" className={`${states.hover} ${mdcRipple.activating}`} data-cy="wifi pressed-hover"/>
+      <MdcIconButton icon="wifi" className={mdcRipple.activating} data-cy="wifi pressed-hover" {...state("hover")}/>
     </Figure>
 
     <Figure caption="Pressed">
@@ -54,66 +54,82 @@ export default function Icon() {
 
     <Figure caption="Disabled">
       <div {...{
-        "className": `${myTerms.iconButton} ${states.disabled} ${content.wifi.icon}`,
-        "data-cy": "wifi disabled"
+        "className": `${myTerms.iconButton}_`,
+        ...content("wifi", "icon"),
+        "data-cy": "wifi disabled",
+        ...state("disabled")
       }}></div>
     </Figure>
 
     <Figure caption="Enabled">
       <div {...{
-        "className": `${myTerms.iconButton}_ ${content.wifi.icon}`,
+        "className": `${myTerms.iconButton}_`,
+        ...content("wifi", "icon"),
         "data-cy": "wifi"
       }}></div>
     </Figure>
     <Figure caption="button Hover">
       <button {...{
         "data-cy": "wifi hover",
-        "className": `${myTerms.iconButton}${states.hover} ${content.wifi.icon}`,
+        "className": `${myTerms.iconButton}_`,
+        ...content("wifi", "icon"),
+        ...state("hover") 
       }}></button>
     </Figure>
     <Figure caption="in-but Focus">
       <input {...{
         "type": "button",
         "data-cy": "wifi focus",
-        "className": `${myTerms.iconButton}${states.focus} ${content.wifi.icon}`,
+        "className": `${myTerms.iconButton}_`,
+        ...content("wifi", "icon"),
         "value": "wifi",
+        ...state("focus") 
       }}/>
     </Figure>
     <Figure caption="input Pressed">
       <input {...{
         "type": "submit",
-        "className": `${myTerms.iconButton}${states.pressed} ${content.wifi.icon}`,
+        "className": `${myTerms.iconButton}_`,
+        ...content("wifi", "icon"),
         "value": "wifi",
-        "data-cy": "wifi pressed"
+        "data-cy": "wifi pressed",
+        ...state("pressed") 
       }}/>
     </Figure>
 
     <Figure caption="Dragging">
       <a {...{
         "href": "#",
-        "className": `${myTerms.iconButton}${states.dragging} ${content.wifi.icon}`,
-        "data-cy": "wifi dragging"
+        "className": `${myTerms.iconButton}_`,
+        ...content("wifi", "icon"),
+        "data-cy": "wifi dragging",
+        ...state("dragging") 
       }}/>
     </Figure>
 
     <Figure caption="Activated">
       <div {...{
         "data-cy": "wifi activated",
-        "className": `${myTerms.iconButton}${states.activated} ${content.wifi.icon}`,
+        "className": `${myTerms.iconButton}_`,
+        ...content("wifi", "icon"),
+        ...state("activated")
       }}></div>
     </Figure>
 
     <Figure caption="Selected">
       <div {...{
         "data-cy": "wifi selected",
-        "className": `${myTerms.iconButton}${states.selected} ${content.wifi.icon}`,
+        "className": `${myTerms.iconButton}_`,
+        ...content("wifi", "icon"),
+        ...state("selected")
       }}></div>
     </Figure>
 
     <Figure caption="checkbox Off">
       <input {...{
         "type": "checkbox",
-        "className": `${myTerms.iconButton}_ ${content.favorite.button}`,
+        "className": `${myTerms.iconButton}_`,
+        ...content("favorite", "button"),
         "data-cy": "favorite_border"
       }}/>
     </Figure>
@@ -122,8 +138,9 @@ export default function Icon() {
       <input {...{
         "type": "checkbox",
         "checked": true,
-        "className": `${myTerms.iconButton}_ ${content.favorite.button}`,
-        "data-cy": "favorite_border on"
+        "className": `${myTerms.iconButton}_`,
+        "data-cy": "favorite_border on",
+        ...content("favorite", "button")
       }}/>
     </Figure>
 
@@ -131,7 +148,9 @@ export default function Icon() {
       <input {...{
         "type": "checkbox",
         "checked": true,
-        "className": `${myTerms.iconButton}${states.hover} ${content.bookmark.toggler}`
+        "className": `${myTerms.iconButton}_`,
+        ...content("bookmark", "toggler"),
+        ...state("hover")
       }}/>
     </Figure>
 
@@ -140,7 +159,8 @@ export default function Icon() {
     <Figure caption="">
       <input {...{
         "type": "checkbox",
-        "className": `${myTerms.togglerIcon} ${content.bookmark.toggler}`,
+        "className": myTerms.iconButton,
+        ...content("bookmark", "toggler"),
         // "data-cy": "${content.bookmark.toggler}"
       }}/>
     </Figure>
@@ -148,7 +168,8 @@ export default function Icon() {
     <Figure caption="">
       <input {...{
         "type": "checkbox",
-        "className": `${myTerms.togglerIcon} ${content.favorite.button}`,
+        "className": myTerms.togglerIcon,
+        ...content("favorite", "button")
         // "data-cy": "favorite_button"
       }}/>
     </Figure>

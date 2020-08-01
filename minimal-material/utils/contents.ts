@@ -1,5 +1,5 @@
 const contentPrefix = "content_"
-, content = {
+, contentData = {
   "favorite": {
     "button": `${contentPrefix}favorite_button`,
   },
@@ -14,4 +14,12 @@ const contentPrefix = "content_"
   }  
 }
 
+type tContent = typeof contentData
+
 export default content
+
+function content<K extends keyof tContent>(k: K, v: keyof tContent[K]) {
+  return {
+    "data-content": [k, v].join("_")
+  }
+}

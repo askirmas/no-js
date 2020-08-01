@@ -1,5 +1,5 @@
 import {Fragment} from 'react'
-import {mm, Mdc, MdcButton, tMdcButtonProps} from "../Elements"
+import {mm, Mdc, MdcButton, tMdcButtonProps, state} from "../Elements"
 import content from "../utils/contents"
 import "./button.scss"
 
@@ -26,10 +26,10 @@ export default function Buttons() {
             <MdcButton {...{Kind}} label="Icon" icon="favorite" disabled={true}/>
           </div>
           <div>
-            <div className={`${mm.button[Kind]} ${content.favorite.button} _disabled--true`}/>
-            <button className={`${mm.button[Kind]} ${content.favorite.button}`} disabled={true}/>
-            <div className={`${mm.button[Kind]} ${content.favorite.button}`}/>
-            <div className={`${mm.button[Kind]} ${content.default.button}`}/>
+            <div className={mm.button[Kind]} {...state("disabled")} {...content("favorite", "button")}/>
+            <button className={mm.button[Kind]} disabled={true} {...content("favorite", "button")}/>
+            <div className={mm.button[Kind]} {...content("favorite", "button")}/>
+            <div className={mm.button[Kind]} {...content("default", "button")}/>
           </div>
         </Fragment>)
       }

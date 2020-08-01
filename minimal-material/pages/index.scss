@@ -1,3 +1,5 @@
+@import "../utils/content.scss";
+
 .suite-1 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -28,39 +30,6 @@
     &, & > div {
       display: contents;
     }
-  }
-}
-
-.content_ {
-  @import "theme"
-  , "../src/utils"
-  ;
-
-  &wifi_icon {
-    @include content("wifi");
-  }
-
-  &favorite_button {
-    @include content("favorite_border", "Like", "favorite", false); 
-  }
-
-  &bookmark_toggler {
-    @include content("star_border", "Star it", "star", "Unstar it");
-  }
-
-  &default_button {
-    @include content(null, "Default"); 
-  }
-
-  &recents {
-    @include content("access_time", "recents");
-  }
-  &nearby {
-    @include content("near_me", "nearby");
-  }
-
-  &wifi_icon {
-    @include content("wifi");
   }
 }
 
