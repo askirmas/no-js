@@ -1,3 +1,3 @@
 {
-  "elevation($index)": "elevation($index)"
+  "elevation($index)": [{"elevation": "$index"}]
 }

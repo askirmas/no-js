@@ -1,0 +1,40 @@
+{
+  "($line)": {
+    "line-height": [{"u": "$line"}]
+  },
+
+  "self": {
+    "line-height": 1
+  },
+
+  "h3": {
+    "line-height": [{"u": 3.125}]
+  },
+
+  "h4": {
+    "line-height": [{"u": 2.5}]
+  },
+
+  "button": {
+    "line-height": [{"u": 2.25}]
+  },
+
+  "double": {
+    "line-height": [{"u": 2}]
+  },
+
+  "subtitle1": {
+    "line-height": [{"u": 1.75}]
+  },
+
+  "subtitle2": {
+    "line-height": [{"u": 1.375}]
+  },
+
+  "body1": {
+    "line-height": [{"u": 1.5}]
+  },
+  "body2": {
+    "line-height": [{"u": 1.25}]
+  }
+}

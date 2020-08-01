@@ -1,5 +1,5 @@
 {
-  "light": "#{$-weight-light},",
-  "regular": "#{$-weight-regular},",
-  "medium": "#{$-weight-medium},"
+  "light": "#{$-weight-light}",
+  "regular": "#{$-weight-regular}",
+  "medium": "#{$-weight-medium}"
 }

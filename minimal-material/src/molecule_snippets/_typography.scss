@@ -94,7 +94,7 @@
   @if $line == null {
     @include line-height--button();
   } @else {
-    @include -line-height($line);
+    @include line-height--($line);
   }
 
   @include letter-spacing--button();
@@ -107,7 +107,7 @@
   @if $line == null {
     @include line-height--body2();
   } @else {
-    @include -line-height($line);
+    @include line-height--($line);
   }
   
   @include letter-spacing--caption();

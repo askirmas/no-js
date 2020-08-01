@@ -1,4 +1,4 @@
 {
   "one_char": "1em",
-  "icon": "u($-icon-size)"
+  "icon": [{"u": "$-icon-size"}]
 }

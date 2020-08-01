@@ -1,6 +1,6 @@
 {
   "none": "0",
-  "fab-icon": "u(-0.25)",
-  "fab_rev-icon": "u(-0.25)",
-  "button": "u(0.5) u(1)"
+  "fab-icon": [{"u": -0.25}],
+  "fab_rev-icon": [{"u": -0.25}],
+  "button": [{"u": 0.5}, {"u": 1}]
 }

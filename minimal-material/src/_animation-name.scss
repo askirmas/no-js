@@ -1,0 +1,15 @@
+@mixin animation-name__tooltip_hidding() {
+  animation-name: tooltip_hidding;
+  @keyframes tooltip_hidding {
+    from {
+      @include visuality--shown();
+    }
+    99% {
+      @include visuality--shown(0);
+    }
+    to {
+      @include visuality--hidden();
+    }
+  }  
+}
+
