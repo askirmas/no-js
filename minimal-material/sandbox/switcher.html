@@ -1,0 +1,91 @@
+<link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet"/>
+<input class="v1" type="checkbox">
+<input class="v2" type="checkbox">
+<style>
+.v1 {
+  background-image:
+    radial-gradient(
+      circle at 50% 50%,
+      currentColor 25%,
+      hsla(0, 0%, 0%, 0.3) 25%,
+      hsla(0, 0%, 0%, 0.3) 40%,
+      transparent 40%
+    ),
+    linear-gradient(
+      to bottom,
+      white 33%,
+      hsla(0, 0%, 100%, 0.3) 33%,
+      hsla(0, 0%, 100%, 0.3) 66%,
+      white 66%
+    )
+  ;
+
+  background-size: 200%;
+  background-position: -2.67rem 0;
+
+  transition-property: background-position, background-color, color;
+}
+
+.v1:checked {
+  background-position: -1.33rem 0;
+}
+
+.v2::after {
+  content: "lens";
+  color: red; 
+  border: 1rem solid transparent;
+  padding: 1rem;
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 0px 2rem hsla(0, 0%, 0%, 0.3);
+}
+
+input, input::after {
+  width: 6rem;
+  height: 4rem; 
+}
+input {
+  -webkit-appearance: none;
+  cursor: pointer;
+  margin: 0;
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: black;
+  outline-offset: 0px;
+
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  background-color: white;
+  color: white;
+
+  transition-duration: 0.5s;
+}
+input:checked {
+  background-color: blue;
+  color: blue;
+}
+
+input {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+</style>
