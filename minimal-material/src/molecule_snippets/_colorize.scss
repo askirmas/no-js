@@ -1,16 +1,61 @@
+@import "../calc";
+
+$-do-mix: true !default;
+
 @mixin -colorize-actionable(
-  $main-red, $main-green, $main-blue,
+  $current-red, $current-green, $current-blue,
   $back-red, $back-green, $back-blue,
-  $state
+  $state, $do-mix,
+  $invert: false,
+  $border-red: $current-red,
+  $border-green: $current-green,
+  $border-blue: $current-blue
 ) {
-  $color: rgb-($main-red, $main-green, $main-blue);
-  color: $color;
-  border-color: $color;
-// TODO configurable rgb-mix vs rgb-
-  background-color: rgb-mix(
-    $back-red, $back-green, $back-blue,
-    $main-red, $main-green, $main-blue,
-    m($state, $-step)
+  color: rgb-($current-red, $current-green, $current-blue);
+  border-color: rgb-($border-red, $border-green, $border-blue);
+
+  $opacity: m($state, $-step);
+
+// $border-red, $border-green, $border-blue,
+// $current-red, $current-green, $current-blue,
+ 
+
+  background-color: if(
+    $do-mix,
+    rgb-mix(
+      $back-red, $back-green, $back-blue,
+      $border-red, $border-green, $border-blue,
+      $opacity
+    ),
+    if(
+      $invert,
+      rgb-(
+        $back-red, $back-green, $back-blue,
+        e(1, "-", $opacity)
+      ),
+      rgb-(
+        $current-red, $current-green, $current-blue,
+        
+        $opacity
+      )  
+    )
+  );
+}
+
+@mixin colorize--main_on_primary_surfaced($state, $do-mix: $-do-mix) {
+  @include -colorize-actionable(
+    $-main-red,
+    $-main-green,
+    $-main-blue,
+    $-primary-red,
+    $-primary-green,
+    $-primary-blue,    
+    $state,
+    $do-mix,
+    not $do-mix,
+    $-surface-red,
+    $-surface-green,
+    $-surface-blue
   );
 }
 
@@ -22,6 +67,7 @@
   );
   color: $color;
   border-color: $color;
+  // TODO configurable rgb-mix vs rgb-
   background-color: rgb-mix(
     $-surface-red, $-surface-green, $-surface-blue,
     $-main-red, $-main-green, $-main-blue,
@@ -48,7 +94,7 @@
   background-color: $-tooltip-bgr;
 }
 
-@mixin colorize--main_on_surface($state) {
+@mixin colorize--main_on_surface($state, $do-mix: $-do-mix) {
   @include -colorize-actionable(
     $-main-red,
     $-main-green,
@@ -56,11 +102,12 @@
     $-surface-red,
     $-surface-green,
     $-surface-blue,
-    $state
+    $state,
+    $do-mix
   );
 }
 
-@mixin colorize--primary_on_surface($state) {
+@mixin colorize--primary_on_surface($state, $do-mix: $-do-mix) {
   @include -colorize-actionable(
     $-primary-red,
     $-primary-green,
@@ -68,11 +115,13 @@
     $-surface-red,
     $-surface-green,
     $-surface-blue,
-    $state
+    $state,
+    $do-mix,
+    not $do-mix
   );
 }
 
-@mixin colorize--surface_on_primary($state) {
+@mixin colorize--surface_on_primary($state, $do-mix: $-do-mix) {
   @include -colorize-actionable(
     $-surface-red,
     $-surface-green,
@@ -80,11 +129,12 @@
     $-primary-red,
     $-primary-green,
     $-primary-blue,
-    m(2, $state)
+    m(2, $state),
+    $do-mix
   );
 }
 
-@mixin colorize--surface_on_secondary($state) {
+@mixin colorize--surface_on_secondary($state, $do-mix: $-do-mix) {
   @include -colorize-actionable(
     $-surface-red,
     $-surface-green,
@@ -92,6 +142,7 @@
     $-secondary-red,
     $-secondary-green,
     $-secondary-blue,
-    m(2, $state)
+    m(2, $state),
+    $do-mix
   );
 }
