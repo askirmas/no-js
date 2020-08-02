@@ -1,0 +1,26 @@
+.class, #class, #nested #mixin-class {
+  --private-default: use;
+  --public-default: use;
+}
+
+#template, #nested #template, #nested #mixin-template {
+  --private-default: use;
+  --public-default: use;
+}
+
+#nested .class, #nested #mixin-class, #nested #class {
+  --private-default: use/import;
+  --public-default: use/import;
+}
+#nested #mixin-template, #nested #template {
+  --private-default: use/import;
+  --public-default: use/import;
+}
+#nested #mixin {
+  --private-default: use;
+  --public-default: use;
+}
+#nested #function {
+  --private-default:use;
+  --public-default:use;
+}

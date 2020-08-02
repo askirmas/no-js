@@ -20,35 +20,42 @@ function main() {
     , namespace = name[0] === "_" ? name.slice(1) : name
     , data = readJson<CST.AtomicSingleton>(jsonPath)
     , content: string[] = ["/// generated"]
-    , propIndent = "  "
     
     for (const id in data) {
       const body = data[id]
-     
-      content.push(
-        `@mixin ${namespace}--${id}() {`
-        //TODO
-        .replace(")()", ")")
-      )
+      , hasArgs = id.endsWith(')')
+      , name = `${namespace}--${id}`
+      , unit: typeof content = []
 
       if (
         typeof body === "string"
         || typeof body === "number"
         || $isArray(body)
       )
-        content.push(`${propIndent}${namespace}: ${join(' ', quarkValue2string(body))}`)
+        unit.push(sassLine(namespace, quarkValue2string(body)))
       else {
         for (const prop in body) {
+          //TODO
           const property = prop[0] !== "/"
           ? prop
           : `${namespace}-${prop.slice(1)}`
-          , value = quarkValue2string(body[prop])
 
-          content.push(`${propIndent}${property}: ${value};`)
+          unit.push(sassLine(property, quarkValue2string(body[prop])))
         }
       }
       
-      content.push('}')
+      content.push(
+        `@mixin ${name}${hasArgs ? "" : "()"} {`,
+        ...unit,
+        '}'
+      ) 
+
+      if (!hasArgs)
+        content.push(
+          `%${name} {`,
+          ...unit,
+          '}'
+        )
     } 
 
     // TODO add JSchema self-validation
@@ -96,6 +103,10 @@ function quarkFunc2chunks(expression: CST.QuarkFunction): CST.ValuePrimitive | C
   return length === 1
   ? out[0]
   : out
+}
+
+function sassLine(property: string, value: Parameters<typeof join>[1]) {
+  return ` ${property}: ${join(' ', value)};`
 }
 
 function readJson<T>(path: string): T {

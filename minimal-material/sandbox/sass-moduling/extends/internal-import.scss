@@ -1,0 +1,4 @@
+.internal-import {
+  @import "m1", "m2";
+  @extend %template, %template1, %template2;  
+}

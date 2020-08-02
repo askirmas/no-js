@@ -1,0 +1,3 @@
+.import_own, .import_module-scoped, .import_module {
+  --template: 1;
+}

@@ -1,0 +1,15 @@
+.use {
+  --m1--template: 1;
+}
+
+.use {
+  --m1--template1: 1;
+}
+
+.use {
+  --m2--template: 1;
+}
+
+.use {
+  --m2--template2: 2;
+}

@@ -1,0 +1,15 @@
+.global-import {
+  --m1--template: 1;
+}
+
+.global-import {
+  --m1--template1: 1;
+}
+
+.global-import {
+  --m2--template: 1;
+}
+
+.global-import {
+  --m2--template2: 2;
+}

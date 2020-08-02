@@ -1,0 +1,12 @@
+.internal-import .internal-import {
+  --m1--template: 1;
+}
+.internal-import .internal-import {
+  --m1--template1: 1;
+}
+.internal-import .internal-import {
+  --m2--template: 1;
+}
+.internal-import .internal-import {
+  --m2--template2: 2;
+}

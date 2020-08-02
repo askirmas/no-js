@@ -1,0 +1,18 @@
+/* Error: The target selector was not found.
+ * Use "@extend %template1 !optional" to avoid this error.
+ *    ,
+ * 15 |   @extend %template1;
+ *    |   ^^^^^^^^^^^^^^^^^^
+ *    '
+ *   sandbox/sass-moduling/hybrids/outdated/index.scss 15:3  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: The target selector was not found.\aUse "@extend %template1 !optional" to avoid this error.\a    \2577 \a 15 \2502    @extend %template1;\a    \2502    ^^^^^^^^^^^^^^^^^^\a    \2575 \a   sandbox/sass-moduling/hybrids/outdated/index.scss 15:3  root stylesheet';
+}

@@ -1,0 +1,17 @@
+@import "m1";
+
+@mixin m1-template() {
+  @extend %template;
+}
+
+.import_ {
+  &module {
+    @include template();
+  } 
+  &module-scoped {
+    @include template-scoped();
+  }
+  &own {
+    @include m1-template();
+  } 
+}

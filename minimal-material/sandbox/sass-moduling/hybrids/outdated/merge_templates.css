@@ -1,0 +1,13 @@
+.r {
+  --name: "--template1";
+}
+.r__slot2 {
+  --internal: "--internal";
+}
+.--internal2.r {
+  --internal2: "--internal2";
+}
+
+.r {
+  --name: "--template2";
+}

@@ -1,0 +1,17 @@
+@use "m1";
+
+@mixin m1-template() {
+  @extend %template;
+}
+
+.use_ {
+  &module {
+    @include m1.template();
+  } 
+  &module-scoped {
+    @include m1.template-scoped();
+  }
+  &own {
+    @include m1-template();
+  } 
+}

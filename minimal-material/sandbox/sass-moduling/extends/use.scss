@@ -1,0 +1,6 @@
+@use "m1";
+@use "m2";
+
+.use {
+  @extend %template, %template1, %template2;  
+}

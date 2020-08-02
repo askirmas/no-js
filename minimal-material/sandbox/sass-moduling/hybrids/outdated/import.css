@@ -1,0 +1,36 @@
+.class, #nested #mixin-class, #mixin-class, #class {
+  --private-default: import;
+  --public-default: import;
+}
+
+#nested #mixin-template, #nested #template, #mixin-template, #template {
+  --private-default: import;
+  --public-default: import;
+}
+
+#mixin {
+  --private-default: import;
+  --public-default: import;
+}
+
+#function {
+  --private-default:import;
+  --public-default:import;
+}
+
+#nested .class, #nested #mixin-class, #nested #class {
+  --private-default: import/import;
+  --public-default: import/import;
+}
+#nested #mixin-template, #nested #template {
+  --private-default: import/import;
+  --public-default: import/import;
+}
+#nested #mixin {
+  --private-default: import/import;
+  --public-default: import/import;
+}
+#nested #function {
+  --private-default:import/import;
+  --public-default:import/import;
+}

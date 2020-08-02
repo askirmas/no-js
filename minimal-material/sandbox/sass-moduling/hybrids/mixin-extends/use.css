@@ -1,0 +1,3 @@
+.use_module, .use_module-scoped, .use_own {
+  --template: 1;
+}
