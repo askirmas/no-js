@@ -6,12 +6,14 @@
 
 /* todo: remove 2 molecule_snippets */
 @mixin actionable_core--default($icon-size: $-icon-size) {
-  @extend %element_reset;
-  &#{$-entity-title} {
-    @include typography--button(1.5);
-    @extend %font-family--main; 
-    // @extend %height--icon;
-  }
+  @include typography--button(1.5);
+  @extend %element_reset
+  , %font-family--main
+  ;
+  @extend %height--icon;
+
+  // &#{$-entity-title} {
+  // }
   &#{$-entity-icon} {
     @include sizing--icon($icon-size);
     @extend %material_icon;

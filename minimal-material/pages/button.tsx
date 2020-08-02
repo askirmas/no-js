@@ -28,7 +28,7 @@ export default function Buttons() {
           <div>
             <div className={mm.button[Kind]} {...state("disabled")} {...content("favorite", "button")} tabIndex={1}/>
             <button className={mm.button[Kind]} disabled={true} {...content("favorite", "button")} tabIndex={1}/>
-            <div className={mm.button[Kind]} {...content("favorite", "button")} tabIndex={1}/>
+            <input type="button" value={"default"} className={mm.button[Kind]} tabIndex={1}/>
             <div className={mm.button[Kind]} {...content("default", "button")} tabIndex={1}/>
           </div>
         </Fragment>)
