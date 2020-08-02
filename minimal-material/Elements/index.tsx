@@ -93,6 +93,7 @@ function MdcButton({
   ...etc
 }: tMdcButtonProps) {
   return <button {...{
+    "tabIndex": 1,
     "className": [
       className,
       Mdc.button[Kind],
@@ -117,7 +118,7 @@ function MdcIconButton({
   , mdcIconButton_Icon_base = `${mdc.icon} ${mdcIconButton_Icon_name}`
 
   return <button {...{
-    ...etc,
+    "tabIndex": 1,
     "className": [
         className,
         Mdc.ripple.unbounded,
@@ -127,7 +128,8 @@ function MdcIconButton({
         checked && `${mdc.iconButton}${mod_on}`,
         
     ].filter(Boolean).join(' '),
-    "style": mdcRippleStyle
+    "style": mdcRippleStyle,
+    ...etc
   }}>{
     !iconOn
     ? icon

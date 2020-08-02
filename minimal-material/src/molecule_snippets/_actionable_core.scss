@@ -9,7 +9,8 @@
   @extend %element_reset;
   &#{$-entity-title} {
     @include typography--button(1.5);
-    @extend %height--icon;
+    @extend %font-family--main; 
+    // @extend %height--icon;
   }
   &#{$-entity-icon} {
     @include sizing--icon($icon-size);

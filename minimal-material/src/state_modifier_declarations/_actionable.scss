@@ -51,6 +51,7 @@
 @mixin block-button_outlined--disabled() {
   @include block-button-base();
   @include disable--stroke();
+  border-width: 1px; // ?!
   @extend %border-width--exists;
 }
 @mixin block-button_unelevated--disabled() {
@@ -64,21 +65,65 @@
 
 @mixin block-button_text--enabled() {
   @include block-button-base();
-  @include colorize--primary_on_surface(0);
+  @include colorize--primary_on_surface($-overlay--enabled);
 }
+@mixin block-button_text--hover() {
+  @include colorize--primary_on_surface($-overlay--hover);
+}
+@mixin block-button_text--focus() {
+  @include colorize--primary_on_surface($-overlay--focus);
+}
+@mixin block-button_text--activating() {
+  @include colorize--primary_on_surface($-overlay--activated);
+}
+
 @mixin block-button_outlined--enabled() {
   @include block-button-base();
-  @include colorize--primary_on_surface(0);
+  @include colorize--primary_on_surface($-overlay--enabled);
+  
+  border-width: 1px; // ?!
   @extend %border-width--exists;
 }
+@mixin block-button_outlined--hover() {
+  @include colorize--primary_on_surface($-overlay--hover);
+}
+@mixin block-button_outlined--focus() {
+  @include colorize--primary_on_surface($-overlay--focus);
+}
+@mixin block-button_outlined--activating() {
+  @include colorize--primary_on_surface($-overlay--activated);
+}
+
 @mixin block-button_unelevated--enabled() {
   @include block-button-base();
-  @include colorize--surface_on_primary(0);
+  @include colorize--surface_on_primary($-overlay--enabled);
 }
+@mixin block-button_unelevated--hover() {
+  @include colorize--surface_on_primary($-overlay--hover);
+}
+@mixin block-button_unelevated--focus() {
+  @include colorize--surface_on_primary($-overlay--focus);
+}
+@mixin block-button_unelevated--activating() {
+  @include colorize--surface_on_primary($-overlay--activated);
+}
+
 @mixin block-button_raised--enabled() {
   @include block-button-base();
-  @include colorize--surface_on_primary(0);
+  @include colorize--surface_on_primary($-overlay--enabled);
   @include box-shadow--elevation(2);
+}
+@mixin block-button_raised--hover() {
+  @include colorize--surface_on_primary($-overlay--hover);
+  @include box-shadow--elevation(4);
+}
+@mixin block-button_raised--focus() {
+  @include colorize--surface_on_primary($-overlay--focus);
+  @include box-shadow--elevation(4);
+}
+@mixin block-button_raised--activating() {
+  @include colorize--surface_on_primary($-overlay--activated);
+  @include box-shadow--elevation(8);
 }
 
 //TODO @mixin block-button_shaped--enabled() {
@@ -89,7 +134,7 @@
 @mixin block-icon_button--enabled() {
   @include layout--icon_button();
   @extend %border-radius--fab;
-  @include colorize--main_on_surface(0);
+  @include colorize--main_on_surface($-overlay--enabled);
   &#{$-entity-title} {
     @include tooltip();
     @include visuality--hidden(); 

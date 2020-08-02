@@ -9,6 +9,8 @@
   , %appearance--none
   , %cursor--pointer
   ;
+  // https://stackoverflow.com/a/48119467/9412937
+  vertical-align: middle;
   outline: none;
   box-sizing: content-box;
   border-width: 0;

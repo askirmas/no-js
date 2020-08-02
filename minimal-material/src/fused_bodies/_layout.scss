@@ -73,7 +73,7 @@
 @mixin layout--button() {
 
   @include actionable_core--default(1.125);
-  @include wireframe-grid--default();
+  @include wireframe-flex--button();
   @extend %gap--default;
   @include flow_direction--horizontal();
 

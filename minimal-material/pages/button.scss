@@ -15,23 +15,59 @@ article.button {
         @at-root #{disable(&)} {
           @include block-button_text--disabled();
         }
+        &:focus {
+          @include block-button_text--focus();        
+        }
+        &:hover {
+          @include block-button_text--hover();
+        }
+        &:active {
+          @include block-button_text--activating();
+        }          
       }
       &_unelevated {
         @include block-button_unelevated--enabled();
         @at-root #{disable(&)} {
           @include block-button_unelevated--disabled();
         } 
+        &:focus {
+          @include block-button_unelevated--focus();        
+        }
+        &:hover {
+          @include block-button_unelevated--hover();
+        }
+        &:active {
+          @include block-button_unelevated--activating();
+        }          
       }
       &_outlined {
         @include block-button_outlined--enabled();
         @at-root #{disable(&)} {
           @include block-button_outlined--disabled();
         } 
+        &:focus {
+          @include block-button_outlined--focus();        
+        }
+        &:hover {
+          @include block-button_outlined--hover();
+        }
+        &:active {
+          @include block-button_outlined--activating();
+        }  
       }
       &_raised {
         @include block-button_raised--enabled();
         @at-root #{disable(&)} {
           @include block-button_raised--disabled();
+        }
+        &:focus {
+          @include block-button_raised--focus();
+        }
+        &:hover {
+          @include block-button_raised--hover();
+        }
+        &:active {
+          @include block-button_raised--activating();
         }  
       } 
     }

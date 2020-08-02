@@ -18,23 +18,15 @@
   }
 }
 
-@mixin -wireframe-grid--icon_button() {
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 100%;
-  justify-items: center;
-  align-items: center;
-  &, &#{$-entity-title} {
-    position: relative;
-  }
-  &#{$-entity-title} {
-    top: calc(200%);  
-  }
-}
-
-
 @mixin wireframe-flex--icon_button() {
   display: flex;
   align-items: center;
   @extend %gap--tooltip;
+}
+
+@mixin wireframe-flex--button() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
 }

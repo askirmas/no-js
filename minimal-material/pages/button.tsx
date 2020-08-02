@@ -26,10 +26,10 @@ export default function Buttons() {
             <MdcButton {...{Kind}} label="Icon" icon="favorite" disabled={true}/>
           </div>
           <div>
-            <div className={mm.button[Kind]} {...state("disabled")} {...content("favorite", "button")}/>
-            <button className={mm.button[Kind]} disabled={true} {...content("favorite", "button")}/>
-            <div className={mm.button[Kind]} {...content("favorite", "button")}/>
-            <div className={mm.button[Kind]} {...content("default", "button")}/>
+            <div className={mm.button[Kind]} {...state("disabled")} {...content("favorite", "button")} tabIndex={1}/>
+            <button className={mm.button[Kind]} disabled={true} {...content("favorite", "button")} tabIndex={1}/>
+            <div className={mm.button[Kind]} {...content("favorite", "button")} tabIndex={1}/>
+            <div className={mm.button[Kind]} {...content("default", "button")} tabIndex={1}/>
           </div>
         </Fragment>)
       }
