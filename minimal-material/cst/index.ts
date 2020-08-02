@@ -20,11 +20,14 @@ function main() {
     , namespace = name[0] === "_" ? name.slice(1) : name
     , data = readJson<CST.AtomicSingleton>(jsonPath)
     , content: string[] = ["/// generated"]
-    
+
     for (const id in data) {
       const body = data[id]
       , hasArgs = id.endsWith(')')
-      , name = `${namespace}--${id}`
+      , fullName = `${namespace}--${id}`
+      , mixinPostfix = hasArgs ? "" : "()"
+      , smallDeclaration = `${id[0] !== "(" ? id : "apply"}${mixinPostfix}`
+      , fullDeclaration = `${fullName}${mixinPostfix}`
       , unit: typeof content = []
 
       if (
@@ -35,7 +38,7 @@ function main() {
         unit.push(sassLine(namespace, quarkValue2string(body)))
       else {
         for (const prop in body) {
-          // prefixed case
+          // prefixed case //TODO "$" and any other
           const property = prop[0] === "-" || prop === namespace
           ? prop
           : `${namespace}-${prop}`
@@ -43,16 +46,22 @@ function main() {
           unit.push(sassLine(property, quarkValue2string(body[prop])))
         }
       }
-      
+
       content.push(
-        `@mixin ${name}${hasArgs ? "" : "()"} {`,
+        `@mixin ${fullDeclaration} {`,
+        ...unit,
+        '}'
+      ) 
+
+      content.push(
+        `@mixin ${smallDeclaration} {`,
         ...unit,
         '}'
       ) 
 
       if (!hasArgs)
         content.push(
-          `%${name} {`,
+          `%${fullName} {`,
           ...unit,
           '}'
         )
