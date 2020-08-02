@@ -16,7 +16,8 @@
     "chrome": "cy_png && npm run cy --run=chrome -- $@",
     "cy": "cy $@",
     "cst": "ts-node --project configs/tsconfig.cli.json -T cst/index.ts",
-    "-mdc.build": "sass origin_use.scss origin.css --no-source-map --load-path=node_modules"
+    "-mdc.build": "sass origin_use.scss origin.css --no-source-map --load-path=node_modules",
+    "sass:play": "sass --no-source-map --watch ./sandbox/sass-moduling/"
   },
   "author": "",
   "license": "MIT",

@@ -1,0 +1,4 @@
+@at-root %button {
+  @extend %theme;
+  color: #{$name};
+}

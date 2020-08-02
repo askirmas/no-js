@@ -1,0 +1,7 @@
+@at-root %theme {
+  $name: "dark";
+}
+
+@mixin theme {
+  @content($name: "dark");
+}

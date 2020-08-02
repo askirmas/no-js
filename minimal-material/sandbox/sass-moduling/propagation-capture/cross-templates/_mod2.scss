@@ -1,0 +1,5 @@
+$name: null !default;
+
+@at-root %button {
+  color: #{$name};
+}

@@ -1,0 +1,12 @@
+@use "mod2";
+@import "theme";
+
+.button {
+  // EMpty
+  // @extend %theme, %button;
+
+  @include theme() using ($name) {
+    mod2.$name: #{$name};
+    @extend %button;
+  }
+}

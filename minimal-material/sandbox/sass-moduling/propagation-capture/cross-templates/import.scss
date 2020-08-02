@@ -1,0 +1,12 @@
+@import "theme"
+;
+
+.button {
+  // Error: Undefined variable. $name
+  // @extend %button;
+
+  @include theme() using ($name) {
+    @import "mod";
+    @extend %button;
+  }
+}
