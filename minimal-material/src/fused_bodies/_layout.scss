@@ -11,10 +11,10 @@
   @include actionable_core--default();
   
   @include wireframe-grid--default();
-  @include gap--default();
+  @extend %gap--default;
   @include flow_direction--horizontal();
 
-  @include padding--tab_item();
+  @extend %padding--tab_item;
 }
 
 @mixin layout--tab_item_vert() {
@@ -23,7 +23,7 @@
   @include wireframe-grid--default();
   @include flow_direction--vertical();
 
-  @include padding--tab_item();
+  @extend %padding--tab_item;
 }
 
 @mixin layout--fab_min() {
@@ -32,7 +32,7 @@
   @include wireframe-grid--default();
   @include flow_direction--horizontal();
 
-  @include padding--fab_min();
+  @extend %padding--fab_min;
 }
 
 @mixin layout--fab_icon() {
@@ -41,19 +41,19 @@
   @include wireframe-grid--default();
   @include flow_direction--horizontal();
 
-  @include padding--fab_icon();
+  @extend %padding--fab_icon;
 }
 
 @mixin layout--fab() {
   @include actionable_core--default();
   
   @include wireframe-grid--default();
-  @include gap--fab();
+  @extend %gap--fab;
   @include flow_direction--horizontal();
 
-  @include padding--fab();
+  @extend %padding--fab;
   &#{$-entity-icon} {
-    @include margin--fab-icon();
+    @extend %margin--fab-icon;
   }
 }
 
@@ -61,12 +61,12 @@
   @include actionable_core--default();
 
   @include wireframe-grid--default();
-  @include gap--fab();
+  @extend %gap--fab;
   @include flow_direction--horizontal-rev();
 
-  @include padding--fab();
+  @extend %padding--fab;
   &#{$-entity-icon} {
-    @include margin--fab_rev-icon();
+    @extend %margin--fab_rev-icon;
   }
 }
 
@@ -74,19 +74,19 @@
 
   @include actionable_core--default(1.125);
   @include wireframe-grid--default();
-  @include gap--default();
+  @extend %gap--default;
   @include flow_direction--horizontal();
 
-  @include margin--button();
-  @include padding--button();
+  @extend %margin--button;
+  @extend %padding--button;
 
-  @include min-width--button();
+  @extend %min-width--button;
 }
 
 @mixin layout--icon_button() {
-  @include actionable_core--icon_button();
+  @extend %actionable_core--icon_button;
 
   @include wireframe-flex--icon_button();
   @include flow_direction--vertical();
-  @include padding--icon_button();
+  @extend %padding--icon_button;
 }

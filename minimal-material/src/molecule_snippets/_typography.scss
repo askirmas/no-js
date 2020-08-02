@@ -8,117 +8,117 @@
 ;
 
 @mixin typography--headline1() {
-  @include font-weight--light(); 
-  @include font-size--h1();
-  @include line-height--self();
-  @include letter-spacing--h1();
+  @extend %font-weight--light; 
+  @extend %font-size--h1;
+  @extend %line-height--self;
+  @extend %letter-spacing--h1;
   @include margin-block--(1em);
-  @include font-smoothing--typography();
+  @extend %font_smoothing--typography;
 }
 @mixin typography--headline2() {
-  @include font-weight--light(); 
-  @include font-size--h2();
-  @include line-height--self();
-  @include letter-spacing--h2();
+  @extend %font-weight--light; 
+  @extend %font-size--h2;
+  @extend %line-height--self;
+  @extend %letter-spacing--h2;
   @include margin-block--(0.83em);
-  @include font-smoothing--typography();
+  @extend %font_smoothing--typography;
 }
 @mixin typography--headline3() {
-  @include font-weight--regular(); 
-  @include font-size--h3();
-  @include line-height--h3();
-  @include letter-spacing--none();
+  @extend %font-weight--regular; 
+  @extend %font-size--h3;
+  @extend %line-height--h3;
+  @extend %letter-spacing--none;
   @include margin-block--(1em);
-  @include font-smoothing--typography();
+  @extend %font_smoothing--typography;
 }
 @mixin typography--headline4() {
-  @include font-weight--regular(); 
-  @include font-size--h4();
-  @include line-height--h4();
-  @include letter-spacing--body();
+  @extend %font-weight--regular; 
+  @extend %font-size--h4;
+  @extend %line-height--h4;
+  @extend %letter-spacing--body;
   @include margin-block--(1.33em);
-  @include font-smoothing--typography();
+  @extend %font_smoothing--typography;
 }
 @mixin typography--headline5() {
-  @include font-weight--regular(); 
-  @include font-size--h5();
-  @include line-height--double();
-  @include letter-spacing--none();
+  @extend %font-weight--regular; 
+  @extend %font-size--h5;
+  @extend %line-height--double;
+  @extend %letter-spacing--none;
   @include margin-block--(1.67em);
-  @include font-smoothing--typography();
+  @extend %font_smoothing--typography;
 }
 @mixin typography--headline6() {
-  @include font-weight--medium(); 
-  @include font-size--h6();
-  @include line-height--double();
-  @include letter-spacing--body();
+  @extend %font-weight--medium; 
+  @extend %font-size--h6;
+  @extend %line-height--double;
+  @extend %letter-spacing--body;
   @include margin-block--(2.33em);
-  @include font-smoothing--typography();
+  @extend %font_smoothing--typography;
 }
 @mixin typography--subtitle1() {
-  @include font-weight--regular(); 
-  @include font-size--normal();
-  @include line-height--subtitle1();
-  @include letter-spacing--subtitle1();
+  @extend %font-weight--regular; 
+  @extend %font-size--normal;
+  @extend %line-height--subtitle1;
+  @extend %letter-spacing--subtitle1;
   @include margin-block--(2.33em);
-  @include font-smoothing--typography();
+  @extend %font_smoothing--typography;
 }
 @mixin typography--subtitle2() {
-  @include font-weight--medium(); 
-  @include font-size--sub();
-  @include line-height--subtitle2();
-  @include letter-spacing--subtitle2();
+  @extend %font-weight--medium; 
+  @extend %font-size--sub;
+  @extend %line-height--subtitle2;
+  @extend %letter-spacing--subtitle2;
   @include margin-block--(2.33em);
-  @include font-smoothing--typography();
+  @extend %font_smoothing--typography;
 }
 @mixin typography--body1() {
-  @include font-weight--regular(); 
-  @include font-size--normal();
-  @include line-height--body1();
-  @include letter-spacing--body1();
+  @extend %font-weight--regular; 
+  @extend %font-size--normal;
+  @extend %line-height--body1;
+  @extend %letter-spacing--body1;
   @include margin-block--(1em);
-  @include font-smoothing--typography();
+  @extend %font_smoothing--typography;
 }
 @mixin typography--body2() {
-  @include font-weight--regular(); 
-  @include font-size--sub();
-  @include line-height--body2();
-  @include letter-spacing--body();
+  @extend %font-weight--regular; 
+  @extend %font-size--sub;
+  @extend %line-height--body2;
+  @extend %letter-spacing--body;
   @include margin-block--(1em);
-  @include font-smoothing--typography();
+  @extend %font_smoothing--typography;
 }
 /* Icon's 1.5 may be useful */ 
 @mixin typography--button($line: null) {
-  @include font-weight--medium(); 
-  @include font-size--sub();
+  @extend %font-weight--medium; 
+  @extend %font-size--sub;
   @if $line == null {
-    @include line-height--button();
+    @extend %line-height--button;
   } @else {
     @include line-height--($line);
   }
 
-  @include letter-spacing--button();
-  @include text-transform--uppercase();
-  @include font-smoothing--typography();
+  @extend %letter-spacing--button;
+  @extend %text-transform--uppercase;
+  @extend %font_smoothing--typography;
 }
 @mixin typography--caption($line: null) {
-  @include font-weight--regular(); 
-  @include font-size--min();
+  @extend %font-weight--regular; 
+  @extend %font-size--min;
   @if $line == null {
-    @include line-height--body2();
+    @extend %line-height--body2;
   } @else {
     @include line-height--($line);
   }
   
-  @include letter-spacing--caption();
-  @include font-smoothing--typography();
+  @extend %letter-spacing--caption;
+  @extend %font_smoothing--typography;
 }
 @mixin typography--overline() {
-  @include font-weight--medium(); 
-  @include font-size--min();
-  @include line-height--double();
-  @include text-transform--uppercase();
-  @include letter-spacing--overline();
-  @include font-smoothing--typography();
+  @extend %font-weight--medium; 
+  @extend %font-size--min;
+  @extend %line-height--double;
+  @extend %text-transform--uppercase;
+  @extend %letter-spacing--overline;
+  @extend %font_smoothing--typography;
 }
 

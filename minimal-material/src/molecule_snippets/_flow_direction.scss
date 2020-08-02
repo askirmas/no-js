@@ -26,11 +26,11 @@
 }
 
 @mixin flow_order--straight() {
-  &#{$-entity-icon} { @include order--first(); }
-  &#{$-entity-title} { @include order--last(); }
+  &#{$-entity-icon} { @extend %order--first; }
+  &#{$-entity-title} { @extend %order--last; }
 }
 
 @mixin flow_order--reverse() {
-  &#{$-entity-title} { @include order--first(); }
-  &#{$-entity-icon} { @include order--last(); }
+  &#{$-entity-title} { @extend %order--first; }
+  &#{$-entity-icon} { @extend %order--last; }
 }

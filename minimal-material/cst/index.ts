@@ -47,24 +47,20 @@ function main() {
         }
       }
 
+      // TODO with options
       content.push(
-        ...[fullDeclaration, smallDeclaration]
+        ...hasArgs
+        ? [fullDeclaration/*, smallDeclaration*/]
         .map(d => [`@mixin ${d} {`]
-          .concat(
-            hasArgs
-            ? unit
-            : `  @extend %${fullName};`,
-          )
+          .concat(unit)
           .concat('}')
        )
        .flat()
-       .concat(
-        hasArgs ? undefined : [
+       : [
           `@at-root %${fullName} {`,
           ...unit,
           '}'
         ]
-       )
       )
     } 
 

@@ -16,7 +16,7 @@
 }
 @mixin block-fab_icon--enabled() {
   @include layout--fab_icon();
-  @include border-radius--fab();
+  @extend %border-radius--fab;
   &#{$-entity-title} {
     //TODO: @include tooltip();  
     display: none;
@@ -24,7 +24,7 @@
 }
 @mixin block-fab_min--enabled() {
   @include layout--fab_min();
-  @include border-radius--fab();
+  @extend %border-radius--fab;
   &#{$-entity-title} {
     //TODO: @include tooltip();  
     display: none;
@@ -32,17 +32,17 @@
 }
 @mixin block-fab--enabled() {
   @include layout--fab();
-  @include border-radius--fab();
+  @extend %border-radius--fab;
 }
 @mixin block-fab_rev--enabled() {
   @include layout--fab_rev();
-  @include border-radius--fab();
+  @extend %border-radius--fab;
 }
 
 @mixin block-button-base() {
   @include layout--button();
-  @include border-radius--default();
-  @include box-sizing--border();
+  @extend %border-radius--default;
+  @extend %box-sizing--border;
 }
 
 @mixin block-button_text--disabled() {
@@ -52,7 +52,7 @@
 @mixin block-button_outlined--disabled() {
   @include block-button-base();
   @include disable--stroke();
-  @include border-width--exists();
+  @extend %border-width--exists;
 }
 @mixin block-button_unelevated--disabled() {
   @include block-button-base();
@@ -70,7 +70,7 @@
 @mixin block-button_outlined--enabled() {
   @include block-button-base();
   @include colorize-button_outlined(0);
-  @include border-width--exists();
+  @extend %border-width--exists;
 }
 @mixin block-button_unelevated--enabled() {
   @include block-button-base();
@@ -84,12 +84,12 @@
 
 //TODO @mixin block-button_shaped--enabled() {
 //   @include layout--button();
-//   @include border-radius--default();
+//   @extend %border-radius--default;
 // }
 
 @mixin block-icon_button--enabled() {
   @include layout--icon_button();
-  @include border-radius--fab();
+  @extend %border-radius--fab;
   @include colorize-icon_button(0);
   &#{$-entity-title} {
     @include tooltip();

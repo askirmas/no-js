@@ -8,28 +8,29 @@
 , "../atomic_singletons/white-space"
 ;
 
-@mixin material_icon() {
-  @include material_icon_core();
-  @include material_icon_etc();
+@at-root %material_icon {
+  @extend %material_icon_core
+  , %material_icon_etc
+  ;
 }
 
-@mixin material_icon_core() {
-  @include font-family--icon();
-  @include line-height--self();
-  @include font-smoothing--typography();
+@at-root %material_icon_core {
+  @extend %font-family--icon
+  , %line-height--self
+  , %font_smoothing--typography
+  ;
 }
 
-@mixin material_icon_etc() {
+@at-root %material_icon_etc {
   font-style: normal;
-
-  @include letter-spacing--normal();
-  @include text-transform--none();
-
   display: inline-block;
-  @include white-space--no-wrap();
   word-wrap: normal;
   direction: ltr;
 
-  @include font-weight--regular();
-  @include fallback--icon();
+  @extend %letter-spacing--normal
+  , %text-transform--none
+  , %white-space--no-wrap
+  , %font-weight--regular
+  , %fallback--icon
+  ;
 }

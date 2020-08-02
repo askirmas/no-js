@@ -3,7 +3,7 @@
     @import "quark_values/params-source"
     , "../pages/theme"
     , "atomic_singletons/font-family";
-    @include font-family--main();
+    @extend %font-family--main;
   }
 
   .mm_ {    
@@ -51,7 +51,7 @@
         &, &_small {    
           &#{$-entity-icon} {
             @import "../src/molecule_snippets/material_icon";
-            @include material_icon();
+            @extend %material_icon;
           }
         }        
         & {

@@ -3,10 +3,12 @@
 , "../atomic_singletons/cursor"
 ;
 
-@mixin element_reset() {
-  @include margin--none();
-  @include appearence--none();
-  @include cursor--pointer();
+@at-root %element_reset {
+  // TODO split
+  @extend %margin--none
+  , %appearence--none
+  , %cursor--pointer
+  ;
   outline: none;
   box-sizing: content-box;
   border-width: 0;

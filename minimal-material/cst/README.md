@@ -62,3 +62,6 @@ $object-map: ();
 
 ```
 
+### Notes
+
+- `@include` tolerant to delimiter

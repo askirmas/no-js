@@ -5,6 +5,6 @@
 
 @mixin sizing--icon($icon-size: $-icon-size) {
   @include font-size--($icon-size);
-  @include height--one_char();
-  @include width--one_char();
+  @extend %height--one_char;
+  @extend %width--one_char;
 }

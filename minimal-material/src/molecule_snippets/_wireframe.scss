@@ -2,7 +2,7 @@
 
 @mixin wireframe-grid--default() {
   // height: max-content;
-  @include width--one_line;
+  @extend %width--one_line;
   display: inline-grid;
   
   grid-auto: {
@@ -36,5 +36,5 @@
 @mixin wireframe-flex--icon_button() {
   display: flex;
   align-items: center;
-  @include gap--tooltip();
+  @extend %gap--tooltip;
 }

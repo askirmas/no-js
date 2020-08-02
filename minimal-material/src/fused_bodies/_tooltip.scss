@@ -7,8 +7,8 @@
 
 @mixin tooltip() {
   @include colorize-tooltip();
-  @include border-radius--default();
-  @include padding--min();
+  @extend %border-radius--default;
+  @extend %padding--min;
   @include mouse_disable();
-  @include white-space--no-wrap();
+  @extend %white-space--no-wrap;
 }

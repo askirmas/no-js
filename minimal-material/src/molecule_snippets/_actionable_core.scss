@@ -6,24 +6,24 @@
 
 /* todo: remove 2 molecule_snippets */
 @mixin actionable_core--default($icon-size: $-icon-size) {
-  @include element_reset();
+  @extend %element_reset;
   &#{$-entity-title} {
     @include typography--button(1.5);
-    @include height--icon();
+    @extend %height--icon;
   }
   &#{$-entity-icon} {
     @include sizing--icon($icon-size);
-    @include material_icon();
+    @extend %material_icon;
   }
 }
 
-@mixin actionable_core--icon_button() {
+@at-root %actionable_core--icon_button { 
   @include sizing--icon();
-  @include element_reset();
-  @include material_icon_core();
+  @extend %element_reset
+  , %material_icon_core;
 
   &#{$-entity-title} {
-    @include font-family--main(); 
+    @extend %font-family--main; 
     @include typography--caption($-icon-size);
   }
 }

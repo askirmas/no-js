@@ -2,6 +2,6 @@
 , "../atomic_singletons/pointer-events";
 
 @mixin mouse_disable() {
-  @include pointer-events--none();
-  @include cursor--default();
+  @extend %pointer-events--none;
+  @extend %cursor--default;
 }
