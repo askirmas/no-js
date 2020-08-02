@@ -32,6 +32,6 @@ export default function Palette() {
     <div className="alpha colored pressed"></div>
     <div className="alpha surface dragged"></div>
     <div className="alpha colored dragged"></div>
-    <mark><h1>TBD: Selected@surface has 3 different colors</h1></mark>
+    <mark><h1>WTF: Selected@surface has 3 different colors</h1></mark>
   </article>
 }

@@ -1,4 +1,4 @@
-@import "../atomic_singletons/appearence"
+@import "../atomic_singletons/appearance"
 , "../atomic_singletons/margin"
 , "../atomic_singletons/cursor"
 ;
@@ -6,7 +6,7 @@
 @at-root %element_reset {
   // TODO split
   @extend %margin--none
-  , %appearence--none
+  , %appearance--none
   , %cursor--pointer
   ;
   outline: none;

@@ -62,9 +62,9 @@ article.palette {
           @include colorize--main_on_primary_surfaced(var(--overlay_index), $do);
         }
         /*
-        Closest
-        &.checked::after,
-        */
+        WTF? Why not 
+        &.checked::after, 
+        ? */
         &.activated::after {
           @include colorize--primary_on_surface(var(--overlay_index), $do);
         }  
