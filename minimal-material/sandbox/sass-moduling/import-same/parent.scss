@@ -1,0 +1,10 @@
+@use "sass:map";
+@import "./mod", "./mod2";
+
+.coincide {
+  @include module();
+  @extend %template;
+  --function: #{function()};
+  --var: #{map.get($var, "var")};
+}
+

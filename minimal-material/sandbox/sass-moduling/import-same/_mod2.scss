@@ -1,0 +1,18 @@
+@mixin module() {
+  --module: 2;
+  --module2: 2;
+}
+
+@function function() {
+  @return "function 2";
+}
+
+%template {
+  --template: 2;
+  --template2: 2;
+}
+
+$var: (
+  "var": 2,
+  "var2": 2
+);
