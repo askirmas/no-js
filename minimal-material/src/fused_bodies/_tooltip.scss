@@ -1,7 +1,7 @@
 @import "../atomic_singletons/border-radius"
 , "../atomic_singletons/padding"
 , "../atomic_singletons/width"
-, "../atomic_singletons/pointer-events"
+, "../molecule_snippets/mouse_disable"
 , "../molecule_snippets/colorize"
 ;
 
@@ -10,5 +10,5 @@
   @include border-radius--default();
   @include width--one_line(); // TODO or white-space: nowrap;
   @include padding--min();
-  @include pointer-events--none();
+  @include mouse_disable();
 }

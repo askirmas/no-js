@@ -35,10 +35,10 @@ function main() {
         unit.push(sassLine(namespace, quarkValue2string(body)))
       else {
         for (const prop in body) {
-          //TODO
-          const property = prop[0] !== "/"
+          // prefixed case
+          const property = prop[0] === "-" || prop === namespace
           ? prop
-          : `${namespace}-${prop.slice(1)}`
+          : `${namespace}-${prop}`
 
           unit.push(sassLine(property, quarkValue2string(body[prop])))
         }

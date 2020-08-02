@@ -1,0 +1,7 @@
+@import "../atomic_singletons/cursor"
+, "../atomic_singletons/pointer-events";
+
+@mixin mouse_disable() {
+  @include pointer-events--none();
+  @include cursor--default();
+}

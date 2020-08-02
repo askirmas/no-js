@@ -1,14 +1,15 @@
 @import "../atomic_singletons/appearence"
 , "../atomic_singletons/margin"
+, "../atomic_singletons/cursor"
 ;
 
 @mixin element_reset() {
   @include margin--none();
   @include appearence--none();
+  @include cursor--pointer();
   outline: none;
   box-sizing: content-box;
   border-width: 0;
   border-style: solid;
-  cursor: pointer;
   text-decoration: none;
 }
