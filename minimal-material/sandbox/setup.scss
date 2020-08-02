@@ -15,7 +15,7 @@ $post: "/v6/24px.svg";
   align-items: center;
   width: 100%;
   &::after {
-    @include material_icon()
+    @extend %material_icon
   }
 }
 

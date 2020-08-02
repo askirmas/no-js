@@ -1,6 +1,5 @@
 @import "../atomic_singletons/border-radius"
 , "../atomic_singletons/box-sizing"
-, "../atomic_singletons/background-color"
 , "../atomic_singletons/border-width"
 , "../molecule_snippets/visuality"
 , "../fused_bodies/disable"
@@ -65,20 +64,20 @@
 
 @mixin block-button_text--enabled() {
   @include block-button-base();
-  @include colorize-button_outlined(0);
+  @include colorize--primary_on_surface(0);
 }
 @mixin block-button_outlined--enabled() {
   @include block-button-base();
-  @include colorize-button_outlined(0);
+  @include colorize--primary_on_surface(0);
   @extend %border-width--exists;
 }
 @mixin block-button_unelevated--enabled() {
   @include block-button-base();
-  @include colorize-button_filled(0);
+  @include colorize--surface_on_primary(0);
 }
 @mixin block-button_raised--enabled() {
   @include block-button-base();
-  @include colorize-button_filled(0);
+  @include colorize--surface_on_primary(0);
   @include box-shadow--elevation(2);
 }
 
@@ -90,7 +89,7 @@
 @mixin block-icon_button--enabled() {
   @include layout--icon_button();
   @extend %border-radius--fab;
-  @include colorize-icon_button(0);
+  @include colorize--main_on_surface(0);
   &#{$-entity-title} {
     @include tooltip();
     @include visuality--hidden(); 
@@ -102,33 +101,33 @@
 }
 
 @mixin block-icon_button--hovering() {
-  @include colorize-icon_button($-overlay--hover);
+  @include colorize--main_on_surface($-overlay--hover);
   &#{$-entity-title} {
     @include visuality--shown(); 
   }
 }
 
 @mixin block-icon_button--focusing() {
-  @include colorize-icon_button($-overlay--focus);
+  @include colorize--main_on_surface($-overlay--focus);
   // &#{$-entity-title} {
   //   @include visuality--hidden(); 
   // }
 }
 
 @mixin block-icon_button--pressing() {
-  @include colorize-icon_button($-overlay--pressed);
+  @include colorize--main_on_surface($-overlay--pressed-surface);
 }  
 
 
 @mixin block-icon_button--activating() {
-  @include background-color--on_white($-overlay--activated, true);
+  @include colorize--primary_on_surface($-overlay--activated);
 }  
 
 @mixin block-icon_button--selecting() {
-  @include background-color--on_white($-overlay--selected, true);
+  @include colorize--primary_on_surface($-overlay--selected);
 }  
 
 @mixin block-icon_button--dragging() {
-  @include colorize-icon_button($-overlay--dragged);
+  @include colorize--main_on_surface($-overlay--dragged);
 }  
 // on // off // error

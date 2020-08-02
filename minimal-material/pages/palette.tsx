@@ -3,19 +3,19 @@ import "./palette.scss"
 export default function Palette() {
   return <article className="palette">
     <span></span>
-    <div className="white ov_in0"></div>
-    <div className="colored ov_in0"></div>
-    <div className="white ov_in1"></div>
-    <div className="colored ov_in1"></div>
-    <div className="white ov_in3"></div>
-    <div className="colored ov_in3"></div>
-    <div className="white ov_in2 act"></div>
-    <div className="colored ov_in2"></div>
-    <div className="white ov_in3 act"></div>
-    <div className="colored ov_in3"></div>
-    <div className="white ov_in3"></div>
-    <div className="colored ov_in3 act"></div>
-    <div className="white ov_in2"></div>
-    <div className="colored ov_in2"></div>
+    <div className="surface enabled"></div>
+    <div className="colored enabled"></div>
+    <div className="surface hover"></div>
+    <div className="colored hover"></div>
+    <div className="surface focus"></div>
+    <div className="colored focus"></div>
+    <div className="surface selected checked"></div>
+    <div className="colored selected"></div>
+    <div className="surface activated checked"></div>
+    <div className="colored activated"></div>
+    <div className="surface pressed"></div>
+    <div className="colored pressed"></div>
+    <div className="surface dragged"></div>
+    <div className="colored dragged"></div>
   </article>
 }

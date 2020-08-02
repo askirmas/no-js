@@ -8,7 +8,8 @@ $-overlay--selected: 2 !default;
 /** :checked without state icon */
 $-overlay--activated: 3 !default;
 /** :active */
-$-overlay--pressed: 3 !default; // on_color is 4
+$-overlay--pressed-colored: 4 !default;
+$-overlay--pressed-surface: 3 !default;
 /** need custom */
 $-overlay--dragged: 2 !default;
 /** :disabled */

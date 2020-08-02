@@ -6,7 +6,7 @@
 ;
 
 @mixin tooltip() {
-  @include colorize-tooltip();
+  @include colorize--tooltip();
   @extend %border-radius--default;
   @extend %padding--min;
   @include mouse_disable();

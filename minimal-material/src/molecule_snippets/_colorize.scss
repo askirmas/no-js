@@ -6,6 +6,7 @@
   $color: rgb-($main-red, $main-green, $main-blue);
   color: $color;
   border-color: $color;
+// TODO configurable rgb-mix vs rgb-
   background-color: rgb-mix(
     $back-red, $back-green, $back-blue,
     $main-red, $main-green, $main-blue,
@@ -13,7 +14,7 @@
   );
 }
 
-@mixin colorize-disable--fill() {
+@mixin colorize--disable-fill() {
   $color: rgb-mix(
     $-surface-red, $-surface-green, $-surface-blue,
     $-main-red, $-main-green, $-main-blue,
@@ -28,7 +29,7 @@
   );
 } 
 
-@mixin colorize-disable--stroke() {
+@mixin colorize--disable-stroke() {
   $color: rgb-mix(
     $-surface-red, $-surface-green, $-surface-blue,
     $-main-red, $-main-green, $-main-blue,
@@ -42,12 +43,12 @@
 } 
 
 
-@mixin colorize-tooltip() {
+@mixin colorize--tooltip() {
   color: $-tooltip-color;
   background-color: $-tooltip-bgr;
 }
 
-@mixin colorize-icon_button($state) {
+@mixin colorize--main_on_surface($state) {
   @include -colorize-actionable(
     $-main-red,
     $-main-green,
@@ -59,7 +60,7 @@
   );
 }
 
-@mixin colorize-button_outlined($state) {
+@mixin colorize--primary_on_surface($state) {
   @include -colorize-actionable(
     $-primary-red,
     $-primary-green,
@@ -71,7 +72,7 @@
   );
 }
 
-@mixin colorize-button_filled($state) {
+@mixin colorize--surface_on_primary($state) {
   @include -colorize-actionable(
     $-surface-red,
     $-surface-green,
@@ -79,11 +80,11 @@
     $-primary-red,
     $-primary-green,
     $-primary-blue,
-    $state
+    m(2, $state)
   );
 }
 
-@mixin colorize-fab($state) {
+@mixin colorize--surface_on_secondary($state) {
   @include -colorize-actionable(
     $-surface-red,
     $-surface-green,
@@ -91,6 +92,6 @@
     $-secondary-red,
     $-secondary-green,
     $-secondary-blue,
-    $state
+    m(2, $state)
   );
 }

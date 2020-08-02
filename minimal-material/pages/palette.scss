@@ -1,34 +1,36 @@
 article.palette {
   @import "theme"
-  , "../src/atomic_singletons/background-color";
+  , "../src/molecule_snippets/colorize"
+  ;
+
   gap: 0;
   grid-template-columns: 325px 100px 125px 100px;
   grid-template-rows: repeat(7, 100px);
   grid-auto-flow: dense;
 
-  .ov_in {
-    &0 { --overlay_index: #{$-overlay--enabled};}
-    &1 { --overlay_index: #{$-overlay--hover};}
-    &2 { --overlay_index: #{$-overlay--selected};}
-    &3 { --overlay_index: #{$-overlay--focus};}  
+  .enabled { --overlay_index: #{$-overlay--enabled};}
+  .hover { --overlay_index: #{$-overlay--hover};}
+  .focus { --overlay_index: #{$-overlay--focus};}
+  .selected { --overlay_index: #{$-overlay--selected};}
+  .activated { --overlay_index: #{$-overlay--activated};}
+  .pressed {
+    &.colored { --overlay_index: #{$-overlay--pressed-colored};}
+    &.surface { --overlay_index: #{$-overlay--pressed-surface};}  
   }
-  .white {
-    @include background-color--on_surface(var(--overlay_index));      
-    &.act {
-      @include background-color--on_surface(var(--overlay_index), true);      
+  .dragged { --overlay_index: #{$-overlay--dragged};}
+  // .disabled { --overlay_index: #{$-overlay--disabled};}
+
+  .surface {
+    @include colorize--main_on_surface(var(--overlay_index));
+    &.checked {
+      @include colorize--primary_on_surface(var(--overlay_index));
     }  
   }
   .colored {
-    @include background-color--on_color(var(--overlay_index));
-    &.ov_in0 {
-      @include background-color--on_color();
-    }
-    &.act {
-      @include background-color--on_color($-overlay--activated, true);
-    } 
+    @include colorize--surface_on_primary(var(--overlay_index));
   }
 
-  .white {
+  .surface {
     grid-column: 2;
     z-index: 1;
   }

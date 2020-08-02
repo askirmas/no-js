@@ -1,14 +1,12 @@
 @import "../src/const_numbers/overlays"
-, "../src/quark_values/state_color"
 ;
 
 $-unit: 1rem !default;
 
-$-hue: 265;
-$-saturation: 1;
-$-light: 0.47;
-
-$-magic-saturation: 0.87;
+// $-hue: 265;
+// $-saturation: 1;
+// $-light: 0.47;
+// $-magic-saturation: 0.87;
 // $secondary-hue: 180;
 // $secondary-saturation: 0.99;
 // $secondary-light: 0.27;
@@ -25,7 +23,6 @@ $-surface-blue: 255;
 $-main-red: 0;
 $-main-green: 0;
 $-main-blue: 0;
-
 
 $-step: 0.04;
 $-icon-size: 1.5;
@@ -45,7 +42,7 @@ $-elevation-opacity-2: 0.14 !default;
 $-elevation-opacity-3: $-elevation-opacity-2 - $-elevation-opacity-1 !default;
 
 $-bgr: on_color($-overlay--hover);
-$-ripple-bgr-color: on_color($-overlay--activated, true);;
+$-ripple-bgr-color: on_color($-overlay--activated, true);
 
 //TODO White with opacity?
 $-ripple-bgr-back: transparent !default;
@@ -61,15 +58,14 @@ $-weight-light: 300 !default;
 $-weight-regular: 400 !default;
 $-weight-medium: 500 !default;
 
+$-opacity-disabler: 0.38;
+
 $-tooltip-color: white !default;
 // $tooltip-bgr: hsl(198, 20%, 17%);
-$-tooltip-bgr: hsla(0, 0%, 38%, 0.9) !default; // TODO 38 - like $-opacity-disabler?
+$-tooltip-bgr: hsla(0, 0%, 100% * $-opacity-disabler, 0.9) !default;
 
 $-order-first: 1;
 $-order-last: 3;
 
-$-opacity-disabler: 0.38;
-
 $-font-family--main: "Roboto, sans_serif";
 $-font-family--icon: "'Material Icons'";
-

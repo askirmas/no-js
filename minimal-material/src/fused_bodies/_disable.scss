@@ -3,13 +3,13 @@
 @import "../molecule_snippets/colorize";
 
 @mixin disable--fill() {
-  @include colorize-disable--fill();
+  @include colorize--disable-fill();
   @include mouse_disable();
   @include box-shadow--elevation(0);
 }
 
 @mixin disable--stroke() {
-  @include colorize-disable--stroke();
+  @include colorize--disable-stroke();
   @include mouse_disable();
   @include box-shadow--elevation(0);
 }

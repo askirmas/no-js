@@ -49,18 +49,22 @@
  
 /// Expression on 1 operator and any count of members
 @function es($operator, $members...) {
-  $number: 1;
+  $number: null;
   $string: null;
 
   @each $member in $members {
     @if type-of($member) == number {
-      $number: e($number, $operator, $member);
+      $number: if(
+        $number == null,
+        $member,
+        e($number, $operator, $member)
+      );
     } @else {
-      @if $string == null {
-        $string: $member;
-      } @else {
-        $string: e($number, $operator, $member);
-      }
+      $string: if(
+        $string == null,
+        $member,
+        e($string, $operator, $member)
+      );
     }
   } 
 
@@ -91,7 +95,7 @@
   }
 }
 
-@function rgb-($red, $green, $blue, $opacity: null) {
+@function rgb-($red, $green, $blue, $opacity: 1) {
   @if $opacity == 0 {
     @return transparent;
   }
@@ -99,7 +103,7 @@
   $r: c($red);
   $g: c($green);
   $b: c($blue);
-  @if $opacity == null {
+  @if $opacity == 1 {
     @return rgb($r, $g, $b);  
   } @else {
     @return rgba($r, $g, $b,
@@ -115,9 +119,18 @@
 ) {
   // $g2 * $m + $g1 - $g1* $m,
   // $m * ($b2 - $b1) + $b1 => s(m($m, e($b2, "-", $b1)), $b1)
-  @return rgb-(
-    s(m($m, e($r2, "-", $r1)), $r1),
-    s(m($m, e($g2, "-", $g1)), $g1),
-    s(m($m, e($b2, "-", $b1)), $b1)
-  );
+
+  $r: s(m($m, e($r2, "-", $r1)), $r1);
+  $g: s(m($m, e($g2, "-", $g1)), $g1);
+  $b: s(m($m, e($b2, "-", $b1)), $b1);
+
+  @if $r == 101 {
+    @debug "rs" $r1 $r2;
+    @debug "e" e($r2, "-", $r1);
+    @debug "m" m($m, e($r2, "-", $r1));
+    @debug "s" s(m($m, e($r2, "-", $r1)), $r1);
+  }
+
+  @return rgb-($r,$g,$b);
 }
+
