@@ -1,6 +1,6 @@
 @import "../atomic_singletons/border-radius"
 , "../atomic_singletons/padding"
-, "../atomic_singletons/width"
+, "../atomic_singletons/white-space"
 , "../molecule_snippets/mouse_disable"
 , "../molecule_snippets/colorize"
 ;
@@ -8,7 +8,7 @@
 @mixin tooltip() {
   @include colorize-tooltip();
   @include border-radius--default();
-  @include width--one_line(); // TODO or white-space: nowrap;
   @include padding--min();
   @include mouse_disable();
+  @include white-space--no-wrap();
 }

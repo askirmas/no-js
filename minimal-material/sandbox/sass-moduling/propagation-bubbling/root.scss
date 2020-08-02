@@ -1,0 +1,19 @@
+@use "./use";
+
+$local: 0;
+$global: 0 !global;
+$default: 0 !default;
+
+.before {
+  --local: #{$local};
+  --global: #{$global};
+  --default: #{$default};
+}
+
+@import "./import";
+
+.after {
+  --local: #{$local};
+  --global: #{$global};
+  --default: #{$default};
+}

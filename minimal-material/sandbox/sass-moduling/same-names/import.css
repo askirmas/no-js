@@ -9,8 +9,8 @@
 }
 
 .coincide {
-  --module: 2;
-  --module2: 2;
+  --mixin: 2;
+  --mixin: 2;
   --function: function 2;
   --var: 2;
 }

@@ -1,0 +1,22 @@
+.coincide {
+  --template: 1;
+  --template1: 1;
+}
+
+.coincide {
+  --template: 2;
+  --template2: 2;
+}
+
+.scoped_mod {
+  --mixin: 1;
+  --mixin: 1;
+  --var: 1;
+  --function: function 1;
+}
+.scoped_mod2 {
+  --mixin: 2;
+  --mixin: 2;
+  --var: 2;
+  --function: function 2;
+}

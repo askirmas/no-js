@@ -14,7 +14,6 @@
     content: center;
   }
   justify: {
-    items: center;  // optional
     content: center;
   }
 }
@@ -36,8 +35,6 @@
 
 @mixin wireframe-flex--icon_button() {
   display: flex;
-  justify-items: center;
   align-items: center;
-  gap: u(2);
   @include gap--tooltip();
 }

@@ -1,0 +1,38 @@
+.import__scoped--after, .import__scoped--before, .import__changed, .import__default {
+  --template: 1;
+}
+
+.import__default {
+  --mixin: 1;
+  --function: 1;
+  --var: 1;
+}
+.import__changed {
+  --mixin: 2;
+  --function: 2;
+  --var: 1;
+}
+.import__scoped--before {
+  --mixin: 3;
+  --function: 3;
+  --var: 2;
+}
+.import__scoped--after, .import__scoped--before, .import__default, .import__changed {
+  --template: 2;
+}
+
+.import__scoped--before {
+  --property: 1;
+}
+.import__scoped--after {
+  --mixin: 4;
+  --function: 4;
+  --var: 4;
+}
+.import__scoped--after, .import__default, .import__changed, .import__scoped--before {
+  --template: 4;
+}
+
+.import__scoped--after {
+  --property: 4;
+}

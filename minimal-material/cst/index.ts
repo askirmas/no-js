@@ -48,23 +48,24 @@ function main() {
       }
 
       content.push(
-        `@mixin ${fullDeclaration} {`,
-        ...unit,
-        '}'
-      ) 
-
-      content.push(
-        `@mixin ${smallDeclaration} {`,
-        ...unit,
-        '}'
-      ) 
-
-      if (!hasArgs)
-        content.push(
-          `%${fullName} {`,
+        ...[fullDeclaration, smallDeclaration]
+        .map(d => [`@mixin ${d} {`]
+          .concat(
+            hasArgs
+            ? unit
+            : `  @extend %${fullName};`,
+          )
+          .concat('}')
+       )
+       .flat()
+       .concat(
+        hasArgs ? undefined : [
+          `@at-root %${fullName} {`,
           ...unit,
           '}'
-        )
+        ]
+       )
+      )
     } 
 
     // TODO add JSchema self-validation

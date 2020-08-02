@@ -1,0 +1,11 @@
+.before {
+  --local: 0;
+  --global: 0;
+  --default: 0;
+}
+
+.after {
+  --local: 1;
+  --global: 1;
+  --default: 0;
+}

@@ -1,0 +1,21 @@
+$module: 1 !default;
+$function: 1 !default;
+$template: 1 !default;
+$val: 1 !default;
+$property: 1 !default;
+
+@mixin mixin() {
+  --mixin: #{$module};
+}
+
+@function function() {
+  @return #{$function};
+}
+
+@at-root %template {
+  --template: #{$template};
+}
+
+$var: (
+  "var": #{$val}
+);

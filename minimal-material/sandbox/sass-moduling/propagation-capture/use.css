@@ -1,0 +1,24 @@
+.use__default, .use__changed, .use__scoped--before, .use__scoped--after {
+  --template: 1;
+}
+
+.use__default {
+  --mixin: 1;
+  --function: 1;
+  --var: 1;
+}
+.use__changed {
+  --mixin: 2;
+  --function: 2;
+  --var: 1;
+}
+.use__scoped--before {
+  --mixin: 2;
+  --function: 2;
+  --var: 1;
+}
+.use__scoped--after {
+  --mixin: 4;
+  --function: 4;
+  --var: 1;
+}

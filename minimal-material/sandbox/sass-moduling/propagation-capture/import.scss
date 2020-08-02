@@ -1,0 +1,57 @@
+@use "sass:map";
+@import "./module";
+
+.import__ {
+
+  &default {
+    @include mixin();
+    @extend %template;
+    --function: #{function()};
+    --var: #{map.get($var, "var")};      
+  }
+
+  $module: 2 !global;
+  $function: 2 !global;
+  $template: 2 !global;
+  $val: 2 !global;
+
+  &changed {
+    @include mixin();
+    @extend %template;
+    --function: #{function()};
+    --var: #{map.get($var, "var")};      
+  }
+
+  &scoped {
+    &--before {
+      @import "./module", "./body";
+
+      $module: 3;
+      $function: 3;
+      $template: 3;
+      $val: 3;
+      $property: 3;
+
+    
+      @include mixin();
+      @extend %template;
+      --function: #{function()};
+      --var: #{map.get($var, "var")};        
+    }
+    &--after {
+      $module: 4;
+      $function: 4;
+      $template: 4;
+      $val: 4;
+      $property: 4;
+
+      @import "./module", "./body";
+
+    
+      @include mixin();
+      @extend %template;
+      --function: #{function()};
+      --var: #{map.get($var, "var")};        
+    }
+  }
+}

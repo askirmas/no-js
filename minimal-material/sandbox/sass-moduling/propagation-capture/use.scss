@@ -1,0 +1,50 @@
+@use "sass:map";
+@use "./module";
+
+.use__ {
+
+  &default {
+    @include module.mixin();
+    @extend %template;
+    --function: #{module.function()};
+    --var: #{map.get(module.$var, "var")};      
+  }
+
+  module.$module: 2;
+  module.$function: 2;
+  module.$template: 2;
+  module.$val: 2;
+
+  &changed {
+    @include module.mixin();
+    @extend %template;
+    --function: #{module.function()};
+    --var: #{map.get(module.$var, "var")};      
+  }
+
+  &scoped {
+    &--before {
+      @include module.mixin();
+      @extend %template;
+      --function: #{module.function()};
+      --var: #{map.get(module.$var, "var")};        
+
+      module.$module: 3;
+      module.$function: 3;
+      module.$template: 3;
+      module.$val: 3;
+    
+    }
+    &--after {
+      module.$module: 4;
+      module.$function: 4;
+      module.$template: 4;
+      module.$val: 4;
+
+      @include module.mixin();
+      @extend %template;
+      --function: #{module.function()};
+      --var: #{map.get(module.$var, "var")};        
+    }
+  }
+}
