@@ -13,59 +13,53 @@ article.icon_button {
   , "../src/state_modifier_declarations/actionable"
   ;
   
-  &icon_button {
-    &, &_toggler,
-    &_ {
+  &icon_ {
+    &button, &stater {
       @include block-icon_button--enabled();
+      &:hover {
+        @include block-icon_button--hovering();      
+      }
+      // &:focus-within,
+      &:focus {
+        @include block-icon_button--focusing();
+      }
+  
+      &:active {
+        @include block-icon_button--pressing();
+        //TODO add ripple
+      }
+  
+      &[data-state-dragging] {
+        @include block-icon_button--dragging();
+      }
+  
+      // animation
+      &:not(.no-animation) {
+        &:hover/*:not(:active)*/ {
+          &#{$-entity-title} {
+            @include tooltip_animation--on()
+          }
+        }
+        // &:active, 
+        & {
+          &#{$-entity-title} {
+            @include tooltip_animation--off();
+          }
+        }
+        // &:active {
+        //   animation-delay: 0s;
+        // }  
+      }
     }
 
-    &:disabled, &_toggler:disabled,
-    &[data-state=":disabled"], &_[data-state=":disabled"] {
-      @include block-icon_button--disabling();
-    }
-
-    &:hover, &_toggler:hover,
-    &_[data-state=":hover"] {
-      @include block-icon_button--hovering();      
-    }
-    &:focus, &_toggler:focus,
-    &:focus-within, &_toggler:focus-within,
-    &_[data-state=":focus"] {
-      @include block-icon_button--focusing();
-    }
-    &:checked, &_[data-state=":checked"] {
+    &stater:checked {
       @include block-icon_button--activating();
     }  
-
-    &_[data-state="selected"] {
-      @include block-icon_button--selecting();
-    }
-
-    &:active, &_toggler:active,
-    &_[data-state=":active"] {
-      @include block-icon_button--pressing();
-    }
-
-    &_[data-state="dragging"] {
-      @include block-icon_button--dragging();
-    }
-
-
-    &, &_toggler {
-      // animation
-      &#{$-entity-title} {
-        &/*, &:active*/ {
-          @include tooltip_animation--off();
-        }
+    &button, &stater {
+      &:disabled, &[data-state-disabled] {
+        @include block-icon_button--disabling();
       }
-      &:hover/*:not(:active)*/ {
-        &#{$-entity-title} {
-          @include tooltip_animation--on()
-        }
-      }
-      &:active {
-        //TODO add ripple
-      }  
     }
+
   }
 }

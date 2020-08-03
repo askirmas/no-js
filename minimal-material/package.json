@@ -10,7 +10,7 @@
     "test/vis": "npm run test/vis/ -- $@",
     "test/vis/": "npm run firefox -- $@",
     "posttest/sass": "find . -iname '*._test_.css' | xargs -d'\\n' rm",
-    "pretest/vis": "npm run cst && next build && next export",
+    "pretest/vis": "npm run cst && next build && next export && ./adopt-styles.sh",
     "posttest/vis": "find ./cypress/integration/__image_snapshots__/* -type d | xargs -d'\\n' rm -rf && exit 0 nyc",
     "firefox": "cy_png && npm run cy --run=firefox -- $@",
     "chrome": "cy_png && npm run cy --run=chrome -- $@",

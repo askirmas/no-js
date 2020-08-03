@@ -17,7 +17,7 @@ function FieldSet({children, legend, ...props}: Props) {
 
 
 function Figure({
-  caption, children, "data-cy": cy
+  caption="", children, "data-cy": cy
 }: PropsWithChildren<Partial<{
   "caption": string
   "data-cy": string
@@ -25,9 +25,9 @@ function Figure({
 ) {
   return <figure data-cy={cy}>{
     children
-  }{
-    caption && <figcaption>{caption}</figcaption>
-  }</figure>
+  }
+    <figcaption>{caption}</figcaption>
+  </figure>
 }
 
 function A({content}: {content: string}) {

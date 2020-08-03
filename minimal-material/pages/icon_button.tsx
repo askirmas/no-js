@@ -1,12 +1,13 @@
-import {Mdc, MdcIconButton, state, mm } from "../Elements"
+import {Mdc, MdcIconButton,  mm } from "../Elements"
 import { Figure, A } from "../Components"
 import content from "../utils/contents"
 
 import "./icon_button.scss"
-
-const statelessIcon = `${mm.icon.Button}_` 
+import { useStyleAdoptation, states } from '../utils/ui'
 
 export default function Icon() {
+  useStyleAdoptation()
+  
   return  <article className="icon_button">
 
     <A content="MDC"/>
@@ -20,7 +21,7 @@ export default function Icon() {
     </Figure>
 
     <Figure caption="Hover">
-      <MdcIconButton icon="wifi" data-cy="wifi hover" {...state("hover")}/>
+      <MdcIconButton icon="wifi" data-cy="wifi hover" {...states("hover")}/>
     </Figure>
 
     <Figure caption="Focus">
@@ -32,7 +33,7 @@ export default function Icon() {
     </Figure>
 
     <Figure caption="Pressed and hover">
-      <MdcIconButton icon="wifi" className={Mdc.ripple.activating} data-cy="wifi pressed-hover" {...state("hover")}/>
+      <MdcIconButton icon="wifi" className={Mdc.ripple.activating} data-cy="wifi pressed-hover" {...states("hover")}/>
     </Figure>
 
     <Figure caption="Pressed">
@@ -54,12 +55,12 @@ export default function Icon() {
     <A content="MM state modifiers"/>
 
     <Figure caption="Disabled">
-      <div className={statelessIcon} data-cy="wifi disabled" {...content("wifi", "icon")} {...state("disabled")}></div>
+      <div className={mm.icon.Button} data-cy="wifi disabled" {...content("wifi", "icon")} {...states("disabled")}></div>
     </Figure>
 
     <Figure caption="Enabled">
       <div {...{
-        "className": statelessIcon,
+        "className": mm.icon.Button,
         ...content("wifi", "icon"),
         "data-cy": "wifi"
       }}></div>
@@ -67,64 +68,57 @@ export default function Icon() {
     <Figure caption="button Hover">
       <button {...{
         "data-cy": "wifi hover",
-        "className": statelessIcon,
+        "className": mm.icon.Button,
         ...content("wifi", "icon"),
-        ...state("hover") 
+        ...states("hover") 
       }}></button>
     </Figure>
     <Figure caption="in-but Focus">
       <input {...{
         "type": "button",
         "data-cy": "wifi focus",
-        "className": statelessIcon,
+        "className": mm.icon.Button,
         ...content("wifi", "icon"),
         "value": "wifi",
-        ...state("focus") 
+        ...states("focus") 
       }}/>
     </Figure>
     <Figure caption="input Pressed">
       <input {...{
         "type": "submit",
-        "className": statelessIcon,
+        "className": mm.icon.Button,
         ...content("wifi", "icon"),
         "value": "wifi",
         "data-cy": "wifi pressed",
-        ...state("pressed") 
+        ...states("pressed") 
       }}/>
     </Figure>
 
     <Figure caption="Dragging">
       <a {...{
         "href": "#",
-        "className": statelessIcon,
+        "className": mm.icon.Button,
         ...content("wifi", "icon"),
         "data-cy": "wifi dragging",
-        ...state("dragging") 
+        ...states("dragging") 
       }}/>
     </Figure>
 
     <Figure caption="Activated">
-      <div {...{
+      <input {...{
+        "type": "checkbox",
+        "checked": true,
         "data-cy": "wifi activated",
-        "className": statelessIcon,
+        "className": mm.icon.Stater,
         ...content("wifi", "icon"),
-        ...state("activated")
-      }}></div>
-    </Figure>
-
-    <Figure caption="Selected">
-      <div {...{
-        "data-cy": "wifi selected",
-        "className": statelessIcon,
-        ...content("wifi", "icon"),
-        ...state("selected")
-      }}></div>
+        ...states("activated")
+      }}/>
     </Figure>
 
     <Figure caption="checkbox Off">
       <input {...{
         "type": "checkbox",
-        "className": statelessIcon,
+        "className": mm.icon.Button,
         ...content("favorite", "button"),
         "data-cy": "favorite_border"
       }}/>
@@ -134,7 +128,7 @@ export default function Icon() {
       <input {...{
         "type": "checkbox",
         "checked": true,
-        "className": statelessIcon,
+        "className": mm.icon.Button,
         "data-cy": "favorite_border on",
         ...content("favorite", "button")
       }}/>
@@ -144,9 +138,9 @@ export default function Icon() {
       <input {...{
         "type": "checkbox",
         "checked": true,
-        "className": statelessIcon,
+        "className": `${mm.icon.Button} no-animation`,
         ...content("bookmark", "toggler"),
-        ...state("hover")
+        ...states("hover")
       }}/>
     </Figure>
 
@@ -164,7 +158,7 @@ export default function Icon() {
     <Figure caption="">
       <input {...{
         "type": "checkbox",
-        "className": mm.icon.Toggler,
+        "className": mm.icon.Stater,
         ...content("favorite", "button")
         // "data-cy": "favorite_button"
       }}/>

@@ -168,10 +168,6 @@
   @include colorize--primary_on_surface($-overlay--activated);
 }  
 
-@mixin block-icon_button--selecting() {
-  @include colorize--primary_on_surface($-overlay--selected);
-}  
-
 @mixin block-icon_button--dragging() {
   @include colorize--main_on_surface($-overlay--dragged);
 }  

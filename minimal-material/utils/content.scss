@@ -7,7 +7,7 @@
 }
 
 [data-content="favorite_button"] {
-  @include content("favorite_border", "Like", "favorite", false); 
+  @include content("favorite_border", "Like", "favorite"); 
 }
 
 [data-content="bookmark_toggler"] {

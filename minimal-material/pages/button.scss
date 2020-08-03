@@ -5,14 +5,10 @@ article.button {
     , "../src/state_modifier_declarations/actionable"
     ;    
 
-    @function disable($context) {
-      @return "#{&}:disabled, #{&}[data-state=':disabled']";
-    }
-    
     &button {
       &_text {
         @include block-button_text--enabled();
-        @at-root #{disable(&)} {
+        &:disabled {
           @include block-button_text--disabled();
         }
         &:focus {
@@ -27,7 +23,7 @@ article.button {
       }
       &_unelevated {
         @include block-button_unelevated--enabled();
-        @at-root #{disable(&)} {
+        &:disabled {
           @include block-button_unelevated--disabled();
         } 
         &:focus {
@@ -42,7 +38,7 @@ article.button {
       }
       &_outlined {
         @include block-button_outlined--enabled();
-        @at-root #{disable(&)} {
+        &:disabled {
           @include block-button_outlined--disabled();
         } 
         &:focus {
@@ -57,7 +53,7 @@ article.button {
       }
       &_raised {
         @include block-button_raised--enabled();
-        @at-root #{disable(&)} {
+        &:disabled {
           @include block-button_raised--disabled();
         }
         &:focus {

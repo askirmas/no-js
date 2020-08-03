@@ -1,17 +1,21 @@
 import {Fragment} from 'react'
-import {mm, Mdc, MdcButton, tMdcButtonProps, state} from "../Elements"
+import {mm, Mdc, MdcButton, tMdcButtonProps} from "../Elements"
 import content from "../utils/contents"
 import "./button.scss"
 
+//TODO from ts-swiss
 import {gEntry} from "../utils/ts"
+import { useStyleAdoptation, states } from '../utils/ui'
+
+const kindTitle: Record<tMdcButtonProps["Kind"], string> = {
+  "Text": "Text Button",
+  "Raised": "Raised Button",
+  "Unelevated": "Unelevated Button",
+  "Outlined": "Outlined Button"
+}
 
 export default function Buttons() {
-  const kindTitle: Record<tMdcButtonProps["Kind"], string> = {
-    "Text": "Text Button",
-    "Raised": "Raised Button",
-    "Unelevated": "Unelevated Button",
-    "Outlined": "Outlined Button"
-  }
+  useStyleAdoptation()
 
   return <article className="button">
     <section>
@@ -22,14 +26,15 @@ export default function Buttons() {
             <h3 className={Mdc.typography.Subtitle1}>{title}</h3>
             <MdcButton {...{Kind}} label="Default"/>
             <MdcButton {...{Kind}} label="Dense" dense={true}/>
-            <MdcButton {...{Kind}} label="Icon" icon="favorite"/>
             <MdcButton {...{Kind}} label="Icon" icon="favorite" disabled={true}/>
+            <MdcButton {...{Kind}} label="Icon" icon="favorite"/>
+            <MdcButton {...{Kind}} label="Icon" icon="favorite" {...states("pressed")}/>
           </div>
           <div>
-            <div className={mm.button[Kind]} {...state("disabled")} {...content("favorite", "button")} tabIndex={1}/>
-            <button className={mm.button[Kind]} disabled={true} {...content("favorite", "button")} tabIndex={1}/>
-            <input type="button" value={"default"} className={mm.button[Kind]} tabIndex={1}/>
-            <div className={mm.button[Kind]} {...content("default", "button")} tabIndex={1}/>
+            <div className={mm.button[Kind]} {...states("disabled")} {...content("favorite", "button")} tabIndex={0}/>
+            <button className={mm.button[Kind]} disabled={true} {...content("favorite", "button")} tabIndex={0}/>
+            <input type="button" value={"default"} className={mm.button[Kind]} tabIndex={0}/>
+            <a href="#" className={mm.button[Kind]} {...content("default", "button")} tabIndex={0}/>
           </div>
         </Fragment>)
       }

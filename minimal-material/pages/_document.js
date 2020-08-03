@@ -7,12 +7,10 @@ import Document, {
 /* import styles in _app, not in doc https://github.com/zeit/next-plugins/issues/282#issuecomment-436661879 */
 
 export default class extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx)
-
-    return {...initialProps}
-  }
-
+  // static async getInitialProps(ctx) {
+  //   const initialProps = await Document.getInitialProps(ctx)
+  //   return {...initialProps}
+  // }
   // eslint-disable-next-line class-methods-use-this
   render() {
     return <Html>

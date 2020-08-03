@@ -1,0 +1,6 @@
+button, button:hover, button:active {
+  display: none;
+}
+button:focus {
+  display: none;
+}

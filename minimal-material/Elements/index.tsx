@@ -1,22 +1,14 @@
 import {ButtonHTMLAttributes, CSSProperties} from "react"
 
-const mdcPrefix = 'mdc-'
-, myPrefix = 'mm0_'
+const mdcPrefix = "mdc-"
+, myPrefix = "mm0_"
 , mdcRippleStyle =             {
   "--mdc-ripple-fg-size": "28px",
   "--mdc-ripple-fg-scale": "1.71429",
   "--mdc-ripple-left": "10px",
   "--mdc-ripple-top": "10px",
 } as CSSProperties
-, states = {
-  "disabled": ":disabled",
-  "focus": ":focus",
-  "pressed": ":active",
-  "activated": ":checked",
-  "selected": "selected",
-  "dragging": "dragging",  
-  "hover": ':hover'
-}
+
 , mdc = {
   "icon": "material-icons",
   "ripple": `${mdcPrefix}ripple-upgraded`,
@@ -56,7 +48,7 @@ const mdcPrefix = 'mdc-'
   },
   "icon": {
     "Button": `${myTerms.icon}_button`,
-    "Toggler": `${myTerms.icon}_button_toggler`
+    "Stater": `${myTerms.icon}_stater`
   }
 }
 
@@ -78,7 +70,7 @@ type tMdcIconButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 >
 
 export {
-  mm, myTerms, state,
+  mm, myTerms,
   Mdc,
   MdcButton, MdcIconButton,
 }
@@ -98,7 +90,7 @@ function MdcButton({
       className,
       Mdc.button[Kind],
       dense && `${mdc.button}--dense`,
-    ].filter(Boolean).join(' '),
+    ].filter(Boolean).join(" "),
     ...etc
   }}>
     <span className={`${mdc.button}__ripple`}></span>
@@ -127,7 +119,7 @@ function MdcIconButton({
         !iconOn && mdc.icon,
         checked && `${mdc.iconButton}${mod_on}`,
         
-    ].filter(Boolean).join(' '),
+    ].filter(Boolean).join(" "),
     "style": mdcRippleStyle,
     ...etc
   }}>{
@@ -138,10 +130,4 @@ function MdcIconButton({
       <i className={mdcIconButton_Icon_base}>{icon}</i>
     </>
   }</button>
-}
-
-function state(s: keyof typeof states) {
-  return {
-    "data-state": states[s]
-  }
 }

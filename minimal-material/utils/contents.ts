@@ -1,16 +1,15 @@
-const contentPrefix = "content_"
-, contentData = {
+const contentData = {
   "favorite": {
-    "button": `${contentPrefix}favorite_button`,
+    "button": null
   },
   "default": {
-    "button": `${contentPrefix}default_button`,
+    "button": null,
   },
   "wifi": {
-    "icon": `${contentPrefix}wifi_icon`
+    "icon": null
   },
   "bookmark": {
-    "toggler": `${contentPrefix}bookmark_toggler`
+    "toggler": null
   }  
 }
 
