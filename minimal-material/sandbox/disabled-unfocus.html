@@ -1,0 +1,25 @@
+<button></button>
+<button class="disabled"></button>
+<button></button>
+<style>
+button::before {
+  content: "button";
+}
+button:active {
+  background-color: red;
+}
+/* `user-modify` has bad support*/
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  /* FF: any of these*/
+  /* -moz-user-focus: ignore;
+  -moz-user-focus: none; */
+  -moz-user-input: none;
+}
+.disabled:focus {
+  /*Chrome: any of these*/
+  display: none; /*chrome+ ff-
+  /*visibility: hidden;  /*chrome+ ff- */
+}
+</style>
