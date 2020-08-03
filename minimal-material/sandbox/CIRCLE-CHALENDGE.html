@@ -1,0 +1,84 @@
+<ol start=0>
+<li class="w0 h0 border-radius border"></li>
+<li class="border-radius background-color"></li>
+<li class="border-radius box-shadow"></li>
+<li class="background-image"></li>
+<li class="clip-path background-color"></li>
+<li class="h0 w0 clip-path outline"></li>
+<li class="content"></li>
+<li class="list-style-type"></li>
+<li><hr/>Total</li>
+<p>Bonus:</p>
+<input class="bonus" type="password" value=" ">
+</ol>
+<style>
+ol {
+  list-style-position: outside;
+  display: inline-grid;
+  grid-auto-rows: max-content;
+}
+li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 1em;
+  height: 1em;
+}
+.w0 {
+  width: 0;
+}
+.h0 {
+  height: 0;
+}
+
+.border-radius {
+  border-radius: 50%;
+}
+.border {
+  border: 0.5em solid currentColor;
+}
+.background-color {
+  background-color: currentColor
+}
+.box-shadow {
+  box-shadow: inset 0 0 0 0.5em currentColor;
+}
+.background-image {
+  background-image: radial-gradient(
+    circle at center,
+    currentColor 70.7%,
+    transparent 70.7%
+  );
+}
+.clip-path {
+  clip-path: circle(0.5em at center);  
+}
+.outline {
+  outline: solid 0.5em currentColor;
+}
+.content::before {
+  content: "\2B24";
+}
+.list-style-type {
+  list-style-type: "\2B24";
+}
+.bonus {
+  margin-top: -0.5em;
+  margin-right: -2px;
+  margin-bottom: 1em;
+  margin-left: -2px;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  transform-origin: left;
+  transform: scale(5);
+  width: 0.34em;
+  height: 0.345em;
+  border: none;
+  padding: 0;
+}
+</style>
+<style>
+:root, input {
+  color: hsla(265, 100%, 10%, 0.9);
+}
+</style>
