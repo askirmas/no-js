@@ -1,0 +1,87 @@
+<div class="content1 vertical"></div>
+<input class="content1 vertical" type="button">
+<div class="content1 vert-rev"></div>
+<input class="content1 vert-rev" type="button">
+
+<div class="content2 vertical"></div>
+<input class="content2 vertical" type="button">
+<div class="content2 vert-rev"></div>
+<input class="content2 vert-rev" type="button">
+
+<style>
+:root {
+  font-family: 'Roboto';
+}
+div, input {
+  font-size: 32px; 
+  max-width: min-content;
+  white-space: break-spaces;
+
+  text-align: center;
+
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.vertical {
+}
+
+.horizontal {
+}
+
+input {
+  background-color: rgba(0, 0, 255, 0.4);
+}
+
+div::first-line, input::first-line {
+  font-weight: bolder;
+  background-color: rgba(255, 0, 0, 0.4);
+}
+div::first-letter, input::first-letter {
+  background-color: rgba(0, 255, 0, 0.4);
+}
+
+.vert-rev,
+.vertical::first-line, .vertical::first-line {
+  font-family: 'Material Icons';
+}
+.vertical,
+.vert-rev::first-line, .vert-rev::first-line {
+  font-family: Roboto;
+}
+
+</style>
+<script>
+const icon = "\ue87e"
+, content = "\ue87e default"
+, contentRev = "default \ue87e"
+, content2 = "favorite_border d"
+, content2Rev = "d favorite_border"
+
+document.querySelectorAll('input, div')
+.forEach(el => {
+  const {classList, tagName} = el
+  , property = tagName === "INPUT" ? "value" : "innerHTML"
+  , isC1 = classList.contains('content1')
+  , isRev = +classList.contains('vert-rev')
+
+  el[property] = (
+    isC1
+    ? [content, contentRev]
+    : [content2, content2Rev]
+  )[isRev]
+})
+
+</script>
+
+<style data-title="fonts">
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i');  
+  @font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  /* src: url(../flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2'); */
+  src: url(https://fonts.gstatic.com/s/materialicons/v48/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+</style>

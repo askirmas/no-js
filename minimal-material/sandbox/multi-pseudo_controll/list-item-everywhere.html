@@ -1,0 +1,43 @@
+<div class="li li--inside"></div>
+<div class="li li--outside"></div>
+<input type="button" class="li li--inside" value="input">
+<style>
+.li {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.li, .li::before, .li::after {
+  display: list-item;
+}
+/*chrome+edge @experiments 
+.li::marker {
+  color: red; 
+  content: "M";
+}*/
+.li {
+  list-style-type: "-E-"
+}
+.li::before {
+  content: "::before";
+  list-style-type: "-B-"
+}
+
+.li::after {
+  content: "::after";
+  list-style-type: "-A-"
+}
+
+.li--inside {
+  list-style-position: inside;
+}
+.li--outside {
+  list-style-position: outside;
+  margin-left: 1rem;
+}
+
+input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+</style>
