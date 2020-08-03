@@ -1,3 +1,29 @@
+### Methodology
+
+1. Consts / params
+2. CSS Values (quarks)
+
+3. Singletons (atoms)
+4. Snippets (molecules)
+5. Fusions roles
+6. Packed classes
+
+Tokens
+
+```html
+<div class="b1 b3 whatever b2 b4__e0 b5__e5--m"></div>
+```
+
+High-level description
+
+```html
+<div class="BLOCK BLOCK--MOD1 BLOCK__ELEMENT BLOCK__ELEMENT--MOD2"></div>
+```
+
+
+
+## Sass understanding
+
 ## Declarations
 
 ```scss
@@ -53,7 +79,8 @@ $object-map: ();
 }
 
 @mixin makeColors {
-    @include theme("light") {
+// Looks like sugar for multi-assign that is salt for object
+    @include theme("light") using ($color) {
 		color: $color;
         background-color: $color;
         border-color: $color;
@@ -65,3 +92,4 @@ $object-map: ();
 ### Notes
 
 - `@include` tolerant to delimiter
+- `%template` stacks  

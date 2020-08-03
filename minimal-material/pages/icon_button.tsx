@@ -3,11 +3,9 @@ import { Figure, A } from "../Components"
 import content from "../utils/contents"
 
 import "./icon_button.scss"
-import { useStyleAdoptation, states } from '../utils/ui'
+import { states } from '../utils/ui'
 
-export default function Icon() {
-  useStyleAdoptation()
-  
+export default function Icon() {  
   return  <article className="icon_button">
 
     <A content="MDC"/>

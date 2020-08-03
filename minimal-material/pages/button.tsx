@@ -5,7 +5,7 @@ import "./button.scss"
 
 //TODO from ts-swiss
 import {gEntry} from "../utils/ts"
-import { useStyleAdoptation, states } from '../utils/ui'
+import { states } from '../utils/ui'
 
 const kindTitle: Record<tMdcButtonProps["Kind"], string> = {
   "Text": "Text Button",
@@ -15,8 +15,6 @@ const kindTitle: Record<tMdcButtonProps["Kind"], string> = {
 }
 
 export default function Buttons() {
-  useStyleAdoptation()
-
   return <article className="button">
     <section>
       {

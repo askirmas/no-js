@@ -5,9 +5,9 @@ const withCss = require('@zeit/next-css')
 
 // , sassImplementation = require('sass')
 
-module.exports = //withImages(
-  withCss(
+, config = //withImages(
     withSass(
+      withCss(
       //withSourceMaps()(
         {
           assetPrefix: ".",
@@ -19,8 +19,13 @@ module.exports = //withImages(
             },
           // implementation: sassImplementation
           }
-        }
+        }        
       //)
     )
   )
 //)
+
+
+module.exports = {
+  ...config
+}

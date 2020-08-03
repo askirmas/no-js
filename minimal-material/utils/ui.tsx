@@ -1,6 +1,3 @@
-import {useEffect} from 'react'
-import { inDOM } from './adoptStyles'
-
 const {isArray: $isArray} = Array
 , statesMap = {
   "disabled": "disabled",
@@ -21,11 +18,7 @@ const {isArray: $isArray} = Array
 , replacerDom = /.*/
 
 export {
-  useStyleAdoptation, states
-}
-
-function useStyleAdoptation() {
-  return useEffect(() => inDOM({replacement}))
+  states
 }
 
 function states(...states: Array<keyof typeof statesMap>) {
