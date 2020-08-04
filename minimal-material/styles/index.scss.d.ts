@@ -3,5 +3,9 @@ type StyleIds = {
   "suite_vertical": string|undefined
   "box-check": string|undefined
 }
-declare const styleIds: StyleIds
-export default styleIds
+
+declare const styleIds: StyleIds;
+
+export default styleIds;
+
+export const suite_vertical: string|undefined

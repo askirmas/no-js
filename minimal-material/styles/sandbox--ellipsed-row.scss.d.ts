@@ -16,5 +16,16 @@ type StyleIds = {
   "child": string|undefined
   "btn": string|undefined
 }
-declare const styleIds: StyleIds
-export default styleIds
+
+declare const styleIds: StyleIds;
+
+export default styleIds;
+
+export const me: string|undefined
+export const container: string|undefined
+export const ex1: string|undefined
+export const ex2: string|undefined
+export const outer: string|undefined
+export const inner: string|undefined
+export const child: string|undefined
+export const btn: string|undefined

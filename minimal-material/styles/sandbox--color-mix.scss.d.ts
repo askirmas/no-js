@@ -5,5 +5,12 @@ type StyleIds = {
   "calced": string|undefined
   "rgb": string|undefined
 }
-declare const styleIds: StyleIds
-export default styleIds
+
+declare const styleIds: StyleIds;
+
+export default styleIds;
+
+export const overlayed: string|undefined
+export const hsl: string|undefined
+export const calced: string|undefined
+export const rgb: string|undefined

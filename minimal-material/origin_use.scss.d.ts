@@ -262,5 +262,8 @@ type StyleIds = {
   "mdc-tab-scroller--align-end": string|undefined
   "mdc-tab-scroller--align-center": string|undefined
 }
-declare const styleIds: StyleIds
-export default styleIds
+
+declare const styleIds: StyleIds;
+
+export default styleIds;
+
