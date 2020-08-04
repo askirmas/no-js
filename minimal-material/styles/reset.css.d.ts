@@ -1,6 +1,6 @@
-type StyleIds = {
+type StyleIds = Partial<{
   "__next": string|undefined
-}
+}>
 
 declare const styleIds: StyleIds;
 

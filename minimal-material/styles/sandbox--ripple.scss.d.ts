@@ -1,7 +1,7 @@
-type StyleIds = {
+type StyleIds = Partial<{
   "ripple": string|undefined
   "ripple_2": string|undefined
-}
+}>
 
 declare const styleIds: StyleIds;
 

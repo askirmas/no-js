@@ -1,4 +1,4 @@
-type StyleIds = {
+type StyleIds = Partial<{
   "mdc-elevation-overlay": string|undefined
   "mdc-dialog__scrim": string|undefined
   "mdc-dialog": string|undefined
@@ -261,7 +261,7 @@ type StyleIds = {
   "mdc-tab-scroller--align-start": string|undefined
   "mdc-tab-scroller--align-end": string|undefined
   "mdc-tab-scroller--align-center": string|undefined
-}
+}>
 
 declare const styleIds: StyleIds;
 

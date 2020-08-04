@@ -1,4 +1,4 @@
-type StyleIds = {
+type StyleIds = Partial<{
   "elevation": string|undefined
   "elevation-demo-surface": string|undefined
   "mm_elevation__0": string|undefined
@@ -26,7 +26,7 @@ type StyleIds = {
   "mm_elevation__22": string|undefined
   "mm_elevation__23": string|undefined
   "mm_elevation__24": string|undefined
-}
+}>
 
 declare const styleIds: StyleIds;
 

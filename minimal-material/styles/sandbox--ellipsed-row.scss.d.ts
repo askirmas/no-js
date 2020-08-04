@@ -1,4 +1,4 @@
-type StyleIds = {
+type StyleIds = Partial<{
   "ellipsed-row": string|undefined
   "me": string|undefined
   "content-2": string|undefined
@@ -15,7 +15,7 @@ type StyleIds = {
   "inner": string|undefined
   "child": string|undefined
   "btn": string|undefined
-}
+}>
 
 declare const styleIds: StyleIds;
 

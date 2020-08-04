@@ -1,4 +1,4 @@
-type StyleIds = {
+type StyleIds = Partial<{
   "palette": string|undefined
   "enabled": string|undefined
   "hover": string|undefined
@@ -12,7 +12,7 @@ type StyleIds = {
   "alpha": string|undefined
   "checked": string|undefined
   "fill": string|undefined
-}
+}>
 
 declare const styleIds: StyleIds;
 

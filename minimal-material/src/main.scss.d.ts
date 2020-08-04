@@ -1,4 +1,4 @@
-type StyleIds = {
+type StyleIds = Partial<{
   "mm_2_icon_button": string|undefined
   "mm_2_tab_item": string|undefined
   "mm_2_tab_item_vert": string|undefined
@@ -27,7 +27,7 @@ type StyleIds = {
   "_bordered": string|undefined
   "mm_tab_item_small_hover": string|undefined
   "mm_tab_item_small_active": string|undefined
-}
+}>
 
 declare const styleIds: StyleIds;
 

@@ -1,4 +1,4 @@
-type StyleIds = {
+type StyleIds = Partial<{
   "typography": string|undefined
   "mm_typography_headline1": string|undefined
   "mm_typography_headline2": string|undefined
@@ -13,7 +13,7 @@ type StyleIds = {
   "mm_typography_button": string|undefined
   "mm_typography_caption": string|undefined
   "mm_typography_overline": string|undefined
-}
+}>
 
 declare const styleIds: StyleIds;
 
