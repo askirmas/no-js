@@ -1,0 +1,5 @@
+@use "use";
+@import "mod";
+.root {
+  @import "import";
+}

@@ -1,0 +1,8 @@
+@import "templator";
+
+.templ {
+  @extend %t_slot1;
+}
+.instance_ {
+  @import "mod";
+}

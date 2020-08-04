@@ -1,0 +1,33 @@
+<div id="root" class="parent">
+  <div id="p1" class="parent">
+    <div id="1/1" class="child-1"></div>
+    <div id="1/2" class="child-2"></div>
+  </div>
+  <div id="p2" class="parent">
+    <div id="1/2" class="child-1"></div>
+    <div id="2/2" class="child-2"></div>
+  </div>
+</div>
+<style>
+div {
+  border: 1em solid hsla(0, 0%, 0%, 0.3);
+  box-sizing: border-box;
+  min-width: 100px;
+  min-height: 100px;
+}
+div.___hover {
+  background-color: hsla(0, 100%, 50%, 0.3);
+}
+div:hover {
+  /* border-color: green; */
+}
+.parent {
+  display: inline-grid;
+  padding: 1em;
+  grid-auto-columns: min-content;
+  grid-auto-rows: min-content;
+  grid-auto-flow: column;
+}
+</style>
+<script src="hover.js"></script>
+

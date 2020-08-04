@@ -1,0 +1,41 @@
+<div tabindex="0"> x <span tabindex="0">Y</span> z </div>
+<style>
+div, span {
+  display: inline-block;
+  min-width: 50px;
+  min-height: 100px;
+  border: 1px solid black;
+}
+div:focus {
+  /* background-color: red; */
+}
+</style>
+<script>
+
+const checking = [
+  // [[":hover"], ["mouseover", "mouseout", "mouseenter", "mouseleave"]],
+  // [[":focus", ":focus-within"], ["focusin", "focusout", "focus", "blur"]],
+  [[":active"], ["mousedown", "mouseup", "click"]]
+]
+, eventOpts = [false/*, true*/]
+, el = document.getElementsByTagName("div")[0]
+, $ = (selector) => document.querySelector(selector)
+
+checking.push(...checking.map(([pseudo, events]) => [
+  pseudo.map(p => `:not(${p})`),
+  events
+]))
+
+;checking.forEach(([pseudos, events]) => 
+  pseudos.forEach(pseudo => 
+    eventOpts.forEach((opt, optI) =>
+      events.forEach(eventName =>
+        el.addEventListener(eventName, () => {
+          if ($(`div${pseudo}`) !== null)
+            console.log(`${eventName.replace('mouse', '')} ${pseudo} @${optI}`)
+        }, opt)
+      )
+    )
+  )
+ )
+</script>
