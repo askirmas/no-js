@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "strict": true,
+    "keyofStringsOnly": true,
+    "downlevelIteration": true,
+    "pretty": true,
+    "forceConsistentCasingInFileNames": true,
+    
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
