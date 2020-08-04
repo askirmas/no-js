@@ -1,5 +1,5 @@
 import {CSSProperties} from 'react'
-import "./sandbox--color-mix.scss"
+import "../styles/sandbox--color-mix.scss"
 
 const lightStarts = [25, 50, 75]
 , rgbs = [

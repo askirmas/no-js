@@ -1,6 +1,6 @@
 import {createElement} from 'react'
 import pageData from "../cypress/fixtures/typography.json"
-import "./typography.scss";
+import "../styles/typography.scss"
 
 const pageName = "typography"
 

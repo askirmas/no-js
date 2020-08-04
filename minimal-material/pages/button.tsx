@@ -1,7 +1,7 @@
 import {Fragment} from 'react'
 import {mm, Mdc, MdcButton, tMdcButtonProps} from "../Elements"
 import content from "../utils/contents"
-import "./button.scss"
+import "../styles/button.scss"
 
 //TODO from ts-swiss
 import {gEntry} from "../utils/ts"

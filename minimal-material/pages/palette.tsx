@@ -1,4 +1,4 @@
-import "./palette.scss"
+import "../styles/palette.scss"
 
 export default function Palette() {
   return <article className="palette">

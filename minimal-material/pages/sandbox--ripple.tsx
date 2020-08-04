@@ -1,4 +1,4 @@
-import "./sandbox--ripple.scss"
+import "../styles/sandbox--ripple.scss"
 
 export default function Ripple() {
   const page = "ripple"

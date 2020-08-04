@@ -2,7 +2,7 @@ import {Mdc, MdcIconButton,  mm } from "../Elements"
 import { Figure, A } from "../Components"
 import content from "../utils/contents"
 
-import "./icon_button.scss"
+import "../styles/icon_button.scss"
 import { states } from '../utils/ui'
 
 export default function Icon() {  

@@ -1,4 +1,4 @@
-import "./sandbox--ellipsed-row.scss"
+import "../styles/sandbox--ellipsed-row.scss"
 
 export default function EllipedRow() {
   const ex1Children = <div className="flex-child short-and-fixed"><div/><div/><div/></div>

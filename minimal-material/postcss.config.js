@@ -1,5 +1,6 @@
 module.exports = {
   "plugins": {
-    "./pseudo-classes-control/postcss-plugin": {}
+    "./postcss-plugin-css-d-ts": {},
+    "./pseudo-classes-control/postcss-plugin": {},
   }
 }

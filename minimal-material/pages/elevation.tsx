@@ -1,4 +1,4 @@
-import "./elevation.scss"
+import "../styles/elevation.scss"
 
 const page = 'elevation'
 , iterer = Array(25).fill(0)

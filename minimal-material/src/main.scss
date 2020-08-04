@@ -1,13 +1,13 @@
 @at-root {
   :root {
     @import "quark_values/params-source"
-    , "../pages/theme"
+    , "../styles/theme"
     , "atomic_singletons/font-family";
     @extend %font-family--main;
   }
 
   .mm_ {    
-    @import "../pages/theme"
+    @import "../styles/theme"
     , "../src/molecule_snippets/typography";
 
     /* text */
@@ -75,7 +75,7 @@
 
     &2_ {      
       @import "u"
-      , "../pages/theme"
+      , "../styles/theme"
       , "./state_modifier_declarations/actionable"
       ;
       &tab_item { @include block-tab_item--enabled(); }
