@@ -1,0 +1,22 @@
+<div class="Tooltip__Container">
+  <div class="Tooltip__Target">Target</div>
+  <div class="Tooltip__Content" tabindex="0">Content</div>
+</div>
+
+<style>
+.Tooltip__Container {
+  display: inline-block;
+  position: relative;
+}
+.Tooltip__Content {
+  position: absolute;
+  display: none;
+  outline: none;
+}
+
+.Tooltip__Container:hover .Tooltip__Content,
+.Tooltip__Content:focus,
+.Tooltip__Content:focus-within {
+  display: block;
+}
+</style>
